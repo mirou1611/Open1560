@@ -20,9 +20,17 @@
 
 #include "arts7/node.h"
 
-#include <guiddef.h>
+#ifdef _WIN32
+#    include <guiddef.h>
+#else
+#    include "core/minwin.h"
+#endif
 
-#include <eax.h>
+#ifdef _WIN32
+#    include <eax.h>
+#else
+struct EAX_REVERBPROPERTIES;
+#endif
 
 class AudHead;
 class AudSound;

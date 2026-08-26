@@ -18,11 +18,19 @@
 
 #pragma once
 
-#include <mmintrin.h>
+#include "core/arch.h"
+
+#ifdef ARTS_ARCH_X86
+#    include <mmintrin.h>
+#endif
 
 union mmx
 {
+#ifdef ARTS_ARCH_X86
     __m64 mm;
+#else
+    u64 mm;
+#endif
     u16 m16[4];
 };
 

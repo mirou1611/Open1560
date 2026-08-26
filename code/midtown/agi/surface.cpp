@@ -25,7 +25,7 @@ define_dummy_symbol(agi_surface);
 #include "cmodel.h"
 #include "texdef.h"
 
-#include <emmintrin.h>
+#include "core/simd.h"
 
 struct jpeg_decompress_struct;
 

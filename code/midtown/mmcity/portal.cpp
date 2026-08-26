@@ -390,7 +390,9 @@ struct FixedFifoCache
 
 asPortalWeb::asPortalWeb()
 {
+#ifdef ARTS_DEV_BUILD
     CullMgr()->AddPage([this] { Stats(); });
+#endif
 }
 
 asPortalWeb::~asPortalWeb()
@@ -924,6 +926,7 @@ void asPortalWeb::Cull(b32 front_to_back)
     ++vp.ViewSerial;
 }
 
+#ifdef ARTS_DEV_BUILD
 void asPortalWeb::Stats()
 {
     for (i32 i = 0; i < NUM_PORTAL_PASSES; ++i)
@@ -977,6 +980,7 @@ void asPortalWeb::Stats()
         }
     }
 }
+#endif
 
 #ifdef ARTS_DEV_BUILD
 void asPortalWeb::AddWidgets(Bank* bank)

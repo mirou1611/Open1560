@@ -339,10 +339,12 @@ void asCullManager::Update()
             {
                 DisplayVersionString();
             }
+#ifdef ARTS_DEV_BUILD
             else if (current_page_)
             {
                 page_callbacks_[current_page_ - 1].Call();
             }
+#endif
         }
 
         agiCurState.SetTexture(nullptr);
@@ -364,10 +366,12 @@ void asCullManager::Update()
             {
                 DisplayVersionString();
             }
+#ifdef ARTS_DEV_BUILD
             else if (current_page_)
             {
                 page_callbacks_[current_page_ - 1].Call();
             }
+#endif
         }
 
         Pipe()->EndFrame();

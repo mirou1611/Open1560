@@ -540,7 +540,9 @@ void asMidgets::Open(asNode* node)
     if (current_node_ == nullptr)
         return;
 
+#ifdef ARTS_DEV_BUILD
     node->AddWidgets(this);
+#endif
 
     if (section_count_ != 0)
     {

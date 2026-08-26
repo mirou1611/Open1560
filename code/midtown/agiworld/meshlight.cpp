@@ -33,6 +33,8 @@ ARTS_IMPORT /*static*/ void agiInitCones(Matrix34& arg1, f32 arg2);
 #    include "data7/mmx.h"
 #    include "mmx.h"
 
+#    ifdef ARTS_ARCH_X86
+
 static mmx keyNormal;
 static mmx fill1Normal;
 static mmx fill2Normal;
@@ -102,6 +104,7 @@ static ARTS_FORCEINLINE void PackNormalMMX(mmx& output, const Vector3& input)
     output.m16[2] = static_cast<u16>(mem::bit_cast<u32>(input.x + 768.0f));
     output.m16[3] = 0;
 }
+#    endif
 #endif
 
 void agiMeshLighterTriple(
@@ -170,6 +173,7 @@ void agiMeshLighterTriple(
             _mm_cvtsi128_si32(_mm_packus_epi16(_mm_packs_epi32(shaded, _mm_setzero_si128()), _mm_setzero_si128()));
     }
 #else
+#    ifdef ARTS_ARCH_X86
     if (UseMMX && count >= 8)
     {
         PackNormalMMX(keyNormal, sun_dir);
@@ -178,6 +182,7 @@ void agiMeshLighterTriple(
         mmxTriple(output, colors, stride, mesh->Normals, count);
         return;
     }
+#    endif
 
     for (i32 i = 0; i < count; ++i, colors += stride)
     {

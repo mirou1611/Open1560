@@ -71,8 +71,14 @@ protected:
     i32 GetError(char* buf, isize buf_len) override;
 
 private:
+#ifdef _WIN32
     void* file_handle_ {};
     void* pager_handle_ {};
+#else
+    int file_handle_ {-1};
+    int pager_handle_ {-1};
+    usize mapping_size_ {};
+#endif
     void* file_mapping_ {};
 };
 

@@ -39,6 +39,7 @@ ARTS_NOINLINE char* arts_strdup(const char* str)
 
 ConstString arts_getenv(const char* name)
 {
+#ifdef _WIN32
     char* buffer;
 
     if (_dupenv_s(&buffer, nullptr, name))
@@ -47,4 +48,9 @@ ConstString arts_getenv(const char* name)
     ConstString result {buffer};
     free(buffer);
     return result;
+#else
+    const char* value = std::getenv(name);
+
+    return value ? ConstString {value} : nullptr;
+#endif
 }

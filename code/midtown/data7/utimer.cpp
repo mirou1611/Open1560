@@ -21,12 +21,29 @@ define_dummy_symbol(data7_utimer);
 #include "utimer.h"
 #include "timer.h"
 
+#include "core/arch.h"
 #include "core/minwin.h"
 
 static i32 utimer_mode = 1;
 f32 ut2float = 0.0f;
 
-#define ARTS_RDTSC() static_cast<utimer_t>(__rdtsc())
+#if defined(ARTS_ARCH_X86)
+#    define ARTS_RDTSC() static_cast<utimer_t>(__rdtsc())
+#else
+#    include <ctime>
+
+// No cycle counter available to user space here - a monotonic nanosecond clock
+// serves the same purpose for the profiling timers.
+static inline utimer_t ArtsMonotonicTicks()
+{
+    timespec ts {};
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+
+    return static_cast<utimer_t>(ts.tv_sec) * 1000000000u + static_cast<utimer_t>(ts.tv_nsec);
+}
+
+#    define ARTS_RDTSC() ArtsMonotonicTicks()
+#endif
 
 utimer_t adjust_utimer(f32 elapsed, utimer_t prev)
 {
@@ -50,6 +67,7 @@ static ARTS_NOINLINE utimer_t init_utimer()
     if (utimer_mode == 2)
         return 0;
 
+#ifdef _WIN32
     __try
     {
         Timer t;
@@ -63,6 +81,15 @@ static ARTS_NOINLINE utimer_t init_utimer()
         utimer_mode = 2;
         return 0;
     }
+#else
+    {
+        Timer t;
+        utimer_t start = ARTS_RDTSC();
+
+        Timer::Sleep(100);
+        adjust_utimer(t.Time(), start);
+    }
+#endif
 
     utimer_mode = 0;
     return ARTS_RDTSC();

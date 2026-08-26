@@ -41,9 +41,11 @@ void StackTraceback(i32 depth);
 
 void StackTraceback(i32 depth, i32 skipped);
 
+#ifdef _WIN32
 i32 ExceptionFilter(_EXCEPTION_POINTERS* exception);
+#endif
 
-#ifndef ARTS_NO_EXCEPTION_CATCHING
+#if !defined(ARTS_NO_EXCEPTION_CATCHING) && defined(_WIN32)
 #    define ARTS_EXCEPTION_BEGIN \
         __try                    \
         {

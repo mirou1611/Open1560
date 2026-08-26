@@ -150,5 +150,52 @@ public:
 
 check_size(agiSurfaceDesc, 0x7C);
 
+// The on-disk form of the header above, as stored in the texture pager: always
+// 124 bytes, with 32-bit pointer fields. On a 64-bit build agiSurfaceDesc itself
+// is larger, so the header is read through this and copied across field by field.
+struct agiSurfaceDescDisk
+{
+    u32 Size;
+    u32 Flags;
+    u32 Height;
+    u32 Width;
+    i32 Pitch;
+    u32 BackBufferCount;
+    u32 MipMapCount;
+    u32 AlphaBitDepth;
+    u32 lpLut;
+    u32 Surface;
+    agiColorKey DestOverlay;
+    agiColorKey DestBlt;
+    agiColorKey SrcOverlay;
+    agiColorKey SrcBlt;
+    agiPixelFormat PixelFormat;
+    agiDDSCAPS2 SCaps;
+    u32 TextureStage;
+
+    void CopyTo(agiSurfaceDesc& desc) const
+    {
+        desc.Size = Size;
+        desc.Flags = Flags;
+        desc.Height = Height;
+        desc.Width = Width;
+        desc.Pitch = Pitch;
+        desc.BackBufferCount = BackBufferCount;
+        desc.MipMapCount = MipMapCount;
+        desc.AlphaBitDepth = AlphaBitDepth;
+        std::memcpy(desc.szLut, &lpLut, sizeof(desc.szLut));
+        desc.Surface = nullptr;
+        desc.DestOverlay = DestOverlay;
+        desc.DestBlt = DestBlt;
+        desc.SrcOverlay = SrcOverlay;
+        desc.SrcBlt = SrcBlt;
+        desc.PixelFormat = PixelFormat;
+        desc.SCaps = SCaps;
+        desc.TextureStage = TextureStage;
+    }
+};
+
+static_assert(sizeof(agiSurfaceDescDisk) == 0x7C);
+
 // ?AnnotateTextures@@3HA
 ARTS_IMPORT extern b32 AnnotateTextures;

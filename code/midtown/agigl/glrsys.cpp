@@ -414,6 +414,7 @@ void agiGLRasterizer::InitModern()
             break;
         }
 
+#ifdef _WIN32
         case StreamMode::AmdPinned: {
             vbo_ = arnew agiGLAMDPinnedStreamBuffer(vbo_size);
             break;
@@ -423,6 +424,7 @@ void agiGLRasterizer::InitModern()
             vbo_ = arnew agiGLMapUnsafeStreamBuffer(vbo_size);
             break;
         }
+#endif
 
         case StreamMode::ClientSide: {
             vbo_ = nullptr;

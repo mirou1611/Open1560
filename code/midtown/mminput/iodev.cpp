@@ -160,10 +160,12 @@ void mmIODev::GetDescription(char* buffer, usize buflen)
 
 b32 ConvertDItoString(i32 vsc, char* buffer, i32 buflen)
 {
+#ifdef _WIN32
     u32 lparam = ((vsc & 0x7F) << 16) | ((vsc & 0x80) << 17);
 
     if (GetKeyNameTextA(lparam, buffer, buflen))
         return true;
+#endif
 
     arts_sprintf(buffer, buflen, "Key #%x", vsc);
     return false;

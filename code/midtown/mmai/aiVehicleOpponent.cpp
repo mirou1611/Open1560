@@ -45,6 +45,7 @@ static mem::cmd_param PARAM_maxoppcolors {"maxoppcolors"};
 void aiVehicleOpponent::DrawDamage()
 {}
 
+#ifdef ARTS_DEV_BUILD
 void aiVehicleOpponent::DrawTargetPt()
 {
     DrawColor(ColPurple);
@@ -77,6 +78,10 @@ void aiVehicleOpponent::DrawTargetPt()
 
     RailSet.DrawTurn(WayPts->DistToSide);
 }
+#else
+void aiVehicleOpponent::DrawTargetPt()
+{}
+#endif
 
 void aiVehicleOpponent::Init(i32 opp_id, aiRaceData* race_data, char* race_name)
 {

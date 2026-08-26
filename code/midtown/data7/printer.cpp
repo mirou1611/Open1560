@@ -301,6 +301,10 @@ void CloseLogFile()
 
 void LogToConsole()
 {
+#ifndef _WIN32
+    // stdout/stderr are already the log destination (adb logcat on Android).
+    return;
+#else
     if (GetConsoleWindow() == NULL)
     {
         if (!AttachConsole(ATTACH_PARENT_PROCESS))
@@ -313,6 +317,7 @@ void LogToConsole()
         freopen_s(&f, "CONOUT$", "w", stdout);
         freopen_s(&f, "CONOUT$", "w", stderr);
     }
+#endif
 }
 
 void Quit(const char* message)

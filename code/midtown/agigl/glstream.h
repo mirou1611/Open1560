@@ -103,6 +103,9 @@ public:
     void Unmap(usize offset, usize length) override;
 };
 
+#ifdef _WIN32
+// Both of these depend on Win32 virtual memory and desktop-GL vendor behaviour
+// (GL_AMD_pinned_memory, and a mapping that stays valid after glUnmapBuffer).
 class agiGLAMDPinnedStreamBuffer final : public agiGLMappedRingStreamBuffer
 {
 public:
@@ -115,3 +118,4 @@ class agiGLMapUnsafeStreamBuffer final : public agiGLMappedRingStreamBuffer
 public:
     agiGLMapUnsafeStreamBuffer(usize capacity);
 };
+#endif

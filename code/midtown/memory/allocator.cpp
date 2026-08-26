@@ -225,6 +225,7 @@ static inline void ARTS_FASTCALL HexDump16(char (&buffer)[65], const u8* data)
     {
         u8 v;
 
+#ifdef _WIN32
         __try
         {
             v = data[i];
@@ -233,6 +234,11 @@ static inline void ARTS_FASTCALL HexDump16(char (&buffer)[65], const u8* data)
         {
             v = 0;
         }
+#else
+        // No structured exception handling - an unreadable address faults here
+        // rather than dumping zeroes.
+        v = data[i];
+#endif
 
         const u32 j = (i * 3);
 
@@ -636,6 +642,7 @@ void asMemoryAllocator::SanityCheck() const
 
     bool is_invalid = false;
 
+#ifdef _WIN32
     __try
     {
         is_invalid = DoSanityCheck();
@@ -644,6 +651,9 @@ void asMemoryAllocator::SanityCheck() const
     {
         is_invalid = true;
     }
+#else
+    is_invalid = DoSanityCheck();
+#endif
 
     if (is_invalid)
     {

@@ -54,6 +54,9 @@ static void SaveScreenShotWorker(agiSurfaceDesc* surface)
     i32 pitch = surface->Pitch;
     u8* pixels = static_cast<u8*>(surface->Surface);
 
+#ifdef _WIN32
+    // Copying the shot to the clipboard as a DIB is Windows-only; the PNG below
+    // is written on every platform.
     if (OpenClipboard(NULL))
     {
         if (EmptyClipboard())
@@ -93,6 +96,7 @@ static void SaveScreenShotWorker(agiSurfaceDesc* surface)
 
         CloseClipboard();
     }
+#endif
 
     char name_buffer[64];
     const char* file_name = ScreenShotName.get();

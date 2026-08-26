@@ -152,6 +152,7 @@ aiVehiclePolice* aiMap::Police(i32 index)
     return nullptr;
 }
 
+#ifdef ARTS_DEV_BUILD
 void aiMap::Stats()
 {
     Statsf("AI Total Update: %.3fms", _fTotUpdate * 1000.0f);
@@ -160,6 +161,7 @@ void aiMap::Stats()
     Statsf("Opponent Update: %.3fms, Qty: %d", _fOppUpdate * 1000.0f, NumOpponents);
     Statsf("Police Update: %.3fms, Qty: %d", _fCopUpdate * 1000.0f, NumPolice);
 }
+#endif
 
 void aiMap::UpdatePaused()
 {}

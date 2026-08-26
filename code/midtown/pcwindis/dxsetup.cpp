@@ -54,11 +54,13 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
     {
         if (show_message)
         {
+#ifdef _WIN32
             if (MessageBoxA(NULL, LOC_STR(MM_IDS_DETECTING_GPU), APPTITLE, MB_OKCANCEL) != IDOK)
             {
                 Errorf("User declined GPU detection");
                 ExitProcess(0);
             }
+#endif
         }
 
         std::memset(dxiInfo, 0, sizeof(dxiInfo));
@@ -72,7 +74,7 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
         if (dxiRendererCount == 0)
         {
             MessageBoxA(NULL, LOC_STR(MM_IDS_NO_RENDERERS), APPTITLE, MB_OK);
-            ExitProcess(0);
+            std::exit(0);
         }
 
         if (dxiRendererChoice == -1)

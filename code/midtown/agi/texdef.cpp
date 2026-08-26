@@ -92,9 +92,18 @@ static inline constexpr u32 AlignSize(u32 value) noexcept
 
 void agiTexDef::DoPageIn()
 {
-    // NOTE: 64-bit incompatible
-    static_assert(sizeof(*Surface) == 0x7C);
-    pager_.Read(Surface.get(), 0x4, sizeof(*Surface));
+    if constexpr (sizeof(agiSurfaceDesc) == 0x7C)
+    {
+        pager_.Read(Surface.get(), 0x4, sizeof(*Surface));
+    }
+    else
+    {
+        // 64-bit: the header on disk keeps 32-bit pointer fields, so it is read
+        // through the packed form and copied across.
+        agiSurfaceDescDisk disk;
+        pager_.Read(&disk, 0x4, sizeof(disk));
+        disk.CopyTo(*Surface);
+    }
 
     // FIXME: Some RV3 textures (SKY_*) have incorrect pitch.
     Surface->FixPitch();

@@ -22,6 +22,10 @@ define_dummy_symbol(agi_getdlp);
 
 #include "stream/hfsystem.h"
 
+#ifndef _WIN32
+#    include <sys/stat.h>
+#endif
+
 // ?LibOutOfDate@@YAHPAD0@Z
 ARTS_IMPORT /*static*/ i32 LibOutOfDate(char* arg1, char* arg2);
 

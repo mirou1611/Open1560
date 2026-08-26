@@ -25,6 +25,8 @@
 
 #include "glcontext.h"
 
+#include "core/simd.h"
+
 #include <glad/glad.h>
 
 // clang-format off

@@ -18,7 +18,11 @@
 
 #pragma once
 
-#include <guiddef.h>
+#ifdef _WIN32
+#    include <guiddef.h>
+#else
+#    include "core/minwin.h"
+#endif
 
 struct dxiResolution
 {

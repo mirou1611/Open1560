@@ -20,9 +20,22 @@ define_dummy_symbol(data7_timer);
 
 #include "timer.h"
 
+#include "core/arch.h"
 #include "core/minwin.h"
 
 #include <SDL3/SDL_timer.h>
+
+#ifndef _WIN32
+#    include <sched.h>
+
+// Win32 spellings of "let another thread run" / "spin politely".
+static inline bool SwitchToThread()
+{
+    return sched_yield() == 0;
+}
+
+#    define YieldProcessor ArCpuRelax
+#endif
 
 // https://randomascii.wordpress.com/2012/06/05/in-praise-of-idleness/
 // https://randomascii.wordpress.com/2013/04/02/sleep-variation-investigated/
@@ -83,6 +96,10 @@ static u32 TimerOldPriority = 0;
 
 void Timer::BeginBenchmark()
 {
+#ifndef _WIN32
+    // Process/thread priority boosting is Windows-only; the benchmark path is unused.
+    return;
+#else
     TimerOldPriorityClass = GetPriorityClass(GetCurrentProcess());
     TimerOldPriority = GetThreadPriority(GetCurrentThread());
 
@@ -91,12 +108,15 @@ void Timer::BeginBenchmark()
 
     if (!SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_TIME_CRITICAL))
         Errorf("SetThreadPriority failed.");
+#endif
 }
 
 void Timer::EndBenchmark()
 {
+#ifdef _WIN32
     SetPriorityClass(GetCurrentProcess(), TimerOldPriorityClass);
     SetThreadPriority(GetCurrentThread(), TimerOldPriority);
+#endif
 }
 
 void Timer::Sleep(i32 ms)

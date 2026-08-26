@@ -236,6 +236,8 @@ void agiGLPersistentStreamBuffer::Unmap(usize offset, usize length)
         glFlushMappedBufferRange(GL_ARRAY_BUFFER, offset, length);
 }
 
+#ifdef _WIN32
+
 agiGLAMDPinnedStreamBuffer::agiGLAMDPinnedStreamBuffer(usize capacity)
     : agiGLMappedRingStreamBuffer(capacity)
 {
@@ -280,3 +282,5 @@ agiGLMapUnsafeStreamBuffer::agiGLMapUnsafeStreamBuffer(usize capacity)
         }
     }
 }
+
+#endif

@@ -48,7 +48,19 @@ define_dummy_symbol(arts7_sim);
 #include "stream/hfsystem.h"
 #include "stream/vfsystem.h"
 
-#include <crtdbg.h>
+#ifdef _WIN32
+#    include <crtdbg.h>
+#else
+// The debug CRT heap flags have no equivalent outside MSVC.
+#    define _CRTDBG_ALLOC_MEM_DF 0
+#    define _CRTDBG_CHECK_ALWAYS_DF 0
+#    define _CRTDBG_LEAK_CHECK_DF 0
+
+static inline int _CrtSetDbgFlag(int)
+{
+    return 0;
+}
+#endif
 #include <cstdlib>
 
 asSimulation* ARTSPTR = nullptr;
@@ -908,6 +920,7 @@ static ARTS_NOINLINE bool IsValidPointer(void* address, usize size, bool access)
     if (addr == nullptr)
         return false;
 
+#ifdef _WIN32
     __try
     {
         for (usize i = 0; i < size; ++i)
@@ -924,6 +937,12 @@ static ARTS_NOINLINE bool IsValidPointer(void* address, usize size, bool access)
     {
         return false;
     }
+#else
+    // Without structured exception handling there is no way to probe an address
+    // without faulting, so only the null check above applies here.
+    (void) size;
+    (void) access;
+#endif
 
     return true;
 }

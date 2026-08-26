@@ -168,7 +168,7 @@ struct FloatType final : MetaType
 {
 public:
     // ?Delete@FloatType@@UAEXPAXH@Z
-    ARTS_EXPORT void Delete(void* ptr, i32 len) override
+    ARTS_EXPORT void Delete(void* ptr, isize len) override
     {
         MetaDelete<f32>(ptr, len);
     }
@@ -180,7 +180,7 @@ public:
     }
 
     // ?New@FloatType@@UAEPAXH@Z
-    ARTS_EXPORT void* New(i32 count) override
+    ARTS_EXPORT void* New(isize count) override
     {
         return MetaNew<f32>(count);
     }

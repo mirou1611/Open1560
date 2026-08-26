@@ -163,7 +163,9 @@ void mmCullCity::Init(char* name, asCamera* camera)
         default: TextureSuffix = nullptr; break;
     }
 
+#ifdef ARTS_DEV_BUILD
     StaticLog = as_raw arts_fopen(arts_formatf<64>("%s_static.csv", name), "w");
+#endif
 
     Loader()->BeginTask(LOC_STRING(MM_IDS_LOADING_CITY_LAYOUT));
 
@@ -260,12 +262,14 @@ void mmCullCity::Init(char* name, asCamera* camera)
     if (lm_dlp)
         lm_dlp->Release();
 
+#ifdef ARTS_DEV_BUILD
     CullMgr()->AddPage(ShowRenderStats);
 
     if (StaticLog)
     {
         delete StaticLog;
     }
+#endif
 }
 
 void mmCullCity::ReparentObject(mmInstance* inst)

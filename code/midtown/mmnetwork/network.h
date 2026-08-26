@@ -20,7 +20,27 @@
 
 #include "data7/callback.h"
 
-#include <dplobby.h>
+#ifdef _WIN32
+#    include <dplobby.h>
+#endif
+
+#ifndef _WIN32
+#    include "core/minwin.h"
+
+// DirectPlay multiplayer is not built on this platform, but game code still
+// refers to the network classes declared below - so its types are declared
+// opaquely to keep those declarations intact.
+struct _GUID;
+struct DPNAME;
+struct DPSESSIONDESC2;
+struct DPMSG_GENERIC;
+struct DPLCONNECTION;
+struct IDirectPlay4A;
+struct IDirectPlayLobby3A;
+
+using DPID = DWORD;
+using GUID_ = GUID;
+#endif
 
 struct NETSESSION_DESC
 {

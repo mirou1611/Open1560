@@ -18,20 +18,17 @@
 
 #pragma once
 
-#ifdef _WIN32
-#    define VC_EXTRALEAN
-#    define WIN32_LEAN_AND_MEAN
-#    define NOMINMAX
-#    include <Windows.h>
-#    undef GetClassName
+// SSE/SSE2 intrinsics for the fast paths in the pixel and vertex code.
+// On ARM they are translated to NEON by sse2neon, so those paths stay vectorized
+// instead of falling back to the scalar loops.
+
+#include "arch.h"
+
+#if defined(ARTS_ARCH_X86)
+#    include <emmintrin.h>
+#elif defined(ARTS_ARCH_ARM) && defined(__ARM_NEON)
+#    define SSE2NEON_SUPPRESS_WARNINGS 1
+#    include <sse2neon.h>
 #else
-
-// Non-Windows targets (Android) do not have <Windows.h>. A handful of engine
-// interfaces are declared in terms of window-message types (Dispatchable, the
-// CD/mixer audio helpers). Declaring the types keeps those signatures - and the
-// class layouts they imply - identical across platforms; the message pump
-// itself is SDL on these targets.
-
-#    include "wincompat.h"
-
+#    error No SIMD backend for this architecture
 #endif

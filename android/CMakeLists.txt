@@ -25,11 +25,12 @@ set(VENDOR ${ROOT}/vendor)
 #   toolmgr    - dev tooling
 #   mmcamtour  - dev camera tours
 #   agirend    - dev build only
+#   mmaudio    - DirectSound/EAX/MCI throughout; to be replaced by an SDL3 audio backend
 set(MODULES
     core vector7 memory stream data7 dyna7 eventq7 localize
     arts7 agi agigl agisdl agiworld
     mmdjpeg mmphysics mmdyna mmanim mmbangers mmeffects
-    mmcar mmcity mmcityinfo mmai mmcamcs mminput mmaudio mmui mmgame
+    mmcar mmcity mmcityinfo mmai mmcamcs mminput mmui mmgame
     pcwindis
 )
 
@@ -40,6 +41,18 @@ set(EXCLUDED_SOURCES
     memory/stack.cpp            # DbgHelp stack walking / .MAP symbol lookup
     mmeffects/mmtext_win32.cpp  # GDI text rendering (freetype path is used instead)
     data7/ipc.cpp               # Win32 named-pipe IPC for the debug tools
+    agiworld/mrkni.cpp          # SSE variant of agiMeshSet::ToScreen (ARTS_ENABLE_KNI only)
+
+    # DirectInput force feedback (steering wheels) - no equivalent on Android
+    mminput/effect.cpp
+    mminput/joystick.cpp
+    mminput/joyman.cpp
+    mminput/collide.cpp
+    mminput/friction.cpp
+    mminput/road.cpp
+    mminput/spring.cpp
+    pcwindis/sdldinput.cpp      # SDL-backed DirectInput device shim
+    pcwindis/dxinit.cpp         # DirectDraw/Direct3D device enumeration
 )
 
 set(SOURCES)
@@ -65,6 +78,7 @@ target_include_directories(midtown PUBLIC
     ${VENDOR}/freetype-2.10.4/include
     ${VENDOR}/SDL3/include
     ${VENDOR}/dx6/include
+    ${VENDOR}/sse2neon
     ${CMAKE_CURRENT_SOURCE_DIR}/compat
 )
 

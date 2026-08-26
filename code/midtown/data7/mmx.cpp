@@ -20,7 +20,7 @@ define_dummy_symbol(data7_mmx);
 
 #include "mmx.h"
 
-#include <intrin.h>
+#include "core/arch.h"
 
 b32 HaveKNI = false;
 b32 HaveMMX = false;
@@ -28,15 +28,21 @@ b32 HavePPro = false;
 b32 UseKNI = false;
 b32 UseMMX = false;
 
+#ifdef ARTS_ARCH_X86
 static i32 cpuid()
 {
     int values[4];
     __cpuid(values, 1);
     return values[3];
 }
+#endif
 
 initHaveMMX::initHaveMMX()
 {
+#ifndef ARTS_ARCH_X86
+    // No MMX/KNI on this architecture - the scalar paths are used instead.
+    return;
+#else
     i32 flags = cpuid();
 
     HavePPro = (flags >> 15) & 1;
@@ -46,4 +52,5 @@ initHaveMMX::initHaveMMX()
 
     HaveKNI = (flags >> 25) & 1;
     UseKNI = HaveKNI;
+#endif
 }
