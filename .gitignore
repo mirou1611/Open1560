@@ -8,3 +8,7 @@
 
 /code/docs/
 /docs/_site/
+# Android port build outputs
+android/build/
+android/build-apk/
+android/open1560.apk

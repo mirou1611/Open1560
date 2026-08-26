@@ -73,6 +73,10 @@ define_dummy_symbol(midtown);
 #include <SDL3/SDL_log.h>
 #include <SDL3/SDL_main.h>
 #include <SDL3/SDL_system.h>
+
+#ifdef __ANDROID__
+#    include <unistd.h>
+#endif
 #include <SDL3/SDL_version.h>
 
 #include "core/minwin.h"
@@ -1200,6 +1204,17 @@ ARTS_IMPORT extern void GameStaticInit();
 
 int main(int argc, char** argv)
 {
+#ifdef __ANDROID__
+    // There is no working directory to speak of on Android, so the app's own
+    // external files directory becomes it. That is where the game data goes:
+    //     /sdcard/Android/data/<package>/files/
+    if (const char* data_path = SDL_GetAndroidExternalStoragePath())
+    {
+        if (chdir(data_path) != 0)
+            std::fprintf(stderr, "Failed to enter data directory '%s'\n", data_path);
+    }
+#endif
+
 #ifdef ARTS_FINAL
     if (IsDebuggerPresent())
 #endif
