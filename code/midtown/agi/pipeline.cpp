@@ -433,7 +433,7 @@ agiPipeline::agiPipeline()
 
     window_ = GetRootWindow();
 
-#ifdef ARTS_ARCH_X86
+#if defined(ARTS_ARCH_X86) && defined(_MSC_VER)
     // Set 24-bit float precision (f32). Only the x87 FPU needs telling.
     unsigned int current = 0;
     _controlfp_s(&current, _PC_24, _MCW_PC);

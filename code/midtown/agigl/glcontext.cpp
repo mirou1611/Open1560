@@ -20,6 +20,11 @@
 
 #include <glad/glad.h>
 
+#ifdef __ANDROID__
+extern "C" void ArtsLoadGLESEntryPoints();
+extern "C" void ArtsAuditGLEntryPoints();
+#endif
+
 #include <SDL3/SDL_video.h>
 
 agiGLContext::agiGLContext(SDL_Window* window, SDL_GLContext gl_context, i32 debug_level)
@@ -32,6 +37,14 @@ agiGLContext::agiGLContext(SDL_Window* window, SDL_GLContext gl_context, i32 deb
 
     if (gladLoadGLLoader(agiGLContext::GetProc) != 1)
         Quitf("Failed to load GLAD");
+
+#ifdef __ANDROID__
+    // glad gates entry points on the desktop GL version, so fill in what GLES
+    // 3.0 provides but desktop GL only added later, then report what is still
+    // missing - calling one of those is a jump to address zero.
+    ArtsLoadGLESEntryPoints();
+    ArtsAuditGLEntryPoints();
+#endif
 
     InitState();
 }
@@ -72,6 +85,20 @@ static void ParseExtensionString(HashTable& table, const char* extensions, isize
     arts_free(exts);
 }
 
+// GL reports "<major>.<minor> <driver>", GLES "OpenGL ES <major>.<minor> <driver>"
+// and its shading language "OpenGL ES GLSL ES <major>.<minor>". Skipping to the
+// first digit handles all of them.
+static bool ParseGLVersion(const char* text, i32& major, i32& minor)
+{
+    if (text == nullptr)
+        return false;
+
+    while (*text && (*text < '0' || *text > '9'))
+        ++text;
+
+    return arts_sscanf(text, "%i.%i", &major, &minor) == 2;
+}
+
 void agiGLContext::InitVersioning()
 {
     auto agi_glGetString = (PFNGLGETSTRINGPROC) GetProc("glGetString");
@@ -82,13 +109,7 @@ void agiGLContext::InitVersioning()
     i32 minor_version = 0;
     i32 profile_mask = 0;
 
-    // GLES reports "OpenGL ES <major>.<minor> <driver>"; skip to the number.
-    const char* version_numbers = gl_version;
-
-    while (*version_numbers && (*version_numbers < '0' || *version_numbers > '9'))
-        ++version_numbers;
-
-    if (arts_sscanf(version_numbers, "%i.%i", &major_version, &minor_version) != 2)
+    if (!ParseGLVersion(gl_version, major_version, minor_version))
         Quitf("Failed to get OpenGL version");
 
     gl_version_ = (major_version * 100) + (minor_version * 10);
@@ -168,7 +189,7 @@ void agiGLContext::InitVersioning()
             i32 glsl_major_version = 0;
             i32 glsl_minor_version = 0;
 
-            if (arts_sscanf(glsl_version, "%i.%i", &glsl_major_version, &glsl_minor_version) != 2)
+            if (!ParseGLVersion(glsl_version, glsl_major_version, glsl_minor_version))
                 Quitf("Failed to get GLSL version");
 
             shader_version_ = (glsl_major_version * 100) + glsl_minor_version;

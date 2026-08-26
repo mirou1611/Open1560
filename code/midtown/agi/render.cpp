@@ -19,3 +19,6 @@
 define_dummy_symbol(agi_render);
 
 #include "render.h"
+
+// Members carry their initialisers; the original constructor did nothing else.
+agiRenderer::agiRenderer() = default;

@@ -19,3 +19,7 @@
 define_dummy_symbol(agirend_bilmodel);
 
 #include "bilmodel.h"
+
+agiBILightModel::agiBILightModel(agiPipeline* pipe)
+    : agiLightModel(pipe)
+{}

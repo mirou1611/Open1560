@@ -27,7 +27,7 @@ class agiRenderer
 {
 public:
     // ??0agiRenderer@@QAE@XZ
-    ARTS_IMPORT agiRenderer();
+    ARTS_EXPORT agiRenderer();
 
 protected:
     virtual ~agiRenderer() = default;

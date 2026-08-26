@@ -294,10 +294,14 @@ void asCullManager::Update()
     auto log_random_calls = std::exchange(LogRandomCalls, nullptr);
     auto rand_seed = gRandSeed;
 
+#ifdef ARTS_DEV_BUILD
     if (MIDGETSPTR->IsOpen())
         MIDGETSPTR->Update();
+#endif
 
+#ifdef ARTS_DEV_BUILD
     PGRAPH->Update();
+#endif
 
     Timer update_timer;
     float update_3D = 0.0f;

@@ -98,6 +98,20 @@ static u32 CompileShader(u32 type, i32 glsl_version, const char* src)
 {
     u32 shader = glCreateShader(type);
 
+#ifdef __ANDROID__
+    // GLES spells the directive "#version 300 es" and gives the fragment stage
+    // no default precision. The shader bodies are the GLSL 1.30 ones otherwise.
+    (void) glsl_version;
+
+    const auto version_string = arts_formatf<64>("#version 300 es\n");
+
+    const char* strings[3] {version_string, "", src};
+
+    strings[1] = (type == GL_FRAGMENT_SHADER) ? "precision highp float;\n"
+                                                "precision highp int;\n"
+                                                "#define texture2D texture\n"
+                                              : "#define texture2D texture\n";
+#else
     const auto version_string = arts_formatf<64>("#version %i\n", glsl_version);
 
     const char* strings[3] {version_string, "", src};
@@ -118,6 +132,7 @@ static u32 CompileShader(u32 type, i32 glsl_version, const char* src)
             default: Quitf("Invalid Shader Type %u", type);
         }
     }
+#endif
 
     glShaderSource(shader, ARTS_SSIZE(strings), strings, 0);
     glCompileShader(shader);
@@ -368,7 +383,12 @@ void agiGLRasterizer::InitModern()
         ClientSide = 7,
     };
 
+#ifdef __ANDROID__
+    // GLES 3 core has no client-side vertex arrays.
+    StreamMode stream_mode = StreamMode::BufferData;
+#else
     StreamMode stream_mode = StreamMode::ClientSide;
+#endif
 
     {
         bool async = agiGL->HasExtension(320, "GL_ARB_sync");

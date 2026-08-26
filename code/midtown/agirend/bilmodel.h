@@ -24,7 +24,7 @@ class agiBILightModel final : public agiLightModel
 {
 public:
     // ??0agiBILightModel@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiBILightModel(agiPipeline* arg1);
+    ARTS_EXPORT agiBILightModel(agiPipeline* arg1);
 
     // ??1agiBILightModel@@UAE@XZ
     ARTS_IMPORT ~agiBILightModel() override;

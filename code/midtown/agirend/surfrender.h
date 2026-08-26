@@ -29,7 +29,7 @@ class agiSurfRenderer : public agiRenderer
 {
 public:
     // ??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z
-    ARTS_IMPORT agiSurfRenderer(agiRasterizer* arg1);
+    ARTS_EXPORT agiSurfRenderer(agiRasterizer* arg1);
 
     // ?BeginDraw@agiSurfRenderer@@UAEXH@Z
     ARTS_EXPORT void BeginDraw(i32 flags) override;

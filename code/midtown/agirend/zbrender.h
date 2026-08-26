@@ -24,7 +24,7 @@ class agiZBufRenderer final : public agiSurfRenderer
 {
 public:
     // ??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z
-    ARTS_IMPORT agiZBufRenderer(agiRasterizer* arg1);
+    ARTS_EXPORT agiZBufRenderer(agiRasterizer* arg1);
 
     // ??1agiZBufRenderer@@UAE@XZ
     ARTS_EXPORT ~agiZBufRenderer() override = default;

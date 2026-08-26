@@ -400823,22 +400823,6 @@ loc_54FA52:
 ?swEmitRun0_ZReadWriteGlowModulateParaStippleCUCV@@YIXH@Z ENDP
 
 ALIGN 16
-??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+8]
-    push esi
-    mov esi, ecx
-    push eax
-    call ??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z
-    mov dword ptr [esi], offset ??_7agiZBufRenderer@@6B@
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z ENDP
-
-ALIGN 16
 ?EndGroup@agiZBufRenderer@@UAEXXZ PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -402058,26 +402042,6 @@ sym_5507C0 dd offset loc_5505C8
     dd offset loc_5505E4
     dd offset loc_5505FF
 ?EndGroup@agiZBufRenderer@@UAEXXZ ENDP
-
-ALIGN 16
-??_EagiZBufRenderer@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiZBufRenderer@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_5507EA
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_5507EA:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EagiZBufRenderer@@UAEPAXI@Z ENDP
 
 ALIGN 16
 ??0RDLP@@QAE@PAVagiPipeline@@@Z PROC PUBLIC
@@ -405374,37 +405338,6 @@ loc_552D54:
     pop ebp
     retn
 ?Init@agiProjVtx@@SAXHPAVagiLighter@@I@Z ENDP
-
-ALIGN 16
-??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??0agiRenderer@@QAE@XZ
-    mov eax, dword ptr [ebp+8]
-    mov dword ptr [esi+10h], 0
-    mov dword ptr [esi+0Ch], eax
-    mov dword ptr [esi], offset ??_7agiSurfRenderer@@6B@
-    mov cl, byte ptr [?agiCurCardState@@3VagiCardState@@A+30h]
-    mov eax, 1
-    cmp cl, al
-    jz loc_552D97
-    mov dword ptr [?agiCurCardState@@3VagiCardState@@A], eax
-    mov byte ptr [?agiCurCardState@@3VagiCardState@@A+30h], al
-
-loc_552D97:
-    cmp byte ptr [?agiCurCardState@@3VagiCardState@@A+31h], al
-    jz loc_552DA9
-    mov dword ptr [?agiCurCardState@@3VagiCardState@@A], eax
-    mov byte ptr [?agiCurCardState@@3VagiCardState@@A+31h], al
-
-loc_552DA9:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z ENDP
 
 ALIGN 16
 ?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z PROC PUBLIC
@@ -408770,63 +408703,6 @@ ALIGN 16
 ?EndDraw@agiSurfRenderer@@UAEXXZ ENDP
 
 ALIGN 16
-??_EagiSurfRenderer@@MAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiSurfRenderer@@MAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55521A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55521A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EagiSurfRenderer@@MAEPAXI@Z ENDP
-
-ALIGN 16
-??_GagiRenderer@@MAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    mov al, byte ptr [ebp+8]
-    push esi
-    mov esi, ecx
-    test al, 1
-    mov dword ptr [esi], offset ??_7agiRenderer@@6B@
-    jz loc_55524C
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55524C:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_GagiRenderer@@MAEPAXI@Z ENDP
-
-ALIGN 16
-??0agiBILightModel@@QAE@PAVagiPipeline@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+8]
-    push esi
-    mov esi, ecx
-    push eax
-    call ??0agiLightModel@@IAE@PAVagiPipeline@@@Z
-    mov dword ptr [esi], offset ??_7agiBILightModel@@6B@
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??0agiBILightModel@@QAE@PAVagiPipeline@@@Z ENDP
-
-ALIGN 16
 ??1agiBILightModel@@UAE@XZ PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -408917,22 +408793,6 @@ loc_55535A:
     pop ebp
     retn 4
 ??_GagiBILightModel@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??0agiBILight@@QAE@PAVagiPipeline@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+8]
-    push esi
-    mov esi, ecx
-    push eax
-    call ??0agiLight@@QAE@PAVagiPipeline@@@Z
-    mov dword ptr [esi], offset ??_7agiBILight@@6B@
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??0agiBILight@@QAE@PAVagiPipeline@@@Z ENDP
 
 ALIGN 16
 ??1agiBILight@@UAE@XZ PROC PUBLIC
@@ -413482,25 +413342,6 @@ sub_55C490 PROC PRIVATE
 sub_55C490 ENDP
 
 ALIGN 16
-??0agiColorModelRGB555@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    xor edx, edx
-    mov ecx, 5
-    mov dword ptr [eax+4], 2
-    mov dword ptr [eax+8], ecx
-    mov dword ptr [eax+0Ch], ecx
-    mov dword ptr [eax+10h], ecx
-    mov dword ptr [eax+14h], edx
-    mov dword ptr [eax+18h], 0Ah
-    mov dword ptr [eax+1Ch], ecx
-    mov dword ptr [eax+20h], edx
-    mov dword ptr [eax+24h], edx
-    mov dword ptr [eax+28h], 1
-    mov dword ptr [eax], offset ??_7agiColorModelRGB555@@6B@
-    retn
-??0agiColorModelRGB555@@QAE@XZ ENDP
-
-ALIGN 16
 ?GetColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -413645,25 +413486,6 @@ sub_55C670 PROC PRIVATE
     mov ecx, offset ?ColorModelRGB565@@3VagiColorModelRGB565@@A
     jmp ??1agiColorModelRGB565@@UAE@XZ
 sub_55C670 ENDP
-
-ALIGN 16
-??0agiColorModelRGB565@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    mov edx, 5
-    xor ecx, ecx
-    mov dword ptr [eax+4], 2
-    mov dword ptr [eax+8], edx
-    mov dword ptr [eax+0Ch], 6
-    mov dword ptr [eax+10h], edx
-    mov dword ptr [eax+14h], ecx
-    mov dword ptr [eax+18h], 0Bh
-    mov dword ptr [eax+1Ch], edx
-    mov dword ptr [eax+20h], ecx
-    mov dword ptr [eax+24h], ecx
-    mov dword ptr [eax+28h], 1
-    mov dword ptr [eax], offset ??_7agiColorModelRGB565@@6B@
-    retn
-??0agiColorModelRGB565@@QAE@XZ ENDP
 
 ALIGN 16
 ?GetColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z PROC PUBLIC
@@ -413812,25 +413634,6 @@ sub_55C850 PROC PRIVATE
 sub_55C850 ENDP
 
 ALIGN 16
-??0agiColorModelRGB555_Rev@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    xor edx, edx
-    mov ecx, 5
-    mov dword ptr [eax+4], 2
-    mov dword ptr [eax+8], ecx
-    mov dword ptr [eax+0Ch], ecx
-    mov dword ptr [eax+10h], ecx
-    mov dword ptr [eax+14h], edx
-    mov dword ptr [eax+18h], edx
-    mov dword ptr [eax+1Ch], ecx
-    mov dword ptr [eax+20h], 0Ah
-    mov dword ptr [eax+24h], edx
-    mov dword ptr [eax+28h], 1
-    mov dword ptr [eax], offset ??_7agiColorModelRGB555_Rev@@6B@
-    retn
-??0agiColorModelRGB555_Rev@@QAE@XZ ENDP
-
-ALIGN 16
 ?GetColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -413975,25 +413778,6 @@ sub_55CA30 PROC PRIVATE
     mov ecx, offset ?ColorModelRGB565_Rev@@3VagiColorModelRGB565_Rev@@A
     jmp ??1agiColorModelRGB565_Rev@@UAE@XZ
 sub_55CA30 ENDP
-
-ALIGN 16
-??0agiColorModelRGB565_Rev@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    mov edx, 5
-    xor ecx, ecx
-    mov dword ptr [eax+4], 2
-    mov dword ptr [eax+8], edx
-    mov dword ptr [eax+0Ch], 6
-    mov dword ptr [eax+10h], edx
-    mov dword ptr [eax+14h], ecx
-    mov dword ptr [eax+18h], ecx
-    mov dword ptr [eax+1Ch], edx
-    mov dword ptr [eax+20h], 0Bh
-    mov dword ptr [eax+24h], ecx
-    mov dword ptr [eax+28h], 1
-    mov dword ptr [eax], offset ??_7agiColorModelRGB565_Rev@@6B@
-    retn
-??0agiColorModelRGB565_Rev@@QAE@XZ ENDP
 
 ALIGN 16
 ?GetColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z PROC PUBLIC
@@ -414142,25 +413926,6 @@ sub_55CC10 PROC PRIVATE
 sub_55CC10 ENDP
 
 ALIGN 16
-??0agiColorModelRGB888@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    xor edx, edx
-    mov ecx, 8
-    mov dword ptr [eax+4], 4
-    mov dword ptr [eax+8], ecx
-    mov dword ptr [eax+0Ch], ecx
-    mov dword ptr [eax+10h], ecx
-    mov dword ptr [eax+14h], edx
-    mov dword ptr [eax+18h], 10h
-    mov dword ptr [eax+1Ch], ecx
-    mov dword ptr [eax+20h], edx
-    mov dword ptr [eax+24h], edx
-    mov dword ptr [eax+28h], 1
-    mov dword ptr [eax], offset ??_7agiColorModelRGB888@@6B@
-    retn
-??0agiColorModelRGB888@@QAE@XZ ENDP
-
-ALIGN 16
 ?GetColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -414284,25 +414049,6 @@ sub_55CDB0 PROC PRIVATE
     mov ecx, offset ?ColorModelRGB888_Rev@@3VagiColorModelRGB888_Rev@@A
     jmp ??1agiColorModelRGB888_Rev@@UAE@XZ
 sub_55CDB0 ENDP
-
-ALIGN 16
-??0agiColorModelRGB888_Rev@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    xor edx, edx
-    mov ecx, 8
-    mov dword ptr [eax+4], 4
-    mov dword ptr [eax+8], ecx
-    mov dword ptr [eax+0Ch], ecx
-    mov dword ptr [eax+10h], ecx
-    mov dword ptr [eax+14h], edx
-    mov dword ptr [eax+18h], edx
-    mov dword ptr [eax+1Ch], ecx
-    mov dword ptr [eax+20h], 10h
-    mov dword ptr [eax+24h], edx
-    mov dword ptr [eax+28h], 1
-    mov dword ptr [eax], offset ??_7agiColorModelRGB888_Rev@@6B@
-    retn
-??0agiColorModelRGB888_Rev@@QAE@XZ ENDP
 
 ALIGN 16
 ?GetColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z PROC PUBLIC
@@ -414431,25 +414177,6 @@ sub_55CF50 PROC PRIVATE
     mov ecx, offset ?ColorModelRGBA5551@@3VagiColorModelRGBA5551@@A
     jmp ??1agiColorModelRGBA5551@@UAE@XZ
 sub_55CF50 ENDP
-
-ALIGN 16
-??0agiColorModelRGBA5551@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    mov edx, 1
-    mov ecx, 5
-    mov dword ptr [eax+4], 2
-    mov dword ptr [eax+8], ecx
-    mov dword ptr [eax+0Ch], ecx
-    mov dword ptr [eax+10h], ecx
-    mov dword ptr [eax+14h], edx
-    mov dword ptr [eax+18h], 0Ah
-    mov dword ptr [eax+1Ch], ecx
-    mov dword ptr [eax+20h], 0
-    mov dword ptr [eax+24h], 0Fh
-    mov dword ptr [eax+28h], edx
-    mov dword ptr [eax], offset ??_7agiColorModelRGBA5551@@6B@
-    retn
-??0agiColorModelRGBA5551@@QAE@XZ ENDP
 
 ALIGN 16
 ?GetColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z PROC PUBLIC
@@ -414626,24 +414353,6 @@ sub_55D190 PROC PRIVATE
 sub_55D190 ENDP
 
 ALIGN 16
-??0agiColorModelRGBA4444@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    mov ecx, 4
-    mov dword ptr [eax+4], 2
-    mov dword ptr [eax+8], ecx
-    mov dword ptr [eax+0Ch], ecx
-    mov dword ptr [eax+10h], ecx
-    mov dword ptr [eax+14h], ecx
-    mov dword ptr [eax+18h], 8
-    mov dword ptr [eax+1Ch], ecx
-    mov dword ptr [eax+20h], 0
-    mov dword ptr [eax+24h], 0Ch
-    mov dword ptr [eax+28h], 1
-    mov dword ptr [eax], offset ??_7agiColorModelRGBA4444@@6B@
-    retn
-??0agiColorModelRGBA4444@@QAE@XZ ENDP
-
-ALIGN 16
 ?GetColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -414816,150 +414525,6 @@ sub_55D3C0 PROC PRIVATE
 sub_55D3C0 ENDP
 
 ALIGN 16
-??0agiColorModelARGB@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    mov ecx, 8
-    mov dword ptr [eax+4], 4
-    mov dword ptr [eax+8], ecx
-    mov dword ptr [eax+0Ch], ecx
-    mov dword ptr [eax+10h], ecx
-    mov dword ptr [eax+14h], ecx
-    mov dword ptr [eax+18h], 10h
-    mov dword ptr [eax+1Ch], ecx
-    mov dword ptr [eax+20h], 0
-    mov dword ptr [eax+24h], 18h
-    mov dword ptr [eax+28h], 1
-    mov dword ptr [eax], offset ??_7agiColorModelARGB@@6B@
-    retn
-??0agiColorModelARGB@@QAE@XZ ENDP
-
-ALIGN 16
-?GetColor@agiColorModelARGB@@UAEIUagiRgba@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Bh]
-    mov ecx, dword ptr [ebp+8]
-    mov edx, dword ptr [ebp+9]
-    and eax, 0FFh
-    shl eax, 8
-    and ecx, 0FFh
-    and edx, 0FFh
-    or eax, ecx
-    mov ecx, dword ptr [ebp+0Ah]
-    shl eax, 8
-    or eax, edx
-    and ecx, 0FFh
-    shl eax, 8
-    or eax, ecx
-    pop ebp
-    retn 4
-?GetColor@agiColorModelARGB@@UAEIUagiRgba@@@Z ENDP
-
-ALIGN 16
-?FindColor@agiColorModelARGB@@UAEIUagiRgba@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+0Bh]
-    mov ecx, dword ptr [ebp+8]
-    mov edx, dword ptr [ebp+9]
-    and eax, 0FFh
-    shl eax, 8
-    and ecx, 0FFh
-    and edx, 0FFh
-    or eax, ecx
-    mov ecx, dword ptr [ebp+0Ah]
-    shl eax, 8
-    or eax, edx
-    and ecx, 0FFh
-    shl eax, 8
-    or eax, ecx
-    pop ebp
-    retn 4
-?FindColor@agiColorModelARGB@@UAEIUagiRgba@@@Z ENDP
-
-ALIGN 16
-?Filter@agiColorModelARGB@@UAEIIIII@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    xor edx, edx
-    xor eax, eax
-    mov dl, byte ptr [ebp+16h]
-    mov al, byte ptr [ebp+0Ah]
-    xor ecx, ecx
-    add edx, eax
-    mov cl, byte ptr [ebp+12h]
-    xor eax, eax
-    mov al, byte ptr [ebp+0Eh]
-    add edx, ecx
-    add edx, eax
-    mov eax, dword ptr [ebp+14h]
-    push ebx
-    push esi
-    mov esi, dword ptr [ebp+8]
-    mov ecx, eax
-    shr ecx, 18h
-    shr esi, 18h
-    add ecx, esi
-    mov esi, dword ptr [ebp+0Ch]
-    shr esi, 18h
-    add ecx, esi
-    mov esi, dword ptr [ebp+10h]
-    shr esi, 18h
-    add ecx, esi
-    xor ebx, ebx
-    mov bl, byte ptr [ebp+9]
-    pop esi
-    shr ecx, 2
-    shr edx, 2
-    shl ecx, 8
-    or edx, ecx
-    xor ecx, ecx
-    mov cl, ah
-    and eax, 0FFh
-    add ecx, ebx
-    xor ebx, ebx
-    mov bl, byte ptr [ebp+11h]
-    add ecx, ebx
-    xor ebx, ebx
-    mov bl, byte ptr [ebp+0Dh]
-    add ecx, ebx
-    pop ebx
-    shl edx, 8
-    shr ecx, 2
-    or edx, ecx
-    mov ecx, dword ptr [ebp+0Ch]
-    and ecx, 0FFh
-    add eax, ecx
-    mov ecx, dword ptr [ebp+10h]
-    and ecx, 0FFh
-    add eax, ecx
-    mov ecx, dword ptr [ebp+8]
-    and ecx, 0FFh
-    add eax, ecx
-    shl edx, 8
-    shr eax, 2
-    or eax, edx
-    pop ebp
-    retn 10h
-?Filter@agiColorModelARGB@@UAEIIIII@Z ENDP
-
-ALIGN 16
-?SetPixel@agiColorModelARGB@@UAEXPAVagiSurfaceDesc@@HHI@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+8]
-    mov ecx, dword ptr [eax+10h]
-    mov edx, dword ptr [eax+24h]
-    imul ecx, dword ptr [ebp+10h]
-    mov eax, dword ptr [ebp+0Ch]
-    add ecx, edx
-    mov edx, dword ptr [ebp+14h]
-    mov dword ptr [ecx+eax*4], edx
-    pop ebp
-    retn 10h
-?SetPixel@agiColorModelARGB@@UAEXPAVagiSurfaceDesc@@HHI@Z ENDP
-
-ALIGN 16
 _$E525 PROC PRIVATE
     call sub_55D580
     jmp sub_55D590
@@ -414984,24 +414549,6 @@ sub_55D5A0 PROC PRIVATE
     mov ecx, offset ?ColorModelABGR@@3VagiColorModelABGR@@A
     jmp ??1agiColorModelABGR@@UAE@XZ
 sub_55D5A0 ENDP
-
-ALIGN 16
-??0agiColorModelABGR@@QAE@XZ PROC PUBLIC
-    mov eax, ecx
-    mov ecx, 8
-    mov dword ptr [eax+4], 4
-    mov dword ptr [eax+8], ecx
-    mov dword ptr [eax+0Ch], ecx
-    mov dword ptr [eax+10h], ecx
-    mov dword ptr [eax+14h], ecx
-    mov dword ptr [eax+18h], 0
-    mov dword ptr [eax+1Ch], ecx
-    mov dword ptr [eax+20h], 10h
-    mov dword ptr [eax+24h], 18h
-    mov dword ptr [eax+28h], 1
-    mov dword ptr [eax], offset ??_7agiColorModelABGR@@6B@
-    retn
-??0agiColorModelABGR@@QAE@XZ ENDP
 
 ALIGN 16
 ?GetColor@agiColorModelABGR@@UAEIUagiRgba@@@Z PROC PUBLIC
@@ -415131,206 +414678,6 @@ ALIGN 16
     pop ebp
     retn 10h
 ?SetPixel@agiColorModelABGR@@UAEXPAVagiSurfaceDesc@@HHI@Z ENDP
-
-ALIGN 16
-??_EagiColorModelRGB555@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelRGB555@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55D85A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55D85A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EagiColorModelRGB555@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??_EagiColorModelRGB565@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelRGB565@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55D89A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55D89A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EagiColorModelRGB565@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??_EagiColorModelRGB555_Rev@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelRGB555_Rev@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55D8DA
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55D8DA:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EagiColorModelRGB555_Rev@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??_GagiColorModelRGB565_Rev@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelRGB565_Rev@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55D91A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55D91A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_GagiColorModelRGB565_Rev@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??_GagiColorModelRGB888@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelRGB888@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55D95A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55D95A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_GagiColorModelRGB888@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??_GagiColorModelRGB888_Rev@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelRGB888_Rev@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55D99A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55D99A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_GagiColorModelRGB888_Rev@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??_EagiColorModelRGBA5551@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelRGBA5551@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55D9DA
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55D9DA:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EagiColorModelRGBA5551@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??_EagiColorModelRGBA4444@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelRGBA4444@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55DA1A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55DA1A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EagiColorModelRGBA4444@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??_EagiColorModelARGB@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelARGB@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55DA5A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55DA5A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EagiColorModelARGB@@UAEPAXI@Z ENDP
-
-ALIGN 16
-??_GagiColorModelABGR@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1agiColorModelABGR@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_55DA9A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_55DA9A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_GagiColorModelABGR@@UAEPAXI@Z ENDP
 
 ALIGN 16
 ??0agiMtlParameters@@QAE@XZ PROC PUBLIC
@@ -415619,31 +414966,6 @@ loc_55DD6A:
     pop ebp
     retn 4
 ??_EagiMtlDef@@MAEPAXI@Z ENDP
-
-ALIGN 16
-??0agiRenderer@@QAE@XZ PROC PUBLIC
-    mov edx, 1
-    mov dword ptr [ecx+4], -1
-    mov dword ptr [ecx+8], edx
-    mov dword ptr [ecx], offset ??_7agiRenderer@@6B@
-    fld dword ptr [?agiCurCardState@@3VagiCardState@@A+28h]
-    fcomp dword ptr [flt_6218A0]
-    fnstsw ax
-    test ah, 40h
-    jnz loc_55DDB8
-    mov dword ptr [?agiCurCardState@@3VagiCardState@@A], edx
-    mov dword ptr [?agiCurCardState@@3VagiCardState@@A+28h], 3F800000h
-
-loc_55DDB8:
-    cmp dword ptr [?agiCurCardState@@3VagiCardState@@A+2Ch], -1
-    jz loc_55DDD1
-    mov dword ptr [?agiCurCardState@@3VagiCardState@@A], edx
-    mov dword ptr [?agiCurCardState@@3VagiCardState@@A+2Ch], -1
-
-loc_55DDD1:
-    mov eax, ecx
-    retn
-??0agiRenderer@@QAE@XZ ENDP
 
 ALIGN 16
 _$E528 PROC PRIVATE
@@ -466344,20 +465666,6 @@ ALIGN 4
     dd offset ?LineList@agiRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
 
 ALIGN 4
-??_7agiZBufRenderer@@6B@ dd offset ??_EagiZBufRenderer@@UAEPAXI@Z
-    dd offset ?BeginGroup@agiSurfRenderer@@UAEXXZ
-    dd offset ?Draw@agiSurfRenderer@@UAEXPAVDLP@@H@Z
-    dd offset ?DrawCard@agiSurfRenderer@@UAEXAAVVector3@@@Z
-    dd offset ?EndGroup@agiZBufRenderer@@UAEXXZ
-    dd offset ?BeginDraw@agiSurfRenderer@@UAEXH@Z
-    dd offset ?Verts@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    dd offset ?Points@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    dd offset ?DrawTri@agiSurfRenderer@@UAEXHHH@Z
-    dd offset ?DrawLine@agiSurfRenderer@@UAEXHH@Z
-    dd offset ?DrawLabel@agiSurfRenderer@@UAEXAATagiVtx@@PAD@Z
-    dd offset ?EndDraw@agiSurfRenderer@@UAEXXZ
-
-ALIGN 4
 ??_7RDLP@@6B@ dd offset ?EndGfx@RDLP@@UAEXXZ
     dd offset ?Restore@agiRefreshable@@UAEXXZ
     dd offset ?GetName@DLP@@UAEPADXZ
@@ -466449,34 +465757,6 @@ ALIGN 4
 flt_621498 dd 0C0000000r
 
 ALIGN 4
-??_7agiSurfRenderer@@6B@ dd offset ??_EagiSurfRenderer@@MAEPAXI@Z
-    dd offset ?BeginGroup@agiSurfRenderer@@UAEXXZ
-    dd offset ?Draw@agiSurfRenderer@@UAEXPAVDLP@@H@Z
-    dd offset ?DrawCard@agiSurfRenderer@@UAEXAAVVector3@@@Z
-    dd offset __purecall
-    dd offset ?BeginDraw@agiSurfRenderer@@UAEXH@Z
-    dd offset ?Verts@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    dd offset ?Points@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    dd offset ?DrawTri@agiSurfRenderer@@UAEXHHH@Z
-    dd offset ?DrawLine@agiSurfRenderer@@UAEXHH@Z
-    dd offset ?DrawLabel@agiSurfRenderer@@UAEXAATagiVtx@@PAD@Z
-    dd offset ?EndDraw@agiSurfRenderer@@UAEXXZ
-
-ALIGN 4
-??_7agiRenderer@@6B@ dd offset ??_GagiRenderer@@MAEPAXI@Z
-    dd offset __purecall
-    dd offset __purecall
-    dd offset __purecall
-    dd offset __purecall
-    dd offset __purecall
-    dd offset __purecall
-    dd offset __purecall
-    dd offset __purecall
-    dd offset __purecall
-    dd offset __purecall
-    dd offset __purecall
-
-ALIGN 4
 flt_621500 dd 043800000r
 
 ALIGN 4
@@ -466549,95 +465829,12 @@ ALIGN 4
     dd offset ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z
 
 ALIGN 4
-??_7agiColorModelRGB555@@6B@ dd offset ??_EagiColorModelRGB555@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelRGB555@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelRGB555@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelRGB555@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
-??_7agiColorModelRGB565@@6B@ dd offset ??_EagiColorModelRGB565@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelRGB565@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelRGB565@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelRGB565@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
-??_7agiColorModelRGB555_Rev@@6B@ dd offset ??_EagiColorModelRGB555_Rev@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelRGB555_Rev@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelRGB555_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelRGB555_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
-??_7agiColorModelRGB565_Rev@@6B@ dd offset ??_GagiColorModelRGB565_Rev@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelRGB565_Rev@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelRGB565_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelRGB565_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
-??_7agiColorModelRGB888@@6B@ dd offset ??_GagiColorModelRGB888@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelRGB888@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelRGB888@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelRGB888@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
-??_7agiColorModelRGB888_Rev@@6B@ dd offset ??_GagiColorModelRGB888_Rev@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelRGB888_Rev@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelRGB888_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelRGB888_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
-??_7agiColorModelRGBA5551@@6B@ dd offset ??_EagiColorModelRGBA5551@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelRGBA5551@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelRGBA5551@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelRGBA5551@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
-??_7agiColorModelRGBA4444@@6B@ dd offset ??_EagiColorModelRGBA4444@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelRGBA4444@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelRGBA4444@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelRGBA4444@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
-??_7agiColorModelARGB@@6B@ dd offset ??_EagiColorModelARGB@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelARGB@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelARGB@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelARGB@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
-??_7agiColorModelABGR@@6B@ dd offset ??_GagiColorModelABGR@@UAEPAXI@Z
-    dd offset ?GetColor@agiColorModelABGR@@UAEIUagiRgba@@@Z
-    dd offset ?FindColor@agiColorModelABGR@@UAEIUagiRgba@@@Z
-    dd offset ?Filter@agiColorModelABGR@@UAEIIIII@Z
-    dd offset ?SetPixel@agiColorModelABGR@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    dd offset ?GetPixel@agiColorModelABGR@@UAEIPAVagiSurfaceDesc@@HH@Z
-
-ALIGN 4
 ??_7agiMtlDef@@6B@ dd offset __purecall
     dd offset ?Restore@agiRefreshable@@UAEXXZ
     dd offset ?GetName@agiMtlDef@@UAEPADXZ
     dd offset ??_EagiMtlDef@@MAEPAXI@Z
     dd offset __purecall
     dd offset ?IsTexture@agiRefreshable@@MAEHXZ
-
-ALIGN 4
-flt_6218A0 dd 03F800000r
 
 ALIGN 4
 ??_7DLP@@6B@ dd offset ?EndGfx@DLP@@UAEXXZ
@@ -508473,46 +507670,6 @@ PUBLIC ?agiPal@@3VagiPalette@@A
 ?agiPal@@3VagiPalette@@A db 1040 dup (?)
 
 ALIGN 8
-PUBLIC ?ColorModelARGB@@3VagiColorModelARGB@@A
-?ColorModelARGB@@3VagiColorModelARGB@@A db 44 dup (?)
-
-ALIGN 8
-PUBLIC ?ColorModelRGB565_Rev@@3VagiColorModelRGB565_Rev@@A
-?ColorModelRGB565_Rev@@3VagiColorModelRGB565_Rev@@A db 44 dup (?)
-
-ALIGN 8
-PUBLIC ?ColorModelABGR@@3VagiColorModelABGR@@A
-?ColorModelABGR@@3VagiColorModelABGR@@A db 44 dup (?)
-
-ALIGN 8
-PUBLIC ?ColorModelRGB555_Rev@@3VagiColorModelRGB555_Rev@@A
-?ColorModelRGB555_Rev@@3VagiColorModelRGB555_Rev@@A db 44 dup (?)
-
-ALIGN 8
-PUBLIC ?ColorModelRGB888_Rev@@3VagiColorModelRGB888_Rev@@A
-?ColorModelRGB888_Rev@@3VagiColorModelRGB888_Rev@@A db 44 dup (?)
-
-ALIGN 8
-PUBLIC ?ColorModelRGBA5551@@3VagiColorModelRGBA5551@@A
-?ColorModelRGBA5551@@3VagiColorModelRGBA5551@@A db 44 dup (?)
-
-ALIGN 8
-PUBLIC ?ColorModelRGBA4444@@3VagiColorModelRGBA4444@@A
-?ColorModelRGBA4444@@3VagiColorModelRGBA4444@@A db 44 dup (?)
-
-ALIGN 8
-PUBLIC ?ColorModelRGB888@@3VagiColorModelRGB888@@A
-?ColorModelRGB888@@3VagiColorModelRGB888@@A db 44 dup (?)
-
-ALIGN 8
-PUBLIC ?ColorModelRGB565@@3VagiColorModelRGB565@@A
-?ColorModelRGB565@@3VagiColorModelRGB565@@A db 44 dup (?)
-
-ALIGN 8
-PUBLIC ?ColorModelRGB555@@3VagiColorModelRGB555@@A
-?ColorModelRGB555@@3VagiColorModelRGB555@@A db 44 dup (?)
-
-ALIGN 8
 byte_907828 db 64 dup (?)
 
 ALIGN 8
@@ -508682,7 +507839,16 @@ EXTERN ??0PreCamCS@@QAE@XZ:PROC
 EXTERN ??0Timer@@QAE@XZ:PROC
 EXTERN ??0Tokenizer@@QAE@PBDPAVStream@@@Z:PROC
 EXTERN ??0Vector3@@QAE@MMM@Z:PROC
-EXTERN ??0agiLight@@QAE@PAVagiPipeline@@@Z:PROC
+EXTERN ??0agiColorModelABGR@@QAE@XZ:PROC
+EXTERN ??0agiColorModelARGB@@QAE@XZ:PROC
+EXTERN ??0agiColorModelRGB555@@QAE@XZ:PROC
+EXTERN ??0agiColorModelRGB555_Rev@@QAE@XZ:PROC
+EXTERN ??0agiColorModelRGB565@@QAE@XZ:PROC
+EXTERN ??0agiColorModelRGB565_Rev@@QAE@XZ:PROC
+EXTERN ??0agiColorModelRGB888@@QAE@XZ:PROC
+EXTERN ??0agiColorModelRGB888_Rev@@QAE@XZ:PROC
+EXTERN ??0agiColorModelRGBA4444@@QAE@XZ:PROC
+EXTERN ??0agiColorModelRGBA5551@@QAE@XZ:PROC
 EXTERN ??0agiLightParameters@@QAE@XZ:PROC
 EXTERN ??0agiMeshSet@@QAE@XZ:PROC
 EXTERN ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z:PROC
@@ -508807,9 +507973,7 @@ EXTERN ??1agiMonoLighter@@UAE@XZ:PROC
 EXTERN ??1agiRGBLighter@@UAE@XZ:PROC
 EXTERN ??1agiRefreshable@@MAE@XZ:PROC
 EXTERN ??1agiSWRasterizer@@UAE@XZ:PROC
-EXTERN ??1agiSurfRenderer@@MAE@XZ:PROC
 EXTERN ??1agiTexSorter@@QAE@XZ:PROC
-EXTERN ??1agiZBufRenderer@@UAE@XZ:PROC
 EXTERN ??1aiGoal@@QAE@XZ:PROC
 EXTERN ??1aiGoalAvoidPlayer@@QAE@XZ:PROC
 EXTERN ??1aiGoalBackup@@QAE@XZ:PROC
@@ -508996,10 +508160,8 @@ EXTERN ?BackUp@UIMenu@@UAEXXZ:PROC
 EXTERN ?BackUp@uiNavBar@@UAEXXZ:PROC
 EXTERN ?BeforeSave@Base@@UAEXXZ:PROC
 EXTERN ?BeforeSave@mmPlayer@@UAEXXZ:PROC
-EXTERN ?BeginDraw@agiSurfRenderer@@UAEXH@Z:PROC
 EXTERN ?BeginGfx@agiSWRasterizer@@UAEHXZ:PROC
 EXTERN ?BeginGroup@agiSWRasterizer@@UAEXXZ:PROC
-EXTERN ?BeginGroup@agiSurfRenderer@@UAEXXZ:PROC
 EXTERN ?BeginMemStat@@YAXPBD@Z:PROC
 EXTERN ?BeginObject@DataCache@@QAEHPAHP6AXPAXH@Z1I@Z:PROC
 EXTERN ?BeginVerts@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z:PROC
@@ -509037,6 +508199,16 @@ EXTERN ?ClippedVerts@@3PAUCV@@A:BYTE
 EXTERN ?CloseWidgets@asNode@@UAEXXZ:PROC
 EXTERN ?CollideProbe@mmPhysicsMGR@@IAEHFPAVmmIntersection@@H@Z:PROC
 EXTERN ?Collision@aiGoalChase@@AAEHPAVmmCar@@@Z:PROC
+EXTERN ?ColorModelABGR@@3VagiColorModelABGR@@A:BYTE
+EXTERN ?ColorModelARGB@@3VagiColorModelARGB@@A:BYTE
+EXTERN ?ColorModelRGB555@@3VagiColorModelRGB555@@A:BYTE
+EXTERN ?ColorModelRGB555_Rev@@3VagiColorModelRGB555_Rev@@A:BYTE
+EXTERN ?ColorModelRGB565@@3VagiColorModelRGB565@@A:BYTE
+EXTERN ?ColorModelRGB565_Rev@@3VagiColorModelRGB565_Rev@@A:BYTE
+EXTERN ?ColorModelRGB888@@3VagiColorModelRGB888@@A:BYTE
+EXTERN ?ColorModelRGB888_Rev@@3VagiColorModelRGB888_Rev@@A:BYTE
+EXTERN ?ColorModelRGBA4444@@3VagiColorModelRGBA4444@@A:BYTE
+EXTERN ?ColorModelRGBA5551@@3VagiColorModelRGBA5551@@A:BYTE
 EXTERN ?CompareComponent@mmIO@@QAEHH@Z:PROC
 EXTERN ?ComputeBounds@mmBoundTemplate@@QAEXXZ:PROC
 EXTERN ?ComputeEdges@mmBoundTemplate@@QAEXXZ:PROC
@@ -509219,16 +508391,6 @@ EXTERN ?GetNumTracks@CDMan@@QAEFXZ:PROC
 EXTERN ?GetOneButton@mmJoyMan@@QAEHJ@Z:PROC
 EXTERN ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z:PROC
 EXTERN ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelABGR@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelARGB@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelRGB555@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelRGB555_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelRGB565@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelRGB565_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelRGB888@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelRGB888_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelRGBA4444@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
-EXTERN ?GetPixel@agiColorModelRGBA5551@@UAEIPAVagiSurfaceDesc@@HH@Z:PROC
 EXTERN ?GetPos@mmMatrixInstance@@UAIAAVVector3@@XZ:PROC
 EXTERN ?GetPos@mmUnhitBangerInstance@@UAIAAVVector3@@XZ:PROC
 EXTERN ?GetPosition@CDMan@@QAEKPAE000@Z:PROC

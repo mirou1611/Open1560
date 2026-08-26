@@ -19,3 +19,7 @@
 define_dummy_symbol(agirend_zbrender);
 
 #include "zbrender.h"
+
+agiZBufRenderer::agiZBufRenderer(agiRasterizer* rasterizer)
+    : agiSurfRenderer(rasterizer)
+{}

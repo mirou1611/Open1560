@@ -28,7 +28,7 @@ b32 HavePPro = false;
 b32 UseKNI = false;
 b32 UseMMX = false;
 
-#ifdef ARTS_ARCH_X86
+#if defined(ARTS_ARCH_X86) && defined(_MSC_VER)
 static i32 cpuid()
 {
     int values[4];
@@ -39,8 +39,8 @@ static i32 cpuid()
 
 initHaveMMX::initHaveMMX()
 {
-#ifndef ARTS_ARCH_X86
-    // No MMX/KNI on this architecture - the scalar paths are used instead.
+#if !defined(ARTS_ARCH_X86) || !defined(_MSC_VER)
+    // No MMX/KNI detection here - the scalar paths are used instead.
     return;
 #else
     i32 flags = cpuid();

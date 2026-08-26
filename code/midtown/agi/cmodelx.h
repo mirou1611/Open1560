@@ -24,7 +24,7 @@ class agiColorModelRGB555 final : public agiColorModel
 {
 public:
     // ??0agiColorModelRGB555@@QAE@XZ
-    ARTS_IMPORT agiColorModelRGB555();
+    ARTS_EXPORT agiColorModelRGB555();
 
     // ??1agiColorModelRGB555@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelRGB555() override = default;
@@ -51,7 +51,7 @@ class agiColorModelRGB565 final : public agiColorModel
 {
 public:
     // ??0agiColorModelRGB565@@QAE@XZ
-    ARTS_IMPORT agiColorModelRGB565();
+    ARTS_EXPORT agiColorModelRGB565();
 
     // ??1agiColorModelRGB565@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelRGB565() override = default;
@@ -78,7 +78,7 @@ class agiColorModelRGB555_Rev final : public agiColorModel
 {
 public:
     // ??0agiColorModelRGB555_Rev@@QAE@XZ
-    ARTS_IMPORT agiColorModelRGB555_Rev();
+    ARTS_EXPORT agiColorModelRGB555_Rev();
 
     // ??1agiColorModelRGB555_Rev@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelRGB555_Rev() override = default;
@@ -105,7 +105,7 @@ class agiColorModelRGB565_Rev final : public agiColorModel
 {
 public:
     // ??0agiColorModelRGB565_Rev@@QAE@XZ
-    ARTS_IMPORT agiColorModelRGB565_Rev();
+    ARTS_EXPORT agiColorModelRGB565_Rev();
 
     // ??1agiColorModelRGB565_Rev@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelRGB565_Rev() override = default;
@@ -132,7 +132,7 @@ class agiColorModelRGB888 final : public agiColorModel
 {
 public:
     // ??0agiColorModelRGB888@@QAE@XZ
-    ARTS_IMPORT agiColorModelRGB888();
+    ARTS_EXPORT agiColorModelRGB888();
 
     // ??1agiColorModelRGB888@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelRGB888() override = default;
@@ -159,7 +159,7 @@ class agiColorModelRGB888_Rev final : public agiColorModel
 {
 public:
     // ??0agiColorModelRGB888_Rev@@QAE@XZ
-    ARTS_IMPORT agiColorModelRGB888_Rev();
+    ARTS_EXPORT agiColorModelRGB888_Rev();
 
     // ??1agiColorModelRGB888_Rev@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelRGB888_Rev() override = default;
@@ -186,7 +186,7 @@ class agiColorModelRGBA5551 final : public agiColorModel
 {
 public:
     // ??0agiColorModelRGBA5551@@QAE@XZ
-    ARTS_IMPORT agiColorModelRGBA5551();
+    ARTS_EXPORT agiColorModelRGBA5551();
 
     // ??1agiColorModelRGBA5551@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelRGBA5551() override = default;
@@ -213,7 +213,7 @@ class agiColorModelRGBA4444 final : public agiColorModel
 {
 public:
     // ??0agiColorModelRGBA4444@@QAE@XZ
-    ARTS_IMPORT agiColorModelRGBA4444();
+    ARTS_EXPORT agiColorModelRGBA4444();
 
     // ??1agiColorModelRGBA4444@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelRGBA4444() override = default;
@@ -240,25 +240,25 @@ class agiColorModelARGB final : public agiColorModel
 {
 public:
     // ??0agiColorModelARGB@@QAE@XZ
-    ARTS_IMPORT agiColorModelARGB();
+    ARTS_EXPORT agiColorModelARGB();
 
     // ??1agiColorModelARGB@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelARGB() override = default;
 
     // ?Filter@agiColorModelARGB@@UAEIIIII@Z
-    ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
+    ARTS_EXPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
     // ?FindColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
-    ARTS_IMPORT u32 FindColor(agiRgba arg1) override;
+    ARTS_EXPORT u32 FindColor(agiRgba arg1) override;
 
     // ?GetColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
-    ARTS_IMPORT u32 GetColor(agiRgba arg1) override;
+    ARTS_EXPORT u32 GetColor(agiRgba arg1) override;
 
     // ?GetPixel@agiColorModelARGB@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // ?SetPixel@agiColorModelARGB@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    ARTS_IMPORT void SetPixel(agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
+    ARTS_EXPORT void SetPixel(agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
 check_size(agiColorModelARGB, 0x2C);
@@ -267,7 +267,7 @@ class agiColorModelABGR final : public agiColorModel
 {
 public:
     // ??0agiColorModelABGR@@QAE@XZ
-    ARTS_IMPORT agiColorModelABGR();
+    ARTS_EXPORT agiColorModelABGR();
 
     // ??1agiColorModelABGR@@UAE@XZ | inline
     ARTS_EXPORT ~agiColorModelABGR() override = default;
@@ -291,31 +291,31 @@ public:
 check_size(agiColorModelABGR, 0x2C);
 
 // ?ColorModelABGR@@3VagiColorModelABGR@@A
-ARTS_IMPORT extern agiColorModelABGR ColorModelABGR;
+ARTS_EXPORT extern agiColorModelABGR ColorModelABGR;
 
 // ?ColorModelARGB@@3VagiColorModelARGB@@A
-ARTS_IMPORT extern agiColorModelARGB ColorModelARGB;
+ARTS_EXPORT extern agiColorModelARGB ColorModelARGB;
 
 // ?ColorModelRGB555@@3VagiColorModelRGB555@@A
-ARTS_IMPORT extern agiColorModelRGB555 ColorModelRGB555;
+ARTS_EXPORT extern agiColorModelRGB555 ColorModelRGB555;
 
 // ?ColorModelRGB555_Rev@@3VagiColorModelRGB555_Rev@@A
-ARTS_IMPORT extern agiColorModelRGB555_Rev ColorModelRGB555_Rev;
+ARTS_EXPORT extern agiColorModelRGB555_Rev ColorModelRGB555_Rev;
 
 // ?ColorModelRGB565@@3VagiColorModelRGB565@@A
-ARTS_IMPORT extern agiColorModelRGB565 ColorModelRGB565;
+ARTS_EXPORT extern agiColorModelRGB565 ColorModelRGB565;
 
 // ?ColorModelRGB565_Rev@@3VagiColorModelRGB565_Rev@@A
-ARTS_IMPORT extern agiColorModelRGB565_Rev ColorModelRGB565_Rev;
+ARTS_EXPORT extern agiColorModelRGB565_Rev ColorModelRGB565_Rev;
 
 // ?ColorModelRGB888@@3VagiColorModelRGB888@@A
-ARTS_IMPORT extern agiColorModelRGB888 ColorModelRGB888;
+ARTS_EXPORT extern agiColorModelRGB888 ColorModelRGB888;
 
 // ?ColorModelRGB888_Rev@@3VagiColorModelRGB888_Rev@@A
-ARTS_IMPORT extern agiColorModelRGB888_Rev ColorModelRGB888_Rev;
+ARTS_EXPORT extern agiColorModelRGB888_Rev ColorModelRGB888_Rev;
 
 // ?ColorModelRGBA4444@@3VagiColorModelRGBA4444@@A
-ARTS_IMPORT extern agiColorModelRGBA4444 ColorModelRGBA4444;
+ARTS_EXPORT extern agiColorModelRGBA4444 ColorModelRGBA4444;
 
 // ?ColorModelRGBA5551@@3VagiColorModelRGBA5551@@A
-ARTS_IMPORT extern agiColorModelRGBA5551 ColorModelRGBA5551;
+ARTS_EXPORT extern agiColorModelRGBA5551 ColorModelRGBA5551;

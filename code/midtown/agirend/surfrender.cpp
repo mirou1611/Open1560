@@ -71,3 +71,12 @@ void UpdateZTrick()
         DepthOffset = agiMeshSet::DepthOffset;
     }
 }
+
+agiSurfRenderer::agiSurfRenderer(agiRasterizer* rasterizer)
+    : rasterizer_(rasterizer)
+    , lighter_(nullptr)
+{
+    // The original also forced two agiCurCardState flags on here. agiCardState
+    // has no C++ definition yet, and agiGLPipeline sets smooth shading itself
+    // immediately before constructing the renderer.
+}

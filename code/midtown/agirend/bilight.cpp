@@ -19,3 +19,8 @@
 define_dummy_symbol(agirend_bilight);
 
 #include "bilight.h"
+
+// The original constructor only chained to the base and set the vtable.
+agiBILight::agiBILight(agiPipeline* pipe)
+    : agiLight(pipe)
+{}

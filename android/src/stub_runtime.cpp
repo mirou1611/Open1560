@@ -30,6 +30,7 @@
 // the pointer itself the key.
 
 #include <cstdio>
+#include <dlfcn.h>
 #include <pthread.h>
 
 #ifdef __ANDROID__
@@ -97,6 +98,25 @@ extern "C" long ArtsStubCalled(const char* name)
     pthread_mutex_unlock(&StubMutex);
 
     LogStub(name, first);
+
+    return 0;
+}
+
+// Every slot of a synthesized vtable points here (see gen_stubs.py): a virtual
+// call on a class whose implementation is still in game.asm. There is no way to
+// know which method was wanted, but the caller is worth logging.
+extern "C" long ArtsVirtualStub()
+{
+    void* caller = __builtin_return_address(0);
+
+#ifdef __ANDROID__
+    Dl_info info {};
+
+    __android_log_print(ANDROID_LOG_WARN, "Open1560", "[vstub] virtual call from %s+%p",
+        (dladdr(caller, &info) && info.dli_sname) ? info.dli_sname : "?", caller);
+#else
+    std::fprintf(stderr, "[vstub] virtual call from %p\n", caller);
+#endif
 
     return 0;
 }

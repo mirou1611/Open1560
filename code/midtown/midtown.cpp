@@ -320,6 +320,13 @@ static mem::cmd_param PARAM_allocstats {"allocstats", "Show allocator stats afte
 
 static void InitAudioManager()
 {
+#ifdef ARTS_NO_AUDIO
+    // mmaudio is DirectSound/EAX/MCI throughout and is not built on this
+    // platform yet; nothing here can run until it has an SDL backend.
+    Warningf("Audio is not available in this build");
+
+    return;
+#else
     /*AUDMGRPTR = */ new AudManager();
 
     AudMgr()->SteroOn = (MMSTATE.AudFlags & AudManager::GetStereoOnMask()) != 0;
@@ -348,6 +355,7 @@ static void InitAudioManager()
     AudMgr()->AssignWaveVolume(0.0f);
     AudMgr()->AssignCDVolume(0.0f);
     AudMgr()->SetNumChannels(MMSTATE.AudNumChannels);
+#endif
 }
 
 static b32 GenerateLoadScreenName()

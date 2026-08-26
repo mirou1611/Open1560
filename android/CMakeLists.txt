@@ -24,11 +24,10 @@ set(VENDOR ${ROOT}/vendor)
 #   mmwidget   - debug widget UI (dev build only)
 #   toolmgr    - dev tooling
 #   mmcamtour  - dev camera tours
-#   agirend    - dev build only
 #   mmaudio    - DirectSound/EAX/MCI throughout; to be replaced by an SDL3 audio backend
 set(MODULES
     core vector7 memory stream data7 dyna7 eventq7 localize
-    arts7 agi agigl agisdl agiworld
+    arts7 agi agigl agirend agisdl agiworld
     mmdjpeg mmphysics mmdyna mmanim mmbangers mmeffects
     mmcar mmcity mmcityinfo mmai mmcamcs mminput mmui mmgame
     pcwindis
@@ -87,6 +86,7 @@ target_compile_definitions(midtown PUBLIC
     ARTS_TARGET_BUILD=1560
     ARTS_STANDALONE
     ARTS_ANDROID=1
+    ARTS_NO_AUDIO=1
 )
 
 target_compile_options(midtown PRIVATE
@@ -118,6 +118,13 @@ target_compile_definitions(miniz PRIVATE
 set(SDL3_DIR $ENV{HOME}/android/SDL3 CACHE PATH "SDL3 source tree built for Android")
 set(FREETYPE_DIR $ENV{HOME}/android/freetype-2.13.3 CACHE PATH "freetype source tree built for Android")
 
+# Each ABI has its own dependency build directory.
+if(ANDROID_ABI STREQUAL "x86_64")
+    set(DEP_BUILD_DIR build-android-x64)
+else()
+    set(DEP_BUILD_DIR build-android)
+endif()
+
 # ---------------------------------------------------------------------------
 # libmain.so - what SDLActivity loads
 # ---------------------------------------------------------------------------
@@ -134,6 +141,7 @@ enable_language(ASM)
 
 add_library(main SHARED
     ${CMAKE_CURRENT_SOURCE_DIR}/src/stub_runtime.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gl_es.cpp
     ${STUB_SOURCES}
 )
 
@@ -141,8 +149,8 @@ target_link_libraries(main PRIVATE
     -Wl,--whole-archive midtown -Wl,--no-whole-archive
     glad
     miniz
-    ${SDL3_DIR}/build-android/libSDL3.so
-    ${FREETYPE_DIR}/build-android/libfreetype.a
+    ${SDL3_DIR}/${DEP_BUILD_DIR}/libSDL3.so
+    ${FREETYPE_DIR}/${DEP_BUILD_DIR}/libfreetype.a
     GLESv3
     EGL
     log

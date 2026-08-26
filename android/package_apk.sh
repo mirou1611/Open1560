@@ -18,12 +18,20 @@ JAVA_HOME="${JAVA_HOME:-/c/Program Files/Android/Android Studio/jbr}"
 
 # Where the WSL build tree and its dependencies live, as seen from Windows.
 WSL_ROOT="${WSL_ROOT:-//wsl.localhost/Ubuntu/home/mirou}"
-NATIVE_BUILD="${NATIVE_BUILD:-$WSL_ROOT/mm/Open1560/android/build}"
 SDL_SOURCE="${SDL_SOURCE:-$WSL_ROOT/android/SDL3}"
 
 OUT="$HERE/build-apk"
-ABI=arm64-v8a
+ABI="${ABI:-arm64-v8a}"
 PACKAGE=com.open1560.app
+
+# Each ABI has its own native build and dependency directories.
+if [ "$ABI" = "x86_64" ]; then
+    NATIVE_BUILD="${NATIVE_BUILD:-$WSL_ROOT/mm/Open1560/android/build-x64}"
+    SDL_BUILD=build-android-x64
+else
+    NATIVE_BUILD="${NATIVE_BUILD:-$WSL_ROOT/mm/Open1560/android/build}"
+    SDL_BUILD=build-android
+fi
 
 # The SDK tools are Windows executables and need Windows paths, not the /c/...
 # form Git Bash hands out.
@@ -54,7 +62,7 @@ JAVA_HOME="$(winpath "$JAVA_HOME")" "$BUILD_TOOLS/d8.bat" --min-api 24 \
 
 echo "=== native libraries ==="
 cp "$NATIVE_BUILD/libmain.so" "$OUT/apk/lib/$ABI/"
-cp "$SDL_SOURCE/build-android/libSDL3.so" "$OUT/apk/lib/$ABI/"
+cp "$SDL_SOURCE/$SDL_BUILD/libSDL3.so" "$OUT/apk/lib/$ABI/"
 ls -la "$OUT/apk/lib/$ABI/"
 
 echo "=== aapt2 link ==="
