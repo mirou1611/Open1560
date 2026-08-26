@@ -12,3 +12,5 @@
 android/build/
 android/build-apk/
 android/open1560.apk
+
+debug.keystore

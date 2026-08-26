@@ -73,7 +73,9 @@ cd "$OUT/apk"
 cd "$HERE"
 
 echo "=== signing ==="
-KEYSTORE="$OUT/debug.keystore"
+# Lives outside $OUT, which is wiped each build - a new key every time would
+# make every install fail with INSTALL_FAILED_UPDATE_INCOMPATIBLE.
+KEYSTORE="$HERE/debug.keystore"
 
 if [ ! -f "$KEYSTORE" ]; then
     "$JAVA_HOME/bin/keytool" -genkeypair -keystore "$(winpath "$KEYSTORE")" \

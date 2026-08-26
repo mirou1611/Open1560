@@ -20,13 +20,17 @@
 //
 // Every function that still only exists as x86 assembly in game.asm lands here
 // when the game calls it. The first call to each is logged and counted; the
-// tally at exit is the priority list for what to reimplement next.
+// tally is the priority list for what to reimplement next.
+//
+// This file must not allocate. The engine replaces global operator new with its
+// own allocator, and stubs are called from static constructors - long before
+// that allocator has a heap, and again after asSafeHeap swaps the heap out from
+// under it. So the table below is fixed size and the lock is a raw pthread
+// mutex. Symbol names are string literals in the generated stubs, which makes
+// the pointer itself the key.
 
 #include <cstdio>
-#include <cstring>
-#include <mutex>
-#include <unordered_map>
-#include <vector>
+#include <pthread.h>
 
 #ifdef __ANDROID__
 #    include <android/log.h>
@@ -34,9 +38,30 @@
 
 namespace
 {
-    std::mutex StubMutex;
-    std::unordered_map<const char*, unsigned long> StubCalls;
-    std::vector<const char*> StubOrder;
+    constexpr unsigned StubTableSize = 2048; // Power of two; ~764 stubs today
+
+    pthread_mutex_t StubMutex = PTHREAD_MUTEX_INITIALIZER;
+
+    const char* StubNames[StubTableSize];
+    unsigned long StubCounts[StubTableSize];
+    unsigned StubDistinct;
+
+    unsigned StubSlot(const char* name)
+    {
+        // Fibonacci hash of the pointer, then linear probing.
+        auto value = reinterpret_cast<unsigned long long>(name);
+        unsigned slot = static_cast<unsigned>((value * 11400714819323198485ull) >> 53) & (StubTableSize - 1);
+
+        for (unsigned probe = 0; probe < StubTableSize; ++probe)
+        {
+            unsigned index = (slot + probe) & (StubTableSize - 1);
+
+            if (StubNames[index] == nullptr || StubNames[index] == name)
+                return index;
+        }
+
+        return StubTableSize; // Full - should not happen
+    }
 
     void LogStub(const char* name, bool first)
     {
@@ -54,42 +79,50 @@ extern "C" long ArtsStubCalled(const char* name)
 {
     bool first = false;
 
+    pthread_mutex_lock(&StubMutex);
+
+    if (unsigned index = StubSlot(name); index < StubTableSize)
     {
-        std::lock_guard<std::mutex> lock(StubMutex);
+        first = StubNames[index] == nullptr;
 
-        auto [entry, inserted] = StubCalls.try_emplace(name, 0);
-        ++entry->second;
-        first = inserted;
+        if (first)
+        {
+            StubNames[index] = name;
+            ++StubDistinct;
+        }
 
-        if (inserted)
-            StubOrder.push_back(name);
+        ++StubCounts[index];
     }
+
+    pthread_mutex_unlock(&StubMutex);
 
     LogStub(name, first);
 
     return 0;
 }
 
-// Called from the Android entry point when the game shuts down, and useful from
-// a debugger at any point.
+// Callable from a debugger at any point, and worth wiring to shutdown.
 extern "C" void ArtsStubReport()
 {
-    std::lock_guard<std::mutex> lock(StubMutex);
+    pthread_mutex_lock(&StubMutex);
 
 #ifdef __ANDROID__
-    __android_log_print(ANDROID_LOG_WARN, "Open1560", "=== %zu distinct stubs called ===", StubOrder.size());
+    __android_log_print(ANDROID_LOG_WARN, "Open1560", "=== %u distinct stubs called ===", StubDistinct);
 #else
-    std::fprintf(stderr, "=== %zu distinct stubs called ===\n", StubOrder.size());
+    std::fprintf(stderr, "=== %u distinct stubs called ===\n", StubDistinct);
 #endif
 
-    for (const char* name : StubOrder)
+    for (unsigned i = 0; i < StubTableSize; ++i)
     {
-        unsigned long count = StubCalls[name];
+        if (StubNames[i] == nullptr)
+            continue;
 
 #ifdef __ANDROID__
-        __android_log_print(ANDROID_LOG_WARN, "Open1560", "%8lu  %s", count, name);
+        __android_log_print(ANDROID_LOG_WARN, "Open1560", "%8lu  %s", StubCounts[i], StubNames[i]);
 #else
-        std::fprintf(stderr, "%8lu  %s\n", count, name);
+        std::fprintf(stderr, "%8lu  %s\n", StubCounts[i], StubNames[i]);
 #endif
     }
+
+    pthread_mutex_unlock(&StubMutex);
 }

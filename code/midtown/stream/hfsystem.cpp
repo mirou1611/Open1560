@@ -211,7 +211,7 @@ const char* FQN(const char* path)
     arts_strcpy(buffer, prefix);
 
     if (!FileSystem::IsPathSeparator(prefix[std::strlen(prefix) - 1]))
-        arts_strcat(buffer, "\\");
+        arts_strcat(buffer, FileSystem::PathSeparator);
 
     arts_strcat(buffer, path);
 

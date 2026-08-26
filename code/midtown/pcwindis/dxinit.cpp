@@ -22,7 +22,9 @@ define_dummy_symbol(pcwindis_dxinit);
 
 #include "dxsetup.h"
 #include "pcwindis.h"
-#include "sdldinput.h"
+#ifdef _WIN32
+#    include "sdldinput.h"
+#endif
 #include "setupdata.h"
 
 #include "agi/pipeline.h"
@@ -36,7 +38,9 @@ i32 dxiFlags = DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER;
 i32 dxiIcon = 0;
 
 HWND__* hwndMain = nullptr;
+#ifdef _WIN32
 IDirectInputA* lpDI = nullptr;
+#endif
 
 SDL_Window* g_MainWindow = nullptr;
 
@@ -52,6 +56,7 @@ inline void SafeRelease(T*& ptr)
 
 static mem::cmd_param PARAM_sdljoy {"sdljoy"};
 
+#ifdef _WIN32
 void dxiDirectInputCreate()
 {
     if (PARAM_sdljoy.get_or(true))
@@ -97,6 +102,11 @@ void dxiDirectInputCreate()
     if (err != 0)
         Quitf("DirectInputCreate failed, code %x", err);
 }
+#else
+// No DirectInput here - gamepads come from SDL.
+void dxiDirectInputCreate()
+{}
+#endif
 
 static mem::cmd_param PARAM_integrated {"integrated"};
 
@@ -128,6 +138,7 @@ void dxiInit(const char* title, i32 argc, char** argv)
 
 #undef ARG
 
+#ifdef _WIN32
     // FIXME: Make these part of the actual exe
     {
         bool use_gpu = !PARAM_integrated.get_or(false);
@@ -141,6 +152,7 @@ void dxiInit(const char* title, i32 argc, char** argv)
         if (auto NvOptimusEnablement = GetProcAddress(hInstance, "NvOptimusEnablement"))
             *reinterpret_cast<DWORD*>(NvOptimusEnablement) = use_gpu;
     }
+#endif
 
     dxiRendererType type = GetRendererInfo().Type;
 
@@ -156,7 +168,9 @@ void dxiScreenShot(char* file_name)
 
 void dxiShutdown()
 {
+#ifdef _WIN32
     SafeRelease(lpDI);
+#endif
 
     dxiWindowDestroy();
 }
@@ -182,12 +196,21 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
 
     if (type == dxiRendererType::OpenGL)
     {
+#ifdef __ANDROID__
+        // GLES 3.0 is the closest thing to the desktop GL the renderer expects.
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
+
+        window_flags |= SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN;
+#else
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,
             PARAM_legacygl.get_or(false) ? SDL_GL_CONTEXT_PROFILE_COMPATIBILITY : SDL_GL_CONTEXT_PROFILE_CORE);
 
         window_flags |= SDL_WINDOW_OPENGL /*| SDL_WINDOW_FULLSCREEN_DESKTOP*/;
+#endif
     }
 
     g_MainWindow = SDL_CreateWindow(title, 0, 0, window_flags);
@@ -197,9 +220,11 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
         Quitf("Failed to create main window: %s", SDL_GetError());
     }
 
+#ifdef _WIN32
     hwndMain =
         (HWND) SDL_GetPointerProperty(SDL_GetWindowProperties(g_MainWindow), SDL_PROP_WINDOW_WIN32_HWND_POINTER, NULL);
     ArAssert(hwndMain != NULL, "Failed to get native window handle");
+#endif
 
     SDL_RaiseWindow(g_MainWindow);
 }

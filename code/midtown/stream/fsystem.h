@@ -91,6 +91,14 @@ public:
     // ?FSCount@FileSystem@@2HA
     static i32 FSCount;
 
+    // Host path separator. Both forms are accepted on input everywhere, but
+    // paths handed back to the OS have to use the native one.
+#ifdef _WIN32
+    static constexpr const char* PathSeparator = "\\";
+#else
+    static constexpr const char* PathSeparator = "/";
+#endif
+
     static inline constexpr bool IsPathSeparator(char c) noexcept
     {
         return (c == '/') || (c == '\\');

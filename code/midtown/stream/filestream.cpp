@@ -289,7 +289,20 @@ i32 FileStream::Open(const char* path, b32 read_only)
     file_handle_ = open(path, read_only ? O_RDONLY : O_RDWR);
 
     if (file_handle_ == -1)
-        return -1;
+    {
+        // The data files may not be in the case the game asked for.
+        char resolved[MAX_PATH * 2];
+
+        if (!ArResolvePathNoCase(path, resolved, sizeof(resolved)))
+            return -1;
+
+        file_handle_ = open(resolved, read_only ? O_RDONLY : O_RDWR);
+
+        if (file_handle_ == -1)
+            return -1;
+
+        path = resolved;
+    }
 
     if (read_only)
     {

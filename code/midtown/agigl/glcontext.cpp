@@ -82,7 +82,13 @@ void agiGLContext::InitVersioning()
     i32 minor_version = 0;
     i32 profile_mask = 0;
 
-    if (arts_sscanf(gl_version, "%i.%i", &major_version, &minor_version) != 2)
+    // GLES reports "OpenGL ES <major>.<minor> <driver>"; skip to the number.
+    const char* version_numbers = gl_version;
+
+    while (*version_numbers && (*version_numbers < '0' || *version_numbers > '9'))
+        ++version_numbers;
+
+    if (arts_sscanf(version_numbers, "%i.%i", &major_version, &minor_version) != 2)
         Quitf("Failed to get OpenGL version");
 
     gl_version_ = (major_version * 100) + (minor_version * 10);

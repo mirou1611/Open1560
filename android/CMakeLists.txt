@@ -52,7 +52,6 @@ set(EXCLUDED_SOURCES
     mminput/road.cpp
     mminput/spring.cpp
     pcwindis/sdldinput.cpp      # SDL-backed DirectInput device shim
-    pcwindis/dxinit.cpp         # DirectDraw/Direct3D device enumeration
 )
 
 set(SOURCES)

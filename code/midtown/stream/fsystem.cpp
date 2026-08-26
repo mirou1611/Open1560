@@ -195,7 +195,7 @@ b32 FileSystem::Search(
         if (!ValidPath(file_path))
             continue;
 
-        arts_strcat(file_path, "\\");
+        arts_strcat(file_path, PathSeparator);
         arts_strcat(file_path, file_name);
 
         for (i32 j = 1; j <= num_exts; ++j)

@@ -824,12 +824,34 @@ void asMemoryAllocator::Unlink(FreeNode* n)
     n->NextFree = nullptr;
 }
 
+#ifndef _WIN32
+#    include <dlfcn.h>
+
+// Names the code behind a return address, for the out-of-heap diagnostic below.
+static const char* ArSymbolName(void* address)
+{
+    Dl_info info {};
+
+    return (address && dladdr(address, &info) && info.dli_sname) ? info.dli_sname : "?";
+}
+#endif
+
 void asMemoryAllocator::Verify(void* ptr) const
 {
     ArAssert(heap_ && heap_size_, "Heap not initialized");
 
     if (ptr)
     {
+#ifndef _WIN32
+        if (ptr < GetHeapStart() || ptr >= GetHeapEnd())
+        {
+            void* frames[3] {__builtin_return_address(0), __builtin_return_address(1), __builtin_return_address(2)};
+
+            Errorf("Pointer %p outside heap [%p, %p) - freed by %s <- %s <- %s", ptr, GetHeapStart(), GetHeapEnd(),
+                ArSymbolName(frames[0]), ArSymbolName(frames[1]), ArSymbolName(frames[2]));
+        }
+#endif
+
         ArAssert(ptr >= GetHeapStart(), "Pointer below heap");
         ArAssert(ptr < GetHeapEnd(), "Pointer above heap");
 

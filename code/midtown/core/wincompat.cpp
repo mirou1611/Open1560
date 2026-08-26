@@ -23,6 +23,7 @@ define_dummy_symbol(core_wincompat);
 #ifndef _WIN32
 
 #    include <cerrno>
+#    include <climits>
 #    include <cstring>
 #    include <dirent.h>
 #    include <fcntl.h>
@@ -42,6 +43,98 @@ static inline int HandleToFd(HANDLE handle)
 static inline HANDLE FdToHandle(int fd)
 {
     return (fd >= 0) ? reinterpret_cast<HANDLE>(static_cast<isize>(fd) + 1) : INVALID_HANDLE_VALUE;
+}
+
+bool ArResolvePathNoCase(const char* path, char* out, std::size_t size)
+{
+    if (path == nullptr || size == 0)
+        return false;
+
+    if (access(path, F_OK) == 0)
+    {
+        std::snprintf(out, size, "%s", path);
+
+        return true;
+    }
+
+    std::size_t length = 0;
+
+    // Absolute paths start at the root, relative ones at the working directory.
+    if (path[0] == '/')
+    {
+        out[length++] = '/';
+        ++path;
+    }
+    else
+    {
+        out[length++] = '.';
+    }
+
+    out[length] = 0;
+
+    while (*path)
+    {
+        const char* end = std::strchr(path, '/');
+        std::size_t part_len = end ? static_cast<std::size_t>(end - path) : std::strlen(path);
+
+        if (part_len == 0)
+        {
+            ++path;
+
+            continue;
+        }
+
+        char part[NAME_MAX + 1];
+
+        if (part_len > NAME_MAX)
+            return false;
+
+        std::memcpy(part, path, part_len);
+        part[part_len] = 0;
+
+        // Try the name as given, then fall back to a case-insensitive scan.
+        char candidate[MAX_PATH * 2];
+        std::snprintf(candidate, sizeof(candidate), "%s/%s", out, part);
+
+        if (access(candidate, F_OK) != 0)
+        {
+            DIR* dir = opendir(out);
+            bool found = false;
+
+            if (dir == nullptr)
+                return false;
+
+            while (dirent* entry = readdir(dir))
+            {
+                if (strcasecmp(entry->d_name, part) == 0)
+                {
+                    std::snprintf(part, sizeof(part), "%s", entry->d_name);
+                    found = true;
+
+                    break;
+                }
+            }
+
+            closedir(dir);
+
+            if (!found)
+                return false;
+        }
+
+        int written = std::snprintf(out + length, size - length, "/%s", part);
+
+        if (written < 0 || static_cast<std::size_t>(written) >= size - length)
+            return false;
+
+        length += static_cast<std::size_t>(written);
+
+        if (!end)
+            break;
+
+        path = end + 1;
+    }
+
+    return access(out, F_OK) == 0;
 }
 
 HANDLE CreateFileA(const char* file_name, DWORD desired_access, DWORD /*share_mode*/, void* /*security_attributes*/,
@@ -65,7 +158,19 @@ HANDLE CreateFileA(const char* file_name, DWORD desired_access, DWORD /*share_mo
         case TRUNCATE_EXISTING: flags |= O_TRUNC; break;
     }
 
-    return FdToHandle(open(file_name, flags, 0644));
+    int fd = open(file_name, flags, 0644);
+
+    // Reading a file that is not there in the case the game asked for: try again
+    // with whatever case the filesystem actually has.
+    if (fd == -1 && (flags & O_CREAT) == 0)
+    {
+        char resolved[MAX_PATH * 2];
+
+        if (ArResolvePathNoCase(file_name, resolved, sizeof(resolved)))
+            fd = open(resolved, flags, 0644);
+    }
+
+    return FdToHandle(fd);
 }
 
 BOOL CloseHandle(HANDLE handle)

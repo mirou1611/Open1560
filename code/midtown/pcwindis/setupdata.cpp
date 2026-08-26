@@ -59,7 +59,7 @@ static bool strtoguid(GUID* guid, const char* src)
 
 b32 dxiReadConfigFile()
 {
-    Ptr<Stream> input {arts_fopen(".\\video.cfg", "r")};
+    Ptr<Stream> input {arts_fopen("video.cfg", "r")};
 
     if (input == nullptr)
         return false;
@@ -134,7 +134,7 @@ b32 dxiReadConfigFile()
 
 void dxiWriteConfigFile()
 {
-    Ptr<Stream> output {arts_fopen(".\\video.cfg", "w")};
+    Ptr<Stream> output {arts_fopen("video.cfg", "w")};
 
     if (output == nullptr)
         return;

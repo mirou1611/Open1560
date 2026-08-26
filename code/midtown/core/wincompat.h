@@ -145,6 +145,12 @@ void OutputDebugStringA(const char* text);
 BOOL IsDebuggerPresent();
 std::int32_t MessageBoxA(HWND owner, const char* text, const char* caption, DWORD type);
 
+// Case-insensitive path resolution. The game asks for files in whatever case the
+// original data used ("CORE.AR", "mtl/road.tex"), and this filesystem cares.
+// Returns true and fills `out` when a match exists, walking the path one
+// component at a time.
+bool ArResolvePathNoCase(const char* path, char* out, std::size_t size);
+
 inline int localtime_s(std::tm* tm, const std::time_t* time)
 {
     return localtime_r(time, tm) ? 0 : -1;
