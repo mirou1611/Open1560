@@ -20,6 +20,9 @@ define_dummy_symbol(arts7_cullmgr);
 
 #include "cullmgr.h"
 
+#include "agi/bitmap.h"
+#include "agi/error.h"
+
 #include "camera.h"
 #include "midgets.h"
 #include "pgraph.h"
@@ -315,10 +318,36 @@ void asCullManager::Update()
 
 #ifdef ARTS_ANDROID_CLEAR_PROBE
     // Nothing declares a camera until the game builds its scene, which is still
-    // assembly. Present anyway, so the GL path can be verified on its own.
+    // assembly. Present anyway, and draw one real bitmap from the game archives,
+    // so the texture and draw path can be verified on their own.
     if (!num_cameras_ && IsAppActive())
     {
+        static Rc<agiBitmap> probe_bitmap;
+        static bool probe_loaded = false;
+
+        if (!probe_loaded)
+        {
+            probe_loaded = true;
+            probe_bitmap = Pipe()->CreateBitmap();
+
+            if (i32 error = probe_bitmap->Init("title_screen", 1.0f, 1.0f, 0); error != AGI_ERROR_SUCCESS)
+            {
+                Errorf("Probe bitmap failed to load: %i", error);
+                probe_bitmap = nullptr;
+            }
+            else
+            {
+                Displayf("Probe bitmap loaded: %i x %i", probe_bitmap->GetWidth(), probe_bitmap->GetHeight());
+            }
+        }
+
         Pipe()->BeginFrame();
+        Pipe()->BeginScene();
+
+        if (probe_bitmap)
+            Pipe()->CopyBitmap(0, 0, probe_bitmap.get(), 0, 0, probe_bitmap->GetWidth(), probe_bitmap->GetHeight());
+
+        Pipe()->EndScene();
         Pipe()->EndFrame();
     }
 #endif

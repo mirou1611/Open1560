@@ -138,6 +138,56 @@ i32 agiGLTexDef::BeginGfx()
     GLenum internal = 0;
     bool alpha = Tex.Flags & (agiTexParameters::Alpha | agiTexParameters::Chromakey);
 
+#ifdef ARTS_ANDROID
+// Core in GLES 3.0 and GL 3.3, but absent from the desktop headers glad generated.
+#    ifndef GL_TEXTURE_SWIZZLE_R
+#        define GL_TEXTURE_SWIZZLE_R 0x8E42
+#        define GL_TEXTURE_SWIZZLE_G 0x8E43
+#        define GL_TEXTURE_SWIZZLE_B 0x8E44
+#        define GL_TEXTURE_SWIZZLE_A 0x8E45
+#    endif
+
+    // GLES has neither GL_BGRA nor the _REV packed types, and it is strict about
+    // which internal format goes with a packed type. Every surface is uploaded
+    // in an order GLES accepts, and the channels are put back in place with the
+    // texture swizzle GLES 3.0 provides.
+    GLenum swizzle[4] {GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA};
+
+    switch (surface->PixelFormat.RBitMask)
+    {
+        case 0xF800: // 565
+            format = GL_RGB;
+            type = GL_UNSIGNED_SHORT_5_6_5;
+            internal = GL_RGB565;
+            break;
+
+        case 0xF00: // 4444, stored ARGB; GLES reads the short as RGBA
+            format = GL_RGBA;
+            type = GL_UNSIGNED_SHORT_4_4_4_4;
+            internal = GL_RGBA4;
+            swizzle[0] = GL_GREEN;
+            swizzle[1] = GL_BLUE;
+            swizzle[2] = GL_ALPHA;
+            swizzle[3] = GL_RED;
+            break;
+
+        case 0xFF: // A8B8G8R8 - bytes are already R, G, B, A
+            format = GL_RGBA;
+            type = GL_UNSIGNED_BYTE;
+            internal = alpha ? GL_RGBA8 : GL_RGB8;
+            break;
+
+        case 0xFF0000: // A8R8G8B8 - bytes are B, G, R, A
+            format = GL_RGBA;
+            type = GL_UNSIGNED_BYTE;
+            internal = alpha ? GL_RGBA8 : GL_RGB8;
+            swizzle[0] = GL_BLUE;
+            swizzle[2] = GL_RED;
+            break;
+
+        default: Quitf("Invalid Format");
+    }
+#else
     switch (surface->PixelFormat.RBitMask)
     {
         case 0xF800: // 565
@@ -166,6 +216,7 @@ i32 agiGLTexDef::BeginGfx()
 
         default: Quitf("Invalid Format");
     }
+#endif
 
 #if 0
     if (Pipe()->HasExtension("GL_ARB_internalformat_query2"))
@@ -220,6 +271,13 @@ i32 agiGLTexDef::BeginGfx()
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, num_levels - 1);
+
+#ifdef ARTS_ANDROID
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_R, swizzle[0]);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_G, swizzle[1]);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_B, swizzle[2]);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_A, swizzle[3]);
+#endif
 
     glTexParameteri(
         GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (Tex.Flags & agiTexParameters::WrapU) ? GL_REPEAT : GL_CLAMP_TO_EDGE);

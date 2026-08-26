@@ -103,7 +103,7 @@ public:
     void Load();
 
     // ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
-    [[nodiscard]] ARTS_IMPORT static Owner<agiSurfaceDesc> Load(
+    [[nodiscard]] ARTS_EXPORT static Owner<agiSurfaceDesc> Load(
         aconst char* name, aconst char* path, i32 index, i32 pack, i32 width, i32 height);
 
     void Clear();

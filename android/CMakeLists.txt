@@ -79,6 +79,7 @@ target_include_directories(midtown PUBLIC
     ${VENDOR}/SDL3/include
     ${VENDOR}/dx6/include
     ${VENDOR}/sse2neon
+    ${VENDOR}/stb
     ${CMAKE_CURRENT_SOURCE_DIR}/compat
 )
 

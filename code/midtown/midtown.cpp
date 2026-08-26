@@ -584,7 +584,11 @@ static void MainPhase(i32 argc, char** argv)
                 }
 
                 mm_interface = arnew mmInterface();
+#ifndef ARTS_ANDROID_CLEAR_PROBE
+                // mmInterface's constructor is still assembly, so the object it
+                // leaves behind cannot be walked as part of the node tree yet.
                 Sim()->AddChild(mm_interface.get());
+#endif
 
                 mm_interface->SetNavigationOrders();
                 mm_interface->Reset();
