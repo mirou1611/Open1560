@@ -127,8 +127,6 @@ inline Callback::Callback(void (*func)()) noexcept
     : invoke_(reinterpret_cast<void(__fastcall*)(void*, void*)>(
           func)) // cdecl to fastcall - func can safely ignore the two arguments passed in ecx and edx
 {}
-#else
-#    error This optimisation might not be valid
 #endif
 
 inline void Callback::Call(void* param)

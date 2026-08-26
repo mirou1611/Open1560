@@ -18,13 +18,7 @@
 
 #pragma once
 
-#include <intrin.h>
-
-#ifdef _MSC_VER
-#    define ArReturnAddress() _ReturnAddress()
-#else
-#    define ArReturnAddress() __builtin_return_address()
-#endif
+#include "core/arch.h"
 
 void* arts_calloc(std::size_t num, std::size_t size);
 

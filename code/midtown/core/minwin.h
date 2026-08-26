@@ -18,8 +18,31 @@
 
 #pragma once
 
-#define VC_EXTRALEAN
-#define WIN32_LEAN_AND_MEAN
-#define NOMINMAX
-#include <Windows.h>
-#undef GetClassName
+#ifdef _WIN32
+#    define VC_EXTRALEAN
+#    define WIN32_LEAN_AND_MEAN
+#    define NOMINMAX
+#    include <Windows.h>
+#    undef GetClassName
+#else
+
+// Non-Windows targets (Android) do not have <Windows.h>. A handful of engine
+// interfaces are declared in terms of window-message types (Dispatchable, the
+// CD/mixer audio helpers). Declaring the types keeps those signatures - and the
+// class layouts they imply - identical across platforms; the message pump
+// itself is SDL on these targets.
+
+#    include <cstdint>
+
+using HWND = void*;
+using HANDLE = void*;
+using HINSTANCE = void*;
+using HMODULE = void*;
+using UINT = unsigned int;
+using DWORD = unsigned int;
+using BOOL = int;
+using WPARAM = std::uintptr_t;
+using LPARAM = std::intptr_t;
+using LRESULT = std::intptr_t;
+
+#endif

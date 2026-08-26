@@ -18,14 +18,13 @@
 
 #pragma once
 
+#include "arch.h"
 #include "minwin.h"
 
 #include <cstdlib>
 
-#define ArDebugBreak() __debugbreak()
-
-#if 1
+#ifdef _WIN32
 #    define ArAbort() __fastfail(FAST_FAIL_FATAL_APP_EXIT)
 #else
-#    define ArAbort() ((IsDebuggerPresent() && (ArDebugBreak(), 0)), std::abort())
+#    define ArAbort() std::abort()
 #endif

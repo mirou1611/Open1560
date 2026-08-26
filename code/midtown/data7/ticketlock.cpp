@@ -44,7 +44,7 @@ void TicketLock::lock()
 
             do
             {
-                _mm_pause();
+                ArCpuRelax();
             } while (--delay_slots);
         }
     }

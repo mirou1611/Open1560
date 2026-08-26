@@ -763,7 +763,7 @@ u32 asMemoryAllocator::GetBucketIndex(u32 size) noexcept
     }
 
     unsigned long index;
-    _BitScanReverse(&index, size);
+    ArBitScanReverse(&index, size);
     return index + (SmallBucketCount - SmallBucketBits);
 }
 
@@ -904,7 +904,7 @@ asMemoryAllocator::FreeNode* asMemoryAllocator::FindFreeNode(usize size, usize a
     for (; i < ARTS_SIZE32(buckets_); ++i)
     {
         // Skip over buckets without any elements.
-        if (unsigned long index; _BitScanForward(&index, live_buckets_[i / 32] >> (i % 32)))
+        if (unsigned long index; ArBitScanForward(&index, live_buckets_[i / 32] >> (i % 32)))
         {
             i += index;
         }
