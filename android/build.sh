@@ -27,7 +27,7 @@ cmake -S . -B build \
     -DANDROID_PLATFORM="android-$API" \
     -DCMAKE_BUILD_TYPE=Release
 
-make -C build -k -j"$(nproc)" 2>&1 | tee build/build.log | grep -E "error:" > build/errors.log
+make -C build -k -j"$(nproc)" 2>&1 | tee build/build.log | grep -E "error:|undefined symbol" > build/errors.log
 
 total_tu=$(find "$WSL_SRC/android/build/CMakeFiles/midtown.dir" -name '*.o' 2>/dev/null | wc -l)
 echo

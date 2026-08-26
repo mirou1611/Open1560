@@ -57,6 +57,7 @@ define_dummy_symbol(midtown);
 #include "pcwindis/pcwindis.h"
 #include "pcwindis/setupdata.h"
 #include "stream/hfsystem.h"
+#include "stream/filestream.h"
 #include "stream/stream.h"
 #include "stream/vfsystem.h"
 #include "vector7/randmath.h"
@@ -76,7 +77,9 @@ define_dummy_symbol(midtown);
 
 #include "core/minwin.h"
 
-#include <shellapi.h>
+#ifdef _WIN32
+#    include <shellapi.h>
+#endif
 
 #ifndef CI_BUILD_STRING
 #    define CI_BUILD_STRING "Dev"
@@ -116,6 +119,10 @@ static void GameCloseCallback()
 
 static void CheckSystem()
 {
+#ifndef _WIN32
+    // No single-instance mutex, and the OS manages memory and storage limits.
+    return;
+#else
     if (HANDLE mutex = CreateMutexA(NULL, FALSE, "MidtownMadnessMutex");
         (mutex == NULL) || (WaitForSingleObject(mutex, 1) != WAIT_OBJECT_0))
     {
@@ -142,6 +149,7 @@ static void CheckSystem()
             MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_DISK), APPTITLE, MB_OK);
         }
     }
+#endif
 }
 
 struct ArchiveFileList
@@ -210,6 +218,11 @@ static void LoadArchives(const char* base_path)
 
     if (!base_path)
     {
+#ifndef _WIN32
+        // The working directory is where the data lives; see the -adir argument.
+        GetCurrentDirectoryA(ARTS_SIZE32(module_path), module_path);
+        base_path = module_path;
+#else
         GetModuleFileNameA(NULL, module_path, ARTS_SIZE32(module_path));
 
         if (char* dir = std::strrchr(module_path, '\\'))
@@ -221,6 +234,7 @@ static void LoadArchives(const char* base_path)
         {
             base_path = ".";
         }
+#endif
     }
 
     ArchiveFileList files;
@@ -317,7 +331,9 @@ static void InitAudioManager()
         (MMSTATE.AudFlags & AudManager::GetDSound3DMask()))
     {
         AudMgr()->AlwaysEAX(true);
+#ifdef _WIN32
         AudMgr()->SetEAXPreset(EAX_ENVIRONMENT_CITY, 0.114329f, 1.865f, 0.221129f);
+#endif
     }
 
     MMSTATE.HasMidtownCD = AudMgr()->CheckCDFile("cdid.txt"_xconst);
@@ -390,8 +406,10 @@ static void GameLoop([[maybe_unused]] mmInterface* mm_interface, [[maybe_unused]
             else
 #endif
             {
+#ifdef _WIN32
                 if (GetAsyncKeyState(VK_SCROLL) & 0x8000)
                     ALLOCATOR.SanityCheck();
+#endif
 
                 if (EnablePaging)
                 {
@@ -774,6 +792,7 @@ static void ApplicationHelper(i32 argc, char** argv)
         mem::cmd_param::set("showfps", "1");
     }
 
+#ifdef _WIN32
     if (priority >= 0 && priority < 4)
     {
         static const char* const priority_names[4] = {"idle", "normal", "high", "REALTIME"};
@@ -783,6 +802,7 @@ static void ApplicationHelper(i32 argc, char** argv)
             IDLE_PRIORITY_CLASS, NORMAL_PRIORITY_CLASS, HIGH_PRIORITY_CLASS, REALTIME_PRIORITY_CLASS};
         SetPriorityClass(GetCurrentProcess(), priority_classes[priority]);
     }
+#endif
 
     GBArgs.ParseArgs(argc, const_cast<const char**>(argv));
 
@@ -939,6 +959,8 @@ Ptr<agiPipeline> CreatePipeline(i32 argc, char** argv)
     return pipe;
 }
 
+#ifdef _WIN32
+
 static char** GetCommandLineUTF8(const wchar_t* wCmdLine, int* pNumArgs)
 {
     int argc = 0;
@@ -1010,6 +1032,74 @@ static char** GetCommandFileUTF8(int* pNumArgs)
     return result;
 }
 
+#else
+
+// commandline.txt is the only way to pass arguments on Android, where the
+// process gets none, so it is parsed here: whitespace separated, double quotes
+// group. Slot 0 stands in for the program name, which the caller replaces.
+static char** GetCommandFileUTF8(int* pNumArgs)
+{
+    FileStream file {nullptr, 0, nullptr};
+
+    if (file.Open("commandline.txt", true) != 1)
+        return nullptr;
+
+    i32 file_size = file.RawSize();
+
+    if (file_size <= 0)
+        return nullptr;
+
+    char* text = static_cast<char*>(arts_malloc(static_cast<usize>(file_size) + 1));
+
+    if (file.RawRead(text, file_size) != file_size)
+    {
+        arts_free(text);
+
+        return nullptr;
+    }
+
+    text[file_size] = '\0';
+
+    // Worst case every other character starts a new argument.
+    usize max_args = static_cast<usize>(file_size) / 2 + 2;
+    char** result = static_cast<char**>(arts_malloc(sizeof(char*) * (max_args + 1)));
+
+    int argc = 1;
+    result[0] = text; // Placeholder for the program name
+
+    for (char* here = text; *here;)
+    {
+        while (*here && static_cast<unsigned char>(*here) <= ' ')
+            *here++ = '\0';
+
+        if (*here == '\0')
+            break;
+
+        char quote = '\0';
+
+        if (*here == '"')
+        {
+            quote = *here;
+            *here++ = '\0';
+        }
+
+        result[argc++] = here;
+
+        while (*here && (quote ? (*here != quote) : (static_cast<unsigned char>(*here) > ' ')))
+            ++here;
+
+        if (*here)
+            *here++ = '\0';
+    }
+
+    result[argc] = nullptr;
+    *pNumArgs = argc;
+
+    return result;
+}
+
+#endif
+
 static mem::cmd_param PARAM_help {"help", "Show list of available command line arguments"};
 
 static void ShowUsage()
@@ -1050,12 +1140,14 @@ static void SetThreadSafety()
 {
     u32 affinity = PARAM_affinity.get_or<u32>(0);
 
+#ifdef _WIN32
     if (affinity)
     {
         Displayf("SetProcessAffinityMask(0x%X)", affinity);
 
         SetProcessAffinityMask(GetCurrentProcess(), affinity);
     }
+#endif
 
     if (affinity == 0 || (affinity & (affinity - 1)) != 0)
     {
@@ -1082,11 +1174,13 @@ static void Application(i32 argc, char** argv)
             return;
         }
 
+#ifdef ARTS_DEV_BUILD
         if (const char* tool = PARAM_tool.value())
         {
             ProcessTool(tool);
             return;
         }
+#endif
 
         ApplicationHelper(argc, argv);
     }
@@ -1146,12 +1240,14 @@ int main(int argc, char** argv)
         },
         nullptr);
 
+#ifdef _WIN32
     SDL_SetWindowsMessageHook(
         [](void* /*userdata*/, MSG* msg) {
             SDLWindowProc(msg->hwnd, msg->message, msg->wParam, msg->lParam);
             return true;
         },
         nullptr);
+#endif
 
     if (int file_argc = 0; char** file_argv = GetCommandFileUTF8(&file_argc))
     {
