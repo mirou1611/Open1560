@@ -300,7 +300,12 @@ void agiGLPipeline::BeginFrame()
     {
         agiGL->EnableDisable(GL_SCISSOR_TEST, false);
         agiGL->DepthMask(true);
+#ifdef ARTS_ANDROID_CLEAR_PROBE
+        // Temporary: proves the context -> framebuffer -> blit -> swap path.
+        glClearColor(0.15f, 0.35f, 0.75f, 1.0f);
+#else
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+#endif
     }
 
     if (fbo_ != 0)

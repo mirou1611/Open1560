@@ -171,10 +171,14 @@ void mmInterface::SetNavigationOrders()
 {
     // TODO: Do this during menu construction instead
     const auto fixup = [this](UIMenu* menu, std::initializer_list<const char*> labels) {
+        // A menu that was never built has nothing to order.
+        if (menu == nullptr)
+            return;
+
         menu->SetNavigationOrder(labels.begin(), labels.size());
     };
 
-    fixup((UIMenu*) MenuMgr()->GetNavBar(), {"mnav_prev", "mnav_opt", "mnav_help", "mnav_stow", "mnav_exit"});
+    fixup(MenuMgr() ? (UIMenu*) MenuMgr()->GetNavBar() : nullptr, {"mnav_prev", "mnav_opt", "mnav_help", "mnav_stow", "mnav_exit"});
     fixup((UIMenu*) MenuRace,
         {"race_roam", "race_blitz", "race_waypt", "race_circ", "RACE NAME", "race_drop_frame", "race desc icons",
             "race_cenv", "LAPS", "race_laps", "CHECKPOINTS", "race_checkpoints", "OPPONENTS", "race_oppo", "race_env",

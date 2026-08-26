@@ -306,6 +306,23 @@ void asCullManager::Update()
     Timer update_timer;
     float update_3D = 0.0f;
 
+    if (static bool reported = false; !reported)
+    {
+        reported = true;
+        Displayf("CullManager: %i cameras, %i cullables, app active %i", num_cameras_, num_cullables_,
+            static_cast<i32>(IsAppActive()));
+    }
+
+#ifdef ARTS_ANDROID_CLEAR_PROBE
+    // Nothing declares a camera until the game builds its scene, which is still
+    // assembly. Present anyway, so the GL path can be verified on its own.
+    if (!num_cameras_ && IsAppActive())
+    {
+        Pipe()->BeginFrame();
+        Pipe()->EndFrame();
+    }
+#endif
+
     if (num_cameras_ && IsAppActive())
     {
         Pipe()->BeginFrame();

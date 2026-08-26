@@ -87,6 +87,7 @@ target_compile_definitions(midtown PUBLIC
     ARTS_STANDALONE
     ARTS_ANDROID=1
     ARTS_NO_AUDIO=1
+    ARTS_ANDROID_CLEAR_PROBE=1
 )
 
 target_compile_options(midtown PRIVATE
