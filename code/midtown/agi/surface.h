@@ -92,7 +92,8 @@ public:
     void CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters* params);
 
     // ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
-    ARTS_IMPORT void Reload(aconst char* arg1, aconst char* arg2, i32 arg3, i32 arg4, Stream* arg5, i32 arg6, i32 arg7);
+    ARTS_EXPORT void Reload(
+        aconst char* name, aconst char* path, i32 index, i32 pack, Stream* stream, i32 width, i32 height);
 
     // ?Unload@agiSurfaceDesc@@QAEXXZ
     void Unload();

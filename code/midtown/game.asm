@@ -175257,377 +175257,6 @@ loc_48B51A:
 ??_GasNetObject@@UAEPAXI@Z ENDP
 
 ALIGN 16
-??0mmLoader@@QAE@XZ PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    push -1
-    push offset ??0mmLoader@@QAE@XZ_SEH
-    mov eax, dword ptr fs:[0]
-    push eax
-    mov dword ptr fs:[0], esp
-    push ecx
-    push esi
-    mov esi, ecx
-    push edi
-    mov dword ptr [ebp-10h], esi
-    mov dword ptr [esi], offset ??_7asCullable@@6B@
-    xor edi, edi
-    lea ecx, [esi+1Ch]
-    mov dword ptr [ebp-4], edi
-    call ??0asCamera@@QAE@XZ
-    lea ecx, [esi+1A8h]
-    mov byte ptr [ebp-4], 1
-    call ??0Timer@@QAE@XZ
-    lea ecx, [esi+1ACh]
-    call ??0mmTextNode@@QAE@XZ
-    lea ecx, [esi+200h]
-    mov byte ptr [ebp-4], 2
-    call ??0mmTextNode@@QAE@XZ
-    lea ecx, [esi+254h]
-    mov byte ptr [ebp-4], 3
-    call ??0mmTextNode@@QAE@XZ
-    mov dword ptr [esi], offset ??_7mmLoader@@6B@
-    mov eax, dword ptr [?Current@mmLoader@@0PAV1@A]
-    cmp eax, edi
-    mov byte ptr [ebp-4], 4
-    jz loc_48B5C7
-    push offset asc_63E170
-    push 0Fh
-    push offset asc_63E180
-    push offset ?__assertFailed@@3PADA
-    call ?Abortf@@YAXPBDZZ
-    add esp, 10h
-
-loc_48B5C7:
-    mov dword ptr [esi+0Ch], edi
-    mov eax, dword ptr [?CurrentPipe@agiPipeline@@2PAV1@A]
-    mov ecx, dword ptr [eax+10h]
-    push ecx
-    push 0Fh
-    call ?AngelReadString@@YAPAULocString@@I@Z
-    add esp, 4
-    push eax
-    call ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
-    mov edx, dword ptr [?CurrentPipe@agiPipeline@@2PAV1@A]
-    add esp, 8
-    mov dword ptr [?myFont@@3PAXA], eax
-    mov eax, dword ptr [edx+10h]
-    push eax
-    push 10h
-    call ?AngelReadString@@YAPAULocString@@I@Z
-    add esp, 4
-    push eax
-    call ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
-    add esp, 8
-    mov dword ptr [?IntroFont@@3PAXA], eax
-    mov dword ptr [esi+4], edi
-    mov dword ptr [esi+2ACh], edi
-    mov ecx, dword ptr [?CurrentPipe@agiPipeline@@2PAV1@A]
-    push 1
-    push 41400000h
-    push 43780000h
-    push offset asc_63E19C
-    call ?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PBDMMH@Z
-    mov dword ptr [esi+2A8h], eax
-    mov ecx, dword ptr [?CurrentPipe@agiPipeline@@2PAV1@A]
-    cmp dword ptr [ecx+10h], 280h
-    jl loc_48B663
-    push 1
-    push 41400000h
-    push 43780000h
-    push offset asc_63E1A8
-    call ?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PBDMMH@Z
-    mov dword ptr [esi+2ACh], eax
-
-loc_48B663:
-    mov ecx, dword ptr [ebp-0Ch]
-    mov dword ptr [?Current@mmLoader@@0PAV1@A], esi
-    mov eax, esi
-    pop edi
-    mov dword ptr fs:[0], ecx
-    pop esi
-    mov esp, ebp
-    pop ebp
-    retn
-??0mmLoader@@QAE@XZ ENDP
-
-ALIGN 16
-??1mmLoader@@UAE@XZ PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    push -1
-    push offset ??1mmLoader@@UAE@XZ_SEH
-    mov eax, dword ptr fs:[0]
-    push eax
-    mov dword ptr fs:[0], esp
-    push ecx
-    push esi
-    mov esi, ecx
-    mov dword ptr [ebp-10h], esi
-    mov dword ptr [esi], offset ??_7mmLoader@@6B@
-    mov eax, dword ptr [?myFont@@3PAXA]
-    mov dword ptr [ebp-4], 4
-    push eax
-    call ?DeleteFont@mmText@@SAXPAX@Z
-    add esp, 4
-    lea ecx, [esi+254h]
-    mov dword ptr [?Current@mmLoader@@0PAV1@A], 0
-    mov byte ptr [ebp-4], 3
-    call ??1mmTextNode@@UAE@XZ
-    lea ecx, [esi+200h]
-    mov byte ptr [ebp-4], 2
-    call ??1mmTextNode@@UAE@XZ
-    lea ecx, [esi+1ACh]
-    mov byte ptr [ebp-4], 1
-    call ??1mmTextNode@@UAE@XZ
-    lea ecx, [esi+1Ch]
-    mov byte ptr [ebp-4], 0
-    call ??1asCamera@@UAE@XZ
-    mov ecx, esi
-    mov dword ptr [ebp-4], -1
-    call ??1Base@@UAE@XZ
-    mov ecx, dword ptr [ebp-0Ch]
-    pop esi
-    mov dword ptr fs:[0], ecx
-    mov esp, ebp
-    pop ebp
-    retn
-??1mmLoader@@UAE@XZ ENDP
-
-ALIGN 16
-?SetIntroText@mmLoader@@QAEXPAULocString@@@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    mov eax, dword ptr [ebp+8]
-    push esi
-    mov esi, ecx
-    push eax
-    push 0
-    lea ecx, [esi+200h]
-    call ?SetString@mmTextNode@@QAEXHPAULocString@@@Z
-    mov ecx, esi
-    call ?Update@mmLoader@@QAEXXZ
-    pop esi
-    pop ebp
-    retn 4
-?SetIntroText@mmLoader@@QAEXPAULocString@@@Z ENDP
-
-ALIGN 16
-?BeginTask@mmLoader@@QAEXPAULocString@@M@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    fld dword ptr [ebp+0Ch]
-    fcomp dword ptr [flt_61CC00]
-    push esi
-    mov esi, ecx
-    fnstsw ax
-    test ah, 40h
-    jnz loc_48B8B0
-    fld dword ptr [ebp+0Ch]
-    fcomp dword ptr [flt_61CC00]
-    fnstsw ax
-    test ah, 41h
-    jz loc_48B87E
-    fld dword ptr [flt_61CC00]
-    jmp loc_48B899
-
-loc_48B87E:
-    fld dword ptr [ebp+0Ch]
-    fcomp dword ptr [flt_61CC04]
-    fnstsw ax
-    test ah, 1
-    jnz loc_48B896
-    fld dword ptr [flt_61CC04]
-    jmp loc_48B899
-
-loc_48B896:
-    fld dword ptr [ebp+0Ch]
-
-loc_48B899:
-    fstp dword ptr [esi+2B4h]
-    lea ecx, [esi+1A8h]
-    call ?Time@Timer@@QAEMXZ
-    fstp dword ptr [esi+2C0h]
-
-loc_48B8B0:
-    mov eax, dword ptr [ebp+8]
-    lea ecx, [esi+1ACh]
-    push eax
-    push 0
-    call ?SetString@mmTextNode@@QAEXHPAULocString@@@Z
-    mov ecx, esi
-    call ?Update@mmLoader@@QAEXXZ
-    pop esi
-    pop ebp
-    retn 8
-?BeginTask@mmLoader@@QAEXPAULocString@@M@Z ENDP
-
-ALIGN 16
-?EndTask@mmLoader@@QAEXM@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    fld dword ptr [ebp+8]
-    fcomp dword ptr [flt_61CC00]
-    push esi
-    push edi
-    mov esi, ecx
-    fnstsw ax
-    test ah, 40h
-    jnz loc_48B931
-    fld dword ptr [ebp+8]
-    fcomp dword ptr [flt_61CC00]
-    fnstsw ax
-    test ah, 41h
-    jz loc_48B8FF
-    fld dword ptr [flt_61CC00]
-    jmp loc_48B91A
-
-loc_48B8FF:
-    fld dword ptr [ebp+8]
-    fcomp dword ptr [flt_61CC04]
-    fnstsw ax
-    test ah, 1
-    jnz loc_48B917
-    fld dword ptr [flt_61CC04]
-    jmp loc_48B91A
-
-loc_48B917:
-    fld dword ptr [ebp+8]
-
-loc_48B91A:
-    fstp dword ptr [esi+2B4h]
-    lea ecx, [esi+1A8h]
-    call ?Time@Timer@@QAEMXZ
-    fstp dword ptr [esi+2C0h]
-
-loc_48B931:
-    lea edi, [esi+1ACh]
-    push offset dword_6A8DBC
-    push 0
-    mov ecx, edi
-    call ?SetString@mmTextNode@@QAEXHPAULocString@@@Z
-    push offset dword_6A8DC0
-    push 1
-    mov ecx, edi
-    call ?SetString@mmTextNode@@QAEXHPAULocString@@@Z
-    mov ecx, esi
-    call ?Update@mmLoader@@QAEXXZ
-    mov dword ptr [esi+4], 0
-    pop edi
-    pop esi
-    pop ebp
-    retn 4
-?EndTask@mmLoader@@QAEXM@Z ENDP
-
-ALIGN 16
-?Reset@mmLoader@@QAEXXZ PROC PUBLIC
-    xor eax, eax
-    mov dword ptr [ecx+2B4h], eax
-    mov dword ptr [ecx+2BCh], eax
-    mov dword ptr [ecx+2C0h], eax
-    add ecx, 1A8h
-    jmp ?Reset@Timer@@QAEXXZ
-?Reset@mmLoader@@QAEXXZ ENDP
-
-ALIGN 16
-?Cull@mmLoader@@UAEXXZ PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    sub esp, 8
-    push ebx
-    push esi
-    mov esi, ecx
-    push edi
-    mov eax, dword ptr [esi+0Ch]
-    test eax, eax
-    mov dword ptr [ebp-8], eax
-    jz loc_48BB15
-    mov eax, dword ptr [esi+2A8h]
-    mov edi, dword ptr [eax+24h]
-    mov dword ptr [ebp-4], edi
-    fild dword ptr [ebp-4]
-    fmul dword ptr [esi+2BCh]
-    call __ftol
-    cmp eax, 1
-    jg loc_48BAAF
-    mov edi, 1
-    jmp loc_48BAB5
-
-loc_48BAAF:
-    cmp eax, edi
-    jge loc_48BAB5
-    mov edi, eax
-
-loc_48BAB5:
-    mov eax, dword ptr [esi+2ACh]
-    test eax, eax
-    jz loc_48BADF
-    mov ebx, dword ptr [eax+28h]
-    mov ecx, dword ptr [?CurrentPipe@agiPipeline@@2PAV1@A]
-    push ebx
-    mov ebx, dword ptr [eax+24h]
-    mov edx, dword ptr [ecx]
-    push ebx
-    push 0
-    push 0
-    push eax
-    mov eax, dword ptr [esi+10h]
-    push eax
-    mov eax, dword ptr [ebp-8]
-    push eax
-    call dword ptr [edx+40h]
-
-loc_48BADF:
-    fld dword ptr [esi+2BCh]
-    fcomp dword ptr [flt_61CC00]
-    fnstsw ax
-    test ah, 41h
-    jnz loc_48BB15
-    mov eax, dword ptr [esi+2A8h]
-    mov ecx, dword ptr [?CurrentPipe@agiPipeline@@2PAV1@A]
-    mov ebx, dword ptr [eax+28h]
-    mov edx, dword ptr [ecx]
-    push ebx
-    push edi
-    push 0
-    push 0
-    push eax
-    mov eax, dword ptr [esi+10h]
-    push eax
-    mov eax, dword ptr [esi+0Ch]
-    push eax
-    call dword ptr [edx+40h]
-
-loc_48BB15:
-    pop edi
-    pop esi
-    pop ebx
-    mov esp, ebp
-    pop ebp
-    retn
-?Cull@mmLoader@@UAEXXZ ENDP
-
-ALIGN 16
-??_EmmLoader@@UAEPAXI@Z PROC PRIVATE
-    push ebp
-    mov ebp, esp
-    push esi
-    mov esi, ecx
-    call ??1mmLoader@@UAE@XZ
-    test byte ptr [ebp+8], 1
-    jz loc_48BB3A
-    push esi
-    call ?arts_operator_delete@@YAXPAX@Z
-    add esp, 4
-
-loc_48BB3A:
-    mov eax, esi
-    pop esi
-    pop ebp
-    retn 4
-??_EmmLoader@@UAEPAXI@Z ENDP
-
-ALIGN 16
 ??0mmCullCity@@QAE@XZ PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -411800,353 +411429,6 @@ loc_55ADD2:
 ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z ENDP
 
 ALIGN 16
-?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z PROC PUBLIC
-    push ebp
-    mov ebp, esp
-    sub esp, 2BCh
-    push ebx
-    push esi
-    push edi
-    mov edi, ecx
-    test edi, edi
-    mov dword ptr [ebp-4], edi
-    jnz loc_55AE11
-    push offset asc_6571C8
-    push 101h
-    push offset asc_6571D0
-    push offset ?__assertFailed@@3PADA
-    call ?Abortf@@YAXPBDZZ
-    add esp, 10h
-
-loc_55AE11:
-    mov eax, dword ptr [edi+24h]
-    test eax, eax
-    jnz loc_55B149
-    mov esi, dword ptr [ebp+18h]
-    mov dword ptr [ebp-8], 0
-    test esi, esi
-    jnz loc_55AEDF
-    mov ebx, dword ptr [ebp+0Ch]
-
-loc_55AE31:
-    mov eax, dword ptr [ebp+8]
-    lea ecx, [ebp-88h]
-    push eax
-    push ebx
-    push offset asc_6571E8
-    push ecx
-    call _sprintf
-    add esp, 10h
-    lea edx, [ebp-88h]
-    push offset asc_6571F4
-    push edx
-    call ?arts_fopen@@YAPAVStream@@PBD0@Z
-    mov esi, eax
-    add esp, 8
-    test esi, esi
-    jnz loc_55AEC3
-    mov ecx, dword ptr [ebp+10h]
-    mov eax, offset asc_6571F8
-    test ecx, ecx
-    jnz loc_55AE75
-    mov eax, offset asc_657208
-
-loc_55AE75:
-    push ecx
-    mov ecx, dword ptr [ebp+8]
-    push ecx
-    push ebx
-    lea edx, [ebp-88h]
-    push eax
-    push edx
-    call _sprintf
-    add esp, 14h
-    lea eax, [ebp-88h]
-    push offset asc_657214
-    push eax
-    call ?arts_fopen@@YAPAVStream@@PBD0@Z
-    mov esi, eax
-    add esp, 8
-    test esi, esi
-    jnz loc_55AEDF
-    mov edi, ebx
-    or ecx, -1
-    repne scasb
-    not ecx
-    dec ecx
-    mov edi, dword ptr [ebp-4]
-    mov al, byte ptr [ebx+ecx+1]
-    lea ebx, [ebx+ecx+1]
-    test al, al
-    jz loc_55AECA
-    jmp loc_55AE31
-
-loc_55AEC3:
-    mov dword ptr [ebp-8], 1
-
-loc_55AECA:
-    test esi, esi
-    jnz loc_55AEDF
-    mov ecx, dword ptr [ebp+8]
-    push ecx
-    push offset asc_657218
-    call ?Quitf@@YAXPBDZZ
-    add esp, 8
-
-loc_55AEDF:
-    mov eax, dword ptr [ebp-8]
-    test eax, eax
-    jz loc_55AFBD
-    lea edx, [ebp-2BCh]
-    push edx
-    call ?jpeg_std_error@@YAPAUjpeg_error_mgr@@PAU1@@Z
-    add esp, 4
-    mov dword ptr [ebp-238h], eax
-    lea eax, [ebp-238h]
-    push 1B0h
-    push 3Eh
-    push eax
-    call ?jpeg_CreateDecompress@@YAXPAUjpeg_decompress_struct@@HI@Z
-    add esp, 0Ch
-    lea ecx, [ebp-238h]
-    push esi
-    push ecx
-    call ?jpeg_stdio_src@@YAXPAUjpeg_decompress_struct@@PAVStream@@@Z
-    add esp, 8
-    lea edx, [ebp-238h]
-    push 1
-    push edx
-    call ?jpeg_read_header@@YAHPAUjpeg_decompress_struct@@E@Z
-    mov eax, dword ptr [ebp+1Ch]
-    add esp, 8
-    test eax, eax
-    jz loc_55AF4A
-    mov ecx, dword ptr [ebp+20h]
-    test ecx, ecx
-    jz loc_55AF4A
-    mov dword ptr [edi+0Ch], eax
-    mov dword ptr [edi+8], ecx
-
-loc_55AF4A:
-    lea eax, [ebp-238h]
-    push eax
-    call ?jpeg_start_decompress@@YAEPAUjpeg_decompress_struct@@@Z
-    mov ecx, dword ptr [edi+0Ch]
-    add esp, 4
-    imul ecx, dword ptr [edi+8]
-    shl ecx, 1
-    push ecx
-    call ?arts_operator_new@@YAPAXI@Z
-    mov ecx, dword ptr [edi+0Ch]
-    add esp, 4
-    lea edx, [ebp-238h]
-    mov dword ptr [edi+24h], eax
-    push edx
-    push eax
-    mov eax, dword ptr [edi+8]
-    push eax
-    push ecx
-    call ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
-    add esp, 10h
-    lea edx, [ebp-238h]
-    push edx
-    call ?jpeg_finish_decompress@@YAEPAUjpeg_decompress_struct@@@Z
-    add esp, 4
-    lea eax, [ebp-238h]
-    push eax
-    call ?jpeg_destroy_decompress@@YAXPAUjpeg_decompress_struct@@@Z
-    add esp, 4
-    test esi, esi
-    jz loc_55B149
-    mov edx, dword ptr [esi]
-    push 1
-    mov ecx, esi
-    call dword ptr [edx]
-    pop edi
-    pop esi
-    pop ebx
-    mov esp, ebp
-    pop ebp
-    retn 1Ch
-
-loc_55AFBD:
-    mov ecx, esi
-    call ?Size@Stream@@QAEHXZ
-    mov ebx, eax
-    mov eax, dword ptr [edi+54h]
-    add eax, 7
-    mov edx, dword ptr [ebp+14h]
-    and al, 0F8h
-    sub ebx, 80h
-    imul eax, dword ptr [edi+0Ch]
-    imul eax, dword ptr [edi+8]
-    shr eax, 1
-    xor ecx, ecx
-    test edx, edx
-    jz loc_55AFF1
-
-loc_55AFE7:
-    add ecx, eax
-    sub ebx, eax
-    shl eax, 2
-    dec edx
-    jnz loc_55AFE7
-
-loc_55AFF1:
-    add ecx, 80h
-    push ecx
-    mov ecx, esi
-    call ?Seek@Stream@@QAEHH@Z
-    push ebx
-    call ?arts_operator_new@@YAPAXI@Z
-    add esp, 4
-    mov ecx, esi
-    mov dword ptr [edi+24h], eax
-    push ebx
-    push eax
-    call ?Read@Stream@@QAEHPAXH@Z
-    test esi, esi
-    jz loc_55B020
-    mov eax, dword ptr [esi]
-    push 1
-    mov ecx, esi
-    call dword ptr [eax]
-
-loc_55B020:
-    mov eax, dword ptr [?AnnotateTextures@@3HA]
-    test eax, eax
-    jz loc_55B149
-    cmp dword ptr [edi+8], 8
-    jb loc_55B149
-    mov eax, dword ptr [edi+54h]
-    mov dword ptr [ebp+18h], 0
-    cmp eax, 8
-    jnz loc_55B0C5
-    mov ecx, dword ptr [ebp+8]
-    mov edi, dword ptr [edi+24h]
-    mov dword ptr [ebp+0Ch], edi
-    mov al, byte ptr [ecx]
-    test al, al
-    jz loc_55B149
-
-loc_55B059:
-    mov edx, dword ptr [ebp-4]
-    mov ecx, dword ptr [ebp+18h]
-    cmp ecx, dword ptr [edx+0Ch]
-    jnb loc_55B149
-    movsx edx, al
-    xor esi, esi
-    lea eax, ?CharSet@@3PAEA[edx*8-100h]
-
-loc_55B074:
-    xor ecx, ecx
-
-loc_55B076:
-    mov bl, byte ptr [esi+eax]
-    mov edx, 80h
-    sar edx, cl
-    and dl, bl
-    neg dl
-    sbb edx, edx
-    mov byte ptr [ecx+edi], dl
-    inc ecx
-    cmp ecx, 8
-    jl loc_55B076
-    mov ecx, dword ptr [ebp-4]
-    inc esi
-    mov edx, dword ptr [ecx+0Ch]
-    add edi, edx
-    cmp esi, 8
-    jl loc_55B074
-    mov edi, dword ptr [ebp+0Ch]
-    mov esi, dword ptr [ebp+18h]
-    mov eax, dword ptr [ebp+8]
-    add edi, 8
-    add esi, 8
-    inc eax
-    mov dword ptr [ebp+8], eax
-    mov dword ptr [ebp+0Ch], edi
-    mov al, byte ptr [eax]
-    mov dword ptr [ebp+18h], esi
-    test al, al
-    jnz loc_55B059
-    pop edi
-    pop esi
-    pop ebx
-    mov esp, ebp
-    pop ebp
-    retn 1Ch
-
-loc_55B0C5:
-    cmp eax, 10h
-    jnz loc_55B149
-    mov edx, dword ptr [ebp+8]
-    mov esi, dword ptr [edi+24h]
-    mov dword ptr [ebp+10h], esi
-    mov al, byte ptr [edx]
-    test al, al
-    jz loc_55B149
-    jmp loc_55B0DE
-
-loc_55B0DB:
-    mov edi, dword ptr [ebp-4]
-
-loc_55B0DE:
-    mov ecx, dword ptr [ebp+18h]
-    mov edx, dword ptr [edi+0Ch]
-    cmp ecx, edx
-    jnb loc_55B149
-    movsx edx, al
-    mov dword ptr [ebp+0Ch], esi
-    xor edi, edi
-    lea eax, ?CharSet@@3PAEA[edx*8-100h]
-
-loc_55B0F7:
-    xor ecx, ecx
-
-loc_55B0F9:
-    mov bl, byte ptr [edi+eax]
-    mov edx, 80h
-    sar edx, cl
-    and dl, bl
-    neg dl
-    sbb edx, edx
-    inc ecx
-    mov word ptr [esi], dx
-    add esi, 2
-    cmp ecx, 8
-    jl loc_55B0F9
-    mov ecx, dword ptr [ebp-4]
-    inc edi
-    cmp edi, 8
-    mov edx, dword ptr [ecx+0Ch]
-    mov ecx, dword ptr [ebp+0Ch]
-    lea esi, [ecx+edx*2]
-    mov dword ptr [ebp+0Ch], esi
-    jl loc_55B0F7
-    mov esi, dword ptr [ebp+10h]
-    mov edi, dword ptr [ebp+18h]
-    mov eax, dword ptr [ebp+8]
-    add esi, 10h
-    add edi, 8
-    inc eax
-    mov dword ptr [ebp+8], eax
-    mov dword ptr [ebp+10h], esi
-    mov al, byte ptr [eax]
-    mov dword ptr [ebp+18h], edi
-    test al, al
-    jnz loc_55B0DB
-
-loc_55B149:
-    pop edi
-    pop esi
-    pop ebx
-    mov esp, ebp
-    pop ebp
-    retn 1Ch
-?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z ENDP
-
-ALIGN 16
 ?copyrow565_to_555@@YAXPAX0II@Z PROC PUBLIC
     push ebp
     mov ebp, esp
@@ -451056,64 +450338,6 @@ loc_6125AB:
     jmp ___CxxFrameHandler
 ?EnableSurface@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z_SEH ENDP
 
-loc_6125C0:
-    mov ecx, dword ptr [ebp-10h]
-    jmp ??1asCullable@@UAE@XZ
-
-loc_6125C8:
-    mov ecx, dword ptr [ebp-10h]
-    add ecx, 1Ch
-    jmp ??1asCamera@@UAE@XZ
-
-loc_6125D3:
-    mov ecx, dword ptr [ebp-10h]
-    add ecx, 1ACh
-    jmp ??1mmTextNode@@UAE@XZ
-
-loc_6125E1:
-    mov ecx, dword ptr [ebp-10h]
-    add ecx, 200h
-    jmp ??1mmTextNode@@UAE@XZ
-
-loc_6125EF:
-    mov ecx, dword ptr [ebp-10h]
-    add ecx, 254h
-    jmp ??1mmTextNode@@UAE@XZ
-
-??0mmLoader@@QAE@XZ_SEH PROC PRIVATE
-    mov eax, offset stru_62B6E0
-    jmp ___CxxFrameHandler
-??0mmLoader@@QAE@XZ_SEH ENDP
-
-loc_612607:
-    mov ecx, dword ptr [ebp-10h]
-    jmp ??1asCullable@@UAE@XZ
-
-loc_61260F:
-    mov ecx, dword ptr [ebp-10h]
-    add ecx, 1Ch
-    jmp ??1asCamera@@UAE@XZ
-
-loc_61261A:
-    mov ecx, dword ptr [ebp-10h]
-    add ecx, 1ACh
-    jmp ??1mmTextNode@@UAE@XZ
-
-loc_612628:
-    mov ecx, dword ptr [ebp-10h]
-    add ecx, 200h
-    jmp ??1mmTextNode@@UAE@XZ
-
-loc_612636:
-    mov ecx, dword ptr [ebp-10h]
-    add ecx, 254h
-    jmp ??1mmTextNode@@UAE@XZ
-
-??1mmLoader@@UAE@XZ_SEH PROC PRIVATE
-    mov eax, offset stru_62B728
-    jmp ___CxxFrameHandler
-??1mmLoader@@UAE@XZ_SEH ENDP
-
 loc_612650:
     mov ecx, dword ptr [ebp-10h]
     jmp ??1asNode@@UAE@XZ
@@ -460781,26 +460005,12 @@ ALIGN 4
     dd offset ?PositionUpdate@asNetObject@@UAEXPAVMatrix34@@VVector3@@MMM@Z
 
 ALIGN 4
-??_7mmLoader@@6B@ dd offset ??_EmmLoader@@UAEPAXI@Z
-    dd offset ?GetClass@asCullable@@UAEPAVMetaClass@@XZ
-    dd offset ?GetTypeNameV@Base@@UAEPBDXZ
-    dd offset ?BeforeSave@Base@@UAEXXZ
-    dd offset ?AfterLoad@Base@@UAEXXZ
-    dd offset ?Cull@mmLoader@@UAEXXZ
-
-ALIGN 4
 ??_7asCullable@@6B@ dd offset ??_EasCullable@@UAEPAXI@Z
     dd offset ?GetClass@asCullable@@UAEPAVMetaClass@@XZ
     dd offset ?GetTypeNameV@Base@@UAEPBDXZ
     dd offset ?BeforeSave@Base@@UAEXXZ
     dd offset ?AfterLoad@Base@@UAEXXZ
     dd offset ?Cull@asCullable@@UAEXXZ
-
-ALIGN 4
-flt_61CC00 dd 000000000r
-
-ALIGN 4
-flt_61CC04 dd 03F800000r
 
 ALIGN 8
 dbl_61CC20 dq 03FE0000000000000r
@@ -470388,48 +469598,6 @@ stru_62B6D0 dd 0FFFFFFFFh
     dd offset loc_6125A0
     dd 0FFFFFFFFh
     dd offset loc_6125AB
-
-ALIGN 4
-stru_62B6E0 dd 19930520h
-    dd 5
-    dd offset stru_62B700
-    dd 0
-    dd 0
-    dd 0
-    dd 0
-
-ALIGN 4
-stru_62B700 dd 0FFFFFFFFh
-    dd offset loc_6125C0
-    dd 0
-    dd offset loc_6125C8
-    dd 1
-    dd offset loc_6125D3
-    dd 2
-    dd offset loc_6125E1
-    dd 3
-    dd offset loc_6125EF
-
-ALIGN 4
-stru_62B728 dd 19930520h
-    dd 5
-    dd offset stru_62B748
-    dd 0
-    dd 0
-    dd 0
-    dd 0
-
-ALIGN 4
-stru_62B748 dd 0FFFFFFFFh
-    dd offset loc_612607
-    dd 0
-    dd offset loc_61260F
-    dd 1
-    dd offset loc_61261A
-    dd 2
-    dd offset loc_612628
-    dd 3
-    dd offset loc_612636
 
 ALIGN 4
 stru_62B770 dd 19930520h
@@ -481692,18 +480860,6 @@ asc_63E11C db 'Joining %s, %d',0
 
 ALIGN 4
 asc_63E12C db 'asNetwork lib: NetObject::PositionUpdate() - should never be called',0
-
-ALIGN 4
-asc_63E170 db 'Current == 0',0
-
-ALIGN 4
-asc_63E180 db 'C:',5Ch,'mm',5Ch,'src',5Ch,'mmcity',5Ch,'loader.c',0
-
-ALIGN 4
-asc_63E19C db 'pbar_act',0
-
-ALIGN 4
-asc_63E1A8 db 'pbar_inact',0
 
 ALIGN 4
 sym_63E1B8 dd 0BF800000r
@@ -495791,30 +494947,6 @@ ALIGN 4
 asc_657098 db 'Bad value %f in PackAngle',0
 
 ALIGN 4
-asc_6571C8 db 'this',0
-
-ALIGN 4
-asc_6571D0 db 'C:',5Ch,'mm',5Ch,'src',5Ch,'agi',5Ch,'surface.c',0
-
-ALIGN 4
-asc_6571E8 db '%s/%s.jpg',0
-
-ALIGN 4
-asc_6571F4 db 'r',0
-
-ALIGN 4
-asc_6571F8 db '%s/%s.%04d.dds',0
-
-ALIGN 4
-asc_657208 db '%s/%s.dds',0
-
-ALIGN 4
-asc_657214 db 'r',0
-
-ALIGN 4
-asc_657218 db 'Reload of ',27h,'%s',27h,' failed.',0
-
-ALIGN 4
 asc_657284 db 'LightModel ',27h,'%x',27h,0
 
 ALIGN 4
@@ -505227,24 +504359,6 @@ sym_6A8D78 dd 10 dup (?)
 ALIGN 4
 sym_6A8DA0 dd ?
 
-ALIGN 8
-PUBLIC ?Current@mmLoader@@0PAV1@A
-?Current@mmLoader@@0PAV1@A dd ?
-
-ALIGN 8
-PUBLIC ?IntroFont@@3PAXA
-?IntroFont@@3PAXA dd ?
-
-ALIGN 8
-PUBLIC ?myFont@@3PAXA
-?myFont@@3PAXA dd ?
-
-ALIGN 4
-dword_6A8DBC dd ?
-
-ALIGN 4
-dword_6A8DC0 dd 2 dup (?)
-
 ALIGN 4
 sym_6A8DC8 dd ?
 
@@ -507836,6 +506950,7 @@ EXTERN ?BeginGfx@agiSWRasterizer@@UAEHXZ:PROC
 EXTERN ?BeginGroup@agiSWRasterizer@@UAEXXZ:PROC
 EXTERN ?BeginMemStat@@YAXPBD@Z:PROC
 EXTERN ?BeginObject@DataCache@@QAEHPAHP6AXPAXH@Z1I@Z:PROC
+EXTERN ?BeginTask@mmLoader@@QAEXPAULocString@@M@Z:PROC
 EXTERN ?BeginVerts@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z:PROC
 EXTERN ?BigIdxSize@@3HB:DWORD
 EXTERN ?BigVtxSize@@3HB:DWORD
@@ -507855,7 +506970,6 @@ EXTERN ?Call@Callback@@QAEXPAX@Z:PROC
 EXTERN ?CaptureAction@mmCompBase@@UAEXTeqEvent@@@Z:PROC
 EXTERN ?CaptureAction@uiWidget@@UAEXTeqEvent@@@Z:PROC
 EXTERN ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z:PROC
-EXTERN ?CharSet@@3PAEA:BYTE
 EXTERN ?CheckCDFile@DSGlobal@@QAEEPAD@Z:PROC
 EXTERN ?CheckInput@UIMenu@@UAEXXZ:PROC
 EXTERN ?ChooseNextLaneLink@aiMap@@QAEHPAVaiRailSet@@@Z:PROC
@@ -507911,6 +507025,7 @@ EXTERN ?Cull@mmHudMap@@UAEXXZ:PROC
 EXTERN ?Cull@mmWPHUD@@UAEXXZ:PROC
 EXTERN ?Cull@mmWaypoints@@UAEXXZ:PROC
 EXTERN ?Current@agiLighter@@2HA:BYTE
+EXTERN ?Current@mmLoader@@0PAV1@A:BYTE
 EXTERN ?CurrentMenuSelected@MenuManager@@QAEHXZ:PROC
 EXTERN ?Deactivate@mmNetObject@@QAEXXZ:PROC
 EXTERN ?DeactivateMapNetObject@mmGameMulti@@QAEXH@Z:PROC
@@ -507989,6 +507104,7 @@ EXTERN ?EndGfx@agiSWRasterizer@@UAEXXZ:PROC
 EXTERN ?EndGroup@agiSWRasterizer@@UAEXXZ:PROC
 EXTERN ?EndMemStat@@YAXXZ:PROC
 EXTERN ?EndObject@DataCache@@QAEXH@Z:PROC
+EXTERN ?EndTask@mmLoader@@QAEXM@Z:PROC
 EXTERN ?EndVerts@agiTexSorter@@SAXXZ:PROC
 EXTERN ?Errorf@@YAXPBDZZ:PROC
 EXTERN ?EvalMouseX@uiWidget@@UAEXM@Z:PROC
@@ -508457,7 +507573,6 @@ EXTERN ?Update@asPortalWeb@@UAEXXZ:PROC
 EXTERN ?Update@mmGameManager@@UAEXXZ:PROC
 EXTERN ?Update@mmInput@@UAEXXZ:PROC
 EXTERN ?Update@mmJoyMan@@QAEXXZ:PROC
-EXTERN ?Update@mmLoader@@QAEXXZ:PROC
 EXTERN ?Update@mmPhysEntity@@UAEXXZ:PROC
 EXTERN ?Update@mmSkidManager@@UAEXXZ:PROC
 EXTERN ?Update@mmToolTip@@UAEXXZ:PROC

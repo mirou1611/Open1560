@@ -56,6 +56,9 @@ static constexpr u32 DdsMagic = 0x20534444; // 'DDS '
 
 static constexpr u32 JpegPixelFormatSize = 0x20;
 
+// Magic plus the 124 byte description.
+static constexpr usize DdsPixelOffset = 0x80;
+
 // R5G6B5, matching the masks the original set up by hand.
 static u16 PackRgb565(u32 r, u32 g, u32 b)
 {
@@ -246,4 +249,95 @@ static const char* NextSearchPath(const char* path)
     }
 
     return as_owner result;
+}
+
+// Refills the pixels of a surface whose header is already set up, reimplemented
+// from game.asm. Called with a stream by Load, and without one by everything
+// that pages a texture back in after it was unloaded.
+//
+// Two notes on faithfulness:
+//   * the original also freed a caller-supplied stream. Ownership stays with the
+//     caller here - every other caller passes none - so Load's Ptr can do its job.
+//   * the AnnotateTextures debug overlay, which draws the texture's name into the
+//     top rows of 8-bit surfaces, is not reimplemented.
+void agiSurfaceDesc::Reload(
+    aconst char* name, aconst char* path, i32 index, i32 pack, Stream* stream, i32 width, i32 height)
+{
+    if (Surface != nullptr)
+        return;
+
+    char file_path[ARTS_MAX_PATH];
+
+    Ptr<Stream> opened;
+    bool is_jpeg = false;
+
+    if (stream == nullptr)
+    {
+        for (const char* dir = path; dir; dir = NextSearchPath(dir))
+        {
+            arts_sprintf(file_path, "%s/%s.jpg", dir, name);
+            opened = arts_fopen(file_path, "r");
+
+            if (opened)
+            {
+                is_jpeg = true;
+
+                break;
+            }
+
+            if (index)
+                arts_sprintf(file_path, "%s/%s.%04d.dds", dir, name, index);
+            else
+                arts_sprintf(file_path, "%s/%s.dds", dir, name);
+
+            opened = arts_fopen(file_path, "r");
+
+            if (opened)
+                break;
+        }
+
+        if (opened == nullptr)
+            Quitf("Reload of '%s' failed.", name);
+
+        stream = opened.get();
+    }
+
+    if (is_jpeg)
+    {
+        // A requested size overrides what the header said; the rest of the
+        // description (pitch, format) already belongs to this surface.
+        if (width && height)
+        {
+            Width = static_cast<u32>(width);
+            Height = static_cast<u32>(height);
+        }
+
+        Surface = new u8[Width * Height * 2];
+
+        DecodeJpeg(stream, Width, Height, static_cast<u16*>(Surface));
+
+        return;
+    }
+
+    isize remaining = static_cast<isize>(stream->Size()) - DdsPixelOffset;
+
+    // Mip levels are stored largest first, and Width/Height are already the
+    // packed size - so the level above this one is four times its byte count,
+    // and each level before that four times again.
+    usize level_bytes = (((PixelFormat.RGBBitCount + 7) & ~7u) / 8) * Width * Height;
+    usize step = level_bytes * 4;
+    usize skipped = 0;
+
+    for (i32 i = 0; i < pack; ++i)
+    {
+        skipped += step;
+        remaining -= static_cast<isize>(step);
+        step *= 4;
+    }
+
+    stream->Seek(static_cast<i32>(DdsPixelOffset + skipped));
+
+    // Everything from here on is this level followed by the smaller ones.
+    Surface = new u8[remaining];
+    stream->Read(Surface, remaining);
 }

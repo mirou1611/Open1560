@@ -25,6 +25,7 @@ define_dummy_symbol(mmcity_loader);
 #include "arts7/cullmgr.h"
 #include "eventq7/event.h"
 #include "localize/localize.h"
+#include "mmeffects/mmtext.h"
 
 void mmLoader::Init(aconst char* underlay_name, f32 bar_x, f32 bar_y)
 {
@@ -71,4 +72,104 @@ void mmLoader::Update()
 #endif
 
     CullMgr()->Update();
+}
+
+// The rest of mmLoader, reimplemented from game.asm.
+
+mmLoader* mmLoader::Current = nullptr;
+
+void* myFont = nullptr;
+void* IntroFont = nullptr;
+
+mmLoader::mmLoader()
+{
+    ArAssert(Current == nullptr, "Current == 0");
+
+    bar_x_ = 0;
+
+    // Font descriptions live in the localised string table.
+    myFont = mmText::CreateLocFont(AngelReadString(15), Pipe()->GetWidth());
+    IntroFont = mmText::CreateLocFont(AngelReadString(16), Pipe()->GetWidth());
+
+    task_percent_ = 0;
+    bar_inactive_ = nullptr;
+
+    bar_active_ = as_raw Pipe()->GetBitmap("pbar_act"_xconst, 248.0f, 12.0f, 1);
+
+    // The empty bar only exists at 640 wide and above.
+    if (Pipe()->GetWidth() >= 640)
+        bar_inactive_ = as_raw Pipe()->GetBitmap("pbar_inact"_xconst, 248.0f, 12.0f, 1);
+
+    Current = this;
+}
+
+mmLoader::~mmLoader()
+{
+    mmText::DeleteFont(myFont);
+
+    Current = nullptr;
+}
+
+void mmLoader::Reset()
+{
+    task_start_percent_ = 0.0f;
+    current_task_percent_ = 0.0f;
+    task_start_time_ = 0.0f;
+
+    timer_.Reset();
+}
+
+void mmLoader::SetIntroText(LocString* text)
+{
+    intro_text_.SetString(0, text);
+
+    Update();
+}
+
+void mmLoader::BeginTask(LocString* text, f32 percent)
+{
+    // A percentage of zero means "leave the bar where it is".
+    if (percent != 0.0f)
+    {
+        task_start_percent_ = std::clamp(percent, 0.0f, 1.0f);
+        task_start_time_ = timer_.Time();
+    }
+
+    task_text_.SetString(0, text);
+
+    Update();
+}
+
+void mmLoader::EndTask(f32 percent)
+{
+    if (percent != 0.0f)
+    {
+        task_start_percent_ = std::clamp(percent, 0.0f, 1.0f);
+        task_start_time_ = timer_.Time();
+    }
+
+    task_text_.SetString(0, LOC_TEXT(""));
+    task_text_.SetString(1, LOC_TEXT(""));
+
+    Update();
+
+    task_percent_ = 0;
+}
+
+void mmLoader::Cull()
+{
+    if (bar_x_ == 0)
+        return;
+
+    i32 bar_width = bar_active_->GetWidth();
+    i32 filled = std::clamp<i32>(static_cast<i32>(bar_width * current_task_percent_), 1, bar_width);
+
+    if (bar_inactive_)
+    {
+        Pipe()->CopyBitmap(
+            bar_x_, bar_y_, bar_inactive_, 0, 0, bar_inactive_->GetWidth(), bar_inactive_->GetHeight());
+    }
+
+    if (current_task_percent_ > 0.0f)
+        Pipe()->CopyBitmap(bar_x_, bar_y_, bar_active_, 0, 0, filled, bar_active_->GetHeight());
 }

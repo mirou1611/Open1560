@@ -27,28 +27,28 @@ class mmLoader final : public asCullable
 {
 public:
     // ??0mmLoader@@QAE@XZ
-    ARTS_IMPORT mmLoader();
+    ARTS_EXPORT mmLoader();
 
     // ??1mmLoader@@UAE@XZ
-    ARTS_IMPORT ~mmLoader() override;
+    ARTS_EXPORT ~mmLoader() override;
 
     // ?BeginTask@mmLoader@@QAEXPAULocString@@M@Z
-    ARTS_IMPORT void BeginTask(LocString* arg1, f32 arg2 = 0.0f);
+    ARTS_EXPORT void BeginTask(LocString* text, f32 percent = 0.0f);
 
     // ?Cull@mmLoader@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // ?EndTask@mmLoader@@QAEXM@Z
-    ARTS_IMPORT void EndTask(f32 arg1 = 0.0f);
+    ARTS_EXPORT void EndTask(f32 percent = 0.0f);
 
     // ?Init@mmLoader@@QAEXPADMM@Z
     void Init(aconst char* underlay_name, f32 bar_x, f32 bar_y);
 
     // ?Reset@mmLoader@@QAEXXZ
-    ARTS_IMPORT void Reset();
+    ARTS_EXPORT void Reset();
 
     // ?SetIntroText@mmLoader@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void SetIntroText(LocString* arg1);
+    ARTS_EXPORT void SetIntroText(LocString* text);
 
     // ?Update@mmLoader@@QAEXXZ
     ARTS_EXPORT void Update();
@@ -57,7 +57,7 @@ public:
 
 private:
     // ?Current@mmLoader@@0PAV1@A
-    ARTS_IMPORT static mmLoader* Current;
+    ARTS_EXPORT static mmLoader* Current;
 
     i32 task_percent_ {};
     i32 field_8_ {};
@@ -87,10 +87,10 @@ inline mmLoader* Loader()
 }
 
 // ?IntroFont@@3PAXA
-ARTS_IMPORT extern void* IntroFont;
+ARTS_EXPORT extern void* IntroFont;
 
 // ?myFont@@3PAXA
-ARTS_IMPORT extern void* myFont;
+ARTS_EXPORT extern void* myFont;
 
 struct LoaderTask
 {
