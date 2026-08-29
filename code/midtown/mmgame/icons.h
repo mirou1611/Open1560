@@ -20,13 +20,15 @@
 
 #include "arts7/node.h"
 
+#include "agiworld/meshrend.h"
+
 struct OppIconInfo;
 
 class mmIcons final : public asNode
 {
 public:
     // ??0mmIcons@@QAE@XZ
-    ARTS_IMPORT mmIcons();
+    ARTS_EXPORT mmIcons();
 
     // ??1mmIcons@@UAE@XZ
     ARTS_IMPORT ~mmIcons() override;
@@ -43,7 +45,15 @@ public:
     // ?Update@mmIcons@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap20[0x3C];
+    // The two cards the icons are drawn on: a three-vertex arrow and a four-vertex
+    // quad. The rest of 0x20 .. 0x5B is still unmapped.
+    agiMeshCardInfo TriangleCard;
+    agiMeshCardInfo QuadCard;
+    i32 field_40;
+    i32 field_44;
+    u8 gap48[0x8];
+    i32 field_50;
+    u8 gap54[0x8];
 };
 
 check_size(mmIcons, 0x5C);

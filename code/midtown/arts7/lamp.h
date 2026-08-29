@@ -29,7 +29,7 @@ class asLamp final : public asNode
 {
 public:
     // ??0asLamp@@QAE@XZ
-    ARTS_IMPORT asLamp();
+    ARTS_EXPORT asLamp();
 
     // ??1asLamp@@UAE@XZ
     ARTS_EXPORT ~asLamp() override;

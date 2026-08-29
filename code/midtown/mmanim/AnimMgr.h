@@ -30,7 +30,7 @@ class mmAnimMgr final : public asNode
 {
 public:
     // ??0mmAnimMgr@@QAE@XZ
-    ARTS_IMPORT mmAnimMgr();
+    ARTS_EXPORT mmAnimMgr();
 
     // ??1mmAnimMgr@@UAE@XZ
     ARTS_IMPORT ~mmAnimMgr() override;

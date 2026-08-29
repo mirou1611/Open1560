@@ -44,7 +44,7 @@ class aiMap final : public asNode
 {
 public:
     // ??0aiMap@@QAE@XZ
-    ARTS_IMPORT aiMap();
+    ARTS_EXPORT aiMap();
 
     // ??1aiMap@@UAE@XZ
     ARTS_EXPORT ~aiMap() override = default;

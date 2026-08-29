@@ -22,3 +22,11 @@ define_dummy_symbol(mmanim_AnimMgr);
 
 void mmAnimMgr::TestDOFAct(i32 /*arg1*/)
 {}
+
+mmAnimMgr::mmAnimMgr()
+{
+    AddChild(&BridgeMgr);
+
+    Splines = nullptr;
+    SplineCount = 0;
+}

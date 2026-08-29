@@ -26,6 +26,9 @@ define_dummy_symbol(mmanim_bridge);
 #include "mmcity/cullcity.h"
 #include "mmcityinfo/state.h"
 
+#include "data7/quitf.h"
+#include "mmbridgeaudmgr.h"
+
 b32 mmBridgeSet::Init(char* name, Stream* file)
 {
     SetName(name);
@@ -90,4 +93,32 @@ void mmBridgeSet::UnAssignSounds()
 {
     SetSoundPtrs(0, 0);
     MgrIndex = -1;
+}
+
+mmBridgeMgr::mmBridgeMgr()
+{
+    if (Instance)
+        Quitf("Already have mmBridgeMgr");
+
+    Instance = this;
+
+    BridgeDelta = 0.2f;
+    BridgeOffGoal = 0.0f;
+    BridgeOnGoal = 0.4712389f;
+    BridgeOnDelay = 0.9f;
+    BridgeOffDelay = 0.0f;
+
+    GateDelta = 0.6f;
+    GateOffGoal = -1.5707964f;
+    GateOnGoal = 0.0f;
+    GateOnDelay = 0.0f;
+    GateOffDelay = 4.3f;
+
+    NumTrackedObjects = 0;
+
+    // The audio manager publishes itself through MMBRIDGEAUDMGRPTR
+    new mmBridgeAudMgr();
+    AddChild(MMBRIDGEAUDMGRPTR);
+
+    DrawBridges = 0;
 }

@@ -19,3 +19,28 @@
 define_dummy_symbol(mmgame_icons);
 
 #include "icons.h"
+
+// The arrow that points at an opponent, and the quad the icon itself sits on
+static agiMeshCardVertex TriangleCardVerts[3] {
+    {0.0f, 0.0f, 1.0f, 0.0f},
+    {0.5f, 2.0f, 1.0f, 1.0f},
+    {-0.5f, 2.0f, 1.0f, 1.0f},
+};
+
+static agiMeshCardVertex QuadCardVerts[4] {
+    {-1.0f, 2.5f, 0.0f, 0.0f},
+    {1.0f, 2.5f, 1.0f, 0.0f},
+    {1.0f, 4.5f, 1.0f, 1.0f},
+    {-1.0f, 4.5f, 0.0f, 1.0f},
+};
+
+mmIcons::mmIcons()
+{
+    field_44 = 0;
+    field_50 = 0;
+
+    TriangleCard.Init(ARTS_SSIZE32(TriangleCardVerts), TriangleCardVerts, 1, 1, 1);
+    QuadCard.Init(ARTS_SSIZE32(QuadCardVerts), QuadCardVerts, 1, 4, 4);
+
+    field_40 = 0;
+}

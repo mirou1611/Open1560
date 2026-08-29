@@ -21,8 +21,22 @@ define_dummy_symbol(arts7_lamp);
 #include "lamp.h"
 
 #include "agi/light.h"
+#include "agi/pipeline.h"
 
 asLamp::~asLamp() = default;
 
 void asLamp::FileIO(MiniParser* /*arg1*/)
 {}
+
+asLamp::asLamp()
+{
+    Light = Pipe()->CreateLight();
+    Params = arnew agiLightParameters();
+
+    if (Light)
+        Light->Init(*Params);
+
+    SetColor(Vector3(1.0f, 1.0f, 1.0f), 1.0f);
+
+    Global = true;
+}

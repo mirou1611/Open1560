@@ -22,7 +22,7 @@ class mmAnimExcel final
 {
 public:
     // ??0mmAnimExcel@@QAE@XZ
-    ARTS_IMPORT mmAnimExcel();
+    ARTS_EXPORT mmAnimExcel();
 
     // ??1mmAnimExcel@@UAE@XZ
     ARTS_IMPORT virtual ~mmAnimExcel();
@@ -36,7 +36,10 @@ public:
     // ?Init@mmAnimExcel@@QAEHPAD0@Z
     ARTS_IMPORT i32 Init(char* arg1, char* arg2);
 
-    u8 gap4[0xC];
+    // 0x04 .. 0x0F, named so the constructor can reach them. field_8 starts at -1.
+    i32 field_4;
+    i32 field_8;
+    i32 field_C;
 };
 
 check_size(mmAnimExcel, 0x10);

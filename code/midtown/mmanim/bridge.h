@@ -136,7 +136,7 @@ class mmBridgeMgr final : public asNode
 {
 public:
     // ??0mmBridgeMgr@@QAE@XZ
-    ARTS_IMPORT mmBridgeMgr();
+    ARTS_EXPORT mmBridgeMgr();
 
     // ??1mmBridgeMgr@@UAE@XZ
     ARTS_IMPORT ~mmBridgeMgr() override;

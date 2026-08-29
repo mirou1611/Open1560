@@ -19,3 +19,10 @@
 define_dummy_symbol(mmanim_Excel);
 
 #include "Excel.h"
+
+mmAnimExcel::mmAnimExcel()
+{
+    field_4 = 0;
+    field_8 = -1;
+    field_C = 0;
+}

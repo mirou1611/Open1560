@@ -250,3 +250,5 @@ b32 aiMap::ChooseNextRandomLink(aiRailSet* rail)
 
     return true;
 }
+
+aiMap::aiMap() = default;
