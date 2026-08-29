@@ -109,7 +109,7 @@ class mmHUD final : public asNode
 {
 public:
     // ??0mmHUD@@QAE@XZ
-    ARTS_IMPORT mmHUD();
+    ARTS_EXPORT mmHUD();
 
     // ??1mmHUD@@UAE@XZ
     ARTS_IMPORT ~mmHUD() override;

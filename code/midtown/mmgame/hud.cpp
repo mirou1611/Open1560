@@ -21,6 +21,9 @@ define_dummy_symbol(mmgame_hud);
 #include "hud.h"
 
 #include "arts7/sim.h"
+#include "agi/pipeline.h"
+#include "localize/localize.h"
+#include "mmaudio/sound.h"
 #include "mmcity/cullcity.h"
 #include "mmcityinfo/state.h"
 #include "mmeffects/meshform.h"
@@ -157,4 +160,77 @@ void mmArrow::Reset()
 void mmArrow::SetInterest(Vector3* interest)
 {
     Interest = interest;
+}
+
+// The original passes the addresses of three zeroed dwords here - empty strings the
+// messages are filled into later.
+static LocString HudUpperText {};
+static LocString HudLowerText {};
+static LocString HudChatText {};
+
+mmHUD::mmHUD()
+{
+    WpHud = nullptr;
+    CircuitHud = nullptr;
+    CrHud = nullptr;
+    TimerCountDown = 0;
+
+    AddChild(&HudElements);
+    HudElements.AddChild(&DashView);
+    HudElements.AddChild(&ExternalView);
+
+    NumberFont.LoadFont(LOC_STR(MM_IDS_94), 24, 0xFFFFFF);
+
+    PositionFont = mmText::CreateLocFont(LOC_STRING(MM_IDS_95), Pipe()->GetWidth());
+
+    TimerParts[2] = 10;
+    TimerParts[5] = 10;
+    TimerY = 0;
+    WaypointDist = 0;
+    ShowTimer = 1;
+    field_B4C = 8;
+
+    HudElements.AddChild(&Arrow);
+
+    UpperMessage.Init(0.1f, 0.8f, 0.8f, 0.075f, 1, 1);
+    LowerMessage.Init(0.1f, 0.875f, 0.8f, 0.075f, 1, 1);
+    ChatMessages.Init(0.0f, 0.65f, 0.33f, 0.25f, 5, 1);
+
+    ShowMessageAtTop = false;
+
+    MessageFont = mmText::CreateLocFont(LOC_STRING(MM_IDS_96), Pipe()->GetWidth());
+    UpperMessage.AddText(MessageFont, &HudUpperText, 3, 0.0f, 0.0f);
+    LowerMessage.AddText(MessageFont, &HudLowerText, 3, 0.0f, 0.0f);
+
+    ChatFont = mmText::CreateLocFont(LOC_STRING(MM_IDS_97), Pipe()->GetWidth());
+
+    // Five chat lines, one twentieth of the screen apart
+    for (i32 i = 0; i < 5; ++i)
+        ChatMessages.AddText(ChatFont, &HudChatText, 0, 0.0f, static_cast<f32>(i) * 0.05f);
+
+    AddChild(&UpperMessage);
+    AddChild(&LowerMessage);
+    AddChild(&ChatMessages);
+
+    LowerMessage.ClearNodeFlag(NODE_FLAG_ACTIVE);
+    ChatMessages.ClearNodeFlag(NODE_FLAG_ACTIVE);
+
+    if (MMSTATE.NetworkStatus)
+    {
+        AlertSound = new AudSound(AudSound::Get2DFlags(), 1, -1);
+
+        static char alert_name[] = "Carhorn1double";
+        AlertSound->Load(alert_name, 0);
+        AlertSound->SetPriority(23);
+        AlertSound->SetVolume(0.85f, -1);
+    }
+
+    PositionText.Init(0.2f, 0.25f, 0.75f, 0.075f, 1, 1);
+    PositionText.AddText(PositionFont, LOC_TEXT("Position"), 0, 0.0f, 0.0f);
+    HudElements.AddChild(&PositionText);
+
+    TogglePositionDisplay(0);
+
+    CDPlayer.Init(this);
+    HudElements.AddChild(&CDPlayer);
 }
