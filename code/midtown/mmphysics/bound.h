@@ -29,7 +29,7 @@ class asBound final : public asNode
 {
 public:
     // ??0asBound@@QAE@XZ
-    ARTS_IMPORT asBound();
+    ARTS_EXPORT asBound();
 
     // ??1asBound@@UAE@XZ | inline
     ARTS_EXPORT ~asBound() override = default;

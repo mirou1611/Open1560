@@ -31,7 +31,7 @@ class mmWheel final : public asLinearCS
 {
 public:
     // ??0mmWheel@@QAE@XZ
-    ARTS_IMPORT mmWheel();
+    ARTS_EXPORT mmWheel();
 
     // ??1mmWheel@@UAE@XZ | inline
     ARTS_EXPORT ~mmWheel() override = default;

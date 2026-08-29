@@ -24,7 +24,7 @@ class mmForce final : public asNode
 {
 public:
     // ??0mmForce@@QAE@XZ
-    ARTS_IMPORT mmForce();
+    ARTS_EXPORT mmForce();
 
     // ??1mmForce@@UAE@XZ | inline
     ARTS_EXPORT ~mmForce() override = default;
@@ -43,7 +43,8 @@ public:
     // ?DeclareFields@mmForce@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0xC];
+    u8 gap20[0x8];
+    i32 field_28;
 };
 
 check_size(mmForce, 0x2C);

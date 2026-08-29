@@ -22,3 +22,14 @@ define_dummy_symbol(mmcar_drivetrain);
 
 void mmDrivetrain::Reset()
 {}
+
+mmDrivetrain::mmDrivetrain()
+{
+    field_20 = 0;
+    field_24 = 0;
+    field_28 = 0;
+    field_2C = 0;
+
+    field_40 = 2000.0f;
+    field_44 = 2400.0f;
+}

@@ -27,7 +27,7 @@ class mmEngine final : public asNode
 {
 public:
     // ??0mmEngine@@QAE@XZ
-    ARTS_IMPORT mmEngine();
+    ARTS_EXPORT mmEngine();
 
     // ??1mmEngine@@UAE@XZ
     ARTS_EXPORT ~mmEngine() override = default;

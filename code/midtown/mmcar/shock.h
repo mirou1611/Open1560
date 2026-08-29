@@ -26,7 +26,7 @@ class mmShock final : public asLinearCS
 {
 public:
     // ??0mmShock@@QAE@XZ
-    ARTS_IMPORT mmShock();
+    ARTS_EXPORT mmShock();
 
     // ??1mmShock@@UAE@XZ | inline
     ARTS_EXPORT ~mmShock() override = default;
@@ -45,7 +45,8 @@ public:
     // ?DeclareFields@mmShock@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap88[0x10];
+    u8 gap88[0xC];
+    i32 field_94;
 };
 
 check_size(mmShock, 0x98);

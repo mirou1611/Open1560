@@ -19,3 +19,8 @@
 define_dummy_symbol(mmcar_shock);
 
 #include "shock.h"
+
+mmShock::mmShock()
+{
+    field_94 = 0;
+}

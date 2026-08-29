@@ -19,3 +19,21 @@
 define_dummy_symbol(mmcar_engine);
 
 #include "engine.h"
+
+mmEngine::mmEngine()
+{
+    GCL = 0.1f;
+    HPScale = 1.0f;
+
+    // The golden ratio and its reciprocal, computed the same way the original does
+    f32 root5 = std::sqrt(5.0f);
+
+    PullUpModifier = (root5 + 1.0f) * 0.5f;
+    BreakDownModifier = (root5 - 1.0f) * 0.5f;
+
+    Throttle = 0.0f;
+    field_60 = 1.0f;
+    RotationSpeed = 0.0f;
+    Horsepower = 370.0f;
+    Torque = 0.0f;
+}

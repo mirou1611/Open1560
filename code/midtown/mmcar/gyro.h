@@ -24,7 +24,7 @@ class VehGyro final : public asNode
 {
 public:
     // ??0VehGyro@@QAE@XZ
-    ARTS_IMPORT VehGyro();
+    ARTS_EXPORT VehGyro();
 
     // ??1VehGyro@@UAE@XZ | inline
     ARTS_EXPORT ~VehGyro() override = default;
@@ -43,7 +43,12 @@ public:
     // ?DeclareFields@VehGyro@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x14];
+    // All five are written by the constructor, so the gap is fully accounted for
+    i32 field_20;
+    i32 field_24;
+    f32 field_28;
+    f32 field_2C;
+    f32 field_30;
 };
 
 check_size(VehGyro, 0x34);

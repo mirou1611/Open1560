@@ -19,3 +19,15 @@
 define_dummy_symbol(mmphysics_bound);
 
 #include "bound.h"
+
+asBound::asBound()
+{
+    field_20 = 20.0f;
+    field_24 = 5.0f;
+    field_28 = 0.0f;
+
+    ICS = nullptr;
+    Callback = nullptr;
+    Param = nullptr;
+    AudioId = 0;
+}

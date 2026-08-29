@@ -33,7 +33,7 @@ class mmStuck final : public asNode
 {
 public:
     // ??0mmStuck@@QAE@XZ
-    ARTS_IMPORT mmStuck();
+    ARTS_EXPORT mmStuck();
 
     // ??1mmStuck@@UAE@XZ | inline
     ARTS_EXPORT ~mmStuck() override = default;

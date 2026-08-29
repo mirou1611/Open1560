@@ -22,3 +22,21 @@ define_dummy_symbol(mmcar_stuck);
 
 // ?StuckCB@@YAXPAVmmStuck@@@Z
 ARTS_IMPORT /*static*/ void StuckCB(mmStuck* arg1);
+
+// ?StuckCB@@YAXPAVmmStuck@@@Z
+ARTS_IMPORT /*static*/ void StuckCB(mmStuck* arg1);
+
+mmStuck::mmStuck()
+{
+    State = 0;
+    Impacted = false;
+    StuckTime = 0.0f;
+
+    TimeThresh = 0.3f;
+    PosThresh = 1.25f;
+    MoveThresh = 1.75f;
+
+    RotAmount = 1.0f;
+
+    StuckCB(this);
+}

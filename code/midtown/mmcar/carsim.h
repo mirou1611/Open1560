@@ -76,7 +76,7 @@ class mmCarSim final : public asNode
 {
 public:
     // ??0mmCarSim@@QAE@XZ
-    ARTS_IMPORT mmCarSim();
+    ARTS_EXPORT mmCarSim();
 
     // ??1mmCarSim@@UAE@XZ
     ARTS_IMPORT ~mmCarSim() override;

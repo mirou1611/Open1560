@@ -26,7 +26,7 @@ class mmSplash final : public asNode
 {
 public:
     // ??0mmSplash@@QAE@XZ
-    ARTS_IMPORT mmSplash();
+    ARTS_EXPORT mmSplash();
 
     // ??1mmSplash@@UAE@XZ | inline
     ARTS_EXPORT ~mmSplash() override = default;

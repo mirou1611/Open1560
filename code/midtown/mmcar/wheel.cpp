@@ -37,3 +37,64 @@ void mmWheel::GenerateSkidParticles()
 static const f32 PtxFrameRate = 30.0f;
 static mem::cmd_param PARAM_maxskid {"maxskid"};
 hook_func(INIT_main, [] { mmWheel::PtxMaxSkidCount = PtxFrameRate * PARAM_maxskid.get_or(1.0f); });
+mmWheel::mmWheel()
+{
+    ICS = nullptr;
+
+    Spring = 40000.0f;
+    Damping = 4000.0f;
+    SteeringRatio = 0.5f;
+    BrakeRatio = 0.85f;
+    StaticFriction = 1.0f;
+    SuspensionLimit = 0.1f;
+    SuspensionBlend = 0.5f;
+    RenderableSuspensionLimit = 0.1f;
+
+    dword168 = 0;
+
+    Center = {0.0f, 0.0f, 0.0f};
+
+    Radius = 0.3f;
+    Width = 0.1f;
+
+    BumpHeight = 0.0f;
+    BumpWidth = 2.5f;
+
+    dword1C0 = 0;
+    Wobble = 0.0f;
+    Rotation = 0.0f;
+    MaybeGrip = 0.0f;
+    Steering = 0.0f;
+    Suspension = 0.0f;
+    dword1E4 = 0.0f;
+    OtherNormalLoad = 0.25f;
+    FullUpdated = 0;
+
+    CurrentTireDispLat = 0.0f;
+    CurrentTireDispLong = 0.0f;
+    TireResistance = 0.0f;
+    RotationSpeed = 0.0f;
+
+    LatSlipPercent = 200000.0f;
+    RubberSpring = 40000.0f;
+    RubberDamp = 2000.0f;
+    OptimumSlipPercent = 0.14f;
+    StaticFric = 0.8f;
+    SlidingFric = 0.4f;
+    RubberSpringLat = 0.0f;
+    RubberDampLat = 0.0f;
+
+    ComputeConstants();
+
+    FricMultiplier = 1.0f;
+    SteerMultiplier = 1.0f;
+
+    dword244 = 0;
+    SteeringInput = 0.0f;
+    BrakingInput = 0.0f;
+    Bound = nullptr;
+    HitPoly = nullptr;
+    Phys = nullptr;
+    PtxCount = 0.0f;
+    ParticleCount = 0.0f;
+}

@@ -19,3 +19,16 @@
 define_dummy_symbol(mmphysics_aero);
 
 #include "aero.h"
+
+asAero::asAero()
+{
+    field_20 = 0.0f;
+    field_24 = {0.0f, 0.0f, 0.0f};
+    field_30 = {0.0f, 0.0f, 0.0f};
+    field_3C = {0.0f, 0.0f, 0.0f};
+    field_48 = {0.0f, 0.0f, 0.0f};
+    field_54 = {0.0f, 0.0f, 0.0f};
+    field_60 = {0.0f, 0.0f, 0.0f};
+    field_6C = 1;
+    field_70 = 1.0f;
+}

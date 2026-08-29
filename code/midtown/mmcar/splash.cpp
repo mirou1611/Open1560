@@ -22,3 +22,10 @@ define_dummy_symbol(mmcar_splash);
 
 // ?SplashCB@@YAXPAVmmSplash@@@Z
 ARTS_IMPORT /*static*/ void SplashCB(mmSplash* arg1);
+
+mmSplash::mmSplash()
+{
+    Reset();
+
+    SplashCB(this);
+}

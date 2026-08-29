@@ -20,11 +20,13 @@
 
 #include "arts7/node.h"
 
+#include "vector7/vector3.h"
+
 class asAero final : public asNode
 {
 public:
     // ??0asAero@@QAE@XZ
-    ARTS_IMPORT asAero();
+    ARTS_EXPORT asAero();
 
     // ??1asAero@@UAE@XZ | inline
     ARTS_EXPORT ~asAero() override = default;
@@ -43,7 +45,16 @@ public:
     // ?DeclareFields@asAero@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x54];
+    // The constructor writes all of 0x20 .. 0x73, in groups of three
+    f32 field_20;
+    Vector3 field_24;
+    Vector3 field_30;
+    Vector3 field_3C;
+    Vector3 field_48;
+    Vector3 field_54;
+    Vector3 field_60;
+    i32 field_6C;
+    f32 field_70;
 };
 
 check_size(asAero, 0x74);

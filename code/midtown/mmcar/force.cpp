@@ -19,3 +19,8 @@
 define_dummy_symbol(mmcar_force);
 
 #include "force.h"
+
+mmForce::mmForce()
+{
+    field_28 = 0;
+}

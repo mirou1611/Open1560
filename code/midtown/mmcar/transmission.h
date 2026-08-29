@@ -26,7 +26,7 @@ class mmTransmission final : public asNode
 {
 public:
     // ??0mmTransmission@@QAE@XZ
-    ARTS_IMPORT mmTransmission();
+    ARTS_EXPORT mmTransmission();
 
     // ??1mmTransmission@@UAE@XZ | inline
     ARTS_EXPORT ~mmTransmission() override = default;

@@ -27,7 +27,7 @@ class mmDrivetrain final : public asNode
 {
 public:
     // ??0mmDrivetrain@@QAE@XZ
-    ARTS_IMPORT mmDrivetrain();
+    ARTS_EXPORT mmDrivetrain();
 
     // ??1mmDrivetrain@@UAE@XZ | inline
     ARTS_EXPORT ~mmDrivetrain() override = default;
@@ -61,7 +61,13 @@ public:
     // ?DeclareFields@mmDrivetrain@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x28];
+    i32 field_20;
+    i32 field_24;
+    i32 field_28;
+    i32 field_2C;
+    u8 gap30[0x10];
+    f32 field_40;
+    f32 field_44;
 };
 
 check_size(mmDrivetrain, 0x48);

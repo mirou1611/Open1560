@@ -19,3 +19,12 @@
 define_dummy_symbol(mmcar_gyro);
 
 #include "gyro.h"
+
+VehGyro::VehGyro()
+{
+    field_20 = 0;
+    field_24 = 0;
+    field_28 = 0.99f;
+    field_2C = 0.0f;
+    field_30 = 1.0f;
+}
