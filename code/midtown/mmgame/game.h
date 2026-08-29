@@ -113,7 +113,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetIconsState@mmGame@@QAEXXZ
-    ARTS_IMPORT void SetIconsState();
+    ARTS_EXPORT void SetIconsState();
 
     // ?Update@mmGame@@UAEXXZ
     ARTS_IMPORT void Update() override;

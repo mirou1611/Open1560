@@ -50,10 +50,10 @@ class mmGameManager final : public asNode
 {
 public:
     // ??0mmGameManager@@QAE@XZ
-    ARTS_IMPORT mmGameManager();
+    ARTS_EXPORT mmGameManager();
 
     // ??1mmGameManager@@UAE@XZ
-    ARTS_IMPORT ~mmGameManager() override;
+    ARTS_EXPORT ~mmGameManager() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmGameManager@@UAEXPAVBank@@@Z

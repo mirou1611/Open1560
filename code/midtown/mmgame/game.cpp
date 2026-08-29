@@ -1075,3 +1075,10 @@ void mmGame::SendChatMessage(char* msg)
 
 #undef X
 }
+void mmGame::SetIconsState()
+{
+    if (MMSTATE.ShowPositions)
+        Icons.ActivateNode();
+    else
+        Icons.DeactivateNode();
+}

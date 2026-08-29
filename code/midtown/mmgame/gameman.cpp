@@ -21,6 +21,14 @@ define_dummy_symbol(mmgame_gameman);
 #include "gameman.h"
 
 #include "game.h"
+#include "gameedit.h"
+#include "gamesingle.h"
+#include "multiblitz.h"
+#include "multicircuit.h"
+#include "multicr.h"
+#include "multirace.h"
+#include "singleblitz.h"
+#include "singlecircuit.h"
 #include "player.h"
 
 #include "agi/bitmap.h"
@@ -30,8 +38,12 @@ define_dummy_symbol(mmgame_gameman);
 #include "arts7/cullmgr.h"
 #include "arts7/sim.h"
 #include "data7/cache.h"
+#include "data7/ipc.h"
 #include "memory/stack.h"
+#include "midtown.h"
+#include "mmcityinfo/citylist.h"
 #include "mmcityinfo/state.h"
+#include "mmcityinfo/vehlist.h"
 #include "mmdyna/bndtmpl2.h"
 #include "mmeffects/card2d.h"
 #include "mminput/input.h"
@@ -153,4 +165,178 @@ void mmGameManager::Update()
         if (Frame < MaxReplayFrames - 1)
             ++Frame;
     }
+}
+
+// A queue of its own, separate from GFXPAGER; the original keeps it as a file-scope
+// global referenced only by these two functions.
+static ipcMessageQueue GameMgrQueue;
+
+mmGameManager::mmGameManager()
+{
+#ifdef ARTS_DEV_BUILD
+    CullMgr()->AddPage(Callback(ShowGameManagerStats));
+#endif
+
+    mmScreenClearFlunky* flunky = new mmScreenClearFlunky();
+    flunky->SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
+    AddChild(flunky);
+
+    // Both list constructors publish themselves through VehicleListPtr / CityListPtr
+    (new mmVehList())->LoadAll();
+    (new mmCityList())->LoadAll();
+
+    CityListPtr->SetCurrentCity(CityName);
+
+    Instance = this;
+
+    GameSingle = nullptr;
+    SingleCircuit = nullptr;
+    SingleBlitz = nullptr;
+    MultiRace = nullptr;
+    MultiCR = nullptr;
+    MultiCircuit = nullptr;
+    MultiBlitz = nullptr;
+    GameEdit = nullptr;
+
+    InReplay = false;
+    Frame = 0;
+    PendingFrames = 0;
+    NeedsReset = false;
+
+    // The original leaves Current uninitialised when no game mode matches below, and
+    // then calls SetIconsState through it anyway. Null it and guard that call instead.
+    Current = nullptr;
+
+    ReplayBitmap = Pipe()->GetBitmap("replay", 0.0f, 0.0f, 1).release();
+
+    mmGame* game = nullptr;
+
+    if (MMSTATE.NetworkStatus == 0)
+    {
+        switch (MMSTATE.GameMode)
+        {
+            case mmGameMode::Cruise:
+            case mmGameMode::Checkpoint:
+                GameSingle = new mmGameSingle();
+                GameSingle->Init();
+                game = GameSingle;
+                break;
+
+            case mmGameMode::Circuit:
+                SingleCircuit = new mmSingleCircuit();
+                SingleCircuit->Init();
+                game = SingleCircuit;
+                break;
+
+            case mmGameMode::Blitz:
+                SingleBlitz = new mmSingleBlitz();
+                SingleBlitz->Init();
+                game = SingleBlitz;
+                break;
+
+            case mmGameMode::Edit:
+                GameEdit = new mmGameEdit();
+                GameEdit->Init();
+                game = GameEdit;
+                break;
+
+            // Cops and Robbers has no single-player game
+            default: break;
+        }
+
+        if (game)
+            Current = game;
+    }
+    else if (MMSTATE.NetworkStatus == 1 || MMSTATE.NetworkStatus == 2)
+    {
+        switch (MMSTATE.GameMode)
+        {
+            case mmGameMode::Cruise:
+            case mmGameMode::Checkpoint:
+                MultiRace = new mmMultiRace();
+                MultiRace->Init();
+                game = MultiRace;
+                break;
+
+            case mmGameMode::CnR:
+                MultiCR = new mmMultiCR();
+                MultiCR->Init();
+                game = MultiCR;
+                break;
+
+            case mmGameMode::Circuit:
+                MultiCircuit = new mmMultiCircuit();
+                MultiCircuit->Init();
+                game = MultiCircuit;
+                break;
+
+            case mmGameMode::Blitz:
+                MultiBlitz = new mmMultiBlitz();
+                MultiBlitz->Init();
+                game = MultiBlitz;
+                break;
+
+            // There is no multiplayer editor
+            default: break;
+        }
+
+        if (game)
+            Current = game;
+    }
+    else
+    {
+        // An out-of-range NetworkStatus falls back to a single game. The original sets
+        // Current before Init here, rather than after as it does above.
+        GameSingle = new mmGameSingle();
+        Current = GameSingle;
+        GameSingle->Init();
+        game = GameSingle;
+    }
+
+    if (game)
+        AddChild(game);
+
+    if (Current)
+        Current->SetIconsState();
+
+    LogRandomCalls = randcall;
+
+    GameMgrQueue.Init(2, 0);
+
+    ResetFadeCard = new Card2D();
+    ResetFadeCard->SetDimensions(0.0f, 0.0f, 1.0f, 1.0f);
+}
+
+mmGameManager::~mmGameManager()
+{
+    delete ResetFadeCard;
+
+    GameMgrQueue.Shutdown();
+
+    RemoveAllChildren();
+
+    delete GameSingle;
+    delete MultiRace;
+    delete MultiCR;
+    delete SingleCircuit;
+    delete SingleBlitz;
+    delete GameEdit;
+    delete MultiCircuit;
+    delete MultiBlitz;
+
+    GameSingle = nullptr;
+    MultiRace = nullptr;
+    MultiCR = nullptr;
+    SingleCircuit = nullptr;
+    SingleBlitz = nullptr;
+    GameEdit = nullptr;
+    MultiCircuit = nullptr;
+    MultiBlitz = nullptr;
+    Current = nullptr;
+
+    Instance = nullptr;
+
+    delete VehicleListPtr;
+
+    DebugLogShutdown();
 }

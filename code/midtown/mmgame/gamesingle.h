@@ -24,7 +24,7 @@ class mmGameSingle final : public mmGame
 {
 public:
     // ??0mmGameSingle@@QAE@XZ
-    ARTS_IMPORT mmGameSingle();
+    ARTS_EXPORT mmGameSingle();
 
     // ??1mmGameSingle@@UAE@XZ
     ARTS_IMPORT ~mmGameSingle() override;

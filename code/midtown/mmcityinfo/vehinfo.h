@@ -36,7 +36,7 @@ class mmVehInfo final
 {
 public:
     // ??0mmVehInfo@@QAE@XZ
-    ARTS_IMPORT mmVehInfo();
+    ARTS_EXPORT mmVehInfo();
 
     // ??1mmVehInfo@@UAE@XZ
     ARTS_EXPORT virtual ~mmVehInfo() = default;
@@ -45,7 +45,7 @@ public:
     ARTS_IMPORT i32 IsValid();
 
     // ?Load@mmVehInfo@@QAEHPAD@Z
-    ARTS_IMPORT i32 Load(char* arg1);
+    ARTS_EXPORT i32 Load(char* arg1);
 
     // ?Print@mmVehInfo@@QAEXXZ
     ARTS_IMPORT void Print();

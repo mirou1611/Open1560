@@ -22,6 +22,7 @@ define_dummy_symbol(mminput_input);
 
 #include "agi/pipeline.h"
 #include "eventq7/keys.h"
+#include "localize/localize.h"
 #include "mmcityinfo/state.h"
 
 #include "io.h"
@@ -439,4 +440,50 @@ void mmInput::SetDefaultConfig(i32 config)
     }
 
     InputConfiguration = old_config;
+}
+// The original copies each of these into its own 32-byte buffer rather than pointing at
+// the string table, so they stay writable.
+static char* LocStrCopy(const char* text)
+{
+    char* buffer = new char[32];
+    arts_strcpy(buffer, 32, text);
+    return buffer;
+}
+
+mmInput::mmInput()
+{
+    ArAssert(GameInputPtr == nullptr, "Only one mmInput allowed");
+
+    LocStrUndef = LocStrCopy(LOC_STR(MM_IDS_248));
+    LocStrButton = LocStrCopy(LOC_STR(MM_IDS_249));
+    LocStrJoystick = LocStrCopy(LOC_STR(MM_IDS_250));
+    LocStrKey = LocStrCopy(LOC_STR(MM_IDS_251));
+
+    GameInputPtr = this;
+    IODev = nullptr;
+
+    // ARTS_ZEROED already zeroed everything; only the non-zero defaults are set here,
+    // plus the pointers the original clears explicitly.
+    Joy = nullptr;
+    IO = nullptr;
+    Events = nullptr;
+
+    CollideCooldown = 1.0f;
+    CollidePeriod = 0.1f;
+
+    AutoReverse = 1;
+
+    DiscreteSteeringLimit = 1.0f;
+    ForceFeedbackScale = 1.0f;
+    RoadForceScale = 1.0f;
+    JoyDeadZone = 0.1f;
+    MouseSensitivity = 1.0f;
+    UserSteeringSensitivity = 1.0f;
+    DiscreteSteeringDeltaIn = 1.0f;
+    DiscreteSteeringDeltaOut = 1.0f;
+    SteeringExponent = 2.0f;
+
+    ResetMouse = true;
+
+    UseDIKey = std::atoi(LOC_STR(MM_IDS_USE_DI_KEYS));
 }

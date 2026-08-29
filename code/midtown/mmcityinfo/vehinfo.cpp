@@ -19,3 +19,38 @@
 define_dummy_symbol(mmcityinfo_vehinfo);
 
 #include "vehinfo.h"
+
+#include "agiworld/texsheet.h"
+#include "stream/stream.h"
+
+// The original only zeroes Valid and IsLocked here; the in-class initializers cover
+// those and every other field.
+mmVehInfo::mmVehInfo() = default;
+
+i32 mmVehInfo::Load(char* arg1)
+{
+    if (Ptr<Stream> input {arts_fopen(arg1, "r")})
+    {
+        // Every line has to be present and in this order
+        Valid = arts_fscanf(input.get(), "BaseName=%s", BaseName) &&
+            arts_fscanf(input.get(), "Description=%[^\r]", Description) &&
+            arts_fscanf(input.get(), "Colors=%[^\r]", Colors) &&
+            arts_fscanf(input.get(), "Flags=%d", &Flags) && arts_fscanf(input.get(), "Order=%d", &Order) &&
+            arts_fscanf(input.get(), "ScoringBias=%f", &ScoringBias) &&
+            arts_fscanf(input.get(), "UnlockScore=%d", &UnlockScore) &&
+            arts_fscanf(input.get(), "UnlockFlags=%d", &UnlockFlags) &&
+            arts_fscanf(input.get(), "Horsepower=%d", &Horsepower) &&
+            arts_fscanf(input.get(), "Top Speed=%d", &TopSpeed) &&
+            arts_fscanf(input.get(), "Durability=%d", &Durability) &&
+            arts_fscanf(input.get(), "Mass=%d", &Mass);
+    }
+    else
+    {
+        Valid = false;
+    }
+
+    if (Valid)
+        TEXSHEET.Load(arts_formatf<64>("mtl/%s.tsh", BaseName));
+
+    return Valid;
+}

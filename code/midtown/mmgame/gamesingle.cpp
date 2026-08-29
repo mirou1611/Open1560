@@ -134,3 +134,7 @@ void mmGameSingle::Reset()
 
 void mmGameSingle::UpdateDebugKeyInput(i32 /*arg1*/)
 {}
+// The original also builds and immediately destroys a temporary mmGame on the stack;
+// that is a compiler artifact, not behaviour. Everything else it does - InWater = 0 and
+// the FooBar node - is covered by the in-class initializers.
+mmGameSingle::mmGameSingle() = default;

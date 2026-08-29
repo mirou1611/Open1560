@@ -217,7 +217,7 @@ class mmInput final : public asNode
 {
 public:
     // ??0mmInput@@QAE@XZ
-    ARTS_IMPORT mmInput();
+    ARTS_EXPORT mmInput();
 
     // ??1mmInput@@UAE@XZ
     ARTS_IMPORT ~mmInput() override;
