@@ -45,6 +45,9 @@ class agiViewParameters;
 #define MESH_SET_NO_BOUND 0x40
 #define MESH_SET_BREAKABLE 0x80 // strcat(bnd_name, "_break")
 
+// Skip the pager and read the mesh here and now
+#define MESH_SET_NO_PAGING 0x100
+
 // Maybe these were supposed to mark which variants should be pre-loaded?
 
 // if (!(flags & 0x100) && (EnablePaging & 2) && FileSystem::PagerInfoAny(bms_path, &pager))
@@ -420,6 +423,12 @@ public:
 
     u32 Variant {};
     agiTexDef*** Textures {};
+
+    // GetMeshSet bumps this when it hands back a mesh already in the table
+    void AddRef()
+    {
+        ++ref_count_;
+    }
 
 private:
     u32 ref_count_ {1};
