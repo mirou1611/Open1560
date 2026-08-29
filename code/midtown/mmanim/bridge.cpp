@@ -116,8 +116,10 @@ mmBridgeMgr::mmBridgeMgr()
 
     NumTrackedObjects = 0;
 
-    // The audio manager publishes itself through MMBRIDGEAUDMGRPTR
-    new mmBridgeAudMgr();
+    // The original relies on mmBridgeAudMgr's constructor to publish MMBRIDGEAUDMGRPTR
+    // and then reads it back. That constructor is still assembly, so the pointer stays
+    // null and AddChild is handed nothing - assign it here as well.
+    MMBRIDGEAUDMGRPTR = new mmBridgeAudMgr();
     AddChild(MMBRIDGEAUDMGRPTR);
 
     DrawBridges = 0;
