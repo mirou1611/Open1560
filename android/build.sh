@@ -26,6 +26,10 @@ rsync -a --delete \
     --exclude '.git' --exclude 'build' --exclude 'android/build' --exclude 'android/build-x64' \
     "$WIN_SRC/" "$WSL_SRC/"
 
+# rsync preserves the Windows mtime, so a stubs.S regenerated in the same minute as
+# the last build can look older than its object file and get silently skipped.
+touch "$WSL_SRC/android/stubs/stubs.S"
+
 cd "$WSL_SRC/android" || exit 1
 mkdir -p "$BUILD_DIR"
 

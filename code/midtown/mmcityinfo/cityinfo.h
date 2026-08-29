@@ -28,7 +28,7 @@ public:
     virtual ~mmCityInfo();
 
     // ?Load@mmCityInfo@@QAEHPAD@Z
-    ARTS_IMPORT b32 Load(char* path);
+    ARTS_EXPORT b32 Load(char* path);
 
     char LocalizedName[40];
     char MapName[40];

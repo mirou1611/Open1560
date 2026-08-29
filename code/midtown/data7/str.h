@@ -92,7 +92,7 @@ public:
     ARTS_IMPORT void Init(i32 arg1);
 
     // ?NumSubStrings@string@@QBEHXZ
-    ARTS_IMPORT i32 NumSubStrings() const;
+    ARTS_EXPORT i32 NumSubStrings() const;
 
     // ?SaveName@string@@QAEXABV1@H00@Z
     ARTS_IMPORT void SaveName(const string& arg1, i32 arg2, const string& arg3, const string& arg4);

@@ -22,3 +22,15 @@ define_dummy_symbol(data7_str);
 
 char ExecPath[1024];
 char ProjPath[1024];
+i32 string::NumSubStrings() const
+{
+    i32 count = 1;
+
+    for (const char* c = data_; c && *c; ++c)
+    {
+        if (*c == '|')
+            ++count;
+    }
+
+    return count;
+}
