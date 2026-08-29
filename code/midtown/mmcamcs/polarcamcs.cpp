@@ -22,3 +22,13 @@ define_dummy_symbol(mmcamcs_polarcamcs);
 
 // ?EnablePolarCamCollision@@3_NA
 ARTS_EXPORT bool EnablePolarCamCollision = false;
+PolarCamCS::PolarCamCS()
+{
+    CameraNear = 0.1f;
+
+    field_118 = 2.5f;
+    field_11C = 7.0f;
+    field_120 = 2.5f;
+    field_124 = 0.25f;
+    field_128 = 2.0f;
+}

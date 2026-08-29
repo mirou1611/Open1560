@@ -26,7 +26,7 @@ class CarCamCS : public AppCamCS
 {
 public:
     // ??0CarCamCS@@QAE@XZ
-    ARTS_IMPORT CarCamCS();
+    ARTS_EXPORT CarCamCS();
 
     // ??1CarCamCS@@UAE@XZ
     ARTS_EXPORT ~CarCamCS() override = default;

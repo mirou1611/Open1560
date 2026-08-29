@@ -26,7 +26,7 @@ class AICamCS final : public CarCamCS
 {
 public:
     // ??0AICamCS@@QAE@XZ
-    ARTS_IMPORT AICamCS();
+    ARTS_EXPORT AICamCS();
 
     // ??1AICamCS@@UAE@XZ | inline
     ARTS_EXPORT ~AICamCS() override = default;
@@ -49,7 +49,8 @@ public:
     // ?DeclareFields@AICamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap118[0x8];
+    f32 field_118;
+    f32 field_11C;
 };
 
 check_size(AICamCS, 0x120);

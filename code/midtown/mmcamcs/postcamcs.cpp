@@ -19,3 +19,14 @@
 define_dummy_symbol(mmcamcs_postcamcs);
 
 #include "postcamcs.h"
+
+PostCamCS::PostCamCS()
+{
+    BlendTime = 3.5f;
+
+    field_118 = 1.0f;
+    field_11C = 7.0f;
+    field_120 = 88.3f;
+    field_124 = 0.15f;
+    field_128 = 2.0f;
+}

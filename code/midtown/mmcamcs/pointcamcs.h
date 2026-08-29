@@ -24,7 +24,7 @@ class PointCamCS final : public CarCamCS
 {
 public:
     // ??0PointCamCS@@QAE@XZ
-    ARTS_IMPORT PointCamCS();
+    ARTS_EXPORT PointCamCS();
 
     // ??1PointCamCS@@UAE@XZ | inline
     ARTS_EXPORT ~PointCamCS() override = default;
@@ -62,7 +62,10 @@ public:
     // ?DeclareFields@PointCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap118[0x2C];
+    u8 gap118[0x18];
+    f32 field_130;
+    f32 field_134;
+    u8 gap138[0xC];
 };
 
 check_size(PointCamCS, 0x144);

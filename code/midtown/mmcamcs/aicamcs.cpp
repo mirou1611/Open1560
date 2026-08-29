@@ -19,3 +19,9 @@
 define_dummy_symbol(mmcamcs_aicamcs);
 
 #include "aicamcs.h"
+
+AICamCS::AICamCS()
+{
+    field_118 = 30.0f;
+    field_11C = 1.5f;
+}

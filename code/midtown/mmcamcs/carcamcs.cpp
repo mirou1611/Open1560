@@ -19,3 +19,8 @@
 define_dummy_symbol(mmcamcs_carcamcs);
 
 #include "carcamcs.h"
+
+CarCamCS::CarCamCS()
+{
+    Car = nullptr;
+}

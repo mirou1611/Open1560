@@ -25,7 +25,7 @@ class PovCamCS final : public CarCamCS
 {
 public:
     // ??0PovCamCS@@QAE@XZ
-    ARTS_IMPORT PovCamCS();
+    ARTS_EXPORT PovCamCS();
 
     // ??1PovCamCS@@UAE@XZ
     ARTS_EXPORT ~PovCamCS() override = default;

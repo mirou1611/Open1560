@@ -19,3 +19,9 @@
 define_dummy_symbol(mmcamcs_pointcamcs);
 
 #include "pointcamcs.h"
+
+PointCamCS::PointCamCS()
+{
+    field_130 = 10000.0f;
+    field_134 = 100.0f;
+}

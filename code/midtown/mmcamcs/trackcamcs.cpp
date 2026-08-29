@@ -108,3 +108,83 @@ void TrackCamCS::PreApproach()
 
 void TrackCamCS::UpdateHill()
 {}
+
+TrackCamCS::TrackCamCS()
+{
+    camera_.Identity();
+
+    BlendTime = 1.2f;
+    BlendGoal = 1.0f;
+    CameraFOV = 60.0f;
+    CameraNear = 1.0f;
+    CameraFar = 1600.0f;
+
+    ApproachOn = true;
+    AppAppOn = true;
+    AppRot = 30.0f;
+    AppXRot = 10.0f;
+    AppYPos = 5.0f;
+    AppApp = 0.7f;
+    AppRotMin = 0.01f;
+    AppPosMin = 0.25f;
+    OneShot = false;
+    MaxDist = 11.0f;
+    MinDist = 7.93f;
+    LookAt = 1.0f;
+
+    Car = nullptr;
+
+    MatrixTouched = true;
+    Offset = {0.0f, 1.9f, 7.7f};
+
+    CollideType = 2;
+    EnableMinMax = 1;
+    VerticalBreak = 0;
+
+    MinAppXZPos = 1.8f;
+    MaxAppXZPos = 12.0f;
+    MinSpeed = 5.0f;
+    MaxSpeed = 35.0f;
+    AppInc = 15.0f;
+    AppDec = 10.0f;
+    MinHardSteer = 0.8f;
+    DriftDelay = 0.3f;
+    VertOffset = 0.6f;
+    FrontRate = 0.55f;
+    RearRate = 0.5f;
+    FlipDelay = 0.5f;
+
+    EnableSteer = 0;
+    SteerMin = 0.5f;
+    SteerAmt = 3.5f;
+
+    // Shared between the three track cameras once one of them fills it in
+    SharedData = new TrackCamData {};
+
+    InAirTime = 0.0f;
+    OnGroundTime = 0.0f;
+    IsOnGround = true;
+    SpinningReallyFast = false;
+    field_184 = 0;
+
+    SplineState1 = 0;
+    SplineState2 = 0;
+    SplineState3 = 0;
+    field_194 = 0;
+    field_198 = 0;
+    field_19C = 0;
+    field_1A0 = 0.0f;
+    field_1A4 = 0;
+
+    field_228 = 0.0f;
+    field_22C = 0;
+    CarSteering = 0.0f;
+    CarVelocity = 0.0f;
+    SteerTarget = 0.0f;
+    field_240 = 0;
+    field_244 = 0;
+
+    field_250 = {0.0f, 0.0f, 0.0f};
+    field_25C = {0.0f, 0.0f, 0.0f};
+    field_268 = {0.0f, 0.0f, 0.0f};
+}

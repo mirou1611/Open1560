@@ -28,3 +28,21 @@ void BaseCamCS::UpdateInput()
 
 void BaseCamCS::SetST(f32* /*arg1*/)
 {}
+
+BaseCamCS::BaseCamCS()
+{
+    ClearNodeFlag(NODE_FLAG_ACTIVE);
+
+    camera_.Identity();
+    matrix_.Identity();
+
+    View = nullptr;
+
+    BlendTime = 1.2f;
+    BlendGoal = 1.0f;
+    CameraFOV = 50.0f;
+    CameraNear = 3.0f;
+    CameraFar = 1600.0f;
+
+    Active = 0;
+}

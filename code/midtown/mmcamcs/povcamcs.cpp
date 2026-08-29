@@ -22,3 +22,32 @@ define_dummy_symbol(mmcamcs_povcamcs);
 
 void PovCamCS::UpdateInput()
 {}
+
+PovCamCS::PovCamCS()
+{
+    Active = 1;
+
+    BlendTime = 1.2f;
+    BlendGoal = 1.0f;
+    CameraFOV = 60.0f;
+    CameraNear = 3.0f;
+    CameraFar = 1600.0f;
+
+    ApproachOn = true;
+    AppAppOn = true;
+    AppRot = 28.0f;
+    AppYPos = 28.0f;
+    AppXZPos = 28.0f;
+    AppApp = 0.7f;
+    AppRotMin = 0.0f;
+    AppPosMin = 0.0f;
+    OneShot = false;
+    MaxDist = 1.8f;
+    MinDist = 1.74f;
+    LookAt = 0.0f;
+
+    Car = nullptr;
+
+    // Offset carries its own initializer; everything after it is simply zeroed
+    std::memset(gap124, 0, sizeof(gap124));
+}

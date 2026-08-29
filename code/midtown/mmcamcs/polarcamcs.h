@@ -24,7 +24,7 @@ class PolarCamCS final : public CarCamCS
 {
 public:
     // ??0PolarCamCS@@QAE@XZ
-    ARTS_IMPORT PolarCamCS();
+    ARTS_EXPORT PolarCamCS();
 
     // ??1PolarCamCS@@UAE@XZ | inline
     ARTS_EXPORT ~PolarCamCS() override = default;
@@ -47,7 +47,12 @@ public:
     // ?DeclareFields@PolarCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap118[0x18];
+    f32 field_118;
+    f32 field_11C;
+    f32 field_120;
+    f32 field_124;
+    f32 field_128;
+    u8 gap12C[4];
 };
 
 check_size(PolarCamCS, 0x130);

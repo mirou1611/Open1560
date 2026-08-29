@@ -24,7 +24,7 @@ class AppCamCS : public BaseCamCS
 {
 public:
     // ??0AppCamCS@@QAE@XZ
-    ARTS_IMPORT AppCamCS();
+    ARTS_EXPORT AppCamCS();
 
     // ??1AppCamCS@@UAE@XZ
     ARTS_EXPORT ~AppCamCS() override = default;
@@ -57,8 +57,8 @@ private:
 public:
     Matrix34* CarMatrix;
     Vector3 TrackTo;
-    f32 ApproachOn;
-    f32 AppAppOn;
+    b32 ApproachOn;
+    b32 AppAppOn;
     f32 AppRot;
     f32 AppXRot;
     f32 AppYPos;

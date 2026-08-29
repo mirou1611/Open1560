@@ -19,3 +19,31 @@
 define_dummy_symbol(mmcamcs_appcamcs);
 
 #include "appcamcs.h"
+
+AppCamCS::AppCamCS()
+{
+    CarMatrix = nullptr;
+
+    field_FC = ORIGIN;
+    field_108 = ORIGIN;
+
+    ApproachOn = false;
+    AppAppOn = false;
+    AppRot = 0.0f;
+    AppXRot = 0.0f;
+    AppYPos = 0.0f;
+    AppXZPos = 0.0f;
+    AppApp = 0.0f;
+    AppRotMin = 0.0f;
+    AppPosMin = 0.0f;
+    LookAbove = false;
+    OneShot = false;
+    MaxDist = 0.0f;
+    MinDist = 0.0f;
+    LookAt = 0.0f;
+    field_E4 = 0.0f;
+    field_E8 = 0.0f;
+    field_EC = 0.0f;
+
+    TrackTo = {0.0f, 0.8f, 0.0f};
+}

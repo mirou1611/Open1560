@@ -24,7 +24,7 @@ class PostCamCS final : public CarCamCS
 {
 public:
     // ??0PostCamCS@@QAE@XZ
-    ARTS_IMPORT PostCamCS();
+    ARTS_EXPORT PostCamCS();
 
     // ??1PostCamCS@@UAE@XZ | inline
     ARTS_EXPORT ~PostCamCS() override = default;
@@ -52,7 +52,11 @@ public:
     // ?DeclareFields@PostCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap118[0x14];
+    f32 field_118;
+    f32 field_11C;
+    f32 field_120;
+    f32 field_124;
+    f32 field_128;
 };
 
 check_size(PostCamCS, 0x12C);

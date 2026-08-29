@@ -33,7 +33,7 @@ class TrackCamCS final : public CarCamCS
 {
 public:
     // ??0TrackCamCS@@QAE@XZ
-    ARTS_IMPORT TrackCamCS();
+    ARTS_EXPORT TrackCamCS();
 
     // ??1TrackCamCS@@UAE@XZ
     ARTS_IMPORT ~TrackCamCS() override;

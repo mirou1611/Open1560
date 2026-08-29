@@ -27,7 +27,7 @@ class BaseCamCS : public asNode
 {
 public:
     // ??0BaseCamCS@@QAE@XZ
-    ARTS_IMPORT BaseCamCS();
+    ARTS_EXPORT BaseCamCS();
 
     // ??1BaseCamCS@@UAE@XZ
     ARTS_EXPORT ~BaseCamCS() override = default;
