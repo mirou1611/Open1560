@@ -39,13 +39,13 @@ public:
     ARTS_IMPORT i32 Approach(const Matrix34& arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // ?Dot@Matrix34@@QAEXABV1@0@Z
-    ARTS_IMPORT void Dot(const Matrix34& arg1, const Matrix34& arg2);
+    ARTS_EXPORT void Dot(const Matrix34& arg1, const Matrix34& arg2);
 
     // ?Dot3x3@Matrix34@@QAEXABV1@0@Z
-    ARTS_IMPORT void Dot3x3(const Matrix34& arg1, const Matrix34& arg2);
+    ARTS_EXPORT void Dot3x3(const Matrix34& arg1, const Matrix34& arg2);
 
     // ?FastInverse@Matrix34@@QAEXABV1@@Z
-    ARTS_IMPORT void FastInverse(const Matrix34& arg1);
+    ARTS_EXPORT void FastInverse(const Matrix34& arg1);
 
     Matrix34 FastInverse() const
     {

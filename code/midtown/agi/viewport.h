@@ -27,10 +27,10 @@ class agiViewParameters
 {
 public:
     // ??0agiViewParameters@@QAE@XZ
-    ARTS_IMPORT agiViewParameters();
+    ARTS_EXPORT agiViewParameters();
 
     // ?Perspective@agiViewParameters@@QAEXMMMM@Z
-    ARTS_IMPORT void Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT void Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // ?SetBill@agiViewParameters@@QAEXAAVVector3@@@Z
     ARTS_IMPORT void SetBill(Vector3& arg1);

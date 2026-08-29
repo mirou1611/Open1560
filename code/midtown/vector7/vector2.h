@@ -43,10 +43,10 @@ public:
     }
 
     // ?InvMag@Vector2@@QBEMXZ
-    ARTS_IMPORT f32 InvMag() const;
+    ARTS_EXPORT f32 InvMag() const;
 
     // ?Mag@Vector2@@QBEMXZ
-    ARTS_IMPORT f32 Mag() const;
+    ARTS_EXPORT f32 Mag() const;
 
     constexpr inline bool operator==(const Vector2& other) const noexcept
     {

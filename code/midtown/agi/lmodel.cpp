@@ -19,3 +19,43 @@
 define_dummy_symbol(agi_lmodel);
 
 #include "lmodel.h"
+
+agiLightModelParameters::agiLightModelParameters()
+{
+    Ambient = {0.2f, 0.2f, 0.2f, 1.0f};
+
+    LocalViewer = false;
+    // dword14 is left uninitialized by the original; zero it so the value is at
+    // least deterministic
+    dword14 = 0;
+    dword18 = 0;
+
+    Enabled = true;
+    Monochromatic = false;
+    Changed = false;
+}
+
+void agiLightModelParameters::operator=(const agiLightModelParameters& arg1)
+{
+    Ambient = arg1.Ambient;
+    LocalViewer = arg1.LocalViewer;
+    dword14 = arg1.dword14;
+    dword18 = arg1.dword18;
+    Enabled = arg1.Enabled;
+    Monochromatic = arg1.Monochromatic;
+
+    Changed = true;
+}
+
+agiLightModel::agiLightModel(agiPipeline* arg1)
+    : agiRefreshable(arg1)
+{}
+
+i32 agiLightModel::Init(const agiLightModelParameters& arg1)
+{
+    EndGfx();
+
+    Params = arg1;
+
+    return SafeBeginGfx();
+}

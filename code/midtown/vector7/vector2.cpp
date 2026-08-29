@@ -19,3 +19,16 @@
 define_dummy_symbol(vector7_vector2);
 
 #include "vector2.h"
+
+// MathSpeed selects an approximate reciprocal-square-root in the original; both
+// paths compute the same quantity, so these use the exact one unconditionally.
+
+f32 Vector2::Mag() const
+{
+    return std::sqrt(x * x + y * y);
+}
+
+f32 Vector2::InvMag() const
+{
+    return 1.0f / std::sqrt(x * x + y * y);
+}

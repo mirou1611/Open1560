@@ -35,10 +35,10 @@ class asCamera final : public asNode
 {
 public:
     // ??0asCamera@@QAE@XZ
-    ARTS_IMPORT asCamera();
+    ARTS_EXPORT asCamera();
 
     // ??1asCamera@@UAE@XZ
-    ARTS_IMPORT ~asCamera() override;
+    ARTS_EXPORT ~asCamera() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asCamera@@UAEXPAVBank@@@Z
@@ -49,13 +49,13 @@ public:
     void DrawBegin();
 
     // ?DrawEnd@asCamera@@QAEXXZ
-    ARTS_IMPORT void DrawEnd();
+    ARTS_EXPORT void DrawEnd();
 
     // ?FadeIn@asCamera@@QAEXMH@Z
-    ARTS_IMPORT void FadeIn(f32 arg1, i32 arg2);
+    ARTS_EXPORT void FadeIn(f32 arg1, i32 arg2);
 
     // ?FadeOut@asCamera@@QAEXMH@Z
-    ARTS_IMPORT void FadeOut(f32 arg1, i32 arg2);
+    ARTS_EXPORT void FadeOut(f32 arg1, i32 arg2);
 
     // ?GetClass@asCamera@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
@@ -70,31 +70,31 @@ public:
     };
 
     // ?SetClipArea@asCamera@@QAEXMMMM@Z
-    ARTS_IMPORT void SetClipArea(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT void SetClipArea(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // ?SetFog@asCamera@@QAEXMMMM@Z
-    ARTS_IMPORT void SetFog(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT void SetFog(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // ?SetLighting@asCamera@@QAEXH@Z
-    ARTS_IMPORT void SetLighting(i32 arg1);
+    ARTS_EXPORT void SetLighting(i32 arg1);
 
     // ?SetUnderlay@asCamera@@QAEXPAD@Z
-    ARTS_IMPORT void SetUnderlay(aconst char* arg1);
+    ARTS_EXPORT void SetUnderlay(aconst char* arg1);
 
     // ?SetUnderlayCB@asCamera@@QAEXPAVagiBitmap@@PAVCallback@@@Z
-    ARTS_IMPORT void SetUnderlayCB(agiBitmap* arg1, Callback* arg2);
+    ARTS_EXPORT void SetUnderlayCB(agiBitmap* arg1, Callback* arg2);
 
     // ?SetView@asCamera@@QAEXMMMM@Z
     ARTS_EXPORT void SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip);
 
     // ?SetViewport@asCamera@@QAEXMMMMH@Z
-    ARTS_IMPORT void SetViewport(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5);
+    ARTS_EXPORT void SetViewport(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5);
 
     // ?SetWorld@asCamera@@QAEXAAVMatrix34@@@Z
-    ARTS_IMPORT void SetWorld(Matrix34& arg1);
+    ARTS_EXPORT void SetWorld(Matrix34& arg1);
 
     // ?Update@asCamera@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@asCamera@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -111,7 +111,7 @@ public:
 
 private:
     // ?Regen@asCamera@@AAEXXZ
-    ARTS_IMPORT void Regen();
+    ARTS_EXPORT void Regen();
 
     agiViewport* viewport_ {};
     agiLightModel* light_model_ {};

@@ -25,6 +25,9 @@ define_dummy_symbol(arts7_camera);
 #include "agi/pipeline.h"
 #include "agi/rsys.h"
 #include "agi/viewport.h"
+#include "benchstats.h"
+#include "cullmgr.h"
+#include "dyna7/gfx.h"
 #include "sim.h"
 
 static mem::cmd_param PARAM_fovfix {"fovfix"};
@@ -131,4 +134,306 @@ void asCamera::DrawBegin()
 
     if (light_model_)
         light_model_->Activate();
+}
+
+asCamera::asCamera()
+{
+    viewport_ = Pipe()->CreateViewport().release();
+    VW = viewport_;
+
+    light_model_ = Pipe()->CreateLightModel().release();
+    light_params_ = new agiLightModelParameters();
+
+    underlay_bitmap_ = nullptr;
+    underlay_callback_ = nullptr;
+
+    SetViewport(0.0f, 0.0f, 1.0f, 1.0f, 1);
+    SetLighting(1);
+
+    bg_color_ = {0.0f, 0.0f, 0.0f};
+    shadow_color_ = {0.0f, 0.0f, 0.0f, 1.0f};
+
+    field_5C = 0;
+    field_60 = 0;
+    field_64 = 0;
+
+    clear_flags_ = AGI_VIEW_CLEAR_TARGET | AGI_VIEW_CLEAR_ZBUFFER;
+
+    draw_mode_ = 0xF;
+    field_C0 = 1;
+
+    // The original cleared auto_aspect_ at the end of the constructor, after SetView.
+    // It could do that because its SetView never touched the field. Open1560's SetView
+    // does (fovfix asks for auto aspect), so clear it first and let SetView have the
+    // last word.
+    auto_aspect_ = false;
+
+    SetView(1.5707964f, 1.33f, 0.1f, 1000.0f);
+    SetFog(0.0f, 0.0f, 0.0f, 0.0f);
+
+    float_C4 = 1.0f;
+    field_C8 = 0;
+    field_CC = 0;
+
+    float_E0 = 1.0f;
+    fog_start_ = 1.0f;
+    fog_end_ = 100.0f;
+
+    camera_.Identity();
+    view_.Identity();
+
+    field_14C = 0;
+    field_150 = 0;
+    field_154 = 0;
+    field_158 = 0;
+    field_15C = 0;
+
+    pause_fade_ = 0;
+    fade_amount_ = 0.0f;
+    fade_speed_ = 0.2f;
+    max_fade_ = 0.0f;
+    fade_color_ = {0.0f, 0.0f, 0.0f};
+    float_17C = 1.0f;
+    fade_ticks_ = 0;
+    field_184 = 0;
+}
+
+asCamera::~asCamera()
+{
+    if (viewport_)
+        viewport_->Release();
+
+    if (light_model_)
+        light_model_->Release();
+
+    delete light_params_;
+
+    if (underlay_bitmap_)
+        underlay_bitmap_->Release();
+}
+
+void asCamera::Update()
+{
+    asBenchStats& stats = Sim()->GetStats();
+
+    stats.field_4 += field_14C;
+    stats.field_8 += field_150;
+    stats.field_14 += field_15C;
+    stats.field_10 += field_158;
+    stats.field_C += field_154;
+
+    field_15C = 0;
+    field_150 = 0;
+    field_14C = 0;
+
+    if (auto_aspect_)
+    {
+        aspect_ = (static_cast<f32>(Pipe()->GetWidth()) * x_size_) /
+            (static_cast<f32>(Pipe()->GetHeight()) * y_size_);
+    }
+
+    // Horizontal half-angle: the frustum's side planes
+    f32 half_fov = fov_ * 0.5f;
+    f32 sin_h = std::sin(half_fov);
+    f32 cos_h = std::cos(half_fov);
+    f32 cot_h = cos_h / sin_h;
+
+    float_80 = cot_h;
+    float_84 = cot_h * aspect_;
+    left_clip_scale_ = sin_h;
+    bottom_clip_scale_ = cos_h;
+
+    // Vertical FOV follows from the horizontal one and the aspect ratio
+    fov_radians_ = 2.0f * std::atan(1.0f / (cot_h * aspect_));
+
+    f32 half_vfov = fov_radians_ * 0.5f;
+    right_clip_scale_ = std::sin(half_vfov);
+    top_clip_scale_ = std::cos(half_vfov);
+
+    SetClipArea(-1.0f, 1.0f, -1.0f, 1.0f);
+
+    if (fade_amount_ != max_fade_ && pause_fade_ == 0)
+    {
+        f32 delta = max_fade_ - fade_amount_;
+        f32 step = fade_speed_ * Sim()->GetUpdateDelta();
+
+        if (delta >= 0.0f)
+            fade_amount_ = (delta > step) ? fade_amount_ + step : max_fade_;
+        else
+            fade_amount_ = (-delta > step) ? fade_amount_ - step : max_fade_;
+    }
+
+    camera_ = *Sim()->GetCurrentMatrix();
+    view_.FastInverse(camera_);
+
+    if (Sim()->IsFullUpdate())
+    {
+        agiViewParameters& params = viewport_->GetParams();
+
+        params.Perspective(fov_radians_ * 57.29578f, aspect_, near_clip_, far_clip_);
+
+        params.Camera = camera_;
+        params.View = view_;
+        params.ModelView.Dot(params.World, params.View);
+        ++agiViewParameters::MtxSerial;
+
+        viewport_->SetBackground(Sim()->GetDrawMode() == agiDrawTextured ? ORIGIN : bg_color_);
+
+        CULLMGR->DeclareCamera(this);
+    }
+
+    asNode::Update();
+}
+
+void asCamera::SetClipArea(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
+{
+    Vector2 plane;
+
+    plane = {-bottom_clip_scale_, arg1 * left_clip_scale_};
+    left_clip_ = plane * plane.InvMag();
+
+    plane = {bottom_clip_scale_, -(arg2 * left_clip_scale_)};
+    right_clip_ = plane * plane.InvMag();
+
+    plane = {-top_clip_scale_, arg3 * right_clip_scale_};
+    bottom_clip_ = plane * plane.InvMag();
+
+    plane = {top_clip_scale_, -(arg4 * right_clip_scale_)};
+    top_clip_ = plane * plane.InvMag();
+}
+
+void asCamera::SetLighting(i32 arg1)
+{
+    if (light_model_)
+    {
+        light_model_->Params.Changed = true;
+        light_model_->Params.Enabled = arg1;
+    }
+}
+
+void asCamera::SetWorld(Matrix34& arg1)
+{
+    viewport_->SetWorld(arg1);
+}
+
+void asCamera::SetViewport(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5)
+{
+    x_origin_ = arg1;
+    y_origin_ = arg2;
+    x_size_ = arg3;
+    y_size_ = arg4;
+
+    agiViewParameters& params = viewport_->GetParams();
+
+    params.X = arg1;
+    params.Y = arg2;
+    params.Width = arg3;
+    params.Height = arg4;
+
+    ++agiViewParameters::ViewSerial;
+
+    field_C0 = arg5;
+}
+
+void asCamera::SetFog(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
+{
+    fog_density_ = arg1;
+    fog_color_ = {arg2, arg3, arg4};
+}
+
+void asCamera::SetUnderlay(aconst char* arg1)
+{
+    // As in the original, the previous bitmap is dropped without a Release
+    if (underlay_bitmap_)
+    {
+        underlay_bitmap_ = nullptr;
+        underlay_callback_ = nullptr;
+    }
+
+    if (arg1)
+        underlay_bitmap_ = Pipe()->GetBitmap(arg1, 1.0f, 1.0f, 0).release();
+}
+
+void asCamera::SetUnderlayCB(agiBitmap* arg1, Callback* arg2)
+{
+    underlay_bitmap_ = arg1;
+
+    if (arg1)
+        arg1->AddRef();
+
+    underlay_callback_ = arg2;
+}
+
+void asCamera::FadeOut(f32 arg1, i32 arg2)
+{
+    if (arg1 == 0.0f)
+    {
+        fade_amount_ = 1.0f;
+    }
+    else
+    {
+        fade_amount_ = 0.0f;
+        fade_speed_ = 1.0f / arg1;
+    }
+
+    max_fade_ = 1.0f;
+    pause_fade_ = 1;
+    field_184 = arg2;
+}
+
+void asCamera::FadeIn(f32 arg1, i32 arg2)
+{
+    if (arg1 == 0.0f)
+    {
+        fade_amount_ = 0.0f;
+    }
+    else
+    {
+        fade_amount_ = 1.0f;
+        fade_speed_ = 1.0f / arg1;
+    }
+
+    max_fade_ = 0.0f;
+    pause_fade_ = 1;
+    field_184 = arg2;
+}
+
+void asCamera::Regen()
+{
+    if (light_model_)
+        light_model_->Init(*light_params_);
+}
+
+void asCamera::DrawEnd()
+{
+    if (fade_amount_ == 0.0f && max_fade_ == 0.0f && pause_fade_ != 1 && fade_ticks_ <= 0)
+        return;
+
+    pause_fade_ = 0;
+
+    f32 alpha = fade_ticks_ ? 1.0f : (fade_amount_ * fade_amount_);
+    f32 z = near_clip_ * -1.001f;
+
+    Vector4 color {fade_color_.x, fade_color_.y, fade_color_.z, alpha};
+
+    Vector3 verts[4] {
+        {-10.0f, -10.0f, z},
+        {-10.0f, 10.0f, z},
+        {10.0f, 10.0f, z},
+        {10.0f, -10.0f, z},
+    };
+
+    ::DrawBegin(camera_);
+
+    agiCurState.SetAlphaEnable(true);
+    agiCurState.SetZEnable(false);
+    agiCurState.SetZWrite(false);
+
+    DrawColor(color);
+    DrawQuad(nullptr, verts[0], verts[1], verts[2], verts[3]);
+
+    ::DrawEnd();
+
+    if (fade_ticks_)
+        --fade_ticks_;
 }

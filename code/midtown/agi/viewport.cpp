@@ -64,3 +64,52 @@ aconst char* agiViewport::GetName()
     arts_sprintf(buffer, "Viewport '%p'", this);
     return buffer;
 }
+
+void agiViewParameters::Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
+{
+    Fov = arg1;
+    Aspect = arg2;
+    Near = arg3;
+    Far = arg4;
+
+    ProjXZ = 0.0f;
+    ProjYZ = 0.0f;
+    Orthographic = false;
+
+    // arg1 is a horizontal FOV in degrees; 0.5 * pi / 180 turns it into the half-angle
+    f32 tan_half = std::tan(arg1 * 0.008726646f);
+
+    f32 near_height = tan_half * Near;
+    f32 near_width = Aspect * near_height;
+
+    ProjBottom = near_height;
+    ProjRight = near_width;
+
+    ProjX = Near / near_width;
+    ProjY = Near / near_height;
+
+    f32 inv_depth = 1.0f / (Far - Near);
+
+    DepthScale = inv_depth;
+    ProjZZ = -((Far + Near) * inv_depth);
+    ProjZW = (Far * Near * -2.0f) * inv_depth;
+
+    ++MtxSerial;
+}
+
+agiViewParameters::agiViewParameters()
+{
+    World.Identity();
+    Camera.Identity();
+    View.Identity();
+    ModelView.Identity();
+
+    X = 0.0f;
+    Y = 0.0f;
+    Width = 1.0f;
+    Height = 1.0f;
+
+    ++ViewSerial;
+
+    Perspective(90.0f, 1.25f, 1.0f, 1000.0f);
+}

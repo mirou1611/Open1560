@@ -18,7 +18,7 @@
 
 #pragma once
 
-#ifdef ARTS_DEV_BUILD
+// Called from asCamera::DrawEnd, which retail builds run too, not just the debug draw code
 // ?DrawBegin@@YAXAAVMatrix34@@@Z
 ARTS_IMPORT void DrawBegin(aconst Matrix34& arg1);
 
@@ -31,6 +31,10 @@ ARTS_IMPORT void DrawColor(aconst Vector4& arg1);
 // ?DrawEnd@@YAXXZ
 ARTS_IMPORT void DrawEnd();
 
+// ?DrawQuad@@YAXPAVVector3@@AAV1@111@Z
+ARTS_IMPORT void DrawQuad(Vector3* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector3& arg5);
+
+#ifdef ARTS_DEV_BUILD
 // ?DrawLabelf@@YAXAAVVector3@@PADZZ
 ARTS_IMPORT void DrawLabelf(Vector3& arg1, aconst char* arg2, ...);
 
@@ -39,9 +43,6 @@ ARTS_IMPORT void DrawLine(Vector3& arg1, Vector3& arg2);
 
 // ?DrawLine@@YAXMMMMMM@Z
 ARTS_IMPORT void DrawLine(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
-
-// ?DrawQuad@@YAXPAVVector3@@AAV1@111@Z
-ARTS_IMPORT void DrawQuad(Vector3* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector3& arg5);
 
 // ?DrawTri@@YAXPAVVector3@@AAV1@11@Z
 ARTS_IMPORT void DrawTri(Vector3* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4);

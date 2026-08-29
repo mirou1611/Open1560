@@ -26,13 +26,13 @@ class agiLightModelParameters
 {
 public:
     // ??0agiLightModelParameters@@QAE@XZ
-    ARTS_IMPORT agiLightModelParameters();
+    ARTS_EXPORT agiLightModelParameters();
 
     // ??1agiLightModelParameters@@QAE@XZ
     ARTS_EXPORT ~agiLightModelParameters();
 
     // ??4agiLightModelParameters@@QAEXABV0@@Z
-    ARTS_IMPORT void operator=(const agiLightModelParameters& arg1);
+    ARTS_EXPORT void operator=(const agiLightModelParameters& arg1);
 
     Vector4 Ambient;
     b32 LocalViewer;
@@ -59,13 +59,13 @@ public:
     ARTS_IMPORT aconst char* GetName() override;
 
     // ?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z
-    ARTS_IMPORT i32 Init(const agiLightModelParameters& arg1);
+    ARTS_EXPORT i32 Init(const agiLightModelParameters& arg1);
 
     agiLightModelParameters Params;
 
 protected:
     // ??0agiLightModel@@IAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiLightModel(agiPipeline* arg1);
+    ARTS_EXPORT agiLightModel(agiPipeline* arg1);
 };
 
 check_size(agiLightModel, 0x40);
