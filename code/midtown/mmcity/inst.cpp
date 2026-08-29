@@ -27,6 +27,17 @@ define_dummy_symbol(mmcity_inst);
 #include "heap.h"
 #include "mmcity/cullcity.h"
 #include "mmcity/renderweb.h"
+#include "mmdyna/bndtmpl.h"
+
+#include "agiworld/getmesh.h"
+
+#include "core/string.h"
+#include "data7/hash.h"
+#include "data7/printer.h"
+#include "stream/problems.h"
+
+#include <cstdarg>
+#include <cstdio>
 
 f32 mmInstance::LodTable[3 /*Inst Type*/][4 /*Terrain Quality*/][3 /*Lod Dist*/] {
     {
@@ -254,4 +265,164 @@ void mmBuildingInstance::Draw(i32 lod)
         if (agiMeshSet* mesh = GetResidentMeshSet(std::max(lod, INST_LOD_LOW), MESH_FACADE))
             mesh->DrawLit(StaticLighter, MESH_DRAW_CLIP, nullptr);
     }
+}
+
+// ?formatf@@YAPADPBDZZ
+char* formatf(const char* format, ...)
+{
+    // One shared static buffer, exactly as the original. Every caller consumes the result
+    // before the next call, so the sharing is harmless - but two formatf results can never
+    // be alive at the same time. The original used an unbounded vsprintf; this bounds it.
+    static char buffer[232];
+
+    std::va_list va;
+    va_start(va, format);
+    std::vsnprintf(buffer, sizeof(buffer), format, va);
+    va_end(va);
+
+    return buffer;
+}
+
+// The registry that maps an object name to a slot in MeshSetTable, and the list of names
+// that failed so 978 cells do not each re-attempt the same missing mesh.
+static HashTable MeshSetSetHash {64, "MeshSetSets"};
+static HashTable BadMeshSetSetHash {64, "BadMeshSetSets"};
+
+i32 mmInstance::GetMeshSetSet(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset)
+{
+    // The key is "name_part", or just the name when there is no part.
+    char key[64];
+    const char* lookup = name;
+
+    if (part)
+    {
+        arts_strcpy(key, name);
+        arts_strcat(key, "_");
+        arts_strcat(key, part);
+        lookup = key;
+    }
+
+    // Already registered - hand back the same 1-based index. Callers store this in
+    // MeshIndex and GetMeshBase subtracts the one.
+    if (void* found = MeshSetSetHash.Access(lookup))
+        return static_cast<i32>(reinterpret_cast<isize>(found));
+
+    if (BadMeshSetSetHash.Access(lookup))
+        return 0;
+
+    MeshSetTableEntry* entry = &MeshSetTable[MeshSetSetCount];
+
+    // The collision bound is a separate object with its own name: "<name>_bnd", or
+    // "<name>_break_bnd" for something that can come apart.
+    char bnd_name[64];
+    arts_strcpy(bnd_name, name);
+
+    if (part && (mesh_flags & MESH_SET_BREAKABLE))
+        arts_strcat(bnd_name, "_break");
+
+    arts_strcat(bnd_name, "_bnd");
+
+    // Everything registered here gets plane equations - the renderer needs them for culling.
+    mesh_flags |= MESH_SET_PLANES;
+
+    // Four levels of detail, highest last in the table but loaded first. Note the slot order:
+    // Meshes[0] is VL and Meshes[3] is H, which is why INST_LOD_HIGH is 3.
+    if (part)
+    {
+        entry->Meshes[INST_LOD_HIGH] = ::GetMeshSet(name, formatf("%s_H", part), offset, mesh_flags);
+
+        // Only the H variant gets a fallback: a part with no explicit _H suffix is its own
+        // high LOD.
+        if (!entry->Meshes[INST_LOD_HIGH])
+            entry->Meshes[INST_LOD_HIGH] = ::GetMeshSet(name, part, offset, mesh_flags);
+
+        entry->Meshes[INST_LOD_MED] = ::GetMeshSet(name, formatf("%s_M", part), offset, mesh_flags);
+        entry->Meshes[INST_LOD_LOW] = ::GetMeshSet(name, formatf("%s_L", part), offset, mesh_flags);
+        entry->Meshes[INST_LOD_VLOW] = ::GetMeshSet(name, formatf("%s_VL", part), offset, mesh_flags);
+    }
+    else
+    {
+        entry->Meshes[INST_LOD_HIGH] = ::GetMeshSet(name, "H"_xconst, offset, mesh_flags);
+        entry->Meshes[INST_LOD_MED] = ::GetMeshSet(name, "M"_xconst, offset, mesh_flags);
+        entry->Meshes[INST_LOD_LOW] = ::GetMeshSet(name, "L"_xconst, offset, mesh_flags);
+        entry->Meshes[INST_LOD_VLOW] = ::GetMeshSet(name, "VL"_xconst, offset, mesh_flags);
+    }
+
+    // Fill the LOD chain upwards from whatever loaded. A missing low LOD is only allowed to
+    // borrow the medium one if that is trivially cheap to draw - otherwise distant objects
+    // would cost as much as near ones, so it is reported instead.
+    if (!entry->Meshes[INST_LOD_LOW])
+    {
+        if (!entry->Meshes[INST_LOD_MED])
+            RegisterProblem("Missing medium and low LOD's", lookup, nullptr);
+        else if (entry->Meshes[INST_LOD_MED]->VertexCount != 4)
+            RegisterProblem("Missing low LOD, medium LOD has more than 4 verts", lookup, nullptr);
+        else
+        {
+            entry->Meshes[INST_LOD_LOW] = entry->Meshes[INST_LOD_MED];
+            entry->Meshes[INST_LOD_LOW]->AddRef();
+        }
+    }
+
+    if (entry->Meshes[INST_LOD_LOW] && !entry->Meshes[INST_LOD_MED])
+    {
+        entry->Meshes[INST_LOD_MED] = entry->Meshes[INST_LOD_LOW];
+        entry->Meshes[INST_LOD_MED]->AddRef();
+    }
+
+    if (entry->Meshes[INST_LOD_MED] && !entry->Meshes[INST_LOD_HIGH])
+    {
+        entry->Meshes[INST_LOD_HIGH] = entry->Meshes[INST_LOD_MED];
+        entry->Meshes[INST_LOD_HIGH]->AddRef();
+    }
+
+    // No high LOD by now means nothing loaded at all.
+    if (!entry->Meshes[INST_LOD_HIGH])
+    {
+        BadMeshSetSetHash.Insert(lookup, reinterpret_cast<void*>(1));
+        RegisterProblem("Herbert! Object Missing!", lookup, nullptr);
+
+        if (MeshSetSetCount >= MaxMeshSetSets)
+            Abortf("MeshSetSetCount < MaxMeshSetSets");
+
+        // The slot is burned even on failure - the original does not reclaim it.
+        ++MeshSetSetCount;
+        return 0;
+    }
+
+    if (mesh_flags & MESH_SET_NO_BOUND)
+    {
+        entry->Bound = nullptr;
+    }
+    else
+    {
+        // The table owns the bound outright for the lifetime of the level, so the reference
+        // is released out of the Rc rather than kept in one.
+        entry->Bound = mmBoundTemplate::GetBoundTemplate(
+            bnd_name, (mesh_flags & MESH_SET_BREAKABLE) ? part : nullptr, offset, 1, 0, 0, 0, 1)
+                           .release();
+
+        if (!entry->Bound)
+        {
+            // No authored bound - derive an axis-aligned box from the high LOD's vertices.
+            // That needs the vertices actually in memory, so page the mesh in and drop it
+            // again straight after.
+            RegisterProblem("No bound object, using bounding box for bound", lookup, nullptr);
+
+            agiMeshSet* high = entry->Meshes[INST_LOD_HIGH];
+            high->MakeResident();
+            entry->Bound = mmBoundTemplate::MakeBox(
+                bnd_name, const_cast<char*>(part), high->VertexCount, high->Vertices, nullptr);
+            high->UnlockAndFree();
+        }
+    }
+
+    if (MeshSetSetCount >= MaxMeshSetSets)
+        Abortf("MeshSetSetCount < MaxMeshSetSets");
+
+    MeshSetNames[MeshSetSetCount] = arts_strdup(lookup);
+    ++MeshSetSetCount;
+    MeshSetSetHash.Insert(lookup, reinterpret_cast<void*>(static_cast<isize>(MeshSetSetCount)));
+
+    return MeshSetSetCount;
 }

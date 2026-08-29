@@ -43,6 +43,33 @@ cmake -S . -B "$BUILD_DIR" \
     exit 1
 }
 
+# Regenerate the stubs against the current source before every build.
+#
+# This is not optional. stubs.S is generated from a *past* link, so every symbol
+# that has since been reimplemented in C++ still has a stub sitting in it - and
+# for a class, gen_stubs.py also synthesizes a vtable whose every slot points at
+# ArtsVirtualStub. That synthesized vtable wins over the real one, so a class
+# whose constructor was written weeks ago can still be dispatching every virtual
+# call into a stub. The symptom is silent: the code is there, it compiles, it
+# links, and it never runs. Regenerating costs one extra link and moved the boot
+# from 65 log lines to 1477.
+#
+# Set REGEN_STUBS=0 to skip it while iterating on a compile error.
+if [ "${REGEN_STUBS:-1}" = "1" ]; then
+    echo "=== regenerating stubs ==="
+
+    # Compile everything first so the link sees current objects, then link with
+    # no stubs at all - that link's undefined list *is* the stub list.
+    make -C "$BUILD_DIR" -k -j"$(nproc)" > /dev/null 2>&1
+    : > stubs/stubs.S
+    touch stubs/stubs.S
+    make -C "$BUILD_DIR" -j"$(nproc)" > "$BUILD_DIR/link.log" 2>&1
+
+    python3 gen_stubs.py "$BUILD_DIR/link.log" --out "$WIN_SRC/android/stubs/stubs.S"
+    cp "$WIN_SRC/android/stubs/stubs.S" stubs/stubs.S
+    touch stubs/stubs.S
+fi
+
 make -C "$BUILD_DIR" -k -j"$(nproc)" 2>&1 \
     | tee "$BUILD_DIR/build.log" \
     | grep -E "error:|undefined symbol" > "$BUILD_DIR/errors.log"

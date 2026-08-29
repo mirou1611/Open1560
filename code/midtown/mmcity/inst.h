@@ -127,7 +127,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // ?GetMeshSetSet@mmInstance@@SAHPADH0PAVVector3@@@Z
-    ARTS_IMPORT static i32 GetMeshSetSet(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset);
+    ARTS_EXPORT static i32 GetMeshSetSet(aconst char* name, i32 mesh_flags, aconst char* part, Vector3* offset);
 
     // ?ResetAll@mmInstance@@SAXXZ
     ARTS_IMPORT static void ResetAll();
@@ -412,7 +412,7 @@ check_size(mmBuildingInstance, 0x48);
 ARTS_IMPORT i32 GetPolyInfo(agiMeshSet* arg1);
 
 // ?formatf@@YAPADPBDZZ
-ARTS_IMPORT char* formatf(const char* arg1, ...);
+ARTS_EXPORT char* formatf(const char* arg1, ...);
 
 #ifdef ARTS_DEV_BUILD
 // ?EnableFacadeSideClipping@@3HA
