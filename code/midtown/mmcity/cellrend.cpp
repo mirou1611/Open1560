@@ -42,3 +42,6 @@ ARTS_EXPORT f32 LightDistances[4] {
 
 void mmCellRenderer::Relight()
 {}
+// The original zeroes Drawbridge, Meshes, SlideData, VisitTagCount and VisitTags; the
+// in-class initializers cover those and a few more.
+mmCellRenderer::mmCellRenderer() = default;

@@ -103,10 +103,10 @@ public:
     virtual asPortalCell* GetStartCell(aconst Vector3& pos, asPortalCell* default_cell, mmPolygon** cached_poly) = 0;
 
     // ?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z
-    ARTS_IMPORT asPortalCell* AddCell(aconst char* name, asPortalRenderable* render, u32 index);
+    ARTS_EXPORT asPortalCell* AddCell(aconst char* name, asPortalRenderable* render, u32 index);
 
     // ?AddEdge@asPortalWeb@@QAEPAUasPortalEdge@@PADPAUasPortalCell@@1H@Z
-    ARTS_IMPORT asPortalEdge* AddEdge(aconst char* name, asPortalCell* cell1, asPortalCell* cell2, i32 num_edges);
+    ARTS_EXPORT asPortalEdge* AddEdge(aconst char* name, asPortalCell* cell1, asPortalCell* cell2, i32 num_edges);
 
     // ?BuildGroups@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void BuildGroups();
@@ -161,7 +161,7 @@ struct asPortalEdge
 {
 public:
     // ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z | inline
-    ARTS_IMPORT asPortalEdge(asPortalCell* arg1, asPortalCell* arg2, i32 arg3);
+    ARTS_EXPORT asPortalEdge(asPortalCell* arg1, asPortalCell* arg2, i32 arg3);
 
     enum : u8
     {

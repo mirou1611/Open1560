@@ -1003,3 +1003,60 @@ void asPortalWeb::AddWidgets(Bank* bank)
 
 META_DEFINE_CHILD("asPortalWeb", asPortalWeb, asNode)
 {}
+
+asPortalCell* asPortalWeb::AddCell(aconst char* /*name*/, asPortalRenderable* render, u32 index)
+{
+    // Value-initialized: the original leaves Flags uninitialised here and relies on
+    // every caller that cares setting it
+    asPortalCell* cell = new asPortalCell();
+
+    cell->Edges = nullptr;
+    cell->CellRenderer = render;
+    cell->VisitTag = VisitTag;
+    cell->CellIndex = static_cast<u16>(index);
+    cell->NumPtlPaths = 0;
+    cell->PtlPaths = nullptr;
+
+    cell->Next = CellList;
+    CellList = cell;
+
+    return cell;
+}
+
+// VisitTag, Plane and PlaneDist are deliberately left alone, as in the original
+asPortalEdge::asPortalEdge(asPortalCell* arg1, asPortalCell* arg2, i32 arg3)
+{
+    Flags = Flags_Enabled;
+    NumEdges = static_cast<u8>(arg3);
+
+    Edges = new Vector3[arg3];
+
+    Cell1 = arg1;
+    Cell2 = arg2;
+
+    Texture = nullptr;
+    Next = nullptr;
+    Groups = nullptr;
+}
+
+asPortalEdge* asPortalWeb::AddEdge(aconst char* /*name*/, asPortalCell* cell1, asPortalCell* cell2, i32 num_edges)
+{
+    asPortalEdge* edge = new asPortalEdge(cell1, cell2, num_edges);
+
+    // Both cells get a link to the new edge, pushed onto the front of their lists
+    PortalLink* link1 = new PortalLink();
+    link1->Edge = edge;
+    link1->Next = cell1->Edges;
+
+    PortalLink* link2 = new PortalLink();
+    link2->Edge = edge;
+    link2->Next = cell2->Edges;
+
+    cell1->Edges = link1;
+    cell2->Edges = link2;
+
+    edge->Next = Edges;
+    Edges = edge;
+
+    return edge;
+}

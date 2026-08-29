@@ -29,7 +29,7 @@ class mmCellRenderer final : public asPortalRenderable
 {
 public:
     // ??0mmCellRenderer@@QAE@XZ
-    ARTS_IMPORT mmCellRenderer();
+    ARTS_EXPORT mmCellRenderer();
 
     // ?Cull@mmCellRenderer@@UAEXH@Z
     ARTS_IMPORT void Cull(b32 sub_cull) override;
