@@ -21,7 +21,7 @@
 class agiTexSheet;
 
 // ?mystrtok@@YAPADPADPBD@Z
-ARTS_IMPORT char* mystrtok(char* str, const char* delims);
+ARTS_EXPORT char* mystrtok(char* str, const char* delims);
 
 // ?TEXSHEET@@3VagiTexSheet@@A
 ARTS_IMPORT extern agiTexSheet TEXSHEET;
@@ -55,6 +55,9 @@ struct agiTexProp
         AlwaysModulate = 0x4000,     // m
         AlwaysPerspCorrect = 0x8000, // p
 
+        // Set by Lookup to mark a property the game has actually asked for
+        Referenced = 0x40000000,
+
         ClampModeMask = ClampUOrBoth | ClampVOrBoth | ClampBoth | ClampUOrNeither | ClampVOrNeither,
     };
 
@@ -73,19 +76,19 @@ class agiTexSheet
 {
 public:
     // ?GetVariationCount@agiTexSheet@@QAEHPAD@Z
-    ARTS_IMPORT i32 GetVariationCount(aconst char* arg1);
+    ARTS_EXPORT i32 GetVariationCount(aconst char* arg1);
 
     // ?Kill@agiTexSheet@@QAEXXZ
     ARTS_IMPORT void Kill();
 
     // ?Load@agiTexSheet@@QAEXPAD@Z
-    ARTS_IMPORT void Load(aconst char* arg1);
+    ARTS_EXPORT void Load(aconst char* arg1);
 
     // ?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z
-    ARTS_IMPORT agiTexProp* Lookup(aconst char* name, i32 variation = 0);
+    ARTS_EXPORT agiTexProp* Lookup(aconst char* name, i32 variation = 0);
 
     // ?RemapName@agiTexSheet@@QAEPADPADH@Z
-    ARTS_IMPORT char* RemapName(aconst char* arg1, i32 arg2);
+    ARTS_EXPORT char* RemapName(aconst char* arg1, i32 arg2);
 
     i32 GetPropCount() const
     {

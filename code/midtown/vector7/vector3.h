@@ -142,7 +142,7 @@ public:
     }
 
     // ?Dist@Vector3@@QBEMABV1@@Z
-    ARTS_IMPORT f32 Dist(const Vector3& arg1) const;
+    ARTS_EXPORT f32 Dist(const Vector3& arg1) const;
 
     // ?Dot@Vector3@@QAIXABV1@ABVMatrix34@@@Z
     ARTS_EXPORT void ARTS_FASTCALL Dot(const Vector3& vec, const Matrix34& mat);
@@ -161,10 +161,10 @@ public:
         f32 arg1, const Vector3& arg2, const Vector3& arg3, const Vector3& arg4, const Vector3& arg5, f32 arg6);
 
     // ?InvMag@Vector3@@QBEMXZ
-    ARTS_IMPORT f32 InvMag() const;
+    ARTS_EXPORT f32 InvMag() const;
 
     // ?Mag@Vector3@@QBEMXZ
-    ARTS_IMPORT f32 Mag() const;
+    ARTS_EXPORT f32 Mag() const;
 
     // ?Neg@Vector3@@QAEXABV1@@Z | inline
     ARTS_IMPORT void Neg(const Vector3& arg1);

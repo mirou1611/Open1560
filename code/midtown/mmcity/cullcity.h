@@ -195,7 +195,7 @@ class mmRunwayLight final : public mmInstance
 {
 public:
     // ??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z
-    ARTS_IMPORT mmRunwayLight(aconst char* arg1, Vector3& arg2, Vector3& arg3);
+    ARTS_EXPORT mmRunwayLight(aconst char* arg1, Vector3& arg2, Vector3& arg3);
 
     // ??1mmRunwayLight@@UAE@XZ | inline
     ARTS_EXPORT ~mmRunwayLight() override = default;
@@ -229,7 +229,7 @@ public:
     Vector3 Center;
     f32 Scale;
     i32 NumLights;
-    i32 Texture;
+    agiTexDef* Texture;
     agiMeshCardInfo MeshCard;
 };
 

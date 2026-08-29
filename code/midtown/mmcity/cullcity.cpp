@@ -28,6 +28,7 @@ define_dummy_symbol(mmcity_cullcity);
 #include "agisw/swrend.h"
 #include "agiworld/getmesh.h"
 #include "agiworld/meshlight.h"
+#include "agiworld/meshrend.h"
 #include "agiworld/meshset.h"
 #include "agiworld/quality.h"
 #include "agiworld/texsheet.h"
@@ -398,4 +399,45 @@ mmCullCity::mmCullCity()
     }
 
     ShadowZBias = 0.005f;
+}
+
+// The card the glow is drawn on: a unit quad, two units wide, with its texture
+// coordinates covering the right half of the sheet
+static agiMeshCardVertex RunwayLightCard[4] {
+    {-1.0f, 0.0f, 0.0f, 0.5f},
+    {1.0f, 0.0f, 1.0f, 0.5f},
+    {1.0f, 1.0f, 1.0f, 1.0f},
+    {-1.0f, 1.0f, 0.0f, 1.0f},
+};
+
+mmRunwayLight::mmRunwayLight(aconst char* arg1, Vector3& arg2, Vector3& arg3)
+{
+    Start = arg2;
+    End = arg3;
+
+    f32 length = Start.Dist(End);
+
+    Scale = length * 0.5f;
+
+    // One light every fifteen units, plus the one at the near end
+    f32 count = std::floor(length * (1.0f / 15.0f)) + 1.0f;
+
+    Step = (End - Start) * (1.0f / count);
+
+    Texture = GetPackedTexture(arg1, 0).release();
+
+    Center = (Start + End) * 0.5f;
+    NumLights = static_cast<i32>(count);
+
+    MeshCard.Init(ARTS_SSIZE32(RunwayLightCard), RunwayLightCard, 1, 1, 1);
+
+    SetFlags(INST_FLAG_SHADOW | INST_FLAG_2000);
+
+    InitMeshes("bluelight"_xconst, 0, nullptr, nullptr);
+
+    // The original divides unconditionally. It could: its InitMeshes always found the
+    // mesh. Ours cannot while mmInstance::GetMeshSetSet is still a stub, and MeshIndex
+    // stays zero, so guard it rather than index the table at -1.
+    if (agiMeshSet* mesh = GetMeshSet(INST_LOD_HIGH, 0))
+        Scale /= mesh->Radius;
 }

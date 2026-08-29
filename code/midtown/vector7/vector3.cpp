@@ -85,3 +85,21 @@ const MetaType* CreateMetaType_<Vector3>()
 {
     return &Vector3Inst;
 }
+
+// MathSpeed selects approximate square roots in the original; both paths compute the
+// same quantity, so these use the exact one unconditionally.
+
+f32 Vector3::Mag() const
+{
+    return std::sqrt(Mag2());
+}
+
+f32 Vector3::InvMag() const
+{
+    return 1.0f / std::sqrt(Mag2());
+}
+
+f32 Vector3::Dist(const Vector3& arg1) const
+{
+    return std::sqrt(Dist2(arg1));
+}
