@@ -90,3 +90,30 @@ void mmHudMap::DrawOpponents()
             DrawOrientedBitmap(icon.Position, bitmap);
     }
 }
+mmHudMap::mmHudMap()
+{
+    ClearNodeFlag(NODE_FLAG_ACTIVE);
+
+    dword28 = 1;
+
+    CnrPos1 = nullptr;
+    CnrPos2 = nullptr;
+    CnrPos3 = nullptr;
+
+    Mode = 0;
+    NumOpps = 0;
+
+    ShowAllCops = false;
+    dword2A4 = 0.25f;
+    dword2A8 = 0.25f;
+
+    // The original builds this from a pointer-to-member of the virtual Cull
+    CullCallback = new Callback([this] { Cull(); });
+
+    dword2B0 = 16;
+    dword2B4 = 56;
+    dword2B8 = 0.954f;
+    dword2BC = 0.905f;
+
+    DisableHudmap = 0;
+}

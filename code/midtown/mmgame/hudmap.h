@@ -64,7 +64,7 @@ class mmHudMap final : public asNode
 {
 public:
     // ??0mmHudMap@@QAE@XZ
-    ARTS_IMPORT mmHudMap();
+    ARTS_EXPORT mmHudMap();
 
     // ??1mmHudMap@@UAE@XZ | inline
     ARTS_EXPORT ~mmHudMap() override;

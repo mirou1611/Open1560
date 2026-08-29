@@ -24,6 +24,7 @@
 #include "arts7/form.h"
 #include "gauge.h"
 
+class agiBitmap;
 class agiMeshSet;
 class mmPlayer;
 
@@ -31,7 +32,7 @@ class mmExternalView final : public asNode
 {
 public:
     // ??0mmExternalView@@QAE@XZ
-    ARTS_IMPORT mmExternalView();
+    ARTS_EXPORT mmExternalView();
 
     // ??1mmExternalView@@UAE@XZ | inline
     ARTS_IMPORT ~mmExternalView() override;
@@ -59,7 +60,16 @@ public:
     // ?WideFOV@mmExternalView@@QAEXH@Z
     ARTS_EXPORT void WideFOV(i32 arg1);
 
-    u8 gap20[0xEC];
+    // Only the three bitmaps and the gauge are mapped; the rest of 0x20 .. 0x10B is
+    // still unknown, so it stays as gaps rather than invented fields.
+    u8 gap20[0x8];
+    agiBitmap* Bitmap28;
+    u8 gap2C[0x8];
+    agiBitmap* Bitmap34;
+    agiBitmap* Bitmap38;
+    u8 gap3C[0x24];
+    mmLinearGauge Gauge;
+    u8 gap94[0x78];
 };
 
 check_size(mmExternalView, 0x10C);
@@ -68,7 +78,7 @@ class mmDashView final : public asLinearCS
 {
 public:
     // ??0mmDashView@@QAE@XZ
-    ARTS_IMPORT mmDashView();
+    ARTS_EXPORT mmDashView();
 
     // ??1mmDashView@@UAE@XZ
     ARTS_IMPORT ~mmDashView() override;

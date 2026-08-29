@@ -19,3 +19,14 @@
 define_dummy_symbol(mmgame_cd);
 
 #include "cd.h"
+
+mmCDPlayer::mmCDPlayer()
+{
+    AddChild(&Text);
+    AddChild(&Number);
+
+    field_24 = 1;
+    field_2C = 0;
+    field_144 = 0;
+    field_148 = 0;
+}

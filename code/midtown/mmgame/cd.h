@@ -20,13 +20,16 @@
 
 #include "arts7/node.h"
 
+#include "mmeffects/mmnumber.h"
+#include "mmeffects/mmtext.h"
+
 class mmHUD;
 
 class mmCDPlayer final : public asNode
 {
 public:
     // ??0mmCDPlayer@@QAE@XZ
-    ARTS_IMPORT mmCDPlayer();
+    ARTS_EXPORT mmCDPlayer();
 
     // ??1mmCDPlayer@@UAE@XZ | inline
     ARTS_IMPORT ~mmCDPlayer() override;
@@ -60,7 +63,18 @@ public:
     // ?Update@mmCDPlayer@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap20[0x12C];
+    // Only what the constructor touches is named; the rest of 0x20 .. 0x14B stays as
+    // gaps rather than invented fields.
+    u8 gap20[0x4];
+    i32 field_24;
+    u8 gap28[0x4];
+    i32 field_2C;
+    u8 gap30[0x18];
+    mmTextNode Text;
+    mmNumber Number;
+    u8 gap11C[0x28];
+    i32 field_144;
+    i32 field_148;
 };
 
 check_size(mmCDPlayer, 0x14C);

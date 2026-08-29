@@ -20,7 +20,9 @@ define_dummy_symbol(mmgame_dash);
 
 #include "dash.h"
 
+#include "agi/bitmap.h"
 #include "agi/dlptmpl.h"
+#include "agi/pipeline.h"
 #include "agi/getdlp.h"
 #include "agi/rsys.h"
 #include "agi/viewport.h"
@@ -137,4 +139,43 @@ void mmDashView::Cull()
     agiCurState.SetZWrite(zwrite);
     agiCurState.SetZEnable(zenable);
     agiCurState.SetFogMode(fog_mode);
+}
+
+mmExternalView::mmExternalView()
+{
+    Bitmap28 = Pipe()->CreateBitmap().release();
+    Bitmap34 = Pipe()->CreateBitmap().release();
+    Bitmap38 = Pipe()->CreateBitmap().release();
+}
+
+mmDashView::mmDashView()
+{
+    SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
+
+    WheelFact = 0.1f;
+    field_33C = 1.0f;
+
+    AddChild(&DashLCS);
+
+    // The gauges and the wheel/roof frames all hang off the dash frame
+    DashLCS.AddChild(&RPMGuage);
+    DashLCS.AddChild(&SpeedGuage);
+    DashLCS.AddChild(&DamageGuage);
+    DashLCS.AddChild(&WheelLCS);
+    DashLCS.AddChild(&RoofLCS);
+
+    // Only y and z are set, as in the original
+    DashPos.y = -2.7f;
+    DashPos.z = -1.5f;
+
+    DashCamOffset = {0.0f, 0.0f, 0.0f};
+
+    DashJitterAmp = 0.0f;
+    CollisionJitterAmp = 0.0f;
+
+    MaxSpeed = 160.0f;
+    MaxRPM = 8000.0f;
+    MinSpeed = 0.0f;
+
+    Active = 0;
 }
