@@ -27,7 +27,7 @@ public:
     ARTS_EXPORT mmGameSingle();
 
     // ??1mmGameSingle@@UAE@XZ
-    ARTS_IMPORT ~mmGameSingle() override;
+    ARTS_EXPORT ~mmGameSingle() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmGameSingle@@UAEXPAVBank@@@Z
@@ -53,7 +53,7 @@ public:
     ARTS_IMPORT void InitHUD() override;
 
     // ?InitMyPlayer@mmGameSingle@@UAEXXZ
-    ARTS_IMPORT void InitMyPlayer() override;
+    ARTS_EXPORT void InitMyPlayer() override;
 
     // ?InitOtherPlayers@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void InitOtherPlayers() override;

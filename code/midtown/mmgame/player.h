@@ -40,7 +40,7 @@ class mmPlayer final : public asNode
 {
 public:
     // ??0mmPlayer@@QAE@XZ
-    ARTS_IMPORT mmPlayer();
+    ARTS_EXPORT mmPlayer();
 
     // ??1mmPlayer@@UAE@XZ | inline
     ARTS_EXPORT ~mmPlayer() override = default;

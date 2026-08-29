@@ -21,9 +21,11 @@ define_dummy_symbol(mmgame_gamesingle);
 #include "gamesingle.h"
 
 #include "arts7/lamp.h"
+#include "data7/memstat.h"
 #include "mmai/aiMap.h"
 #include "mmai/aiaudiomanager.h"
 #include "mmaudio/manager.h"
+#include "mmaudio/sound.h"
 #include "mmaudio/mmvoicecommentary.h"
 #include "mmcity/cullcity.h"
 #include "mmcityinfo/racedata.h"
@@ -138,3 +140,26 @@ void mmGameSingle::UpdateDebugKeyInput(i32 /*arg1*/)
 // that is a compiler artifact, not behaviour. Everything else it does - InWater = 0 and
 // the FooBar node - is covered by the in-class initializers.
 mmGameSingle::mmGameSingle() = default;
+
+void mmGameSingle::InitMyPlayer()
+{
+    Player = arnew mmPlayer();
+}
+
+// Defining this is what makes the compiler emit mmGameSingle's vtable. Without a key
+// function the class has none, gen_stubs.py synthesizes one, and every slot in it -
+// including virtuals that are implemented in C++, like InitMyPlayer - points at
+// ArtsVirtualStub instead.
+mmGameSingle::~mmGameSingle()
+{
+    {
+        ARTS_MEM_STAT("mmGameSingle Destructor");
+
+        delete Waypoints;
+        Waypoints = nullptr;
+
+        RaceData = nullptr;
+    }
+
+    StartSounds = nullptr;
+}
