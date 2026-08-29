@@ -49,7 +49,7 @@ class mmCullCity final : public asNode
 {
 public:
     // ??0mmCullCity@@QAE@XZ
-    ARTS_IMPORT mmCullCity();
+    ARTS_EXPORT mmCullCity();
 
     // ??1mmCullCity@@UAE@XZ
     ARTS_IMPORT ~mmCullCity() override;

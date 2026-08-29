@@ -59,7 +59,7 @@ public:
     }
 
     // ??4string@@QAEXPBD@Z | inline
-    ARTS_IMPORT void operator=(const char* arg1);
+    ARTS_EXPORT void operator=(const char* arg1);
 
     // ??Hstring@@QBE?AV0@PBD@Z
     ARTS_IMPORT string operator+(const char* arg1) const;
@@ -68,19 +68,19 @@ public:
     ARTS_IMPORT string operator+(const string& arg1) const;
 
     // ??Ystring@@QAEXD@Z
-    ARTS_IMPORT void operator+=(char arg1);
+    ARTS_EXPORT void operator+=(char arg1);
 
     // ??Ystring@@QAEXPBD@Z
-    ARTS_IMPORT void operator+=(const char* arg1);
+    ARTS_EXPORT void operator+=(const char* arg1);
 
     // ??Gstring@@QBE?AV0@PBD@Z
     ARTS_IMPORT string operator-(const char* arg1) const;
 
     // ?Contains@string@@QBEHAAV1@@Z
-    ARTS_IMPORT i32 Contains(string& arg1) const;
+    ARTS_EXPORT i32 Contains(string& arg1) const;
 
     // ?DirFileExt@string@@QBEXAAV1@00@Z
-    ARTS_IMPORT void DirFileExt(string& arg1, string& arg2, string& arg3) const;
+    ARTS_EXPORT void DirFileExt(string& arg1, string& arg2, string& arg3) const;
 
     // ?ExpandEnvs@string@@QAEXXZ
     ARTS_IMPORT void ExpandEnvs();
@@ -89,16 +89,16 @@ public:
     ARTS_IMPORT i32 FileExists() const;
 
     // ?Init@string@@QAEXH@Z | inline
-    ARTS_IMPORT void Init(i32 arg1);
+    ARTS_EXPORT void Init(i32 arg1);
 
     // ?NumSubStrings@string@@QBEHXZ
     ARTS_EXPORT i32 NumSubStrings() const;
 
     // ?SaveName@string@@QAEXABV1@H00@Z
-    ARTS_IMPORT void SaveName(const string& arg1, i32 arg2, const string& arg3, const string& arg4);
+    ARTS_EXPORT void SaveName(const string& arg1, i32 arg2, const string& arg3, const string& arg4);
 
     // ?SubString@string@@QBE?AV1@H@Z
-    ARTS_IMPORT string SubString(i32 arg1) const;
+    ARTS_EXPORT string SubString(i32 arg1) const;
 
     char* get()
     {

@@ -46,6 +46,15 @@ public:
         return HeapHead;
     }
 
+    // The original sets these four fields inline from mmCullCity's constructor
+    void Init(usize size)
+    {
+        HeapBase = new u8[size];
+        HeapEnd = HeapBase + size;
+        HeapHead = HeapBase;
+        HeapTop = HeapEnd;
+    }
+
 private:
     u8* HeapBase {};
     u8* HeapEnd {};

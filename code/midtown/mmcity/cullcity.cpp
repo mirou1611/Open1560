@@ -34,6 +34,7 @@ define_dummy_symbol(mmcity_cullcity);
 #include "arts7/cullmgr.h"
 #include "arts7/sim.h"
 #include "data7/memstat.h"
+#include "data7/quitf.h"
 #include "localize/localize.h"
 #include "mmcityinfo/state.h"
 #include "mmdyna/bndtmpl.h"
@@ -41,7 +42,9 @@ define_dummy_symbol(mmcity_cullcity);
 #include "stream/problems.h"
 #include "stream/stream.h"
 
+#include "inst.h"
 #include "loader.h"
+#include "renderweb.h"
 
 static constexpr i32 MAX_HIT_BANGERS = 80;
 static constexpr i32 MAX_PARTICLES = 100;
@@ -360,4 +363,39 @@ void fix_lighting()
 
     if (agiCurState.GetSoftwareRendering())
         mmInstance::StaticLighter = nullptr;
+}
+mmCullCity::mmCullCity()
+{
+    SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
+
+    if (Instance)
+        Quitf("Already have a CullCity");
+
+    Instance = this;
+
+    mmInstanceHeap.Init(0xB9000);
+
+    WeatherFriction = 1.0f;
+    RainFriction = 0.75f;
+    SnowFrictionMax = 0.75f;
+    SnowFrictionMin = 0.5f;
+    SnowFrictionBlendSpeed = 60.0f;
+    SnowFrictionStartTime = 0.0f;
+
+    // Only the translation of the environment matrix is initialised, as in the original
+    EnvMatrix.m3 = {0.0f, 0.0f, 0.0f};
+
+    if (agiCurState.GetSoftwareRendering())
+    {
+        agiRQ.EnvMap = false;
+        agiRQ.SphMap = false;
+
+        agiMeshSet::DepthScale = 0.495f;
+    }
+    else
+    {
+        agiMeshSet::DepthScale = 0.499f;
+    }
+
+    ShadowZBias = 0.005f;
 }

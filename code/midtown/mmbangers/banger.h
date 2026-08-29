@@ -147,6 +147,13 @@ check_size(mmHitBangerInstance, 0x50);
 class mmBangerManager final : public asNode
 {
 public:
+    // Inlined into mmCullCity's constructor in the original, which is the only place
+    // one is ever built
+    ARTS_EXPORT mmBangerManager()
+    {
+        Instance = this;
+    }
+
     // ??1mmBangerManager@@UAE@XZ | inline
     ARTS_EXPORT ~mmBangerManager() override = default;
 
