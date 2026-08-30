@@ -55,6 +55,23 @@ public:
         HeapTop = HeapEnd;
     }
 
+    // Likewise inline in mmCullCity's destructor: release the block and clear all four
+    // fields, so a second city can Init over the top.
+    void Kill()
+    {
+        delete[] HeapBase;
+
+        HeapBase = nullptr;
+        HeapEnd = nullptr;
+        HeapHead = nullptr;
+        HeapTop = nullptr;
+    }
+
+    usize GetFreeSize() const
+    {
+        return static_cast<usize>(HeapTop - HeapHead);
+    }
+
 private:
     u8* HeapBase {};
     u8* HeapEnd {};

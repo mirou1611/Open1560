@@ -52,7 +52,7 @@ public:
     ARTS_EXPORT mmCullCity();
 
     // ??1mmCullCity@@UAE@XZ
-    ARTS_IMPORT ~mmCullCity() override;
+    ARTS_EXPORT ~mmCullCity() override;
 
     ARTS_ZEROED;
 

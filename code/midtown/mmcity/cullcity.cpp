@@ -553,3 +553,31 @@ void mmCullCity::LoadFacades(char* city_name)
     EndMemStat();
     Loader()->EndTask(0.61f);
 }
+
+// This is mmCullCity's key function, and that matters as much as what it does.
+//
+// It was the class's first non-inline virtual and it lived in assembly, so no
+// translation unit emitted mmCullCity's vtable and gen_stubs.py synthesized one -
+// every slot pointing at ArtsVirtualStub. mmCullCity::Cull has been written in C++
+// for some time and had never once been called. Defining the destructor here makes
+// the compiler emit the real vtable.
+mmCullCity::~mmCullCity()
+{
+    Displayf("%d bytes remaining in instance heap", mmInstanceHeap.GetFreeSize());
+
+    mmInstanceHeap.Kill();
+
+    mmInstance::ResetAll();
+    TEXSHEET.Kill();
+
+    Instance = nullptr;
+
+    // Everything the original releases by hand here is owned by a member that releases
+    // it anyway - HitIdBound is an Rc and CityName a ConstString, and calling Release
+    // or arts_free on those as well would be a double free. The one thing with no owner
+    // is this node's children.
+    while (asNode* child = field_34AF0.GetChildNode())
+        delete child;
+
+    DumpProblems();
+}
