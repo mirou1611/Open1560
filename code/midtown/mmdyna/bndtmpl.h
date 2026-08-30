@@ -109,7 +109,7 @@ public:
     ARTS_EXPORT i32 LineSphere(mmIntersection* arg1);
 
     // ?LineTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 LineTable(mmIntersection* arg1);
+    ARTS_EXPORT i32 LineTable(mmIntersection* isect);
 
     // ?LineTable@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
     ARTS_IMPORT i32 LineTable(mmEdgeBodyIsect* arg1, i32 arg2);

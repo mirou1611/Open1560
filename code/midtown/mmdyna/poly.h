@@ -71,6 +71,7 @@ private:
     ARTS_EXPORT i32 FullSegment(mmIntersection* arg1);
 
     friend class asRenderWeb;
+    friend class mmBoundTemplate;
 
     // ?FullSphere@mmPolygon@@AAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 FullSphere(mmIntersection* arg1);

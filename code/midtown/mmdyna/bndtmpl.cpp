@@ -22,6 +22,10 @@ define_dummy_symbol(mmdyna_bndtmpl);
 
 #include "core/string.h"
 #include "data7/hash.h"
+#include "data7/printer.h"
+#include "poly.h"
+
+#include <utility>
 #include "isect.h"
 
 #ifdef ARTS_DEV_BUILD
@@ -225,4 +229,87 @@ i32 mmBoundTemplate::QuickLineBox(mmIntersection* isect)
     Flags |= 8;
 
     return 1;
+}
+
+i32 mmBoundTemplate::LineTable(mmIntersection* isect)
+{
+    // Every call gets a new stamp, so a polygon listed in more than one bucket is only
+    // tested once per segment.
+    ++IsectCount;
+
+    const i32 z0 = static_cast<i32>((isect->LocalMin.z - BBMin.z) * ZScale);
+    const i32 z1 = static_cast<i32>((isect->LocalMax.z - BBMin.z) * ZScale);
+
+    if (z0 != z1)
+    {
+        // Not ported: the original walks the grid row by row from here, which is another
+        // two hundred lines of DDA. A vertical segment - which is what the start-cell
+        // raycast uses - never needs it.
+        static bool reported = false;
+
+        if (!std::exchange(reported, true))
+            Errorf("mmBoundTemplate::LineTable: multi-row segments are not ported");
+
+        return 0;
+    }
+
+    if (z0 < 0 || z0 >= ZDim)
+        return 0;
+
+    const i32 x0 = static_cast<i32>((isect->LocalMin.x - BBMin.x) * XScale);
+    const i32 x1 = static_cast<i32>((isect->LocalMax.x - BBMin.x) * XScale);
+
+    if (x0 != x1)
+    {
+        // Likewise: the original hands this to mmBoundTemplate::LineSpan.
+        static bool reported = false;
+
+        if (!std::exchange(reported, true))
+            Errorf("mmBoundTemplate::LineTable: spanning segments are not ported (LineSpan)");
+
+        return 0;
+    }
+
+    if (x0 < 0 || x0 >= XDim)
+        return 0;
+
+    const i32 cell = (XDim * z0) + x0;
+
+    // Each column records how high its geometry reaches. If both ends of the segment are
+    // above that, nothing in the column can be hit.
+    const f32 height = (FixedHeights[cell] + 1) * HeightScale;
+
+    if (height < isect->LocalMin.y && height < isect->LocalMax.y)
+        return 0;
+
+    const u16 bucket = BucketOffsets[cell];
+
+    if (!bucket)
+        return 0; // empty column
+
+    const u16* entry = &RowBuckets[RowOffsets[z0] + bucket];
+
+    i32 result = 0;
+
+    for (;;)
+    {
+        const u16 value = *entry++;
+        const i32 poly = value & 0x7FFF;
+
+        // field_74 holds a byte per polygon. When the caller asked for filtering, only
+        // polygons with bit 0 set are considered at all.
+        if ((!isect->field_4 || (field_74[poly] & 1)) && field_70[poly] != IsectCount)
+        {
+            field_70[poly] = IsectCount;
+            isect->field_AC = &field_74[poly];
+
+            result |= Polygons[poly].FullSegment(isect);
+        }
+
+        // The top bit of an entry marks the end of the bucket's list.
+        if (value >= 0x8000)
+            break;
+    }
+
+    return result;
 }
