@@ -346,6 +346,15 @@ protected:
     // 0x20 | Square Textures
     u32 flags_ {};
     b32 in_scene_ {};
+
+public:
+    // asRenderWeb::Cull draws nothing when there is no scene to draw into.
+    bool IsInScene() const
+    {
+        return in_scene_ != 0;
+    }
+
+private:
     i32 scene_index_ {};
 };
 

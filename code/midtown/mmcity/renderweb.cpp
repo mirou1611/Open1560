@@ -24,6 +24,12 @@ define_dummy_symbol(mmcity_renderweb);
 #include "loader.h"
 
 #include "agi/rsys.h"
+#include "agiworld/meshrend.h"
+#include "agiworld/texsort.h"
+#include "mmcity/instchn.h"
+#include "mmcity/sky.h"
+#include "mmeffects/ptx.h"
+#include "pcwindis/setupdata.h"
 #include "dyna7/dyna.h"
 #include "mmdyna/isect.h"
 #include "mmdyna/poly.h"
@@ -662,4 +668,179 @@ asPortalCell* asRenderWeb::GetStartCell(aconst Vector3& pos, asPortalCell* defau
     SC_SVCP += SegVCPoly - cached_polys_before;
 
     return HitID ? CellArray[HitID] : default_cell;
+}
+
+void asRenderWeb::Cull()
+{
+
+    // No render target - there is nothing to draw into but the mirror's frame.
+    if (!Pipe()->IsInScene())
+    {
+        DrawMirrorBorder();
+        return;
+    }
+
+    agiViewport* previous = ::Viewport();
+
+    if (CurrentPass == 1)
+    {
+        Viewport->Activate();
+
+        // The colour buffer only needs clearing when no sky will cover it.
+        Viewport->Clear(((ZWRITE || ZREAD) ? AGI_VIEW_CLEAR_ZBUFFER : 0) |
+            (SkyVisible ? 0 : AGI_VIEW_CLEAR_TARGET));
+
+        agiMeshSet::FlipX = 1;
+        agiCurState.SetCullMode(agiCullMode::CW);
+    }
+
+    if (SkyVisible)
+    {
+        // The sky is drawn first, with depth off, so everything else lands on top of it.
+        agiCurState.SetZWrite(false);
+        agiCurState.SetZEnable(false);
+
+        const agiFogMode fog = agiCurState.GetFogMode();
+        agiCurState.SetFogMode(agiFogMode::None);
+
+        CullCity()->Sky.Draw(::Viewport()->GetParams().Camera);
+        TexSorter()->Cull(1);
+
+        agiCurState.SetFogMode(fog);
+    }
+
+    agiCurState.SetZWrite(ZREAD);
+    agiCurState.SetZEnable(ZREAD);
+
+    i32 tris = agiTexSorter::TotalTris;
+
+    CullCity()->ShadowChain.Draw(200, 0, 2, 1, agiRQ.FarClip);
+    TexSorter()->Cull(1);
+
+#ifdef ARTS_DEV_BUILD
+    upperCount += agiTexSorter::TotalTris - tris;
+#endif
+
+    if (MULTIPASS)
+    {
+        // Pass one: opaque geometry, front to back so the depth buffer rejects early.
+        SubClip = EnableSubClip;
+        PassMask = 1;
+        tris = agiTexSorter::TotalTris;
+
+        asPortalWeb::Cull(Front2Back);
+        TexSorter()->Cull(1);
+
+#ifdef ARTS_DEV_BUILD
+    #ifdef ARTS_DEV_BUILD
+    pass1Count += agiTexSorter::TotalTris - tris;
+#endif
+#endif
+
+        if (agiRQ.Shadow)
+        {
+            // Pass two: shadows, pulled towards the camera so they do not fight the
+            // ground they lie on.
+            SubClip = 0;
+            PassMask = 2;
+            tris = agiTexSorter::TotalTris;
+
+            const agiCullMode cull = agiCurState.GetCullMode();
+
+            if ((ShadowColor & 0xFF000000) != 0xFF000000)
+                agiCurState.SetAlphaEnable(true);
+
+            agiCurState.SetCullMode(agiCullMode::None);
+
+            const f32 depth = agiMeshSet::DepthOffset;
+
+            if (ShadowZBias != 0.0f)
+                agiMeshSet::DepthOffset -= ShadowZBias;
+
+            asPortalWeb::Cull(0);
+
+            agiMeshSet::DepthOffset = depth;
+            TexSorter()->Cull(1);
+
+    #ifdef ARTS_DEV_BUILD
+    #ifdef ARTS_DEV_BUILD
+    pass2Count += agiTexSorter::TotalTris - tris;
+#endif
+#endif
+
+            agiCurState.SetCullMode(cull);
+            agiCurState.SetAlphaEnable(false);
+        }
+
+        // Pass three: whatever wanted a second layer over the opaque pass.
+        SubClip = EnableSubClip;
+        PassMask = 4;
+        tris = agiTexSorter::TotalTris;
+
+        asPortalWeb::Cull(Front2Back);
+        TexSorter()->Cull(1);
+
+#ifdef ARTS_DEV_BUILD
+    #ifdef ARTS_DEV_BUILD
+    pass3Count += agiTexSorter::TotalTris - tris;
+#endif
+#endif
+
+        // Pass four: alpha, which has to come after everything it blends with.
+        SubClip = 0;
+        PassMask = 8;
+        tris = agiTexSorter::TotalTris;
+
+        asPortalWeb::Cull(Front2Back);
+        TexSorter()->Cull(1);
+
+        // A fifth pass exists only at noon.
+        if (MMSTATE.TimeOfDay == mmTimeOfDay::Noon)
+        {
+            PassMask = 0x10;
+
+            asPortalWeb::Cull(0);
+            TexSorter()->Cull(1);
+        }
+
+#ifdef ARTS_DEV_BUILD
+    #ifdef ARTS_DEV_BUILD
+    pass4Count += agiTexSorter::TotalTris - tris;
+#endif
+#endif
+    }
+    else
+    {
+        // Single pass: every layer at once.
+        SubClip = EnableSubClip;
+        PassMask = agiRQ.Shadow ? 0x0F : 0x0D;
+
+        asPortalWeb::Cull(0);
+        TexSorter()->Cull(1);
+    }
+
+    agiCurState.SetZEnable(true);
+    agiCurState.SetZWrite(false);
+
+    // Particles blend, and without smooth alpha they have to be stippled instead.
+    if (!dxiInfo[dxiRendererChoice].SmoothAlpha)
+        agiCurState.SetStippledAlpha(true);
+
+    for (i32 i = 0; i < PtxCount; ++i)
+        Particles[i]->Cull();
+
+    TexSorter()->Cull(1);
+    agiCurState.SetStippledAlpha(false);
+
+    if (EnableMirror)
+        ++CurrentPass;
+
+    previous->Activate();
+
+    agiCurState.SetCullMode(agiCullMode::CCW);
+    agiMeshSet::FlipX = 0;
+
+    // Not ported: with GridMtx set the original then draws a wireframe grid with about
+    // ninety lines of nested DrawLine calls. GridMtx is a development global and is null
+    // here, so the grid never draws either way.
 }

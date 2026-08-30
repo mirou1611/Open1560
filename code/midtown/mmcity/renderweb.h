@@ -52,7 +52,7 @@ public:
     ARTS_EXPORT ~asRenderWeb() override;
 
     // ?Cull@asRenderWeb@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // ?GetCellNeighbors@asRenderWeb@@QAEHHPAPAUasPortalCell@@H@Z
     ARTS_EXPORT i32 GetCellNeighbors(i32 cell, asPortalCell** cells, i32 capacity);
