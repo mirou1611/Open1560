@@ -77,16 +77,16 @@ public:
     void Init(char* name, asCamera* camera);
 
     // ?InitObjectDetail@mmCullCity@@QAEXXZ
-    ARTS_IMPORT void InitObjectDetail();
+    ARTS_EXPORT void InitObjectDetail();
 
     // ?IsPolyWater@mmCullCity@@QAEHPAVmmPolygon@@@Z
     ARTS_IMPORT i32 IsPolyWater(mmPolygon* arg1);
 
     // ?LoadBangers@mmCullCity@@QAEXPAD@Z
-    ARTS_IMPORT void LoadBangers(char* arg1);
+    ARTS_EXPORT void LoadBangers(char* city_name);
 
     // ?LoadFacades@mmCullCity@@QAEXPAD@Z
-    ARTS_IMPORT void LoadFacades(char* arg1);
+    ARTS_EXPORT void LoadFacades(char* city_name);
 
     // ?RelightEverything@mmCullCity@@QAEXXZ
     ARTS_IMPORT void RelightEverything();

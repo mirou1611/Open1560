@@ -31,6 +31,7 @@ define_dummy_symbol(mmcity_cullcity);
 #include "agiworld/meshrend.h"
 #include "agiworld/meshset.h"
 #include "agiworld/quality.h"
+#include "mmbangers/active.h"
 #include "agiworld/texsheet.h"
 #include "arts7/cullmgr.h"
 #include "arts7/sim.h"
@@ -440,4 +441,115 @@ mmRunwayLight::mmRunwayLight(aconst char* arg1, Vector3& arg2, Vector3& arg3)
     // stays zero, so guard it rather than index the table at -1.
     if (agiMeshSet* mesh = GetMeshSet(INST_LOD_HIGH, 0))
         Scale /= mesh->Radius;
+}
+
+void mmCullCity::InitObjectDetail()
+{
+    // One multiplier per Object Detail setting, lowest first.
+    static constexpr f32 ParticleMultiplierTable[] {0.25f, 0.5f, 0.75f, 1.0f};
+
+    EnableSubClip = 0;
+    ParticleMultiplier = ParticleMultiplierTable[agiRQ.TerrainQuality];
+
+    fix_clip();
+}
+
+// Both city object files are a count followed by count records, each a fixed-size
+// binary header immediately followed by a NUL-terminated name. The name is not
+// length-prefixed and not padded, so it has to be read a byte at a time - which is
+// exactly what the original does, with Stream::GetCh inlined.
+static void ReadInstanceName(Stream* stream, char* out)
+{
+    char* p = out;
+
+    do
+    {
+        *p = static_cast<char>(stream->GetCh());
+    } while (*p++);
+}
+
+void mmCullCity::LoadBangers(char* city_name)
+{
+    // Bangers: the loose props - cones, hydrants, parked cars, mailboxes.
+    struct BangerRecord
+    {
+        u16 Flags;
+        u16 Type;
+        Vector3 Position;
+        Vector3 Rotation;
+    };
+
+    static_assert(sizeof(BangerRecord) == 0x1C, "BangerRecord must match the file layout");
+
+    BeginMemStat("mmCullCity bangers");
+    Loader()->BeginTask(AngelReadString(0xD), 0.2f);
+
+    char path[36];
+    arts_sprintf(path, "city/%s.bng", city_name);
+
+    if (Ptr<Stream> stream {arts_fopen(path, "r"_xconst)})
+    {
+        i32 count = 0;
+        stream->Read(&count, sizeof(count));
+        Displayf("***** %d bangers in city", count);
+
+        for (i32 i = 0; i < count; ++i)
+        {
+            BangerRecord rec {};
+            stream->Read(&rec, sizeof(rec));
+
+            char name[64];
+            ReadInstanceName(stream.get(), name);
+
+            // Bangers carry no scale and no third vector; facades below do.
+            AddInstance(rec.Flags, name, nullptr, rec.Type, &rec.Position, &rec.Rotation, nullptr, 0.0f);
+        }
+    }
+
+    EndMemStat();
+    Loader()->EndTask(0.34f);
+}
+
+void mmCullCity::LoadFacades(char* city_name)
+{
+    // Facades: the flat building fronts that make up most of what you see.
+    struct FacadeRecord
+    {
+        u16 Flags;
+        u16 Type;
+        Vector3 Position;
+        Vector3 Rotation;
+        Vector3 Extents;
+        f32 Scale;
+    };
+
+    static_assert(sizeof(FacadeRecord) == 0x2C, "FacadeRecord must match the file layout");
+
+    BeginMemStat("mmCullCity facades");
+    Loader()->BeginTask(AngelReadString(0xE), 0.0f);
+
+    char path[36];
+    arts_sprintf(path, "city/%s.fcd", city_name);
+
+    if (Ptr<Stream> stream {arts_fopen(path, "r"_xconst)})
+    {
+        // No count message here, unlike the bangers.
+        i32 count = 0;
+        stream->Read(&count, sizeof(count));
+
+        for (i32 i = 0; i < count; ++i)
+        {
+            FacadeRecord rec {};
+            stream->Read(&rec, sizeof(rec));
+
+            char name[64];
+            ReadInstanceName(stream.get(), name);
+
+            AddInstance(
+                rec.Flags, name, nullptr, rec.Type, &rec.Position, &rec.Rotation, &rec.Extents, rec.Scale);
+        }
+    }
+
+    EndMemStat();
+    Loader()->EndTask(0.61f);
 }

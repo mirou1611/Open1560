@@ -19,3 +19,18 @@
 define_dummy_symbol(mmeffects_meshform);
 
 #include "meshform.h"
+
+#include "agiworld/getmesh.h"
+#include "agiworld/meshset.h"
+#include "data7/printer.h"
+#include "vector7/vector3.h"
+
+void asMeshSetForm::SetShape(aconst char* name, aconst char* group, Vector3* offset)
+{
+    // 0x107: UV, normals and per-vertex colour, plus 0x100 - the flag that tells
+    // GetMeshSet to read the mesh here and now rather than register it with the pager.
+    Mesh = GetMeshSet(name, group, offset, MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV | MESH_SET_NO_PAGING);
+
+    if (!Mesh)
+        Errorf("asMeshSetForm::SetShape(%s,%s) failed.", name, group);
+}

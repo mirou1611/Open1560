@@ -20,6 +20,7 @@ define_dummy_symbol(mmgame_gamesingle);
 
 #include "gamesingle.h"
 
+#include "agiworld/meshlight.h"
 #include "arts7/lamp.h"
 #include "data7/memstat.h"
 #include "mmai/aiMap.h"
@@ -162,4 +163,11 @@ mmGameSingle::~mmGameSingle()
     }
 
     StartSounds = nullptr;
+}
+
+void mmGameSingle::Update()
+{
+    agiBeginCones();
+
+    mmGame::Update();
 }

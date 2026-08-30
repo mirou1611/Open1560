@@ -65,7 +65,7 @@ public:
     ARTS_EXPORT void Reset() override;
 
     // ?Update@mmGameSingle@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?UpdateDebugKeyInput@mmGameSingle@@UAEXH@Z | inline
     ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
