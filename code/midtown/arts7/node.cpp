@@ -28,6 +28,12 @@ define_dummy_symbol(arts7_node);
 #include "stream/sparser.h"
 #include "stream/stream.h"
 
+#include <cstdint>
+
+#ifdef __ANDROID__
+#    include <dlfcn.h>
+#endif
+
 asNode::~asNode()
 {
     if (parent_node_)
@@ -87,17 +93,31 @@ void asNode::ResChange(i32 width, i32 height)
 {
     for (asNode* n = child_node_; n; n = n->next_node_)
     {
-        // PORT SHIM. While constructors are still assembly the node tree can hold an
-        // object whose vtable pointer was never written, and walking into it is an
-        // immediate null dispatch. Skip it loudly instead. Delete this once no
-        // constructor in the tree is a stub.
+        // PORT SHIM. While constructors are still assembly the node tree holds objects
+        // that were never constructed, and dispatching a virtual on one is an immediate
+        // crash. Their memory is whatever the allocator last left there - 0 for a fresh
+        // block, 0xDD for the never-written heap fill, and arbitrary bytes for anything
+        // reused - so there is no fill pattern to test against.
         //
-        // Deliberately no GetClass() in the message: the *parent's* GetClass can itself
-        // be a stub returning null, which is how the first version of this crashed.
-        if (*reinterpret_cast<void* const*>(n) == nullptr)
+        // What does hold for every real vtable is that it lives inside a loaded module.
+        // dladdr answers exactly that, and ResChange runs on resolution changes rather
+        // than per frame, so the cost does not matter.
+        const void* vptr = *reinterpret_cast<void* const*>(n);
+
+        bool constructed = vptr != nullptr;
+
+#ifdef __ANDROID__
+        if (constructed)
         {
-            Errorf("asNode::ResChange() - child %p under parent %p has no vtable, skipping",
-                static_cast<void*>(n), static_cast<void*>(this));
+            Dl_info info {};
+            constructed = dladdr(vptr, &info) != 0;
+        }
+#endif
+
+        if (!constructed)
+        {
+            Errorf("asNode::ResChange() - skipping unconstructed child %p under parent %p (vtable %p)",
+                static_cast<void*>(n), static_cast<void*>(this), const_cast<void*>(vptr));
             continue;
         }
 

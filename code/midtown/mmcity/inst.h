@@ -409,7 +409,7 @@ public:
 check_size(mmBuildingInstance, 0x48);
 
 // ?GetPolyInfo@@YAHPAVagiMeshSet@@@Z
-ARTS_IMPORT i32 GetPolyInfo(agiMeshSet* arg1);
+ARTS_EXPORT i32 GetPolyInfo(agiMeshSet* mesh);
 
 // ?formatf@@YAPADPBDZZ
 ARTS_EXPORT char* formatf(const char* arg1, ...);

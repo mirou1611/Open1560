@@ -35,7 +35,8 @@ public:
     ARTS_IMPORT void Cull(b32 sub_cull) override;
 
     // ?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z
-    ARTS_IMPORT void Init(aconst char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32* arg6);
+    ARTS_EXPORT void Init(aconst char* city_name, i32 index, i32 mesh_flags, i32 room_flags,
+        i32 visit_tag_count, i32* visit_tags);
 
     // ?Relight@mmCellRenderer@@QAEXXZ
     ARTS_EXPORT void Relight();

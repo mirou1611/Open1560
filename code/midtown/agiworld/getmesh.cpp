@@ -142,7 +142,7 @@ agiMeshSet* GetMeshSet(aconst char* name, aconst char* group, Vector3* offset, i
 
     if (group)
     {
-        arts_strcat(key, "_");
+        arts_strcat(key, "/");
         arts_strcat(key, group);
     }
 
@@ -165,9 +165,12 @@ agiMeshSet* GetMeshSet(aconst char* name, aconst char* group, Vector3* offset, i
     arts_sprintf(bms_path, "bms/%s", name);
     arts_sprintf(geo_path, "geo/%s.geo", name);
 
+    // The archive nests these: BMS/<name>/<group>, with the extension held in a field of
+    // its own. So the separator is a path separator, not an underscore - which is what
+    // mmInstance::GetMeshSetSet uses for *its* key, and is easy to carry over by mistake.
     if (group)
     {
-        arts_strcat(bms_path, "_");
+        arts_strcat(bms_path, "/");
         arts_strcat(bms_path, group);
     }
 
