@@ -131,7 +131,7 @@ public:
     ARTS_IMPORT i32 QuickLineBox(mmEdgeBodyIsect* arg1);
 
     // ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 QuickLineBox(mmIntersection* arg1);
+    ARTS_EXPORT i32 QuickLineBox(mmIntersection* isect);
 
     // ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
     ARTS_IMPORT i32 QuickLineSphere(mmEdgeBodyIsect* arg1);

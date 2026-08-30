@@ -503,21 +503,12 @@ _Z12GetBoundInfoiP7Vector3S0_S0_S0_Pf:
     b ArtsStubCalled
     .size _Z12GetBoundInfoiP7Vector3S0_S0_S0_Pf, . - _Z12GetBoundInfoiP7Vector3S0_S0_S0_Pf
 
-    // ipcYield()
-    .global _Z8ipcYieldv
-    .type _Z8ipcYieldv, %function
-_Z8ipcYieldv:
-    adrp x0, .Lstub_name_55
-    add x0, x0, :lo12:.Lstub_name_55
-    b ArtsStubCalled
-    .size _Z8ipcYieldv, . - _Z8ipcYieldv
-
     // swPoly(agiScreenVtx*, int)
     .global _Z6swPolyP12agiScreenVtxi
     .type _Z6swPolyP12agiScreenVtxi, %function
 _Z6swPolyP12agiScreenVtxi:
-    adrp x0, .Lstub_name_56
-    add x0, x0, :lo12:.Lstub_name_56
+    adrp x0, .Lstub_name_55
+    add x0, x0, :lo12:.Lstub_name_55
     b ArtsStubCalled
     .size _Z6swPolyP12agiScreenVtxi, . - _Z6swPolyP12agiScreenVtxi
 
@@ -525,8 +516,8 @@ _Z6swPolyP12agiScreenVtxi:
     .global _Z5swTriP12agiScreenVtxS0_S0_
     .type _Z5swTriP12agiScreenVtxS0_S0_, %function
 _Z5swTriP12agiScreenVtxS0_S0_:
-    adrp x0, .Lstub_name_57
-    add x0, x0, :lo12:.Lstub_name_57
+    adrp x0, .Lstub_name_56
+    add x0, x0, :lo12:.Lstub_name_56
     b ArtsStubCalled
     .size _Z5swTriP12agiScreenVtxS0_S0_, . - _Z5swTriP12agiScreenVtxS0_S0_
 
@@ -534,10 +525,19 @@ _Z5swTriP12agiScreenVtxS0_S0_:
     .global _Z6swQuadP12agiScreenVtxS0_S0_S0_
     .type _Z6swQuadP12agiScreenVtxS0_S0_S0_, %function
 _Z6swQuadP12agiScreenVtxS0_S0_S0_:
+    adrp x0, .Lstub_name_57
+    add x0, x0, :lo12:.Lstub_name_57
+    b ArtsStubCalled
+    .size _Z6swQuadP12agiScreenVtxS0_S0_S0_, . - _Z6swQuadP12agiScreenVtxS0_S0_S0_
+
+    // ipcYield()
+    .global _Z8ipcYieldv
+    .type _Z8ipcYieldv, %function
+_Z8ipcYieldv:
     adrp x0, .Lstub_name_58
     add x0, x0, :lo12:.Lstub_name_58
     b ArtsStubCalled
-    .size _Z6swQuadP12agiScreenVtxS0_S0_S0_, . - _Z6swQuadP12agiScreenVtxS0_S0_S0_
+    .size _Z8ipcYieldv, . - _Z8ipcYieldv
 
     // agiMeshSet::FirstPass_HW_UV_CPV_noDYNTEX(unsigned int*, Vector2*, unsigned int)
     .global _ZN10agiMeshSet28FirstPass_HW_UV_CPV_noDYNTEXEPjP7Vector2j
@@ -782,12 +782,39 @@ _ZN15mmEdgeBodyIsectC1Ev:
     b ArtsStubCalled
     .size _ZN15mmEdgeBodyIsectC1Ev, . - _ZN15mmEdgeBodyIsectC1Ev
 
+    // mmPhysicsMGR::Cull()
+    .global _ZN12mmPhysicsMGR4CullEv
+    .type _ZN12mmPhysicsMGR4CullEv, %function
+_ZN12mmPhysicsMGR4CullEv:
+    adrp x0, .Lstub_name_86
+    add x0, x0, :lo12:.Lstub_name_86
+    b ArtsStubCalled
+    .size _ZN12mmPhysicsMGR4CullEv, . - _ZN12mmPhysicsMGR4CullEv
+
+    // mmPhysicsMGR::Update()
+    .global _ZN12mmPhysicsMGR6UpdateEv
+    .type _ZN12mmPhysicsMGR6UpdateEv, %function
+_ZN12mmPhysicsMGR6UpdateEv:
+    adrp x0, .Lstub_name_87
+    add x0, x0, :lo12:.Lstub_name_87
+    b ArtsStubCalled
+    .size _ZN12mmPhysicsMGR6UpdateEv, . - _ZN12mmPhysicsMGR6UpdateEv
+
+    // mmPhysicsMGR::UpdatePaused()
+    .global _ZN12mmPhysicsMGR12UpdatePausedEv
+    .type _ZN12mmPhysicsMGR12UpdatePausedEv, %function
+_ZN12mmPhysicsMGR12UpdatePausedEv:
+    adrp x0, .Lstub_name_88
+    add x0, x0, :lo12:.Lstub_name_88
+    b ArtsStubCalled
+    .size _ZN12mmPhysicsMGR12UpdatePausedEv, . - _ZN12mmPhysicsMGR12UpdatePausedEv
+
     // mmBoundTemplate::ValidatePtr(char*)
     .global _ZN15mmBoundTemplate11ValidatePtrEPc
     .type _ZN15mmBoundTemplate11ValidatePtrEPc, %function
 _ZN15mmBoundTemplate11ValidatePtrEPc:
-    adrp x0, .Lstub_name_86
-    add x0, x0, :lo12:.Lstub_name_86
+    adrp x0, .Lstub_name_89
+    add x0, x0, :lo12:.Lstub_name_89
     b ArtsStubCalled
     .size _ZN15mmBoundTemplate11ValidatePtrEPc, . - _ZN15mmBoundTemplate11ValidatePtrEPc
 
@@ -795,62 +822,26 @@ _ZN15mmBoundTemplate11ValidatePtrEPc:
     .global _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection
     .type _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection, %function
 _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection:
-    adrp x0, .Lstub_name_87
-    add x0, x0, :lo12:.Lstub_name_87
+    adrp x0, .Lstub_name_90
+    add x0, x0, :lo12:.Lstub_name_90
     b ArtsStubCalled
     .size _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection, . - _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection
-
-    // mmPhysicsMGR::Cull()
-    .global _ZN12mmPhysicsMGR4CullEv
-    .type _ZN12mmPhysicsMGR4CullEv, %function
-_ZN12mmPhysicsMGR4CullEv:
-    adrp x0, .Lstub_name_88
-    add x0, x0, :lo12:.Lstub_name_88
-    b ArtsStubCalled
-    .size _ZN12mmPhysicsMGR4CullEv, . - _ZN12mmPhysicsMGR4CullEv
 
     // mmBoundTemplate::SphereTable(mmIntersection*)
     .global _ZN15mmBoundTemplate11SphereTableEP14mmIntersection
     .type _ZN15mmBoundTemplate11SphereTableEP14mmIntersection, %function
 _ZN15mmBoundTemplate11SphereTableEP14mmIntersection:
-    adrp x0, .Lstub_name_89
-    add x0, x0, :lo12:.Lstub_name_89
-    b ArtsStubCalled
-    .size _ZN15mmBoundTemplate11SphereTableEP14mmIntersection, . - _ZN15mmBoundTemplate11SphereTableEP14mmIntersection
-
-    // mmPhysicsMGR::Update()
-    .global _ZN12mmPhysicsMGR6UpdateEv
-    .type _ZN12mmPhysicsMGR6UpdateEv, %function
-_ZN12mmPhysicsMGR6UpdateEv:
-    adrp x0, .Lstub_name_90
-    add x0, x0, :lo12:.Lstub_name_90
-    b ArtsStubCalled
-    .size _ZN12mmPhysicsMGR6UpdateEv, . - _ZN12mmPhysicsMGR6UpdateEv
-
-    // mmBoundTemplate::QuickLineBox(mmIntersection*)
-    .global _ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection
-    .type _ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection, %function
-_ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection:
     adrp x0, .Lstub_name_91
     add x0, x0, :lo12:.Lstub_name_91
     b ArtsStubCalled
-    .size _ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection, . - _ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection
-
-    // mmPhysicsMGR::UpdatePaused()
-    .global _ZN12mmPhysicsMGR12UpdatePausedEv
-    .type _ZN12mmPhysicsMGR12UpdatePausedEv, %function
-_ZN12mmPhysicsMGR12UpdatePausedEv:
-    adrp x0, .Lstub_name_92
-    add x0, x0, :lo12:.Lstub_name_92
-    b ArtsStubCalled
-    .size _ZN12mmPhysicsMGR12UpdatePausedEv, . - _ZN12mmPhysicsMGR12UpdatePausedEv
+    .size _ZN15mmBoundTemplate11SphereTableEP14mmIntersection, . - _ZN15mmBoundTemplate11SphereTableEP14mmIntersection
 
     // mmBoundTemplate::LineTable(mmIntersection*)
     .global _ZN15mmBoundTemplate9LineTableEP14mmIntersection
     .type _ZN15mmBoundTemplate9LineTableEP14mmIntersection, %function
 _ZN15mmBoundTemplate9LineTableEP14mmIntersection:
-    adrp x0, .Lstub_name_93
-    add x0, x0, :lo12:.Lstub_name_93
+    adrp x0, .Lstub_name_92
+    add x0, x0, :lo12:.Lstub_name_92
     b ArtsStubCalled
     .size _ZN15mmBoundTemplate9LineTableEP14mmIntersection, . - _ZN15mmBoundTemplate9LineTableEP14mmIntersection
 
@@ -858,8 +849,8 @@ _ZN15mmBoundTemplate9LineTableEP14mmIntersection:
     .global _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection
     .type _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection, %function
 _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection:
-    adrp x0, .Lstub_name_94
-    add x0, x0, :lo12:.Lstub_name_94
+    adrp x0, .Lstub_name_93
+    add x0, x0, :lo12:.Lstub_name_93
     b ArtsStubCalled
     .size _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection, . - _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection
 
@@ -867,8 +858,8 @@ _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection:
     .global _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection
     .type _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection, %function
 _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection:
-    adrp x0, .Lstub_name_95
-    add x0, x0, :lo12:.Lstub_name_95
+    adrp x0, .Lstub_name_94
+    add x0, x0, :lo12:.Lstub_name_94
     b ArtsStubCalled
     .size _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection, . - _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection
 
@@ -876,8 +867,8 @@ _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection:
     .global _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection
     .type _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection, %function
 _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection:
-    adrp x0, .Lstub_name_96
-    add x0, x0, :lo12:.Lstub_name_96
+    adrp x0, .Lstub_name_95
+    add x0, x0, :lo12:.Lstub_name_95
     b ArtsStubCalled
     .size _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection, . - _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection
 
@@ -885,26 +876,17 @@ _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection:
     .global _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection
     .type _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection, %function
 _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection:
-    adrp x0, .Lstub_name_97
-    add x0, x0, :lo12:.Lstub_name_97
+    adrp x0, .Lstub_name_96
+    add x0, x0, :lo12:.Lstub_name_96
     b ArtsStubCalled
     .size _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection, . - _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection
-
-    // mmIntersection::Reset()
-    .global _ZN14mmIntersection5ResetEv
-    .type _ZN14mmIntersection5ResetEv, %function
-_ZN14mmIntersection5ResetEv:
-    adrp x0, .Lstub_name_98
-    add x0, x0, :lo12:.Lstub_name_98
-    b ArtsStubCalled
-    .size _ZN14mmIntersection5ResetEv, . - _ZN14mmIntersection5ResetEv
 
     // mmPolygon::mmPolygon()
     .global _ZN9mmPolygonC1Ev
     .type _ZN9mmPolygonC1Ev, %function
 _ZN9mmPolygonC1Ev:
-    adrp x0, .Lstub_name_99
-    add x0, x0, :lo12:.Lstub_name_99
+    adrp x0, .Lstub_name_97
+    add x0, x0, :lo12:.Lstub_name_97
     b ArtsStubCalled
     .size _ZN9mmPolygonC1Ev, . - _ZN9mmPolygonC1Ev
 
@@ -912,17 +894,26 @@ _ZN9mmPolygonC1Ev:
     .global _ZN15mmBoundTemplate8DoPageInEv
     .type _ZN15mmBoundTemplate8DoPageInEv, %function
 _ZN15mmBoundTemplate8DoPageInEv:
-    adrp x0, .Lstub_name_100
-    add x0, x0, :lo12:.Lstub_name_100
+    adrp x0, .Lstub_name_98
+    add x0, x0, :lo12:.Lstub_name_98
     b ArtsStubCalled
     .size _ZN15mmBoundTemplate8DoPageInEv, . - _ZN15mmBoundTemplate8DoPageInEv
+
+    // mmIntersection::Reset()
+    .global _ZN14mmIntersection5ResetEv
+    .type _ZN14mmIntersection5ResetEv, %function
+_ZN14mmIntersection5ResetEv:
+    adrp x0, .Lstub_name_99
+    add x0, x0, :lo12:.Lstub_name_99
+    b ArtsStubCalled
+    .size _ZN14mmIntersection5ResetEv, . - _ZN14mmIntersection5ResetEv
 
     // mmPolygon::PlotTriangle(int, int, int, mmBoundTemplate*, int)
     .global _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei
     .type _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei, %function
 _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei:
-    adrp x0, .Lstub_name_101
-    add x0, x0, :lo12:.Lstub_name_101
+    adrp x0, .Lstub_name_100
+    add x0, x0, :lo12:.Lstub_name_100
     b ArtsStubCalled
     .size _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei, . - _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei
 
@@ -930,8 +921,8 @@ _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei:
     .global _ZN15mmBoundTemplate8AddIndexEiii
     .type _ZN15mmBoundTemplate8AddIndexEiii, %function
 _ZN15mmBoundTemplate8AddIndexEiii:
-    adrp x0, .Lstub_name_102
-    add x0, x0, :lo12:.Lstub_name_102
+    adrp x0, .Lstub_name_101
+    add x0, x0, :lo12:.Lstub_name_101
     b ArtsStubCalled
     .size _ZN15mmBoundTemplate8AddIndexEiii, . - _ZN15mmBoundTemplate8AddIndexEiii
 
@@ -939,8 +930,8 @@ _ZN15mmBoundTemplate8AddIndexEiii:
     .global _ZN19mmDofBangerInstance8ToMatrixER8Matrix34
     .type _ZN19mmDofBangerInstance8ToMatrixER8Matrix34, %function
 _ZN19mmDofBangerInstance8ToMatrixER8Matrix34:
-    adrp x0, .Lstub_name_103
-    add x0, x0, :lo12:.Lstub_name_103
+    adrp x0, .Lstub_name_102
+    add x0, x0, :lo12:.Lstub_name_102
     b ArtsStubCalled
     .size _ZN19mmDofBangerInstance8ToMatrixER8Matrix34, . - _ZN19mmDofBangerInstance8ToMatrixER8Matrix34
 
@@ -948,8 +939,8 @@ _ZN19mmDofBangerInstance8ToMatrixER8Matrix34:
     .global _ZN10mmInstance8GetClassEv
     .type _ZN10mmInstance8GetClassEv, %function
 _ZN10mmInstance8GetClassEv:
-    adrp x0, .Lstub_name_104
-    add x0, x0, :lo12:.Lstub_name_104
+    adrp x0, .Lstub_name_103
+    add x0, x0, :lo12:.Lstub_name_103
     b ArtsStubCalled
     .size _ZN10mmInstance8GetClassEv, . - _ZN10mmInstance8GetClassEv
 
@@ -957,8 +948,8 @@ _ZN10mmInstance8GetClassEv:
     .global _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34
     .type _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34, %function
 _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34:
-    adrp x0, .Lstub_name_105
-    add x0, x0, :lo12:.Lstub_name_105
+    adrp x0, .Lstub_name_104
+    add x0, x0, :lo12:.Lstub_name_104
     b ArtsStubCalled
     .size _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34, . - _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34
 
@@ -966,8 +957,8 @@ _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34:
     .global _ZN19mmDofBangerInstance6GetPosEv
     .type _ZN19mmDofBangerInstance6GetPosEv, %function
 _ZN19mmDofBangerInstance6GetPosEv:
-    adrp x0, .Lstub_name_106
-    add x0, x0, :lo12:.Lstub_name_106
+    adrp x0, .Lstub_name_105
+    add x0, x0, :lo12:.Lstub_name_105
     b ArtsStubCalled
     .size _ZN19mmDofBangerInstance6GetPosEv, . - _ZN19mmDofBangerInstance6GetPosEv
 
@@ -975,8 +966,8 @@ _ZN19mmDofBangerInstance6GetPosEv:
     .global _ZN16mmBangerInstance10DrawShadowEv
     .type _ZN16mmBangerInstance10DrawShadowEv, %function
 _ZN16mmBangerInstance10DrawShadowEv:
-    adrp x0, .Lstub_name_107
-    add x0, x0, :lo12:.Lstub_name_107
+    adrp x0, .Lstub_name_106
+    add x0, x0, :lo12:.Lstub_name_106
     b ArtsStubCalled
     .size _ZN16mmBangerInstance10DrawShadowEv, . - _ZN16mmBangerInstance10DrawShadowEv
 
@@ -984,8 +975,8 @@ _ZN16mmBangerInstance10DrawShadowEv:
     .global _ZN16mmBangerInstance8DrawGlowEv
     .type _ZN16mmBangerInstance8DrawGlowEv, %function
 _ZN16mmBangerInstance8DrawGlowEv:
-    adrp x0, .Lstub_name_108
-    add x0, x0, :lo12:.Lstub_name_108
+    adrp x0, .Lstub_name_107
+    add x0, x0, :lo12:.Lstub_name_107
     b ArtsStubCalled
     .size _ZN16mmBangerInstance8DrawGlowEv, . - _ZN16mmBangerInstance8DrawGlowEv
 
@@ -993,8 +984,8 @@ _ZN16mmBangerInstance8DrawGlowEv:
     .global _ZN19mmDofBangerInstance6SizeOfEv
     .type _ZN19mmDofBangerInstance6SizeOfEv, %function
 _ZN19mmDofBangerInstance6SizeOfEv:
-    adrp x0, .Lstub_name_109
-    add x0, x0, :lo12:.Lstub_name_109
+    adrp x0, .Lstub_name_108
+    add x0, x0, :lo12:.Lstub_name_108
     b ArtsStubCalled
     .size _ZN19mmDofBangerInstance6SizeOfEv, . - _ZN19mmDofBangerInstance6SizeOfEv
 
@@ -1002,8 +993,8 @@ _ZN19mmDofBangerInstance6SizeOfEv:
     .global _ZN21mmUnhitBangerInstance5ResetEv
     .type _ZN21mmUnhitBangerInstance5ResetEv, %function
 _ZN21mmUnhitBangerInstance5ResetEv:
-    adrp x0, .Lstub_name_110
-    add x0, x0, :lo12:.Lstub_name_110
+    adrp x0, .Lstub_name_109
+    add x0, x0, :lo12:.Lstub_name_109
     b ArtsStubCalled
     .size _ZN21mmUnhitBangerInstance5ResetEv, . - _ZN21mmUnhitBangerInstance5ResetEv
 
@@ -1011,8 +1002,8 @@ _ZN21mmUnhitBangerInstance5ResetEv:
     .global _ZN16mmBangerInstance10ComputeLodEff
     .type _ZN16mmBangerInstance10ComputeLodEff, %function
 _ZN16mmBangerInstance10ComputeLodEff:
-    adrp x0, .Lstub_name_111
-    add x0, x0, :lo12:.Lstub_name_111
+    adrp x0, .Lstub_name_110
+    add x0, x0, :lo12:.Lstub_name_110
     b ArtsStubCalled
     .size _ZN16mmBangerInstance10ComputeLodEff, . - _ZN16mmBangerInstance10ComputeLodEff
 
@@ -1020,8 +1011,8 @@ _ZN16mmBangerInstance10ComputeLodEff:
     .global _ZN11mmBridgeSet9ReadEntryEP6Streami
     .type _ZN11mmBridgeSet9ReadEntryEP6Streami, %function
 _ZN11mmBridgeSet9ReadEntryEP6Streami:
-    adrp x0, .Lstub_name_112
-    add x0, x0, :lo12:.Lstub_name_112
+    adrp x0, .Lstub_name_111
+    add x0, x0, :lo12:.Lstub_name_111
     b ArtsStubCalled
     .size _ZN11mmBridgeSet9ReadEntryEP6Streami, . - _ZN11mmBridgeSet9ReadEntryEP6Streami
 
@@ -1029,8 +1020,8 @@ _ZN11mmBridgeSet9ReadEntryEP6Streami:
     .global _ZN13mmAnimTrigger4InitEP7Vector3Pf
     .type _ZN13mmAnimTrigger4InitEP7Vector3Pf, %function
 _ZN13mmAnimTrigger4InitEP7Vector3Pf:
-    adrp x0, .Lstub_name_113
-    add x0, x0, :lo12:.Lstub_name_113
+    adrp x0, .Lstub_name_112
+    add x0, x0, :lo12:.Lstub_name_112
     b ArtsStubCalled
     .size _ZN13mmAnimTrigger4InitEP7Vector3Pf, . - _ZN13mmAnimTrigger4InitEP7Vector3Pf
 
@@ -1038,8 +1029,8 @@ _ZN13mmAnimTrigger4InitEP7Vector3Pf:
     .global _ZN8AudSound9IsPlayingEi
     .type _ZN8AudSound9IsPlayingEi, %function
 _ZN8AudSound9IsPlayingEi:
-    adrp x0, .Lstub_name_114
-    add x0, x0, :lo12:.Lstub_name_114
+    adrp x0, .Lstub_name_113
+    add x0, x0, :lo12:.Lstub_name_113
     b ArtsStubCalled
     .size _ZN8AudSound9IsPlayingEi, . - _ZN8AudSound9IsPlayingEi
 
@@ -1047,8 +1038,8 @@ _ZN8AudSound9IsPlayingEi:
     .global _ZN8AudSound4StopEv
     .type _ZN8AudSound4StopEv, %function
 _ZN8AudSound4StopEv:
-    adrp x0, .Lstub_name_115
-    add x0, x0, :lo12:.Lstub_name_115
+    adrp x0, .Lstub_name_114
+    add x0, x0, :lo12:.Lstub_name_114
     b ArtsStubCalled
     .size _ZN8AudSound4StopEv, . - _ZN8AudSound4StopEv
 
@@ -1056,8 +1047,8 @@ _ZN8AudSound4StopEv:
     .global _ZN11mmBridgeSetC1Ev
     .type _ZN11mmBridgeSetC1Ev, %function
 _ZN11mmBridgeSetC1Ev:
-    adrp x0, .Lstub_name_116
-    add x0, x0, :lo12:.Lstub_name_116
+    adrp x0, .Lstub_name_115
+    add x0, x0, :lo12:.Lstub_name_115
     b ArtsStubCalled
     .size _ZN11mmBridgeSetC1Ev, . - _ZN11mmBridgeSetC1Ev
 
@@ -1065,8 +1056,8 @@ _ZN11mmBridgeSetC1Ev:
     .global _ZN14mmBridgeAudMgrC1Ev
     .type _ZN14mmBridgeAudMgrC1Ev, %function
 _ZN14mmBridgeAudMgrC1Ev:
-    adrp x0, .Lstub_name_117
-    add x0, x0, :lo12:.Lstub_name_117
+    adrp x0, .Lstub_name_116
+    add x0, x0, :lo12:.Lstub_name_116
     b ArtsStubCalled
     .size _ZN14mmBridgeAudMgrC1Ev, . - _ZN14mmBridgeAudMgrC1Ev
 
@@ -1074,8 +1065,8 @@ _ZN14mmBridgeAudMgrC1Ev:
     .global _ZN10mmCullCity12GetRoomFlagsEs
     .type _ZN10mmCullCity12GetRoomFlagsEs, %function
 _ZN10mmCullCity12GetRoomFlagsEs:
-    adrp x0, .Lstub_name_118
-    add x0, x0, :lo12:.Lstub_name_118
+    adrp x0, .Lstub_name_117
+    add x0, x0, :lo12:.Lstub_name_117
     b ArtsStubCalled
     .size _ZN10mmCullCity12GetRoomFlagsEs, . - _ZN10mmCullCity12GetRoomFlagsEs
 
@@ -1083,8 +1074,8 @@ _ZN10mmCullCity12GetRoomFlagsEs:
     .global _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_
     .type _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_, %function
 _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_:
-    adrp x0, .Lstub_name_119
-    add x0, x0, :lo12:.Lstub_name_119
+    adrp x0, .Lstub_name_118
+    add x0, x0, :lo12:.Lstub_name_118
     b ArtsStubCalled
     .size _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_, . - _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_
 
@@ -1092,8 +1083,8 @@ _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_:
     .global _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData
     .type _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData, %function
 _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData:
-    adrp x0, .Lstub_name_120
-    add x0, x0, :lo12:.Lstub_name_120
+    adrp x0, .Lstub_name_119
+    add x0, x0, :lo12:.Lstub_name_119
     b ArtsStubCalled
     .size _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData, . - _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData
 
@@ -1101,8 +1092,8 @@ _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData:
     .global _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_
     .type _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_, %function
 _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_:
-    adrp x0, .Lstub_name_121
-    add x0, x0, :lo12:.Lstub_name_121
+    adrp x0, .Lstub_name_120
+    add x0, x0, :lo12:.Lstub_name_120
     b ArtsStubCalled
     .size _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_, . - _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_
 
@@ -1110,8 +1101,8 @@ _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_:
     .global _ZN16mmBangerInstance4DrawEi
     .type _ZN16mmBangerInstance4DrawEi, %function
 _ZN16mmBangerInstance4DrawEi:
-    adrp x0, .Lstub_name_122
-    add x0, x0, :lo12:.Lstub_name_122
+    adrp x0, .Lstub_name_121
+    add x0, x0, :lo12:.Lstub_name_121
     b ArtsStubCalled
     .size _ZN16mmBangerInstance4DrawEi, . - _ZN16mmBangerInstance4DrawEi
 
@@ -1119,8 +1110,8 @@ _ZN16mmBangerInstance4DrawEi:
     .global _ZN19mmHitBangerInstance4DrawEi
     .type _ZN19mmHitBangerInstance4DrawEi, %function
 _ZN19mmHitBangerInstance4DrawEi:
-    adrp x0, .Lstub_name_123
-    add x0, x0, :lo12:.Lstub_name_123
+    adrp x0, .Lstub_name_122
+    add x0, x0, :lo12:.Lstub_name_122
     b ArtsStubCalled
     .size _ZN19mmHitBangerInstance4DrawEi, . - _ZN19mmHitBangerInstance4DrawEi
 
@@ -1128,8 +1119,8 @@ _ZN19mmHitBangerInstance4DrawEi:
     .global _ZN10mmTextNode6UpdateEv
     .type _ZN10mmTextNode6UpdateEv, %function
 _ZN10mmTextNode6UpdateEv:
-    adrp x0, .Lstub_name_124
-    add x0, x0, :lo12:.Lstub_name_124
+    adrp x0, .Lstub_name_123
+    add x0, x0, :lo12:.Lstub_name_123
     b ArtsStubCalled
     .size _ZN10mmTextNode6UpdateEv, . - _ZN10mmTextNode6UpdateEv
 
@@ -1137,8 +1128,8 @@ _ZN10mmTextNode6UpdateEv:
     .global _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii
     .type _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii, %function
 _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii:
-    adrp x0, .Lstub_name_125
-    add x0, x0, :lo12:.Lstub_name_125
+    adrp x0, .Lstub_name_124
+    add x0, x0, :lo12:.Lstub_name_124
     b ArtsStubCalled
     .size _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii, . - _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii
 
@@ -1146,8 +1137,8 @@ _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii:
     .global _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos
     .type _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos, %function
 _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos:
-    adrp x0, .Lstub_name_126
-    add x0, x0, :lo12:.Lstub_name_126
+    adrp x0, .Lstub_name_125
+    add x0, x0, :lo12:.Lstub_name_125
     b ArtsStubCalled
     .size _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos, . - _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos
 
@@ -1155,8 +1146,8 @@ _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos:
     .global _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo
     .type _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo, %function
 _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo:
-    adrp x0, .Lstub_name_127
-    add x0, x0, :lo12:.Lstub_name_127
+    adrp x0, .Lstub_name_126
+    add x0, x0, :lo12:.Lstub_name_126
     b ArtsStubCalled
     .size _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo, . - _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo
 
@@ -1164,8 +1155,8 @@ _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo:
     .global _ZN8mmDamageC1Ev
     .type _ZN8mmDamageC1Ev, %function
 _ZN8mmDamageC1Ev:
-    adrp x0, .Lstub_name_128
-    add x0, x0, :lo12:.Lstub_name_128
+    adrp x0, .Lstub_name_127
+    add x0, x0, :lo12:.Lstub_name_127
     b ArtsStubCalled
     .size _ZN8mmDamageC1Ev, . - _ZN8mmDamageC1Ev
 
@@ -1173,8 +1164,8 @@ _ZN8mmDamageC1Ev:
     .global _ZN8mmDamageD1Ev
     .type _ZN8mmDamageD1Ev, %function
 _ZN8mmDamageD1Ev:
-    adrp x0, .Lstub_name_129
-    add x0, x0, :lo12:.Lstub_name_129
+    adrp x0, .Lstub_name_128
+    add x0, x0, :lo12:.Lstub_name_128
     b ArtsStubCalled
     .size _ZN8mmDamageD1Ev, . - _ZN8mmDamageD1Ev
 
@@ -1182,8 +1173,8 @@ _ZN8mmDamageD1Ev:
     .global _ZN13mmVehicleForm4CullEv
     .type _ZN13mmVehicleForm4CullEv, %function
 _ZN13mmVehicleForm4CullEv:
-    adrp x0, .Lstub_name_130
-    add x0, x0, :lo12:.Lstub_name_130
+    adrp x0, .Lstub_name_129
+    add x0, x0, :lo12:.Lstub_name_129
     b ArtsStubCalled
     .size _ZN13mmVehicleForm4CullEv, . - _ZN13mmVehicleForm4CullEv
 
@@ -1191,8 +1182,8 @@ _ZN13mmVehicleForm4CullEv:
     .global _Z14GetDLPTemplatePc
     .type _Z14GetDLPTemplatePc, %function
 _Z14GetDLPTemplatePc:
-    adrp x0, .Lstub_name_131
-    add x0, x0, :lo12:.Lstub_name_131
+    adrp x0, .Lstub_name_130
+    add x0, x0, :lo12:.Lstub_name_130
     b ArtsStubCalled
     .size _Z14GetDLPTemplatePc, . - _Z14GetDLPTemplatePc
 
@@ -1200,8 +1191,8 @@ _Z14GetDLPTemplatePc:
     .global _ZN8Matrix349RotateAbsERK7Vector3f
     .type _ZN8Matrix349RotateAbsERK7Vector3f, %function
 _ZN8Matrix349RotateAbsERK7Vector3f:
-    adrp x0, .Lstub_name_132
-    add x0, x0, :lo12:.Lstub_name_132
+    adrp x0, .Lstub_name_131
+    add x0, x0, :lo12:.Lstub_name_131
     b ArtsStubCalled
     .size _ZN8Matrix349RotateAbsERK7Vector3f, . - _ZN8Matrix349RotateAbsERK7Vector3f
 
@@ -1209,8 +1200,8 @@ _ZN8Matrix349RotateAbsERK7Vector3f:
     .global _ZN13mmSkidManagerC1Ev
     .type _ZN13mmSkidManagerC1Ev, %function
 _ZN13mmSkidManagerC1Ev:
-    adrp x0, .Lstub_name_133
-    add x0, x0, :lo12:.Lstub_name_133
+    adrp x0, .Lstub_name_132
+    add x0, x0, :lo12:.Lstub_name_132
     b ArtsStubCalled
     .size _ZN13mmSkidManagerC1Ev, . - _ZN13mmSkidManagerC1Ev
 
@@ -1218,8 +1209,8 @@ _ZN13mmSkidManagerC1Ev:
     .global _ZN9mmTrailer10PostUpdateEv
     .type _ZN9mmTrailer10PostUpdateEv, %function
 _ZN9mmTrailer10PostUpdateEv:
-    adrp x0, .Lstub_name_134
-    add x0, x0, :lo12:.Lstub_name_134
+    adrp x0, .Lstub_name_133
+    add x0, x0, :lo12:.Lstub_name_133
     b ArtsStubCalled
     .size _ZN9mmTrailer10PostUpdateEv, . - _ZN9mmTrailer10PostUpdateEv
 
@@ -1227,8 +1218,8 @@ _ZN9mmTrailer10PostUpdateEv:
     .global _ZN14mmShardManager6UpdateEv
     .type _ZN14mmShardManager6UpdateEv, %function
 _ZN14mmShardManager6UpdateEv:
-    adrp x0, .Lstub_name_135
-    add x0, x0, :lo12:.Lstub_name_135
+    adrp x0, .Lstub_name_134
+    add x0, x0, :lo12:.Lstub_name_134
     b ArtsStubCalled
     .size _ZN14mmShardManager6UpdateEv, . - _ZN14mmShardManager6UpdateEv
 
@@ -1236,8 +1227,8 @@ _ZN14mmShardManager6UpdateEv:
     .global _ZN8mmCarSim6ReInitEPKc
     .type _ZN8mmCarSim6ReInitEPKc, %function
 _ZN8mmCarSim6ReInitEPKc:
-    adrp x0, .Lstub_name_136
-    add x0, x0, :lo12:.Lstub_name_136
+    adrp x0, .Lstub_name_135
+    add x0, x0, :lo12:.Lstub_name_135
     b ArtsStubCalled
     .size _ZN8mmCarSim6ReInitEPKc, . - _ZN8mmCarSim6ReInitEPKc
 
@@ -1245,8 +1236,8 @@ _ZN8mmCarSim6ReInitEPKc:
     .global _ZN10mmCarModel4InitEPKcP5mmCari
     .type _ZN10mmCarModel4InitEPKcP5mmCari, %function
 _ZN10mmCarModel4InitEPKcP5mmCari:
-    adrp x0, .Lstub_name_137
-    add x0, x0, :lo12:.Lstub_name_137
+    adrp x0, .Lstub_name_136
+    add x0, x0, :lo12:.Lstub_name_136
     b ArtsStubCalled
     .size _ZN10mmCarModel4InitEPKcP5mmCari, . - _ZN10mmCarModel4InitEPKcP5mmCari
 
@@ -1254,8 +1245,8 @@ _ZN10mmCarModel4InitEPKcP5mmCari:
     .global _ZN13mmSkidManager6ReInitEP7mmWheel
     .type _ZN13mmSkidManager6ReInitEP7mmWheel, %function
 _ZN13mmSkidManager6ReInitEP7mmWheel:
-    adrp x0, .Lstub_name_138
-    add x0, x0, :lo12:.Lstub_name_138
+    adrp x0, .Lstub_name_137
+    add x0, x0, :lo12:.Lstub_name_137
     b ArtsStubCalled
     .size _ZN13mmSkidManager6ReInitEP7mmWheel, . - _ZN13mmSkidManager6ReInitEP7mmWheel
 
@@ -1263,8 +1254,8 @@ _ZN13mmSkidManager6ReInitEP7mmWheel:
     .global _ZN9mmTrailer10DeactivateEv
     .type _ZN9mmTrailer10DeactivateEv, %function
 _ZN9mmTrailer10DeactivateEv:
-    adrp x0, .Lstub_name_139
-    add x0, x0, :lo12:.Lstub_name_139
+    adrp x0, .Lstub_name_138
+    add x0, x0, :lo12:.Lstub_name_138
     b ArtsStubCalled
     .size _ZN9mmTrailer10DeactivateEv, . - _ZN9mmTrailer10DeactivateEv
 
@@ -1272,8 +1263,8 @@ _ZN9mmTrailer10DeactivateEv:
     .global _ZN9Joint3Dof10BreakJointEv
     .type _ZN9Joint3Dof10BreakJointEv, %function
 _ZN9Joint3Dof10BreakJointEv:
-    adrp x0, .Lstub_name_140
-    add x0, x0, :lo12:.Lstub_name_140
+    adrp x0, .Lstub_name_139
+    add x0, x0, :lo12:.Lstub_name_139
     b ArtsStubCalled
     .size _ZN9Joint3Dof10BreakJointEv, . - _ZN9Joint3Dof10BreakJointEv
 
@@ -1281,251 +1272,17 @@ _ZN9Joint3Dof10BreakJointEv:
     .global _ZN11DLPTemplate11GetCentroidER7Vector3PKc
     .type _ZN11DLPTemplate11GetCentroidER7Vector3PKc, %function
 _ZN11DLPTemplate11GetCentroidER7Vector3PKc:
-    adrp x0, .Lstub_name_141
-    add x0, x0, :lo12:.Lstub_name_141
+    adrp x0, .Lstub_name_140
+    add x0, x0, :lo12:.Lstub_name_140
     b ArtsStubCalled
     .size _ZN11DLPTemplate11GetCentroidER7Vector3PKc, . - _ZN11DLPTemplate11GetCentroidER7Vector3PKc
-
-    // mmTrailer::Init(char const*, mmCarSim*, Vector3)
-    .global _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3
-    .type _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3, %function
-_ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3:
-    adrp x0, .Lstub_name_142
-    add x0, x0, :lo12:.Lstub_name_142
-    b ArtsStubCalled
-    .size _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3, . - _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3
-
-    // Joint3Dof::InitJoint3Dof(asInertialCS*, Vector3 const&, asInertialCS*, Vector3 const&)
-    .global _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_
-    .type _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_, %function
-_ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_:
-    adrp x0, .Lstub_name_143
-    add x0, x0, :lo12:.Lstub_name_143
-    b ArtsStubCalled
-    .size _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_, . - _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_
-
-    // mmTrailer::Activate()
-    .global _ZN9mmTrailer8ActivateEv
-    .type _ZN9mmTrailer8ActivateEv, %function
-_ZN9mmTrailer8ActivateEv:
-    adrp x0, .Lstub_name_144
-    add x0, x0, :lo12:.Lstub_name_144
-    b ArtsStubCalled
-    .size _ZN9mmTrailer8ActivateEv, . - _ZN9mmTrailer8ActivateEv
-
-    // Joint3Dof::UnbreakJoint()
-    .global _ZN9Joint3Dof12UnbreakJointEv
-    .type _ZN9Joint3Dof12UnbreakJointEv, %function
-_ZN9Joint3Dof12UnbreakJointEv:
-    adrp x0, .Lstub_name_145
-    add x0, x0, :lo12:.Lstub_name_145
-    b ArtsStubCalled
-    .size _ZN9Joint3Dof12UnbreakJointEv, . - _ZN9Joint3Dof12UnbreakJointEv
-
-    // DLPTemplate::Release()
-    .global _ZN11DLPTemplate7ReleaseEv
-    .type _ZN11DLPTemplate7ReleaseEv, %function
-_ZN11DLPTemplate7ReleaseEv:
-    adrp x0, .Lstub_name_146
-    add x0, x0, :lo12:.Lstub_name_146
-    b ArtsStubCalled
-    .size _ZN11DLPTemplate7ReleaseEv, . - _ZN11DLPTemplate7ReleaseEv
-
-    // mmCarSim::Reset()
-    .global _ZN8mmCarSim5ResetEv
-    .type _ZN8mmCarSim5ResetEv, %function
-_ZN8mmCarSim5ResetEv:
-    adrp x0, .Lstub_name_147
-    add x0, x0, :lo12:.Lstub_name_147
-    b ArtsStubCalled
-    .size _ZN8mmCarSim5ResetEv, . - _ZN8mmCarSim5ResetEv
-
-    // mmCarModel::Reset()
-    .global _ZN10mmCarModel5ResetEv
-    .type _ZN10mmCarModel5ResetEv, %function
-_ZN10mmCarModel5ResetEv:
-    adrp x0, .Lstub_name_148
-    add x0, x0, :lo12:.Lstub_name_148
-    b ArtsStubCalled
-    .size _ZN10mmCarModel5ResetEv, . - _ZN10mmCarModel5ResetEv
-
-    // mmCarModel::ClearDamage(bool)
-    .global _ZN10mmCarModel11ClearDamageEb
-    .type _ZN10mmCarModel11ClearDamageEb, %function
-_ZN10mmCarModel11ClearDamageEb:
-    adrp x0, .Lstub_name_149
-    add x0, x0, :lo12:.Lstub_name_149
-    b ArtsStubCalled
-    .size _ZN10mmCarModel11ClearDamageEb, . - _ZN10mmCarModel11ClearDamageEb
-
-    // mmSplash::Reset()
-    .global _ZN8mmSplash5ResetEv
-    .type _ZN8mmSplash5ResetEv, %function
-_ZN8mmSplash5ResetEv:
-    adrp x0, .Lstub_name_150
-    add x0, x0, :lo12:.Lstub_name_150
-    b ArtsStubCalled
-    .size _ZN8mmSplash5ResetEv, . - _ZN8mmSplash5ResetEv
-
-    // mmTrailer::Reset()
-    .global _ZN9mmTrailer5ResetEv
-    .type _ZN9mmTrailer5ResetEv, %function
-_ZN9mmTrailer5ResetEv:
-    adrp x0, .Lstub_name_151
-    add x0, x0, :lo12:.Lstub_name_151
-    b ArtsStubCalled
-    .size _ZN9mmTrailer5ResetEv, . - _ZN9mmTrailer5ResetEv
-
-    // Joint3Dof::Reset()
-    .global _ZN9Joint3Dof5ResetEv
-    .type _ZN9Joint3Dof5ResetEv, %function
-_ZN9Joint3Dof5ResetEv:
-    adrp x0, .Lstub_name_152
-    add x0, x0, :lo12:.Lstub_name_152
-    b ArtsStubCalled
-    .size _ZN9Joint3Dof5ResetEv, . - _ZN9Joint3Dof5ResetEv
-
-    // mmSkidManager::Reset()
-    .global _ZN13mmSkidManager5ResetEv
-    .type _ZN13mmSkidManager5ResetEv, %function
-_ZN13mmSkidManager5ResetEv:
-    adrp x0, .Lstub_name_153
-    add x0, x0, :lo12:.Lstub_name_153
-    b ArtsStubCalled
-    .size _ZN13mmSkidManager5ResetEv, . - _ZN13mmSkidManager5ResetEv
-
-    // mmTrailer::SetHackedImpactParams()
-    .global _ZN9mmTrailer21SetHackedImpactParamsEv
-    .type _ZN9mmTrailer21SetHackedImpactParamsEv, %function
-_ZN9mmTrailer21SetHackedImpactParamsEv:
-    adrp x0, .Lstub_name_154
-    add x0, x0, :lo12:.Lstub_name_154
-    b ArtsStubCalled
-    .size _ZN9mmTrailer21SetHackedImpactParamsEv, . - _ZN9mmTrailer21SetHackedImpactParamsEv
-
-    // mmCarSim::RemoveNetVehicleAudio()
-    .global _ZN8mmCarSim21RemoveNetVehicleAudioEv
-    .type _ZN8mmCarSim21RemoveNetVehicleAudioEv, %function
-_ZN8mmCarSim21RemoveNetVehicleAudioEv:
-    adrp x0, .Lstub_name_155
-    add x0, x0, :lo12:.Lstub_name_155
-    b ArtsStubCalled
-    .size _ZN8mmCarSim21RemoveNetVehicleAudioEv, . - _ZN8mmCarSim21RemoveNetVehicleAudioEv
-
-    // mmPlayerCarAudio::StartSiren()
-    .global _ZN16mmPlayerCarAudio10StartSirenEv
-    .type _ZN16mmPlayerCarAudio10StartSirenEv, %function
-_ZN16mmPlayerCarAudio10StartSirenEv:
-    adrp x0, .Lstub_name_156
-    add x0, x0, :lo12:.Lstub_name_156
-    b ArtsStubCalled
-    .size _ZN16mmPlayerCarAudio10StartSirenEv, . - _ZN16mmPlayerCarAudio10StartSirenEv
-
-    // mmPlayerCarAudio::StopSiren()
-    .global _ZN16mmPlayerCarAudio9StopSirenEv
-    .type _ZN16mmPlayerCarAudio9StopSirenEv, %function
-_ZN16mmPlayerCarAudio9StopSirenEv:
-    adrp x0, .Lstub_name_157
-    add x0, x0, :lo12:.Lstub_name_157
-    b ArtsStubCalled
-    .size _ZN16mmPlayerCarAudio9StopSirenEv, . - _ZN16mmPlayerCarAudio9StopSirenEv
-
-    // mmCarModel::ApplyDamage(Vector3&, float)
-    .global _ZN10mmCarModel11ApplyDamageER7Vector3f
-    .type _ZN10mmCarModel11ApplyDamageER7Vector3f, %function
-_ZN10mmCarModel11ApplyDamageER7Vector3f:
-    adrp x0, .Lstub_name_158
-    add x0, x0, :lo12:.Lstub_name_158
-    b ArtsStubCalled
-    .size _ZN10mmCarModel11ApplyDamageER7Vector3f, . - _ZN10mmCarModel11ApplyDamageER7Vector3f
-
-    // mmInput::DoingFF()
-    .global _ZN7mmInput7DoingFFEv
-    .type _ZN7mmInput7DoingFFEv, %function
-_ZN7mmInput7DoingFFEv:
-    adrp x0, .Lstub_name_159
-    add x0, x0, :lo12:.Lstub_name_159
-    b ArtsStubCalled
-    .size _ZN7mmInput7DoingFFEv, . - _ZN7mmInput7DoingFFEv
-
-    // mmInput::FFSetValues(int, float, float)
-    .global _ZN7mmInput11FFSetValuesEiff
-    .type _ZN7mmInput11FFSetValuesEiff, %function
-_ZN7mmInput11FFSetValuesEiff:
-    adrp x0, .Lstub_name_160
-    add x0, x0, :lo12:.Lstub_name_160
-    b ArtsStubCalled
-    .size _ZN7mmInput11FFSetValuesEiff, . - _ZN7mmInput11FFSetValuesEiff
-
-    // mmInput::FFPlay(int)
-    .global _ZN7mmInput6FFPlayEi
-    .type _ZN7mmInput6FFPlayEi, %function
-_ZN7mmInput6FFPlayEi:
-    adrp x0, .Lstub_name_161
-    add x0, x0, :lo12:.Lstub_name_161
-    b ArtsStubCalled
-    .size _ZN7mmInput6FFPlayEi, . - _ZN7mmInput6FFPlayEi
-
-    // mmCullCity::IsPolyWater(mmPolygon*)
-    .global _ZN10mmCullCity11IsPolyWaterEP9mmPolygon
-    .type _ZN10mmCullCity11IsPolyWaterEP9mmPolygon, %function
-_ZN10mmCullCity11IsPolyWaterEP9mmPolygon:
-    adrp x0, .Lstub_name_162
-    add x0, x0, :lo12:.Lstub_name_162
-    b ArtsStubCalled
-    .size _ZN10mmCullCity11IsPolyWaterEP9mmPolygon, . - _ZN10mmCullCity11IsPolyWaterEP9mmPolygon
-
-    // mmCarSim::PlayImpactAudio(short, mmIntersection*, Vector3*)
-    .global _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3
-    .type _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3, %function
-_ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3:
-    adrp x0, .Lstub_name_163
-    add x0, x0, :lo12:.Lstub_name_163
-    b ArtsStubCalled
-    .size _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3, . - _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3
-
-    // mmSplash::Activate(float)
-    .global _ZN8mmSplash8ActivateEf
-    .type _ZN8mmSplash8ActivateEf, %function
-_ZN8mmSplash8ActivateEf:
-    adrp x0, .Lstub_name_164
-    add x0, x0, :lo12:.Lstub_name_164
-    b ArtsStubCalled
-    .size _ZN8mmSplash8ActivateEf, . - _ZN8mmSplash8ActivateEf
-
-    // asLineSparks::RadialBlast(int, Vector3&, Vector3&)
-    .global _ZN12asLineSparks11RadialBlastEiR7Vector3S1_
-    .type _ZN12asLineSparks11RadialBlastEiR7Vector3S1_, %function
-_ZN12asLineSparks11RadialBlastEiR7Vector3S1_:
-    adrp x0, .Lstub_name_165
-    add x0, x0, :lo12:.Lstub_name_165
-    b ArtsStubCalled
-    .size _ZN12asLineSparks11RadialBlastEiR7Vector3S1_, . - _ZN12asLineSparks11RadialBlastEiR7Vector3S1_
-
-    // mmShardManager::EmitShards(Vector3, float, float)
-    .global _ZN14mmShardManager10EmitShardsE7Vector3ff
-    .type _ZN14mmShardManager10EmitShardsE7Vector3ff, %function
-_ZN14mmShardManager10EmitShardsE7Vector3ff:
-    adrp x0, .Lstub_name_166
-    add x0, x0, :lo12:.Lstub_name_166
-    b ArtsStubCalled
-    .size _ZN14mmShardManager10EmitShardsE7Vector3ff, . - _ZN14mmShardManager10EmitShardsE7Vector3ff
-
-    // mmCarModel::Impact(Vector3*)
-    .global _ZN10mmCarModel6ImpactEP7Vector3
-    .type _ZN10mmCarModel6ImpactEP7Vector3, %function
-_ZN10mmCarModel6ImpactEP7Vector3:
-    adrp x0, .Lstub_name_167
-    add x0, x0, :lo12:.Lstub_name_167
-    b ArtsStubCalled
-    .size _ZN10mmCarModel6ImpactEP7Vector3, . - _ZN10mmCarModel6ImpactEP7Vector3
 
     // GetSparkLut(char const*)
     .global _Z11GetSparkLutPKc
     .type _Z11GetSparkLutPKc, %function
 _Z11GetSparkLutPKc:
-    adrp x0, .Lstub_name_168
-    add x0, x0, :lo12:.Lstub_name_168
+    adrp x0, .Lstub_name_141
+    add x0, x0, :lo12:.Lstub_name_141
     b ArtsStubCalled
     .size _Z11GetSparkLutPKc, . - _Z11GetSparkLutPKc
 
@@ -1533,17 +1290,251 @@ _Z11GetSparkLutPKc:
     .global _ZN7mmStuck4InitEP8mmCarSim
     .type _ZN7mmStuck4InitEP8mmCarSim, %function
 _ZN7mmStuck4InitEP8mmCarSim:
-    adrp x0, .Lstub_name_169
-    add x0, x0, :lo12:.Lstub_name_169
+    adrp x0, .Lstub_name_142
+    add x0, x0, :lo12:.Lstub_name_142
     b ArtsStubCalled
     .size _ZN7mmStuck4InitEP8mmCarSim, . - _ZN7mmStuck4InitEP8mmCarSim
+
+    // mmTrailer::Init(char const*, mmCarSim*, Vector3)
+    .global _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3
+    .type _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3, %function
+_ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3:
+    adrp x0, .Lstub_name_143
+    add x0, x0, :lo12:.Lstub_name_143
+    b ArtsStubCalled
+    .size _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3, . - _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3
+
+    // Joint3Dof::InitJoint3Dof(asInertialCS*, Vector3 const&, asInertialCS*, Vector3 const&)
+    .global _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_
+    .type _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_, %function
+_ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_:
+    adrp x0, .Lstub_name_144
+    add x0, x0, :lo12:.Lstub_name_144
+    b ArtsStubCalled
+    .size _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_, . - _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_
+
+    // mmTrailer::Activate()
+    .global _ZN9mmTrailer8ActivateEv
+    .type _ZN9mmTrailer8ActivateEv, %function
+_ZN9mmTrailer8ActivateEv:
+    adrp x0, .Lstub_name_145
+    add x0, x0, :lo12:.Lstub_name_145
+    b ArtsStubCalled
+    .size _ZN9mmTrailer8ActivateEv, . - _ZN9mmTrailer8ActivateEv
+
+    // Joint3Dof::UnbreakJoint()
+    .global _ZN9Joint3Dof12UnbreakJointEv
+    .type _ZN9Joint3Dof12UnbreakJointEv, %function
+_ZN9Joint3Dof12UnbreakJointEv:
+    adrp x0, .Lstub_name_146
+    add x0, x0, :lo12:.Lstub_name_146
+    b ArtsStubCalled
+    .size _ZN9Joint3Dof12UnbreakJointEv, . - _ZN9Joint3Dof12UnbreakJointEv
+
+    // DLPTemplate::Release()
+    .global _ZN11DLPTemplate7ReleaseEv
+    .type _ZN11DLPTemplate7ReleaseEv, %function
+_ZN11DLPTemplate7ReleaseEv:
+    adrp x0, .Lstub_name_147
+    add x0, x0, :lo12:.Lstub_name_147
+    b ArtsStubCalled
+    .size _ZN11DLPTemplate7ReleaseEv, . - _ZN11DLPTemplate7ReleaseEv
+
+    // mmCarSim::Reset()
+    .global _ZN8mmCarSim5ResetEv
+    .type _ZN8mmCarSim5ResetEv, %function
+_ZN8mmCarSim5ResetEv:
+    adrp x0, .Lstub_name_148
+    add x0, x0, :lo12:.Lstub_name_148
+    b ArtsStubCalled
+    .size _ZN8mmCarSim5ResetEv, . - _ZN8mmCarSim5ResetEv
+
+    // mmCarModel::Reset()
+    .global _ZN10mmCarModel5ResetEv
+    .type _ZN10mmCarModel5ResetEv, %function
+_ZN10mmCarModel5ResetEv:
+    adrp x0, .Lstub_name_149
+    add x0, x0, :lo12:.Lstub_name_149
+    b ArtsStubCalled
+    .size _ZN10mmCarModel5ResetEv, . - _ZN10mmCarModel5ResetEv
+
+    // mmCarModel::ClearDamage(bool)
+    .global _ZN10mmCarModel11ClearDamageEb
+    .type _ZN10mmCarModel11ClearDamageEb, %function
+_ZN10mmCarModel11ClearDamageEb:
+    adrp x0, .Lstub_name_150
+    add x0, x0, :lo12:.Lstub_name_150
+    b ArtsStubCalled
+    .size _ZN10mmCarModel11ClearDamageEb, . - _ZN10mmCarModel11ClearDamageEb
+
+    // mmSplash::Reset()
+    .global _ZN8mmSplash5ResetEv
+    .type _ZN8mmSplash5ResetEv, %function
+_ZN8mmSplash5ResetEv:
+    adrp x0, .Lstub_name_151
+    add x0, x0, :lo12:.Lstub_name_151
+    b ArtsStubCalled
+    .size _ZN8mmSplash5ResetEv, . - _ZN8mmSplash5ResetEv
+
+    // mmTrailer::Reset()
+    .global _ZN9mmTrailer5ResetEv
+    .type _ZN9mmTrailer5ResetEv, %function
+_ZN9mmTrailer5ResetEv:
+    adrp x0, .Lstub_name_152
+    add x0, x0, :lo12:.Lstub_name_152
+    b ArtsStubCalled
+    .size _ZN9mmTrailer5ResetEv, . - _ZN9mmTrailer5ResetEv
+
+    // Joint3Dof::Reset()
+    .global _ZN9Joint3Dof5ResetEv
+    .type _ZN9Joint3Dof5ResetEv, %function
+_ZN9Joint3Dof5ResetEv:
+    adrp x0, .Lstub_name_153
+    add x0, x0, :lo12:.Lstub_name_153
+    b ArtsStubCalled
+    .size _ZN9Joint3Dof5ResetEv, . - _ZN9Joint3Dof5ResetEv
+
+    // mmSkidManager::Reset()
+    .global _ZN13mmSkidManager5ResetEv
+    .type _ZN13mmSkidManager5ResetEv, %function
+_ZN13mmSkidManager5ResetEv:
+    adrp x0, .Lstub_name_154
+    add x0, x0, :lo12:.Lstub_name_154
+    b ArtsStubCalled
+    .size _ZN13mmSkidManager5ResetEv, . - _ZN13mmSkidManager5ResetEv
+
+    // mmTrailer::SetHackedImpactParams()
+    .global _ZN9mmTrailer21SetHackedImpactParamsEv
+    .type _ZN9mmTrailer21SetHackedImpactParamsEv, %function
+_ZN9mmTrailer21SetHackedImpactParamsEv:
+    adrp x0, .Lstub_name_155
+    add x0, x0, :lo12:.Lstub_name_155
+    b ArtsStubCalled
+    .size _ZN9mmTrailer21SetHackedImpactParamsEv, . - _ZN9mmTrailer21SetHackedImpactParamsEv
+
+    // mmCarSim::RemoveNetVehicleAudio()
+    .global _ZN8mmCarSim21RemoveNetVehicleAudioEv
+    .type _ZN8mmCarSim21RemoveNetVehicleAudioEv, %function
+_ZN8mmCarSim21RemoveNetVehicleAudioEv:
+    adrp x0, .Lstub_name_156
+    add x0, x0, :lo12:.Lstub_name_156
+    b ArtsStubCalled
+    .size _ZN8mmCarSim21RemoveNetVehicleAudioEv, . - _ZN8mmCarSim21RemoveNetVehicleAudioEv
+
+    // mmPlayerCarAudio::StartSiren()
+    .global _ZN16mmPlayerCarAudio10StartSirenEv
+    .type _ZN16mmPlayerCarAudio10StartSirenEv, %function
+_ZN16mmPlayerCarAudio10StartSirenEv:
+    adrp x0, .Lstub_name_157
+    add x0, x0, :lo12:.Lstub_name_157
+    b ArtsStubCalled
+    .size _ZN16mmPlayerCarAudio10StartSirenEv, . - _ZN16mmPlayerCarAudio10StartSirenEv
+
+    // mmPlayerCarAudio::StopSiren()
+    .global _ZN16mmPlayerCarAudio9StopSirenEv
+    .type _ZN16mmPlayerCarAudio9StopSirenEv, %function
+_ZN16mmPlayerCarAudio9StopSirenEv:
+    adrp x0, .Lstub_name_158
+    add x0, x0, :lo12:.Lstub_name_158
+    b ArtsStubCalled
+    .size _ZN16mmPlayerCarAudio9StopSirenEv, . - _ZN16mmPlayerCarAudio9StopSirenEv
+
+    // mmCarModel::ApplyDamage(Vector3&, float)
+    .global _ZN10mmCarModel11ApplyDamageER7Vector3f
+    .type _ZN10mmCarModel11ApplyDamageER7Vector3f, %function
+_ZN10mmCarModel11ApplyDamageER7Vector3f:
+    adrp x0, .Lstub_name_159
+    add x0, x0, :lo12:.Lstub_name_159
+    b ArtsStubCalled
+    .size _ZN10mmCarModel11ApplyDamageER7Vector3f, . - _ZN10mmCarModel11ApplyDamageER7Vector3f
+
+    // mmInput::DoingFF()
+    .global _ZN7mmInput7DoingFFEv
+    .type _ZN7mmInput7DoingFFEv, %function
+_ZN7mmInput7DoingFFEv:
+    adrp x0, .Lstub_name_160
+    add x0, x0, :lo12:.Lstub_name_160
+    b ArtsStubCalled
+    .size _ZN7mmInput7DoingFFEv, . - _ZN7mmInput7DoingFFEv
+
+    // mmInput::FFSetValues(int, float, float)
+    .global _ZN7mmInput11FFSetValuesEiff
+    .type _ZN7mmInput11FFSetValuesEiff, %function
+_ZN7mmInput11FFSetValuesEiff:
+    adrp x0, .Lstub_name_161
+    add x0, x0, :lo12:.Lstub_name_161
+    b ArtsStubCalled
+    .size _ZN7mmInput11FFSetValuesEiff, . - _ZN7mmInput11FFSetValuesEiff
+
+    // mmInput::FFPlay(int)
+    .global _ZN7mmInput6FFPlayEi
+    .type _ZN7mmInput6FFPlayEi, %function
+_ZN7mmInput6FFPlayEi:
+    adrp x0, .Lstub_name_162
+    add x0, x0, :lo12:.Lstub_name_162
+    b ArtsStubCalled
+    .size _ZN7mmInput6FFPlayEi, . - _ZN7mmInput6FFPlayEi
+
+    // mmCullCity::IsPolyWater(mmPolygon*)
+    .global _ZN10mmCullCity11IsPolyWaterEP9mmPolygon
+    .type _ZN10mmCullCity11IsPolyWaterEP9mmPolygon, %function
+_ZN10mmCullCity11IsPolyWaterEP9mmPolygon:
+    adrp x0, .Lstub_name_163
+    add x0, x0, :lo12:.Lstub_name_163
+    b ArtsStubCalled
+    .size _ZN10mmCullCity11IsPolyWaterEP9mmPolygon, . - _ZN10mmCullCity11IsPolyWaterEP9mmPolygon
+
+    // mmCarSim::PlayImpactAudio(short, mmIntersection*, Vector3*)
+    .global _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3
+    .type _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3, %function
+_ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3:
+    adrp x0, .Lstub_name_164
+    add x0, x0, :lo12:.Lstub_name_164
+    b ArtsStubCalled
+    .size _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3, . - _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3
+
+    // mmSplash::Activate(float)
+    .global _ZN8mmSplash8ActivateEf
+    .type _ZN8mmSplash8ActivateEf, %function
+_ZN8mmSplash8ActivateEf:
+    adrp x0, .Lstub_name_165
+    add x0, x0, :lo12:.Lstub_name_165
+    b ArtsStubCalled
+    .size _ZN8mmSplash8ActivateEf, . - _ZN8mmSplash8ActivateEf
+
+    // asLineSparks::RadialBlast(int, Vector3&, Vector3&)
+    .global _ZN12asLineSparks11RadialBlastEiR7Vector3S1_
+    .type _ZN12asLineSparks11RadialBlastEiR7Vector3S1_, %function
+_ZN12asLineSparks11RadialBlastEiR7Vector3S1_:
+    adrp x0, .Lstub_name_166
+    add x0, x0, :lo12:.Lstub_name_166
+    b ArtsStubCalled
+    .size _ZN12asLineSparks11RadialBlastEiR7Vector3S1_, . - _ZN12asLineSparks11RadialBlastEiR7Vector3S1_
+
+    // mmShardManager::EmitShards(Vector3, float, float)
+    .global _ZN14mmShardManager10EmitShardsE7Vector3ff
+    .type _ZN14mmShardManager10EmitShardsE7Vector3ff, %function
+_ZN14mmShardManager10EmitShardsE7Vector3ff:
+    adrp x0, .Lstub_name_167
+    add x0, x0, :lo12:.Lstub_name_167
+    b ArtsStubCalled
+    .size _ZN14mmShardManager10EmitShardsE7Vector3ff, . - _ZN14mmShardManager10EmitShardsE7Vector3ff
+
+    // mmCarModel::Impact(Vector3*)
+    .global _ZN10mmCarModel6ImpactEP7Vector3
+    .type _ZN10mmCarModel6ImpactEP7Vector3, %function
+_ZN10mmCarModel6ImpactEP7Vector3:
+    adrp x0, .Lstub_name_168
+    add x0, x0, :lo12:.Lstub_name_168
+    b ArtsStubCalled
+    .size _ZN10mmCarModel6ImpactEP7Vector3, . - _ZN10mmCarModel6ImpactEP7Vector3
 
     // mmShardManager::GetClass()
     .global _ZN14mmShardManager8GetClassEv
     .type _ZN14mmShardManager8GetClassEv, %function
 _ZN14mmShardManager8GetClassEv:
-    adrp x0, .Lstub_name_170
-    add x0, x0, :lo12:.Lstub_name_170
+    adrp x0, .Lstub_name_169
+    add x0, x0, :lo12:.Lstub_name_169
     b ArtsStubCalled
     .size _ZN14mmShardManager8GetClassEv, . - _ZN14mmShardManager8GetClassEv
 
@@ -1551,8 +1542,8 @@ _ZN14mmShardManager8GetClassEv:
     .global _ZN7mmShard8GetClassEv
     .type _ZN7mmShard8GetClassEv, %function
 _ZN7mmShard8GetClassEv:
-    adrp x0, .Lstub_name_171
-    add x0, x0, :lo12:.Lstub_name_171
+    adrp x0, .Lstub_name_170
+    add x0, x0, :lo12:.Lstub_name_170
     b ArtsStubCalled
     .size _ZN7mmShard8GetClassEv, . - _ZN7mmShard8GetClassEv
 
@@ -1560,8 +1551,8 @@ _ZN7mmShard8GetClassEv:
     .global _ZN13mmSkidManager8LayTrackEv
     .type _ZN13mmSkidManager8LayTrackEv, %function
 _ZN13mmSkidManager8LayTrackEv:
-    adrp x0, .Lstub_name_172
-    add x0, x0, :lo12:.Lstub_name_172
+    adrp x0, .Lstub_name_171
+    add x0, x0, :lo12:.Lstub_name_171
     b ArtsStubCalled
     .size _ZN13mmSkidManager8LayTrackEv, . - _ZN13mmSkidManager8LayTrackEv
 
@@ -1569,8 +1560,8 @@ _ZN13mmSkidManager8LayTrackEv:
     .global _Z8SplashCBP8mmSplash
     .type _Z8SplashCBP8mmSplash, %function
 _Z8SplashCBP8mmSplash:
-    adrp x0, .Lstub_name_173
-    add x0, x0, :lo12:.Lstub_name_173
+    adrp x0, .Lstub_name_172
+    add x0, x0, :lo12:.Lstub_name_172
     b ArtsStubCalled
     .size _Z8SplashCBP8mmSplash, . - _Z8SplashCBP8mmSplash
 
@@ -1578,8 +1569,8 @@ _Z8SplashCBP8mmSplash:
     .global _Z7StuckCBP7mmStuck
     .type _Z7StuckCBP7mmStuck, %function
 _Z7StuckCBP7mmStuck:
-    adrp x0, .Lstub_name_174
-    add x0, x0, :lo12:.Lstub_name_174
+    adrp x0, .Lstub_name_173
+    add x0, x0, :lo12:.Lstub_name_173
     b ArtsStubCalled
     .size _Z7StuckCBP7mmStuck, . - _Z7StuckCBP7mmStuck
 
@@ -1587,8 +1578,8 @@ _Z7StuckCBP7mmStuck:
     .global _ZN14mmTransmission14SetCurrentGearEi
     .type _ZN14mmTransmission14SetCurrentGearEi, %function
 _ZN14mmTransmission14SetCurrentGearEi:
-    adrp x0, .Lstub_name_175
-    add x0, x0, :lo12:.Lstub_name_175
+    adrp x0, .Lstub_name_174
+    add x0, x0, :lo12:.Lstub_name_174
     b ArtsStubCalled
     .size _ZN14mmTransmission14SetCurrentGearEi, . - _ZN14mmTransmission14SetCurrentGearEi
 
@@ -1596,8 +1587,8 @@ _ZN14mmTransmission14SetCurrentGearEi:
     .global _ZN7mmWheel16ComputeConstantsEv
     .type _ZN7mmWheel16ComputeConstantsEv, %function
 _ZN7mmWheel16ComputeConstantsEv:
-    adrp x0, .Lstub_name_176
-    add x0, x0, :lo12:.Lstub_name_176
+    adrp x0, .Lstub_name_175
+    add x0, x0, :lo12:.Lstub_name_175
     b ArtsStubCalled
     .size _ZN7mmWheel16ComputeConstantsEv, . - _ZN7mmWheel16ComputeConstantsEv
 
@@ -1605,8 +1596,8 @@ _ZN7mmWheel16ComputeConstantsEv:
     .global _ZN5mmSky4InitEPKc
     .type _ZN5mmSky4InitEPKc, %function
 _ZN5mmSky4InitEPKc:
-    adrp x0, .Lstub_name_177
-    add x0, x0, :lo12:.Lstub_name_177
+    adrp x0, .Lstub_name_176
+    add x0, x0, :lo12:.Lstub_name_176
     b ArtsStubCalled
     .size _ZN5mmSky4InitEPKc, . - _ZN5mmSky4InitEPKc
 
@@ -1614,8 +1605,8 @@ _ZN5mmSky4InitEPKc:
     .global _Z8fix_clipv
     .type _Z8fix_clipv, %function
 _Z8fix_clipv:
-    adrp x0, .Lstub_name_178
-    add x0, x0, :lo12:.Lstub_name_178
+    adrp x0, .Lstub_name_177
+    add x0, x0, :lo12:.Lstub_name_177
     b ArtsStubCalled
     .size _Z8fix_clipv, . - _Z8fix_clipv
 
@@ -1623,8 +1614,8 @@ _Z8fix_clipv:
     .global _ZN11mmYInstanceC1Ev
     .type _ZN11mmYInstanceC1Ev, %function
 _ZN11mmYInstanceC1Ev:
-    adrp x0, .Lstub_name_179
-    add x0, x0, :lo12:.Lstub_name_179
+    adrp x0, .Lstub_name_178
+    add x0, x0, :lo12:.Lstub_name_178
     b ArtsStubCalled
     .size _ZN11mmYInstanceC1Ev, . - _ZN11mmYInstanceC1Ev
 
@@ -1632,8 +1623,8 @@ _ZN11mmYInstanceC1Ev:
     .global _ZN10mmCullCity23InitTimeOfDayAndWeatherEv
     .type _ZN10mmCullCity23InitTimeOfDayAndWeatherEv, %function
 _ZN10mmCullCity23InitTimeOfDayAndWeatherEv:
-    adrp x0, .Lstub_name_180
-    add x0, x0, :lo12:.Lstub_name_180
+    adrp x0, .Lstub_name_179
+    add x0, x0, :lo12:.Lstub_name_179
     b ArtsStubCalled
     .size _ZN10mmCullCity23InitTimeOfDayAndWeatherEv, . - _ZN10mmCullCity23InitTimeOfDayAndWeatherEv
 
@@ -1641,8 +1632,8 @@ _ZN10mmCullCity23InitTimeOfDayAndWeatherEv:
     .global _ZN10mmCullCity16InitSnowTexturesEv
     .type _ZN10mmCullCity16InitSnowTexturesEv, %function
 _ZN10mmCullCity16InitSnowTexturesEv:
-    adrp x0, .Lstub_name_181
-    add x0, x0, :lo12:.Lstub_name_181
+    adrp x0, .Lstub_name_180
+    add x0, x0, :lo12:.Lstub_name_180
     b ArtsStubCalled
     .size _ZN10mmCullCity16InitSnowTexturesEv, . - _ZN10mmCullCity16InitSnowTexturesEv
 
@@ -1650,8 +1641,8 @@ _ZN10mmCullCity16InitSnowTexturesEv:
     .global _ZN15mmBangerManager4InitEi
     .type _ZN15mmBangerManager4InitEi, %function
 _ZN15mmBangerManager4InitEi:
-    adrp x0, .Lstub_name_182
-    add x0, x0, :lo12:.Lstub_name_182
+    adrp x0, .Lstub_name_181
+    add x0, x0, :lo12:.Lstub_name_181
     b ArtsStubCalled
     .size _ZN15mmBangerManager4InitEi, . - _ZN15mmBangerManager4InitEi
 
@@ -1659,8 +1650,8 @@ _ZN15mmBangerManager4InitEi:
     .global _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f
     .type _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f, %function
 _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f:
-    adrp x0, .Lstub_name_183
-    add x0, x0, :lo12:.Lstub_name_183
+    adrp x0, .Lstub_name_182
+    add x0, x0, :lo12:.Lstub_name_182
     b ArtsStubCalled
     .size _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f, . - _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f
 
@@ -1668,8 +1659,8 @@ _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f:
     .global _ZN10mmCullCity18UpdateSnowTexturesEv
     .type _ZN10mmCullCity18UpdateSnowTexturesEv, %function
 _ZN10mmCullCity18UpdateSnowTexturesEv:
-    adrp x0, .Lstub_name_184
-    add x0, x0, :lo12:.Lstub_name_184
+    adrp x0, .Lstub_name_183
+    add x0, x0, :lo12:.Lstub_name_183
     b ArtsStubCalled
     .size _ZN10mmCullCity18UpdateSnowTexturesEv, . - _ZN10mmCullCity18UpdateSnowTexturesEv
 
@@ -1677,8 +1668,8 @@ _ZN10mmCullCity18UpdateSnowTexturesEv:
     .global _Z14agiConeLighterPhPjS0_P10agiMeshSet
     .type _Z14agiConeLighterPhPjS0_P10agiMeshSet, %function
 _Z14agiConeLighterPhPjS0_P10agiMeshSet:
-    adrp x0, .Lstub_name_185
-    add x0, x0, :lo12:.Lstub_name_185
+    adrp x0, .Lstub_name_184
+    add x0, x0, :lo12:.Lstub_name_184
     b ArtsStubCalled
     .size _Z14agiConeLighterPhPjS0_P10agiMeshSet, . - _Z14agiConeLighterPhPjS0_P10agiMeshSet
 
@@ -1686,8 +1677,8 @@ _Z14agiConeLighterPhPjS0_P10agiMeshSet:
     .global _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet
     .type _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet, %function
 _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet:
-    adrp x0, .Lstub_name_186
-    add x0, x0, :lo12:.Lstub_name_186
+    adrp x0, .Lstub_name_185
+    add x0, x0, :lo12:.Lstub_name_185
     b ArtsStubCalled
     .size _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet, . - _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet
 
@@ -1695,8 +1686,8 @@ _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet:
     .global _ZN19mmBangerDataManagerC1Ev
     .type _ZN19mmBangerDataManagerC1Ev, %function
 _ZN19mmBangerDataManagerC1Ev:
-    adrp x0, .Lstub_name_187
-    add x0, x0, :lo12:.Lstub_name_187
+    adrp x0, .Lstub_name_186
+    add x0, x0, :lo12:.Lstub_name_186
     b ArtsStubCalled
     .size _ZN19mmBangerDataManagerC1Ev, . - _ZN19mmBangerDataManagerC1Ev
 
@@ -1704,8 +1695,8 @@ _ZN19mmBangerDataManagerC1Ev:
     .global _ZN5mmSkyC1Ev
     .type _ZN5mmSkyC1Ev, %function
 _ZN5mmSkyC1Ev:
-    adrp x0, .Lstub_name_188
-    add x0, x0, :lo12:.Lstub_name_188
+    adrp x0, .Lstub_name_187
+    add x0, x0, :lo12:.Lstub_name_187
     b ArtsStubCalled
     .size _ZN5mmSkyC1Ev, . - _ZN5mmSkyC1Ev
 
@@ -1713,26 +1704,17 @@ _ZN5mmSkyC1Ev:
     .global _ZN10mmInstance8ResetAllEv
     .type _ZN10mmInstance8ResetAllEv, %function
 _ZN10mmInstance8ResetAllEv:
-    adrp x0, .Lstub_name_189
-    add x0, x0, :lo12:.Lstub_name_189
+    adrp x0, .Lstub_name_188
+    add x0, x0, :lo12:.Lstub_name_188
     b ArtsStubCalled
     .size _ZN10mmInstance8ResetAllEv, . - _ZN10mmInstance8ResetAllEv
-
-    // mmBoundTemplate::MakeBox(char*, char*, int, Vector3*, Vector3*)
-    .global _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_
-    .type _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_, %function
-_ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_:
-    adrp x0, .Lstub_name_190
-    add x0, x0, :lo12:.Lstub_name_190
-    b ArtsStubCalled
-    .size _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_, . - _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_
 
     // agiTexSheet::Kill()
     .global _ZN11agiTexSheet4KillEv
     .type _ZN11agiTexSheet4KillEv, %function
 _ZN11agiTexSheet4KillEv:
-    adrp x0, .Lstub_name_191
-    add x0, x0, :lo12:.Lstub_name_191
+    adrp x0, .Lstub_name_189
+    add x0, x0, :lo12:.Lstub_name_189
     b ArtsStubCalled
     .size _ZN11agiTexSheet4KillEv, . - _ZN11agiTexSheet4KillEv
 
@@ -1740,8 +1722,8 @@ _ZN11agiTexSheet4KillEv:
     .global _ZN5mmSkyD1Ev
     .type _ZN5mmSkyD1Ev, %function
 _ZN5mmSkyD1Ev:
-    adrp x0, .Lstub_name_192
-    add x0, x0, :lo12:.Lstub_name_192
+    adrp x0, .Lstub_name_190
+    add x0, x0, :lo12:.Lstub_name_190
     b ArtsStubCalled
     .size _ZN5mmSkyD1Ev, . - _ZN5mmSkyD1Ev
 
@@ -1749,8 +1731,8 @@ _ZN5mmSkyD1Ev:
     .global _ZN19mmBangerDataManagerD1Ev
     .type _ZN19mmBangerDataManagerD1Ev, %function
 _ZN19mmBangerDataManagerD1Ev:
-    adrp x0, .Lstub_name_193
-    add x0, x0, :lo12:.Lstub_name_193
+    adrp x0, .Lstub_name_191
+    add x0, x0, :lo12:.Lstub_name_191
     b ArtsStubCalled
     .size _ZN19mmBangerDataManagerD1Ev, . - _ZN19mmBangerDataManagerD1Ev
 
@@ -1758,35 +1740,26 @@ _ZN19mmBangerDataManagerD1Ev:
     .global _ZN10mmTextNode7AddTextEPvP9LocStringiff
     .type _ZN10mmTextNode7AddTextEPvP9LocStringiff, %function
 _ZN10mmTextNode7AddTextEPvP9LocStringiff:
-    adrp x0, .Lstub_name_194
-    add x0, x0, :lo12:.Lstub_name_194
+    adrp x0, .Lstub_name_192
+    add x0, x0, :lo12:.Lstub_name_192
     b ArtsStubCalled
     .size _ZN10mmTextNode7AddTextEPvP9LocStringiff, . - _ZN10mmTextNode7AddTextEPvP9LocStringiff
 
-    // mmMatrixInstance::GetClass()
-    .global _ZN16mmMatrixInstance8GetClassEv
-    .type _ZN16mmMatrixInstance8GetClassEv, %function
-_ZN16mmMatrixInstance8GetClassEv:
-    adrp x0, .Lstub_name_195
-    add x0, x0, :lo12:.Lstub_name_195
+    // mmCullCity::GetClass()
+    .global _ZN10mmCullCity8GetClassEv
+    .type _ZN10mmCullCity8GetClassEv, %function
+_ZN10mmCullCity8GetClassEv:
+    adrp x0, .Lstub_name_193
+    add x0, x0, :lo12:.Lstub_name_193
     b ArtsStubCalled
-    .size _ZN16mmMatrixInstance8GetClassEv, . - _ZN16mmMatrixInstance8GetClassEv
-
-    // mmBuildingInstance::GetClass()
-    .global _ZN18mmBuildingInstance8GetClassEv
-    .type _ZN18mmBuildingInstance8GetClassEv, %function
-_ZN18mmBuildingInstance8GetClassEv:
-    adrp x0, .Lstub_name_196
-    add x0, x0, :lo12:.Lstub_name_196
-    b ArtsStubCalled
-    .size _ZN18mmBuildingInstance8GetClassEv, . - _ZN18mmBuildingInstance8GetClassEv
+    .size _ZN10mmCullCity8GetClassEv, . - _ZN10mmCullCity8GetClassEv
 
     // Matrix44::Matrix44(Matrix34 const&)
     .global _ZN8Matrix44C1ERK8Matrix34
     .type _ZN8Matrix44C1ERK8Matrix34, %function
 _ZN8Matrix44C1ERK8Matrix34:
-    adrp x0, .Lstub_name_197
-    add x0, x0, :lo12:.Lstub_name_197
+    adrp x0, .Lstub_name_194
+    add x0, x0, :lo12:.Lstub_name_194
     b ArtsStubCalled
     .size _ZN8Matrix44C1ERK8Matrix34, . - _ZN8Matrix44C1ERK8Matrix34
 
@@ -1794,26 +1767,44 @@ _ZN8Matrix44C1ERK8Matrix34:
     .global _ZN8Matrix44C1ERKS_
     .type _ZN8Matrix44C1ERKS_, %function
 _ZN8Matrix44C1ERKS_:
-    adrp x0, .Lstub_name_198
-    add x0, x0, :lo12:.Lstub_name_198
+    adrp x0, .Lstub_name_195
+    add x0, x0, :lo12:.Lstub_name_195
     b ArtsStubCalled
     .size _ZN8Matrix44C1ERKS_, . - _ZN8Matrix44C1ERKS_
 
-    // mmCullCity::GetClass()
-    .global _ZN10mmCullCity8GetClassEv
-    .type _ZN10mmCullCity8GetClassEv, %function
-_ZN10mmCullCity8GetClassEv:
-    adrp x0, .Lstub_name_199
-    add x0, x0, :lo12:.Lstub_name_199
+    // mmBoundTemplate::MakeBox(char*, char*, int, Vector3*, Vector3*)
+    .global _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_
+    .type _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_, %function
+_ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_:
+    adrp x0, .Lstub_name_196
+    add x0, x0, :lo12:.Lstub_name_196
     b ArtsStubCalled
-    .size _ZN10mmCullCity8GetClassEv, . - _ZN10mmCullCity8GetClassEv
+    .size _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_, . - _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_
+
+    // mmMatrixInstance::GetClass()
+    .global _ZN16mmMatrixInstance8GetClassEv
+    .type _ZN16mmMatrixInstance8GetClassEv, %function
+_ZN16mmMatrixInstance8GetClassEv:
+    adrp x0, .Lstub_name_197
+    add x0, x0, :lo12:.Lstub_name_197
+    b ArtsStubCalled
+    .size _ZN16mmMatrixInstance8GetClassEv, . - _ZN16mmMatrixInstance8GetClassEv
+
+    // mmBuildingInstance::GetClass()
+    .global _ZN18mmBuildingInstance8GetClassEv
+    .type _ZN18mmBuildingInstance8GetClassEv, %function
+_ZN18mmBuildingInstance8GetClassEv:
+    adrp x0, .Lstub_name_198
+    add x0, x0, :lo12:.Lstub_name_198
+    b ArtsStubCalled
+    .size _ZN18mmBuildingInstance8GetClassEv, . - _ZN18mmBuildingInstance8GetClassEv
 
     // mmBuildingInstance::SizeOf()
     .global _ZN18mmBuildingInstance6SizeOfEv
     .type _ZN18mmBuildingInstance6SizeOfEv, %function
 _ZN18mmBuildingInstance6SizeOfEv:
-    adrp x0, .Lstub_name_200
-    add x0, x0, :lo12:.Lstub_name_200
+    adrp x0, .Lstub_name_199
+    add x0, x0, :lo12:.Lstub_name_199
     b ArtsStubCalled
     .size _ZN18mmBuildingInstance6SizeOfEv, . - _ZN18mmBuildingInstance6SizeOfEv
 
@@ -1821,8 +1812,8 @@ _ZN18mmBuildingInstance6SizeOfEv:
     .global _ZN18mmBuildingInstance8GetScaleEv
     .type _ZN18mmBuildingInstance8GetScaleEv, %function
 _ZN18mmBuildingInstance8GetScaleEv:
-    adrp x0, .Lstub_name_201
-    add x0, x0, :lo12:.Lstub_name_201
+    adrp x0, .Lstub_name_200
+    add x0, x0, :lo12:.Lstub_name_200
     b ArtsStubCalled
     .size _ZN18mmBuildingInstance8GetScaleEv, . - _ZN18mmBuildingInstance8GetScaleEv
 
@@ -1830,8 +1821,8 @@ _ZN18mmBuildingInstance8GetScaleEv:
     .global _ZN9mmPolygon11FullSegmentEP14mmIntersection
     .type _ZN9mmPolygon11FullSegmentEP14mmIntersection, %function
 _ZN9mmPolygon11FullSegmentEP14mmIntersection:
-    adrp x0, .Lstub_name_202
-    add x0, x0, :lo12:.Lstub_name_202
+    adrp x0, .Lstub_name_201
+    add x0, x0, :lo12:.Lstub_name_201
     b ArtsStubCalled
     .size _ZN9mmPolygon11FullSegmentEP14mmIntersection, . - _ZN9mmPolygon11FullSegmentEP14mmIntersection
 
@@ -1839,8 +1830,8 @@ _ZN9mmPolygon11FullSegmentEP14mmIntersection:
     .global _ZN11asRenderWeb4CullEv
     .type _ZN11asRenderWeb4CullEv, %function
 _ZN11asRenderWeb4CullEv:
-    adrp x0, .Lstub_name_203
-    add x0, x0, :lo12:.Lstub_name_203
+    adrp x0, .Lstub_name_202
+    add x0, x0, :lo12:.Lstub_name_202
     b ArtsStubCalled
     .size _ZN11asRenderWeb4CullEv, . - _ZN11asRenderWeb4CullEv
 
@@ -1848,8 +1839,8 @@ _ZN11asRenderWeb4CullEv:
     .global _ZN10AudManager19GetHiSampleSizeMaskEv
     .type _ZN10AudManager19GetHiSampleSizeMaskEv, %function
 _ZN10AudManager19GetHiSampleSizeMaskEv:
-    adrp x0, .Lstub_name_204
-    add x0, x0, :lo12:.Lstub_name_204
+    adrp x0, .Lstub_name_203
+    add x0, x0, :lo12:.Lstub_name_203
     b ArtsStubCalled
     .size _ZN10AudManager19GetHiSampleSizeMaskEv, . - _ZN10AudManager19GetHiSampleSizeMaskEv
 
@@ -1857,8 +1848,8 @@ _ZN10AudManager19GetHiSampleSizeMaskEv:
     .global _ZN10AudManager12GetHiResMaskEv
     .type _ZN10AudManager12GetHiResMaskEv, %function
 _ZN10AudManager12GetHiResMaskEv:
-    adrp x0, .Lstub_name_205
-    add x0, x0, :lo12:.Lstub_name_205
+    adrp x0, .Lstub_name_204
+    add x0, x0, :lo12:.Lstub_name_204
     b ArtsStubCalled
     .size _ZN10AudManager12GetHiResMaskEv, . - _ZN10AudManager12GetHiResMaskEv
 
@@ -1866,8 +1857,8 @@ _ZN10AudManager12GetHiResMaskEv:
     .global _ZN10AudManager15GetStereoOnMaskEv
     .type _ZN10AudManager15GetStereoOnMaskEv, %function
 _ZN10AudManager15GetStereoOnMaskEv:
-    adrp x0, .Lstub_name_206
-    add x0, x0, :lo12:.Lstub_name_206
+    adrp x0, .Lstub_name_205
+    add x0, x0, :lo12:.Lstub_name_205
     b ArtsStubCalled
     .size _ZN10AudManager15GetStereoOnMaskEv, . - _ZN10AudManager15GetStereoOnMaskEv
 
@@ -1875,8 +1866,8 @@ _ZN10AudManager15GetStereoOnMaskEv:
     .global _ZN10AudManager19GetCommentaryOnMaskEv
     .type _ZN10AudManager19GetCommentaryOnMaskEv, %function
 _ZN10AudManager19GetCommentaryOnMaskEv:
-    adrp x0, .Lstub_name_207
-    add x0, x0, :lo12:.Lstub_name_207
+    adrp x0, .Lstub_name_206
+    add x0, x0, :lo12:.Lstub_name_206
     b ArtsStubCalled
     .size _ZN10AudManager19GetCommentaryOnMaskEv, . - _ZN10AudManager19GetCommentaryOnMaskEv
 
@@ -1884,8 +1875,8 @@ _ZN10AudManager19GetCommentaryOnMaskEv:
     .global _ZN10AudManager16GetCDMusicOnMaskEv
     .type _ZN10AudManager16GetCDMusicOnMaskEv, %function
 _ZN10AudManager16GetCDMusicOnMaskEv:
-    adrp x0, .Lstub_name_208
-    add x0, x0, :lo12:.Lstub_name_208
+    adrp x0, .Lstub_name_207
+    add x0, x0, :lo12:.Lstub_name_207
     b ArtsStubCalled
     .size _ZN10AudManager16GetCDMusicOnMaskEv, . - _ZN10AudManager16GetCDMusicOnMaskEv
 
@@ -1893,8 +1884,8 @@ _ZN10AudManager16GetCDMusicOnMaskEv:
     .global _ZN10AudManager16GetSoundFXOnMaskEv
     .type _ZN10AudManager16GetSoundFXOnMaskEv, %function
 _ZN10AudManager16GetSoundFXOnMaskEv:
-    adrp x0, .Lstub_name_209
-    add x0, x0, :lo12:.Lstub_name_209
+    adrp x0, .Lstub_name_208
+    add x0, x0, :lo12:.Lstub_name_208
     b ArtsStubCalled
     .size _ZN10AudManager16GetSoundFXOnMaskEv, . - _ZN10AudManager16GetSoundFXOnMaskEv
 
@@ -1902,8 +1893,8 @@ _ZN10AudManager16GetSoundFXOnMaskEv:
     .global _ZN9mmVehInfo5PrintEv
     .type _ZN9mmVehInfo5PrintEv, %function
 _ZN9mmVehInfo5PrintEv:
-    adrp x0, .Lstub_name_210
-    add x0, x0, :lo12:.Lstub_name_210
+    adrp x0, .Lstub_name_209
+    add x0, x0, :lo12:.Lstub_name_209
     b ArtsStubCalled
     .size _ZN9mmVehInfo5PrintEv, . - _ZN9mmVehInfo5PrintEv
 
@@ -1911,8 +1902,8 @@ _ZN9mmVehInfo5PrintEv:
     .global _ZN14mmTransmission10SetReverseEv
     .type _ZN14mmTransmission10SetReverseEv, %function
 _ZN14mmTransmission10SetReverseEv:
-    adrp x0, .Lstub_name_211
-    add x0, x0, :lo12:.Lstub_name_211
+    adrp x0, .Lstub_name_210
+    add x0, x0, :lo12:.Lstub_name_210
     b ArtsStubCalled
     .size _ZN14mmTransmission10SetReverseEv, . - _ZN14mmTransmission10SetReverseEv
 
@@ -1920,8 +1911,8 @@ _ZN14mmTransmission10SetReverseEv:
     .global _ZN6aiPath5IndexER7Vector3
     .type _ZN6aiPath5IndexER7Vector3, %function
 _ZN6aiPath5IndexER7Vector3:
-    adrp x0, .Lstub_name_212
-    add x0, x0, :lo12:.Lstub_name_212
+    adrp x0, .Lstub_name_211
+    add x0, x0, :lo12:.Lstub_name_211
     b ArtsStubCalled
     .size _ZN6aiPath5IndexER7Vector3, . - _ZN6aiPath5IndexER7Vector3
 
@@ -1929,8 +1920,8 @@ _ZN6aiPath5IndexER7Vector3:
     .global _ZN11aiGoalChase9CalcSpeedEf
     .type _ZN11aiGoalChase9CalcSpeedEf, %function
 _ZN11aiGoalChase9CalcSpeedEf:
-    adrp x0, .Lstub_name_213
-    add x0, x0, :lo12:.Lstub_name_213
+    adrp x0, .Lstub_name_212
+    add x0, x0, :lo12:.Lstub_name_212
     b ArtsStubCalled
     .size _ZN11aiGoalChase9CalcSpeedEf, . - _ZN11aiGoalChase9CalcSpeedEf
 
@@ -1938,8 +1929,8 @@ _ZN11aiGoalChase9CalcSpeedEf:
     .global _ZN6aiPath12CenterLengthEii
     .type _ZN6aiPath12CenterLengthEii, %function
 _ZN6aiPath12CenterLengthEii:
-    adrp x0, .Lstub_name_214
-    add x0, x0, :lo12:.Lstub_name_214
+    adrp x0, .Lstub_name_213
+    add x0, x0, :lo12:.Lstub_name_213
     b ArtsStubCalled
     .size _ZN6aiPath12CenterLengthEii, . - _ZN6aiPath12CenterLengthEii
 
@@ -1947,8 +1938,8 @@ _ZN6aiPath12CenterLengthEii:
     .global _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff
     .type _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff, %function
 _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff:
-    adrp x0, .Lstub_name_215
-    add x0, x0, :lo12:.Lstub_name_215
+    adrp x0, .Lstub_name_214
+    add x0, x0, :lo12:.Lstub_name_214
     b ArtsStubCalled
     .size _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff, . - _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff
 
@@ -1956,8 +1947,8 @@ _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff:
     .global _ZN7aiStuck6UpdateEv
     .type _ZN7aiStuck6UpdateEv, %function
 _ZN7aiStuck6UpdateEv:
-    adrp x0, .Lstub_name_216
-    add x0, x0, :lo12:.Lstub_name_216
+    adrp x0, .Lstub_name_215
+    add x0, x0, :lo12:.Lstub_name_215
     b ArtsStubCalled
     .size _ZN7aiStuck6UpdateEv, . - _ZN7aiStuck6UpdateEv
 
@@ -1965,8 +1956,8 @@ _ZN7aiStuck6UpdateEv:
     .global _ZN18aiGoalFollowWayPts9PlanRouteEv
     .type _ZN18aiGoalFollowWayPts9PlanRouteEv, %function
 _ZN18aiGoalFollowWayPts9PlanRouteEv:
-    adrp x0, .Lstub_name_217
-    add x0, x0, :lo12:.Lstub_name_217
+    adrp x0, .Lstub_name_216
+    add x0, x0, :lo12:.Lstub_name_216
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts9PlanRouteEv, . - _ZN18aiGoalFollowWayPts9PlanRouteEv
 
@@ -1974,8 +1965,8 @@ _ZN18aiGoalFollowWayPts9PlanRouteEv:
     .global _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_
     .type _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_, %function
 _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_:
-    adrp x0, .Lstub_name_218
-    add x0, x0, :lo12:.Lstub_name_218
+    adrp x0, .Lstub_name_217
+    add x0, x0, :lo12:.Lstub_name_217
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_, . - _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_
 
@@ -1983,8 +1974,8 @@ _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_:
     .global _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss
     .type _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss, %function
 _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss:
-    adrp x0, .Lstub_name_219
-    add x0, x0, :lo12:.Lstub_name_219
+    adrp x0, .Lstub_name_218
+    add x0, x0, :lo12:.Lstub_name_218
     b ArtsStubCalled
     .size _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss, . - _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss
 
@@ -1992,8 +1983,8 @@ _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss:
     .global _ZN6aiPath22StopDestinationSourcesEb
     .type _ZN6aiPath22StopDestinationSourcesEb, %function
 _ZN6aiPath22StopDestinationSourcesEb:
-    adrp x0, .Lstub_name_220
-    add x0, x0, :lo12:.Lstub_name_220
+    adrp x0, .Lstub_name_219
+    add x0, x0, :lo12:.Lstub_name_219
     b ArtsStubCalled
     .size _ZN6aiPath22StopDestinationSourcesEb, . - _ZN6aiPath22StopDestinationSourcesEb
 
@@ -2001,8 +1992,8 @@ _ZN6aiPath22StopDestinationSourcesEb:
     .global _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv
     .type _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv, %function
 _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv:
-    adrp x0, .Lstub_name_221
-    add x0, x0, :lo12:.Lstub_name_221
+    adrp x0, .Lstub_name_220
+    add x0, x0, :lo12:.Lstub_name_220
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv, . - _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv
 
@@ -2010,8 +2001,8 @@ _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv:
     .global _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent
     .type _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent, %function
 _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent:
-    adrp x0, .Lstub_name_222
-    add x0, x0, :lo12:.Lstub_name_222
+    adrp x0, .Lstub_name_221
+    add x0, x0, :lo12:.Lstub_name_221
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent, . - _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent
 
@@ -2019,8 +2010,8 @@ _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent:
     .global _ZN18aiGoalFollowWayPts15DetectCollisionEPi
     .type _ZN18aiGoalFollowWayPts15DetectCollisionEPi, %function
 _ZN18aiGoalFollowWayPts15DetectCollisionEPi:
-    adrp x0, .Lstub_name_223
-    add x0, x0, :lo12:.Lstub_name_223
+    adrp x0, .Lstub_name_222
+    add x0, x0, :lo12:.Lstub_name_222
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts15DetectCollisionEPi, . - _ZN18aiGoalFollowWayPts15DetectCollisionEPi
 
@@ -2028,8 +2019,8 @@ _ZN18aiGoalFollowWayPts15DetectCollisionEPi:
     .global _ZN18aiGoalFollowWayPts14AvoidCollisionEi
     .type _ZN18aiGoalFollowWayPts14AvoidCollisionEi, %function
 _ZN18aiGoalFollowWayPts14AvoidCollisionEi:
-    adrp x0, .Lstub_name_224
-    add x0, x0, :lo12:.Lstub_name_224
+    adrp x0, .Lstub_name_223
+    add x0, x0, :lo12:.Lstub_name_223
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts14AvoidCollisionEi, . - _ZN18aiGoalFollowWayPts14AvoidCollisionEi
 
@@ -2037,8 +2028,8 @@ _ZN18aiGoalFollowWayPts14AvoidCollisionEi:
     .global _ZN18aiGoalFollowWayPts16SolveTargetPointEv
     .type _ZN18aiGoalFollowWayPts16SolveTargetPointEv, %function
 _ZN18aiGoalFollowWayPts16SolveTargetPointEv:
-    adrp x0, .Lstub_name_225
-    add x0, x0, :lo12:.Lstub_name_225
+    adrp x0, .Lstub_name_224
+    add x0, x0, :lo12:.Lstub_name_224
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts16SolveTargetPointEv, . - _ZN18aiGoalFollowWayPts16SolveTargetPointEv
 
@@ -2046,8 +2037,8 @@ _ZN18aiGoalFollowWayPts16SolveTargetPointEv:
     .global _ZN10aiGoalStop4InitEv
     .type _ZN10aiGoalStop4InitEv, %function
 _ZN10aiGoalStop4InitEv:
-    adrp x0, .Lstub_name_226
-    add x0, x0, :lo12:.Lstub_name_226
+    adrp x0, .Lstub_name_225
+    add x0, x0, :lo12:.Lstub_name_225
     b ArtsStubCalled
     .size _ZN10aiGoalStop4InitEv, . - _ZN10aiGoalStop4InitEv
 
@@ -2055,8 +2046,8 @@ _ZN10aiGoalStop4InitEv:
     .global _ZN17aiVehicleOpponent4DumpEv
     .type _ZN17aiVehicleOpponent4DumpEv, %function
 _ZN17aiVehicleOpponent4DumpEv:
-    adrp x0, .Lstub_name_227
-    add x0, x0, :lo12:.Lstub_name_227
+    adrp x0, .Lstub_name_226
+    add x0, x0, :lo12:.Lstub_name_226
     b ArtsStubCalled
     .size _ZN17aiVehicleOpponent4DumpEv, . - _ZN17aiVehicleOpponent4DumpEv
 
@@ -2064,8 +2055,8 @@ _ZN17aiVehicleOpponent4DumpEv:
     .global _ZN15aiVehiclePolice4DumpEv
     .type _ZN15aiVehiclePolice4DumpEv, %function
 _ZN15aiVehiclePolice4DumpEv:
-    adrp x0, .Lstub_name_228
-    add x0, x0, :lo12:.Lstub_name_228
+    adrp x0, .Lstub_name_227
+    add x0, x0, :lo12:.Lstub_name_227
     b ArtsStubCalled
     .size _ZN15aiVehiclePolice4DumpEv, . - _ZN15aiVehiclePolice4DumpEv
 
@@ -2073,8 +2064,8 @@ _ZN15aiVehiclePolice4DumpEv:
     .global _ZN16aiVehicleAmbient4DumpEv
     .type _ZN16aiVehicleAmbient4DumpEv, %function
 _ZN16aiVehicleAmbient4DumpEv:
-    adrp x0, .Lstub_name_229
-    add x0, x0, :lo12:.Lstub_name_229
+    adrp x0, .Lstub_name_228
+    add x0, x0, :lo12:.Lstub_name_228
     b ArtsStubCalled
     .size _ZN16aiVehicleAmbient4DumpEv, . - _ZN16aiVehicleAmbient4DumpEv
 
@@ -2082,8 +2073,8 @@ _ZN16aiVehicleAmbient4DumpEv:
     .global _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet
     .type _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet, %function
 _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet:
-    adrp x0, .Lstub_name_230
-    add x0, x0, :lo12:.Lstub_name_230
+    adrp x0, .Lstub_name_229
+    add x0, x0, :lo12:.Lstub_name_229
     b ArtsStubCalled
     .size _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet, . - _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet
 
@@ -2091,8 +2082,8 @@ _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet:
     .global _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet
     .type _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet, %function
 _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet:
-    adrp x0, .Lstub_name_231
-    add x0, x0, :lo12:.Lstub_name_231
+    adrp x0, .Lstub_name_230
+    add x0, x0, :lo12:.Lstub_name_230
     b ArtsStubCalled
     .size _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet, . - _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet
 
@@ -2100,8 +2091,8 @@ _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet:
     .global _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet
     .type _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet, %function
 _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet:
-    adrp x0, .Lstub_name_232
-    add x0, x0, :lo12:.Lstub_name_232
+    adrp x0, .Lstub_name_231
+    add x0, x0, :lo12:.Lstub_name_231
     b ArtsStubCalled
     .size _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet, . - _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet
 
@@ -2109,8 +2100,8 @@ _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet:
     .global _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet
     .type _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet, %function
 _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet:
-    adrp x0, .Lstub_name_233
-    add x0, x0, :lo12:.Lstub_name_233
+    adrp x0, .Lstub_name_232
+    add x0, x0, :lo12:.Lstub_name_232
     b ArtsStubCalled
     .size _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet, . - _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet
 
@@ -2118,8 +2109,8 @@ _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet:
     .global _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet
     .type _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet, %function
 _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet:
-    adrp x0, .Lstub_name_234
-    add x0, x0, :lo12:.Lstub_name_234
+    adrp x0, .Lstub_name_233
+    add x0, x0, :lo12:.Lstub_name_233
     b ArtsStubCalled
     .size _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet, . - _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet
 
@@ -2127,8 +2118,8 @@ _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet:
     .global _ZN14aiIntersection4PathEi
     .type _ZN14aiIntersection4PathEi, %function
 _ZN14aiIntersection4PathEi:
-    adrp x0, .Lstub_name_235
-    add x0, x0, :lo12:.Lstub_name_235
+    adrp x0, .Lstub_name_234
+    add x0, x0, :lo12:.Lstub_name_234
     b ArtsStubCalled
     .size _ZN14aiIntersection4PathEi, . - _ZN14aiIntersection4PathEi
 
@@ -2136,8 +2127,8 @@ _ZN14aiIntersection4PathEi:
     .global _Z5frandv
     .type _Z5frandv, %function
 _Z5frandv:
-    adrp x0, .Lstub_name_236
-    add x0, x0, :lo12:.Lstub_name_236
+    adrp x0, .Lstub_name_235
+    add x0, x0, :lo12:.Lstub_name_235
     b ArtsStubCalled
     .size _Z5frandv, . - _Z5frandv
 
@@ -2145,8 +2136,8 @@ _Z5frandv:
     .global _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_
     .type _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_, %function
 _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_:
-    adrp x0, .Lstub_name_237
-    add x0, x0, :lo12:.Lstub_name_237
+    adrp x0, .Lstub_name_236
+    add x0, x0, :lo12:.Lstub_name_236
     b ArtsStubCalled
     .size _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_, . - _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_
 
@@ -2154,8 +2145,8 @@ _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_:
     .global _ZN17aiVehicleInstance9GetEntityEv
     .type _ZN17aiVehicleInstance9GetEntityEv, %function
 _ZN17aiVehicleInstance9GetEntityEv:
-    adrp x0, .Lstub_name_238
-    add x0, x0, :lo12:.Lstub_name_238
+    adrp x0, .Lstub_name_237
+    add x0, x0, :lo12:.Lstub_name_237
     b ArtsStubCalled
     .size _ZN17aiVehicleInstance9GetEntityEv, . - _ZN17aiVehicleInstance9GetEntityEv
 
@@ -2163,8 +2154,8 @@ _ZN17aiVehicleInstance9GetEntityEv:
     .global _ZN13aiVehicleDataC1Ev
     .type _ZN13aiVehicleDataC1Ev, %function
 _ZN13aiVehicleDataC1Ev:
-    adrp x0, .Lstub_name_239
-    add x0, x0, :lo12:.Lstub_name_239
+    adrp x0, .Lstub_name_238
+    add x0, x0, :lo12:.Lstub_name_238
     b ArtsStubCalled
     .size _ZN13aiVehicleDataC1Ev, . - _ZN13aiVehicleDataC1Ev
 
@@ -2172,8 +2163,8 @@ _ZN13aiVehicleDataC1Ev:
     .global _ZN15aiVehicleActiveC1Ev
     .type _ZN15aiVehicleActiveC1Ev, %function
 _ZN15aiVehicleActiveC1Ev:
-    adrp x0, .Lstub_name_240
-    add x0, x0, :lo12:.Lstub_name_240
+    adrp x0, .Lstub_name_239
+    add x0, x0, :lo12:.Lstub_name_239
     b ArtsStubCalled
     .size _ZN15aiVehicleActiveC1Ev, . - _ZN15aiVehicleActiveC1Ev
 
@@ -2181,89 +2172,26 @@ _ZN15aiVehicleActiveC1Ev:
     .global _ZN15aiVehicleActiveD1Ev
     .type _ZN15aiVehicleActiveD1Ev, %function
 _ZN15aiVehicleActiveD1Ev:
-    adrp x0, .Lstub_name_241
-    add x0, x0, :lo12:.Lstub_name_241
+    adrp x0, .Lstub_name_240
+    add x0, x0, :lo12:.Lstub_name_240
     b ArtsStubCalled
     .size _ZN15aiVehicleActiveD1Ev, . - _ZN15aiVehicleActiveD1Ev
-
-    // aiVehicleInstance::GetData()
-    .global _ZN17aiVehicleInstance7GetDataEv
-    .type _ZN17aiVehicleInstance7GetDataEv, %function
-_ZN17aiVehicleInstance7GetDataEv:
-    adrp x0, .Lstub_name_242
-    add x0, x0, :lo12:.Lstub_name_242
-    b ArtsStubCalled
-    .size _ZN17aiVehicleInstance7GetDataEv, . - _ZN17aiVehicleInstance7GetDataEv
-
-    // aiVehicleInstance::ToMatrix(Matrix34&)
-    .global _ZN17aiVehicleInstance8ToMatrixER8Matrix34
-    .type _ZN17aiVehicleInstance8ToMatrixER8Matrix34, %function
-_ZN17aiVehicleInstance8ToMatrixER8Matrix34:
-    adrp x0, .Lstub_name_243
-    add x0, x0, :lo12:.Lstub_name_243
-    b ArtsStubCalled
-    .size _ZN17aiVehicleInstance8ToMatrixER8Matrix34, . - _ZN17aiVehicleInstance8ToMatrixER8Matrix34
-
-    // asInertialCS::Update()
-    .global _ZN12asInertialCS6UpdateEv
-    .type _ZN12asInertialCS6UpdateEv, %function
-_ZN12asInertialCS6UpdateEv:
-    adrp x0, .Lstub_name_244
-    add x0, x0, :lo12:.Lstub_name_244
-    b ArtsStubCalled
-    .size _ZN12asInertialCS6UpdateEv, . - _ZN12asInertialCS6UpdateEv
-
-    // aiVehicleManager::Detach(aiVehicleActive*)
-    .global _ZN16aiVehicleManager6DetachEP15aiVehicleActive
-    .type _ZN16aiVehicleManager6DetachEP15aiVehicleActive, %function
-_ZN16aiVehicleManager6DetachEP15aiVehicleActive:
-    adrp x0, .Lstub_name_245
-    add x0, x0, :lo12:.Lstub_name_245
-    b ArtsStubCalled
-    .size _ZN16aiVehicleManager6DetachEP15aiVehicleActive, . - _ZN16aiVehicleManager6DetachEP15aiVehicleActive
-
-    // aiVehicleManager::Update()
-    .global _ZN16aiVehicleManager6UpdateEv
-    .type _ZN16aiVehicleManager6UpdateEv, %function
-_ZN16aiVehicleManager6UpdateEv:
-    adrp x0, .Lstub_name_246
-    add x0, x0, :lo12:.Lstub_name_246
-    b ArtsStubCalled
-    .size _ZN16aiVehicleManager6UpdateEv, . - _ZN16aiVehicleManager6UpdateEv
-
-    // aiVehicleManager::Reset()
-    .global _ZN16aiVehicleManager5ResetEv
-    .type _ZN16aiVehicleManager5ResetEv, %function
-_ZN16aiVehicleManager5ResetEv:
-    adrp x0, .Lstub_name_247
-    add x0, x0, :lo12:.Lstub_name_247
-    b ArtsStubCalled
-    .size _ZN16aiVehicleManager5ResetEv, . - _ZN16aiVehicleManager5ResetEv
 
     // mmCar::Init(char const*, int, int)
     .global _ZN5mmCar4InitEPKcii
     .type _ZN5mmCar4InitEPKcii, %function
 _ZN5mmCar4InitEPKcii:
-    adrp x0, .Lstub_name_248
-    add x0, x0, :lo12:.Lstub_name_248
+    adrp x0, .Lstub_name_241
+    add x0, x0, :lo12:.Lstub_name_241
     b ArtsStubCalled
     .size _ZN5mmCar4InitEPKcii, . - _ZN5mmCar4InitEPKcii
-
-    // aiVehicleManager::Save()
-    .global _ZN16aiVehicleManager4SaveEv
-    .type _ZN16aiVehicleManager4SaveEv, %function
-_ZN16aiVehicleManager4SaveEv:
-    adrp x0, .Lstub_name_249
-    add x0, x0, :lo12:.Lstub_name_249
-    b ArtsStubCalled
-    .size _ZN16aiVehicleManager4SaveEv, . - _ZN16aiVehicleManager4SaveEv
 
     // aiVehicle::Init(int)
     .global _ZN9aiVehicle4InitEi
     .type _ZN9aiVehicle4InitEi, %function
 _ZN9aiVehicle4InitEi:
-    adrp x0, .Lstub_name_250
-    add x0, x0, :lo12:.Lstub_name_250
+    adrp x0, .Lstub_name_242
+    add x0, x0, :lo12:.Lstub_name_242
     b ArtsStubCalled
     .size _ZN9aiVehicle4InitEi, . - _ZN9aiVehicle4InitEi
 
@@ -2271,8 +2199,8 @@ _ZN9aiVehicle4InitEi:
     .global _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf
     .type _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf, %function
 _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf:
-    adrp x0, .Lstub_name_251
-    add x0, x0, :lo12:.Lstub_name_251
+    adrp x0, .Lstub_name_243
+    add x0, x0, :lo12:.Lstub_name_243
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf, . - _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf
 
@@ -2280,8 +2208,8 @@ _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf:
     .global _ZN18aiGoalFollowWayPtsD1Ev
     .type _ZN18aiGoalFollowWayPtsD1Ev, %function
 _ZN18aiGoalFollowWayPtsD1Ev:
-    adrp x0, .Lstub_name_252
-    add x0, x0, :lo12:.Lstub_name_252
+    adrp x0, .Lstub_name_244
+    add x0, x0, :lo12:.Lstub_name_244
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPtsD1Ev, . - _ZN18aiGoalFollowWayPtsD1Ev
 
@@ -2289,8 +2217,8 @@ _ZN18aiGoalFollowWayPtsD1Ev:
     .global _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc
     .type _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc, %function
 _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc:
-    adrp x0, .Lstub_name_253
-    add x0, x0, :lo12:.Lstub_name_253
+    adrp x0, .Lstub_name_245
+    add x0, x0, :lo12:.Lstub_name_245
     b ArtsStubCalled
     .size _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc, . - _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc
 
@@ -2298,8 +2226,8 @@ _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc:
     .global _ZN18aiGoalFollowWayPts4InitEv
     .type _ZN18aiGoalFollowWayPts4InitEv, %function
 _ZN18aiGoalFollowWayPts4InitEv:
-    adrp x0, .Lstub_name_254
-    add x0, x0, :lo12:.Lstub_name_254
+    adrp x0, .Lstub_name_246
+    add x0, x0, :lo12:.Lstub_name_246
     b ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts4InitEv, . - _ZN18aiGoalFollowWayPts4InitEv
 
@@ -2307,8 +2235,8 @@ _ZN18aiGoalFollowWayPts4InitEv:
     .global _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents
     .type _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents, %function
 _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents:
-    adrp x0, .Lstub_name_255
-    add x0, x0, :lo12:.Lstub_name_255
+    adrp x0, .Lstub_name_247
+    add x0, x0, :lo12:.Lstub_name_247
     b ArtsStubCalled
     .size _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents, . - _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents
 
@@ -2316,8 +2244,8 @@ _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents:
     .global _ZN9aiVehicle5ResetEv
     .type _ZN9aiVehicle5ResetEv, %function
 _ZN9aiVehicle5ResetEv:
-    adrp x0, .Lstub_name_256
-    add x0, x0, :lo12:.Lstub_name_256
+    adrp x0, .Lstub_name_248
+    add x0, x0, :lo12:.Lstub_name_248
     b ArtsStubCalled
     .size _ZN9aiVehicle5ResetEv, . - _ZN9aiVehicle5ResetEv
 
@@ -2325,8 +2253,8 @@ _ZN9aiVehicle5ResetEv:
     .global _ZN17aiVehicleOpponent13AddToAiAudMgrEv
     .type _ZN17aiVehicleOpponent13AddToAiAudMgrEv, %function
 _ZN17aiVehicleOpponent13AddToAiAudMgrEv:
-    adrp x0, .Lstub_name_257
-    add x0, x0, :lo12:.Lstub_name_257
+    adrp x0, .Lstub_name_249
+    add x0, x0, :lo12:.Lstub_name_249
     b ArtsStubCalled
     .size _ZN17aiVehicleOpponent13AddToAiAudMgrEv, . - _ZN17aiVehicleOpponent13AddToAiAudMgrEv
 
@@ -2334,8 +2262,8 @@ _ZN17aiVehicleOpponent13AddToAiAudMgrEv:
     .global _ZN9aiVehicle6UpdateEv
     .type _ZN9aiVehicle6UpdateEv, %function
 _ZN9aiVehicle6UpdateEv:
-    adrp x0, .Lstub_name_258
-    add x0, x0, :lo12:.Lstub_name_258
+    adrp x0, .Lstub_name_250
+    add x0, x0, :lo12:.Lstub_name_250
     b ArtsStubCalled
     .size _ZN9aiVehicle6UpdateEv, . - _ZN9aiVehicle6UpdateEv
 
@@ -2343,35 +2271,62 @@ _ZN9aiVehicle6UpdateEv:
     .global _ZN15aiVehicleSpline6UpdateEv
     .type _ZN15aiVehicleSpline6UpdateEv, %function
 _ZN15aiVehicleSpline6UpdateEv:
-    adrp x0, .Lstub_name_259
-    add x0, x0, :lo12:.Lstub_name_259
+    adrp x0, .Lstub_name_251
+    add x0, x0, :lo12:.Lstub_name_251
     b ArtsStubCalled
     .size _ZN15aiVehicleSpline6UpdateEv, . - _ZN15aiVehicleSpline6UpdateEv
+
+    // aiVehicleInstance::GetData()
+    .global _ZN17aiVehicleInstance7GetDataEv
+    .type _ZN17aiVehicleInstance7GetDataEv, %function
+_ZN17aiVehicleInstance7GetDataEv:
+    adrp x0, .Lstub_name_252
+    add x0, x0, :lo12:.Lstub_name_252
+    b ArtsStubCalled
+    .size _ZN17aiVehicleInstance7GetDataEv, . - _ZN17aiVehicleInstance7GetDataEv
 
     // aiVehicleSpline::Reset()
     .global _ZN15aiVehicleSpline5ResetEv
     .type _ZN15aiVehicleSpline5ResetEv, %function
 _ZN15aiVehicleSpline5ResetEv:
-    adrp x0, .Lstub_name_260
-    add x0, x0, :lo12:.Lstub_name_260
+    adrp x0, .Lstub_name_253
+    add x0, x0, :lo12:.Lstub_name_253
     b ArtsStubCalled
     .size _ZN15aiVehicleSpline5ResetEv, . - _ZN15aiVehicleSpline5ResetEv
+
+    // aiVehicleInstance::ToMatrix(Matrix34&)
+    .global _ZN17aiVehicleInstance8ToMatrixER8Matrix34
+    .type _ZN17aiVehicleInstance8ToMatrixER8Matrix34, %function
+_ZN17aiVehicleInstance8ToMatrixER8Matrix34:
+    adrp x0, .Lstub_name_254
+    add x0, x0, :lo12:.Lstub_name_254
+    b ArtsStubCalled
+    .size _ZN17aiVehicleInstance8ToMatrixER8Matrix34, . - _ZN17aiVehicleInstance8ToMatrixER8Matrix34
 
     // aiVehicleSpline::Type()
     .global _ZN15aiVehicleSpline4TypeEv
     .type _ZN15aiVehicleSpline4TypeEv, %function
 _ZN15aiVehicleSpline4TypeEv:
-    adrp x0, .Lstub_name_261
-    add x0, x0, :lo12:.Lstub_name_261
+    adrp x0, .Lstub_name_255
+    add x0, x0, :lo12:.Lstub_name_255
     b ArtsStubCalled
     .size _ZN15aiVehicleSpline4TypeEv, . - _ZN15aiVehicleSpline4TypeEv
+
+    // asInertialCS::Update()
+    .global _ZN12asInertialCS6UpdateEv
+    .type _ZN12asInertialCS6UpdateEv, %function
+_ZN12asInertialCS6UpdateEv:
+    adrp x0, .Lstub_name_256
+    add x0, x0, :lo12:.Lstub_name_256
+    b ArtsStubCalled
+    .size _ZN12asInertialCS6UpdateEv, . - _ZN12asInertialCS6UpdateEv
 
     // aiVehicleSpline::DrawId()
     .global _ZN15aiVehicleSpline6DrawIdEv
     .type _ZN15aiVehicleSpline6DrawIdEv, %function
 _ZN15aiVehicleSpline6DrawIdEv:
-    adrp x0, .Lstub_name_262
-    add x0, x0, :lo12:.Lstub_name_262
+    adrp x0, .Lstub_name_257
+    add x0, x0, :lo12:.Lstub_name_257
     b ArtsStubCalled
     .size _ZN15aiVehicleSpline6DrawIdEv, . - _ZN15aiVehicleSpline6DrawIdEv
 
@@ -2379,17 +2334,53 @@ _ZN15aiVehicleSpline6DrawIdEv:
     .global _ZN15aiVehicleSpline8GetClassEv
     .type _ZN15aiVehicleSpline8GetClassEv, %function
 _ZN15aiVehicleSpline8GetClassEv:
-    adrp x0, .Lstub_name_263
-    add x0, x0, :lo12:.Lstub_name_263
+    adrp x0, .Lstub_name_258
+    add x0, x0, :lo12:.Lstub_name_258
     b ArtsStubCalled
     .size _ZN15aiVehicleSpline8GetClassEv, . - _ZN15aiVehicleSpline8GetClassEv
+
+    // aiVehicleManager::Detach(aiVehicleActive*)
+    .global _ZN16aiVehicleManager6DetachEP15aiVehicleActive
+    .type _ZN16aiVehicleManager6DetachEP15aiVehicleActive, %function
+_ZN16aiVehicleManager6DetachEP15aiVehicleActive:
+    adrp x0, .Lstub_name_259
+    add x0, x0, :lo12:.Lstub_name_259
+    b ArtsStubCalled
+    .size _ZN16aiVehicleManager6DetachEP15aiVehicleActive, . - _ZN16aiVehicleManager6DetachEP15aiVehicleActive
+
+    // aiVehicleManager::Update()
+    .global _ZN16aiVehicleManager6UpdateEv
+    .type _ZN16aiVehicleManager6UpdateEv, %function
+_ZN16aiVehicleManager6UpdateEv:
+    adrp x0, .Lstub_name_260
+    add x0, x0, :lo12:.Lstub_name_260
+    b ArtsStubCalled
+    .size _ZN16aiVehicleManager6UpdateEv, . - _ZN16aiVehicleManager6UpdateEv
+
+    // aiVehicleManager::Reset()
+    .global _ZN16aiVehicleManager5ResetEv
+    .type _ZN16aiVehicleManager5ResetEv, %function
+_ZN16aiVehicleManager5ResetEv:
+    adrp x0, .Lstub_name_261
+    add x0, x0, :lo12:.Lstub_name_261
+    b ArtsStubCalled
+    .size _ZN16aiVehicleManager5ResetEv, . - _ZN16aiVehicleManager5ResetEv
+
+    // aiVehicleManager::Save()
+    .global _ZN16aiVehicleManager4SaveEv
+    .type _ZN16aiVehicleManager4SaveEv, %function
+_ZN16aiVehicleManager4SaveEv:
+    adrp x0, .Lstub_name_262
+    add x0, x0, :lo12:.Lstub_name_262
+    b ArtsStubCalled
+    .size _ZN16aiVehicleManager4SaveEv, . - _ZN16aiVehicleManager4SaveEv
 
     // BaseCamCS::GetClass()
     .global _ZN9BaseCamCS8GetClassEv
     .type _ZN9BaseCamCS8GetClassEv, %function
 _ZN9BaseCamCS8GetClassEv:
-    adrp x0, .Lstub_name_264
-    add x0, x0, :lo12:.Lstub_name_264
+    adrp x0, .Lstub_name_263
+    add x0, x0, :lo12:.Lstub_name_263
     b ArtsStubCalled
     .size _ZN9BaseCamCS8GetClassEv, . - _ZN9BaseCamCS8GetClassEv
 
@@ -2397,8 +2388,8 @@ _ZN9BaseCamCS8GetClassEv:
     .global _ZN9BaseCamCS9AfterLoadEv
     .type _ZN9BaseCamCS9AfterLoadEv, %function
 _ZN9BaseCamCS9AfterLoadEv:
-    adrp x0, .Lstub_name_265
-    add x0, x0, :lo12:.Lstub_name_265
+    adrp x0, .Lstub_name_264
+    add x0, x0, :lo12:.Lstub_name_264
     b ArtsStubCalled
     .size _ZN9BaseCamCS9AfterLoadEv, . - _ZN9BaseCamCS9AfterLoadEv
 
@@ -2406,8 +2397,8 @@ _ZN9BaseCamCS9AfterLoadEv:
     .global _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3
     .type _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3, %function
 _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3:
-    adrp x0, .Lstub_name_266
-    add x0, x0, :lo12:.Lstub_name_266
+    adrp x0, .Lstub_name_265
+    add x0, x0, :lo12:.Lstub_name_265
     b ArtsStubCalled
     .size _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3, . - _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3
 
@@ -2415,8 +2406,8 @@ _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3:
     .global _ZN10mmCarModel8ActivateEv
     .type _ZN10mmCarModel8ActivateEv, %function
 _ZN10mmCarModel8ActivateEv:
-    adrp x0, .Lstub_name_267
-    add x0, x0, :lo12:.Lstub_name_267
+    adrp x0, .Lstub_name_266
+    add x0, x0, :lo12:.Lstub_name_266
     b ArtsStubCalled
     .size _ZN10mmCarModel8ActivateEv, . - _ZN10mmCarModel8ActivateEv
 
@@ -2424,8 +2415,8 @@ _ZN10mmCarModel8ActivateEv:
     .global _ZN8Matrix349PolarViewEffff
     .type _ZN8Matrix349PolarViewEffff, %function
 _ZN8Matrix349PolarViewEffff:
-    adrp x0, .Lstub_name_268
-    add x0, x0, :lo12:.Lstub_name_268
+    adrp x0, .Lstub_name_267
+    add x0, x0, :lo12:.Lstub_name_267
     b ArtsStubCalled
     .size _ZN8Matrix349PolarViewEffff, . - _ZN8Matrix349PolarViewEffff
 
@@ -2433,8 +2424,8 @@ _ZN8Matrix349PolarViewEffff:
     .global _ZN6SplineC1Ev
     .type _ZN6SplineC1Ev, %function
 _ZN6SplineC1Ev:
-    adrp x0, .Lstub_name_269
-    add x0, x0, :lo12:.Lstub_name_269
+    adrp x0, .Lstub_name_268
+    add x0, x0, :lo12:.Lstub_name_268
     b ArtsStubCalled
     .size _ZN6SplineC1Ev, . - _ZN6SplineC1Ev
 
@@ -2442,8 +2433,8 @@ _ZN6SplineC1Ev:
     .global _ZN7mmInput15DeviceConnectedEv
     .type _ZN7mmInput15DeviceConnectedEv, %function
 _ZN7mmInput15DeviceConnectedEv:
-    adrp x0, .Lstub_name_270
-    add x0, x0, :lo12:.Lstub_name_270
+    adrp x0, .Lstub_name_269
+    add x0, x0, :lo12:.Lstub_name_269
     b ArtsStubCalled
     .size _ZN7mmInput15DeviceConnectedEv, . - _ZN7mmInput15DeviceConnectedEv
 
@@ -2451,8 +2442,8 @@ _ZN7mmInput15DeviceConnectedEv:
     .global _ZN7mmInput4InitEi
     .type _ZN7mmInput4InitEi, %function
 _ZN7mmInput4InitEi:
-    adrp x0, .Lstub_name_271
-    add x0, x0, :lo12:.Lstub_name_271
+    adrp x0, .Lstub_name_270
+    add x0, x0, :lo12:.Lstub_name_270
     b ArtsStubCalled
     .size _ZN7mmInput4InitEi, . - _ZN7mmInput4InitEi
 
@@ -2460,8 +2451,8 @@ _ZN7mmInput4InitEi:
     .global _ZN7mmInput17JoystickHasCoolieEv
     .type _ZN7mmInput17JoystickHasCoolieEv, %function
 _ZN7mmInput17JoystickHasCoolieEv:
-    adrp x0, .Lstub_name_272
-    add x0, x0, :lo12:.Lstub_name_272
+    adrp x0, .Lstub_name_271
+    add x0, x0, :lo12:.Lstub_name_271
     b ArtsStubCalled
     .size _ZN7mmInput17JoystickHasCoolieEv, . - _ZN7mmInput17JoystickHasCoolieEv
 
@@ -2469,8 +2460,8 @@ _ZN7mmInput17JoystickHasCoolieEv:
     .global _ZN7mmInput16ProcessJoyEventsEv
     .type _ZN7mmInput16ProcessJoyEventsEv, %function
 _ZN7mmInput16ProcessJoyEventsEv:
-    adrp x0, .Lstub_name_273
-    add x0, x0, :lo12:.Lstub_name_273
+    adrp x0, .Lstub_name_272
+    add x0, x0, :lo12:.Lstub_name_272
     b ArtsStubCalled
     .size _ZN7mmInput16ProcessJoyEventsEv, . - _ZN7mmInput16ProcessJoyEventsEv
 
@@ -2478,8 +2469,8 @@ _ZN7mmInput16ProcessJoyEventsEv:
     .global _ZN7mmInput18ClearEventHitFlagsEv
     .type _ZN7mmInput18ClearEventHitFlagsEv, %function
 _ZN7mmInput18ClearEventHitFlagsEv:
-    adrp x0, .Lstub_name_274
-    add x0, x0, :lo12:.Lstub_name_274
+    adrp x0, .Lstub_name_273
+    add x0, x0, :lo12:.Lstub_name_273
     b ArtsStubCalled
     .size _ZN7mmInput18ClearEventHitFlagsEv, . - _ZN7mmInput18ClearEventHitFlagsEv
 
@@ -2487,8 +2478,8 @@ _ZN7mmInput18ClearEventHitFlagsEv:
     .global _ZN8mmJoyManC1Ev
     .type _ZN8mmJoyManC1Ev, %function
 _ZN8mmJoyManC1Ev:
-    adrp x0, .Lstub_name_275
-    add x0, x0, :lo12:.Lstub_name_275
+    adrp x0, .Lstub_name_274
+    add x0, x0, :lo12:.Lstub_name_274
     b ArtsStubCalled
     .size _ZN8mmJoyManC1Ev, . - _ZN8mmJoyManC1Ev
 
@@ -2496,8 +2487,8 @@ _ZN8mmJoyManC1Ev:
     .global _ZN7mmInput20RestoreDefaultConfigEi
     .type _ZN7mmInput20RestoreDefaultConfigEi, %function
 _ZN7mmInput20RestoreDefaultConfigEi:
-    adrp x0, .Lstub_name_276
-    add x0, x0, :lo12:.Lstub_name_276
+    adrp x0, .Lstub_name_275
+    add x0, x0, :lo12:.Lstub_name_275
     b ArtsStubCalled
     .size _ZN7mmInput20RestoreDefaultConfigEi, . - _ZN7mmInput20RestoreDefaultConfigEi
 
@@ -2505,8 +2496,8 @@ _ZN7mmInput20RestoreDefaultConfigEi:
     .global _ZN7mmInput14GetThrottleValEv
     .type _ZN7mmInput14GetThrottleValEv, %function
 _ZN7mmInput14GetThrottleValEv:
-    adrp x0, .Lstub_name_277
-    add x0, x0, :lo12:.Lstub_name_277
+    adrp x0, .Lstub_name_276
+    add x0, x0, :lo12:.Lstub_name_276
     b ArtsStubCalled
     .size _ZN7mmInput14GetThrottleValEv, . - _ZN7mmInput14GetThrottleValEv
 
@@ -2514,8 +2505,8 @@ _ZN7mmInput14GetThrottleValEv:
     .global _ZN7mmInput15PutEventInQueueEl
     .type _ZN7mmInput15PutEventInQueueEl, %function
 _ZN7mmInput15PutEventInQueueEl:
-    adrp x0, .Lstub_name_278
-    add x0, x0, :lo12:.Lstub_name_278
+    adrp x0, .Lstub_name_277
+    add x0, x0, :lo12:.Lstub_name_277
     b ArtsStubCalled
     .size _ZN7mmInput15PutEventInQueueEl, . - _ZN7mmInput15PutEventInQueueEl
 
@@ -2523,8 +2514,8 @@ _ZN7mmInput15PutEventInQueueEl:
     .global _ZN7mmInput10PollStatesEv
     .type _ZN7mmInput10PollStatesEv, %function
 _ZN7mmInput10PollStatesEv:
-    adrp x0, .Lstub_name_279
-    add x0, x0, :lo12:.Lstub_name_279
+    adrp x0, .Lstub_name_278
+    add x0, x0, :lo12:.Lstub_name_278
     b ArtsStubCalled
     .size _ZN7mmInput10PollStatesEv, . - _ZN7mmInput10PollStatesEv
 
@@ -2532,8 +2523,8 @@ _ZN7mmInput10PollStatesEv:
     .global _ZN8mmJoyMan6UpdateEv
     .type _ZN8mmJoyMan6UpdateEv, %function
 _ZN8mmJoyMan6UpdateEv:
-    adrp x0, .Lstub_name_280
-    add x0, x0, :lo12:.Lstub_name_280
+    adrp x0, .Lstub_name_279
+    add x0, x0, :lo12:.Lstub_name_279
     b ArtsStubCalled
     .size _ZN8mmJoyMan6UpdateEv, . - _ZN8mmJoyMan6UpdateEv
 
@@ -2541,8 +2532,8 @@ _ZN8mmJoyMan6UpdateEv:
     .global _ZN8mmJoyMan14GenerateEventsEv
     .type _ZN8mmJoyMan14GenerateEventsEv, %function
 _ZN8mmJoyMan14GenerateEventsEv:
-    adrp x0, .Lstub_name_281
-    add x0, x0, :lo12:.Lstub_name_281
+    adrp x0, .Lstub_name_280
+    add x0, x0, :lo12:.Lstub_name_280
     b ArtsStubCalled
     .size _ZN8mmJoyMan14GenerateEventsEv, . - _ZN8mmJoyMan14GenerateEventsEv
 
@@ -2550,8 +2541,8 @@ _ZN8mmJoyMan14GenerateEventsEv:
     .global _ZN7mmInput13ProcessStatesEv
     .type _ZN7mmInput13ProcessStatesEv, %function
 _ZN7mmInput13ProcessStatesEv:
-    adrp x0, .Lstub_name_282
-    add x0, x0, :lo12:.Lstub_name_282
+    adrp x0, .Lstub_name_281
+    add x0, x0, :lo12:.Lstub_name_281
     b ArtsStubCalled
     .size _ZN7mmInput13ProcessStatesEv, . - _ZN7mmInput13ProcessStatesEv
 
@@ -2559,10 +2550,19 @@ _ZN7mmInput13ProcessStatesEv:
     .global _ZN7mmIODev6AssignEiii
     .type _ZN7mmIODev6AssignEiii, %function
 _ZN7mmIODev6AssignEiii:
+    adrp x0, .Lstub_name_282
+    add x0, x0, :lo12:.Lstub_name_282
+    b ArtsStubCalled
+    .size _ZN7mmIODev6AssignEiii, . - _ZN7mmIODev6AssignEiii
+
+    // mmIODev::Init(int, long)
+    .global _ZN7mmIODev4InitEil
+    .type _ZN7mmIODev4InitEil, %function
+_ZN7mmIODev4InitEil:
     adrp x0, .Lstub_name_283
     add x0, x0, :lo12:.Lstub_name_283
     b ArtsStubCalled
-    .size _ZN7mmIODev6AssignEiii, . - _ZN7mmIODev6AssignEiii
+    .size _ZN7mmIODev4InitEil, . - _ZN7mmIODev4InitEil
 
     // AngelReadKeyString(unsigned int)
     .global _Z18AngelReadKeyStringj
@@ -2573,21 +2573,12 @@ _Z18AngelReadKeyStringj:
     b ArtsStubCalled
     .size _Z18AngelReadKeyStringj, . - _Z18AngelReadKeyStringj
 
-    // mmIODev::Init(int, long)
-    .global _ZN7mmIODev4InitEil
-    .type _ZN7mmIODev4InitEil, %function
-_ZN7mmIODev4InitEil:
-    adrp x0, .Lstub_name_285
-    add x0, x0, :lo12:.Lstub_name_285
-    b ArtsStubCalled
-    .size _ZN7mmIODev4InitEil, . - _ZN7mmIODev4InitEil
-
     // PUMenuBase::~PUMenuBase()
     .global _ZN10PUMenuBaseD2Ev
     .type _ZN10PUMenuBaseD2Ev, %function
 _ZN10PUMenuBaseD2Ev:
-    adrp x0, .Lstub_name_286
-    add x0, x0, :lo12:.Lstub_name_286
+    adrp x0, .Lstub_name_285
+    add x0, x0, :lo12:.Lstub_name_285
     b ArtsStubCalled
     .size _ZN10PUMenuBaseD2Ev, . - _ZN10PUMenuBaseD2Ev
 
@@ -2595,8 +2586,8 @@ _ZN10PUMenuBaseD2Ev:
     .global _ZN10PUMenuBase6UpdateEv
     .type _ZN10PUMenuBase6UpdateEv, %function
 _ZN10PUMenuBase6UpdateEv:
-    adrp x0, .Lstub_name_287
-    add x0, x0, :lo12:.Lstub_name_287
+    adrp x0, .Lstub_name_286
+    add x0, x0, :lo12:.Lstub_name_286
     b ArtsStubCalled
     .size _ZN10PUMenuBase6UpdateEv, . - _ZN10PUMenuBase6UpdateEv
 
@@ -2604,8 +2595,8 @@ _ZN10PUMenuBase6UpdateEv:
     .global _ZN6UIMenu9PostSetupEv
     .type _ZN6UIMenu9PostSetupEv, %function
 _ZN6UIMenu9PostSetupEv:
-    adrp x0, .Lstub_name_288
-    add x0, x0, :lo12:.Lstub_name_288
+    adrp x0, .Lstub_name_287
+    add x0, x0, :lo12:.Lstub_name_287
     b ArtsStubCalled
     .size _ZN6UIMenu9PostSetupEv, . - _ZN6UIMenu9PostSetupEv
 
@@ -2613,8 +2604,8 @@ _ZN6UIMenu9PostSetupEv:
     .global _ZN6UIMenu6BackUpEv
     .type _ZN6UIMenu6BackUpEv, %function
 _ZN6UIMenu6BackUpEv:
-    adrp x0, .Lstub_name_289
-    add x0, x0, :lo12:.Lstub_name_289
+    adrp x0, .Lstub_name_288
+    add x0, x0, :lo12:.Lstub_name_288
     b ArtsStubCalled
     .size _ZN6UIMenu6BackUpEv, . - _ZN6UIMenu6BackUpEv
 
@@ -2622,8 +2613,8 @@ _ZN6UIMenu6BackUpEv:
     .global _ZN6UIMenu10CheckInputEv
     .type _ZN6UIMenu10CheckInputEv, %function
 _ZN6UIMenu10CheckInputEv:
-    adrp x0, .Lstub_name_290
-    add x0, x0, :lo12:.Lstub_name_290
+    adrp x0, .Lstub_name_289
+    add x0, x0, :lo12:.Lstub_name_289
     b ArtsStubCalled
     .size _ZN6UIMenu10CheckInputEv, . - _ZN6UIMenu10CheckInputEv
 
@@ -2631,8 +2622,8 @@ _ZN6UIMenu10CheckInputEv:
     .global _ZN14UITextDropdown12AssignStringE6string
     .type _ZN14UITextDropdown12AssignStringE6string, %function
 _ZN14UITextDropdown12AssignStringE6string:
-    adrp x0, .Lstub_name_291
-    add x0, x0, :lo12:.Lstub_name_291
+    adrp x0, .Lstub_name_290
+    add x0, x0, :lo12:.Lstub_name_290
     b ArtsStubCalled
     .size _ZN14UITextDropdown12AssignStringE6string, . - _ZN14UITextDropdown12AssignStringE6string
 
@@ -2640,8 +2631,8 @@ _ZN14UITextDropdown12AssignStringE6string:
     .global _ZN14UITextDropdown8SetValueEi
     .type _ZN14UITextDropdown8SetValueEi, %function
 _ZN14UITextDropdown8SetValueEi:
-    adrp x0, .Lstub_name_292
-    add x0, x0, :lo12:.Lstub_name_292
+    adrp x0, .Lstub_name_291
+    add x0, x0, :lo12:.Lstub_name_291
     b ArtsStubCalled
     .size _ZN14UITextDropdown8SetValueEi, . - _ZN14UITextDropdown8SetValueEi
 
@@ -2649,8 +2640,8 @@ _ZN14UITextDropdown8SetValueEi:
     .global _Z16SetTexQualStringv
     .type _Z16SetTexQualStringv, %function
 _Z16SetTexQualStringv:
-    adrp x0, .Lstub_name_293
-    add x0, x0, :lo12:.Lstub_name_293
+    adrp x0, .Lstub_name_292
+    add x0, x0, :lo12:.Lstub_name_292
     b ArtsStubCalled
     .size _Z16SetTexQualStringv, . - _Z16SetTexQualStringv
 
@@ -2658,8 +2649,8 @@ _Z16SetTexQualStringv:
     .global _ZN6UIMenuC2Ei
     .type _ZN6UIMenuC2Ei, %function
 _ZN6UIMenuC2Ei:
-    adrp x0, .Lstub_name_294
-    add x0, x0, :lo12:.Lstub_name_294
+    adrp x0, .Lstub_name_293
+    add x0, x0, :lo12:.Lstub_name_293
     b ArtsStubCalled
     .size _ZN6UIMenuC2Ei, . - _ZN6UIMenuC2Ei
 
@@ -2667,8 +2658,8 @@ _ZN6UIMenuC2Ei:
     .global _ZN6UIMenu10AssignNameEP9LocString
     .type _ZN6UIMenu10AssignNameEP9LocString, %function
 _ZN6UIMenu10AssignNameEP9LocString:
-    adrp x0, .Lstub_name_295
-    add x0, x0, :lo12:.Lstub_name_295
+    adrp x0, .Lstub_name_294
+    add x0, x0, :lo12:.Lstub_name_294
     b ArtsStubCalled
     .size _ZN6UIMenu10AssignNameEP9LocString, . - _ZN6UIMenu10AssignNameEP9LocString
 
@@ -2676,8 +2667,8 @@ _ZN6UIMenu10AssignNameEP9LocString:
     .global _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_
     .type _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_, %function
 _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_:
-    adrp x0, .Lstub_name_296
-    add x0, x0, :lo12:.Lstub_name_296
+    adrp x0, .Lstub_name_295
+    add x0, x0, :lo12:.Lstub_name_295
     b ArtsStubCalled
     .size _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_, . - _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_
 
@@ -2685,8 +2676,8 @@ _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_:
     .global _ZN6UIMenu9SetBstateEi
     .type _ZN6UIMenu9SetBstateEi, %function
 _ZN6UIMenu9SetBstateEi:
-    adrp x0, .Lstub_name_297
-    add x0, x0, :lo12:.Lstub_name_297
+    adrp x0, .Lstub_name_296
+    add x0, x0, :lo12:.Lstub_name_296
     b ArtsStubCalled
     .size _ZN6UIMenu9SetBstateEi, . - _ZN6UIMenu9SetBstateEi
 
@@ -2694,8 +2685,8 @@ _ZN6UIMenu9SetBstateEi:
     .global _ZN6UIMenuD2Ev
     .type _ZN6UIMenuD2Ev, %function
 _ZN6UIMenuD2Ev:
-    adrp x0, .Lstub_name_298
-    add x0, x0, :lo12:.Lstub_name_298
+    adrp x0, .Lstub_name_297
+    add x0, x0, :lo12:.Lstub_name_297
     b ArtsStubCalled
     .size _ZN6UIMenuD2Ev, . - _ZN6UIMenuD2Ev
 
@@ -2703,8 +2694,8 @@ _ZN6UIMenuD2Ev:
     .global _ZN6UIMenu6UpdateEv
     .type _ZN6UIMenu6UpdateEv, %function
 _ZN6UIMenu6UpdateEv:
-    adrp x0, .Lstub_name_299
-    add x0, x0, :lo12:.Lstub_name_299
+    adrp x0, .Lstub_name_298
+    add x0, x0, :lo12:.Lstub_name_298
     b ArtsStubCalled
     .size _ZN6UIMenu6UpdateEv, . - _ZN6UIMenu6UpdateEv
 
@@ -2712,8 +2703,8 @@ _ZN6UIMenu6UpdateEv:
     .global _ZN6UIMenu14SetFocusWidgetEi
     .type _ZN6UIMenu14SetFocusWidgetEi, %function
 _ZN6UIMenu14SetFocusWidgetEi:
-    adrp x0, .Lstub_name_300
-    add x0, x0, :lo12:.Lstub_name_300
+    adrp x0, .Lstub_name_299
+    add x0, x0, :lo12:.Lstub_name_299
     b ArtsStubCalled
     .size _ZN6UIMenu14SetFocusWidgetEi, . - _ZN6UIMenu14SetFocusWidgetEi
 
@@ -2721,8 +2712,8 @@ _ZN6UIMenu14SetFocusWidgetEi:
     .global _ZN6UIMenu10AddHotSpotEiPKcffff8Callback
     .type _ZN6UIMenu10AddHotSpotEiPKcffff8Callback, %function
 _ZN6UIMenu10AddHotSpotEiPKcffff8Callback:
-    adrp x0, .Lstub_name_301
-    add x0, x0, :lo12:.Lstub_name_301
+    adrp x0, .Lstub_name_300
+    add x0, x0, :lo12:.Lstub_name_300
     b ArtsStubCalled
     .size _ZN6UIMenu10AddHotSpotEiPKcffff8Callback, . - _ZN6UIMenu10AddHotSpotEiPKcffff8Callback
 
@@ -2730,8 +2721,8 @@ _ZN6UIMenu10AddHotSpotEiPKcffff8Callback:
     .global _ZN8uiNavBar10SetPrevPosEff
     .type _ZN8uiNavBar10SetPrevPosEff, %function
 _ZN8uiNavBar10SetPrevPosEff:
-    adrp x0, .Lstub_name_302
-    add x0, x0, :lo12:.Lstub_name_302
+    adrp x0, .Lstub_name_301
+    add x0, x0, :lo12:.Lstub_name_301
     b ArtsStubCalled
     .size _ZN8uiNavBar10SetPrevPosEff, . - _ZN8uiNavBar10SetPrevPosEff
 
@@ -2739,8 +2730,8 @@ _ZN8uiNavBar10SetPrevPosEff:
     .global _ZN10PUMenuBase11CreateTitleEv
     .type _ZN10PUMenuBase11CreateTitleEv, %function
 _ZN10PUMenuBase11CreateTitleEv:
-    adrp x0, .Lstub_name_303
-    add x0, x0, :lo12:.Lstub_name_303
+    adrp x0, .Lstub_name_302
+    add x0, x0, :lo12:.Lstub_name_302
     b ArtsStubCalled
     .size _ZN10PUMenuBase11CreateTitleEv, . - _ZN10PUMenuBase11CreateTitleEv
 
@@ -2748,8 +2739,8 @@ _ZN10PUMenuBase11CreateTitleEv:
     .global _ZN10PUMenuBase7AddExitEffff
     .type _ZN10PUMenuBase7AddExitEffff, %function
 _ZN10PUMenuBase7AddExitEffff:
-    adrp x0, .Lstub_name_304
-    add x0, x0, :lo12:.Lstub_name_304
+    adrp x0, .Lstub_name_303
+    add x0, x0, :lo12:.Lstub_name_303
     b ArtsStubCalled
     .size _ZN10PUMenuBase7AddExitEffff, . - _ZN10PUMenuBase7AddExitEffff
 
@@ -2757,8 +2748,8 @@ _ZN10PUMenuBase7AddExitEffff:
     .global _ZN11MenuManager7GetFontEi
     .type _ZN11MenuManager7GetFontEi, %function
 _ZN11MenuManager7GetFontEi:
-    adrp x0, .Lstub_name_305
-    add x0, x0, :lo12:.Lstub_name_305
+    adrp x0, .Lstub_name_304
+    add x0, x0, :lo12:.Lstub_name_304
     b ArtsStubCalled
     .size _ZN11MenuManager7GetFontEi, . - _ZN11MenuManager7GetFontEi
 
@@ -2766,8 +2757,8 @@ _ZN11MenuManager7GetFontEi:
     .global _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback
     .type _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback, %function
 _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback:
-    adrp x0, .Lstub_name_306
-    add x0, x0, :lo12:.Lstub_name_306
+    adrp x0, .Lstub_name_305
+    add x0, x0, :lo12:.Lstub_name_305
     b ArtsStubCalled
     .size _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback, . - _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback
 
@@ -2775,8 +2766,8 @@ _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback:
     .global _ZN6UIMenu10FindWidgetEi
     .type _ZN6UIMenu10FindWidgetEi, %function
 _ZN6UIMenu10FindWidgetEi:
-    adrp x0, .Lstub_name_307
-    add x0, x0, :lo12:.Lstub_name_307
+    adrp x0, .Lstub_name_306
+    add x0, x0, :lo12:.Lstub_name_306
     b ArtsStubCalled
     .size _ZN6UIMenu10FindWidgetEi, . - _ZN6UIMenu10FindWidgetEi
 
@@ -2784,8 +2775,8 @@ _ZN6UIMenu10FindWidgetEi:
     .global _ZN8uiWidget10SetEnabledEb
     .type _ZN8uiWidget10SetEnabledEb, %function
 _ZN8uiWidget10SetEnabledEb:
-    adrp x0, .Lstub_name_308
-    add x0, x0, :lo12:.Lstub_name_308
+    adrp x0, .Lstub_name_307
+    add x0, x0, :lo12:.Lstub_name_307
     b ArtsStubCalled
     .size _ZN8uiWidget10SetEnabledEb, . - _ZN8uiWidget10SetEnabledEb
 
@@ -2793,8 +2784,8 @@ _ZN8uiWidget10SetEnabledEb:
     .global _ZN10PUMenuBase17CreateDummyBitmapEv
     .type _ZN10PUMenuBase17CreateDummyBitmapEv, %function
 _ZN10PUMenuBase17CreateDummyBitmapEv:
-    adrp x0, .Lstub_name_309
-    add x0, x0, :lo12:.Lstub_name_309
+    adrp x0, .Lstub_name_308
+    add x0, x0, :lo12:.Lstub_name_308
     b ArtsStubCalled
     .size _ZN10PUMenuBase17CreateDummyBitmapEv, . - _ZN10PUMenuBase17CreateDummyBitmapEv
 
@@ -2802,8 +2793,8 @@ _ZN10PUMenuBase17CreateDummyBitmapEv:
     .global _ZN9PUResults7Init320Ev
     .type _ZN9PUResults7Init320Ev, %function
 _ZN9PUResults7Init320Ev:
-    adrp x0, .Lstub_name_310
-    add x0, x0, :lo12:.Lstub_name_310
+    adrp x0, .Lstub_name_309
+    add x0, x0, :lo12:.Lstub_name_309
     b ArtsStubCalled
     .size _ZN9PUResults7Init320Ev, . - _ZN9PUResults7Init320Ev
 
@@ -2811,8 +2802,8 @@ _ZN9PUResults7Init320Ev:
     .global _ZN9PUResults5ResetEv
     .type _ZN9PUResults5ResetEv, %function
 _ZN9PUResults5ResetEv:
-    adrp x0, .Lstub_name_311
-    add x0, x0, :lo12:.Lstub_name_311
+    adrp x0, .Lstub_name_310
+    add x0, x0, :lo12:.Lstub_name_310
     b ArtsStubCalled
     .size _ZN9PUResults5ResetEv, . - _ZN9PUResults5ResetEv
 
@@ -2820,8 +2811,8 @@ _ZN9PUResults5ResetEv:
     .global _ZN6UIMenu8PreSetupEv
     .type _ZN6UIMenu8PreSetupEv, %function
 _ZN6UIMenu8PreSetupEv:
-    adrp x0, .Lstub_name_312
-    add x0, x0, :lo12:.Lstub_name_312
+    adrp x0, .Lstub_name_311
+    add x0, x0, :lo12:.Lstub_name_311
     b ArtsStubCalled
     .size _ZN6UIMenu8PreSetupEv, . - _ZN6UIMenu8PreSetupEv
 
@@ -2829,8 +2820,8 @@ _ZN6UIMenu8PreSetupEv:
     .global _ZN12RaceMenuBaseD2Ev
     .type _ZN12RaceMenuBaseD2Ev, %function
 _ZN12RaceMenuBaseD2Ev:
-    adrp x0, .Lstub_name_313
-    add x0, x0, :lo12:.Lstub_name_313
+    adrp x0, .Lstub_name_312
+    add x0, x0, :lo12:.Lstub_name_312
     b ArtsStubCalled
     .size _ZN12RaceMenuBaseD2Ev, . - _ZN12RaceMenuBaseD2Ev
 
@@ -2838,62 +2829,17 @@ _ZN12RaceMenuBaseD2Ev:
     .global _ZN6UIMenu16AssignBackgroundEPKc
     .type _ZN6UIMenu16AssignBackgroundEPKc, %function
 _ZN6UIMenu16AssignBackgroundEPKc:
-    adrp x0, .Lstub_name_314
-    add x0, x0, :lo12:.Lstub_name_314
+    adrp x0, .Lstub_name_313
+    add x0, x0, :lo12:.Lstub_name_313
     b ArtsStubCalled
     .size _ZN6UIMenu16AssignBackgroundEPKc, . - _ZN6UIMenu16AssignBackgroundEPKc
-
-    // RadialGauge::Init(char const*, char const*, float*, float*, float)
-    .global _ZN11RadialGauge4InitEPKcS1_PfS2_f
-    .type _ZN11RadialGauge4InitEPKcS1_PfS2_f, %function
-_ZN11RadialGauge4InitEPKcS1_PfS2_f:
-    adrp x0, .Lstub_name_315
-    add x0, x0, :lo12:.Lstub_name_315
-    b ArtsStubCalled
-    .size _ZN11RadialGauge4InitEPKcS1_PfS2_f, . - _ZN11RadialGauge4InitEPKcS1_PfS2_f
-
-    // mmTransmission::GetCurrentGear()
-    .global _ZN14mmTransmission14GetCurrentGearEv
-    .type _ZN14mmTransmission14GetCurrentGearEv, %function
-_ZN14mmTransmission14GetCurrentGearEv:
-    adrp x0, .Lstub_name_316
-    add x0, x0, :lo12:.Lstub_name_316
-    b ArtsStubCalled
-    .size _ZN14mmTransmission14GetCurrentGearEv, . - _ZN14mmTransmission14GetCurrentGearEv
-
-    // mmLinearGauge::mmLinearGauge()
-    .global _ZN13mmLinearGaugeC1Ev
-    .type _ZN13mmLinearGaugeC1Ev, %function
-_ZN13mmLinearGaugeC1Ev:
-    adrp x0, .Lstub_name_317
-    add x0, x0, :lo12:.Lstub_name_317
-    b ArtsStubCalled
-    .size _ZN13mmLinearGaugeC1Ev, . - _ZN13mmLinearGaugeC1Ev
-
-    // RadialGauge::RadialGauge()
-    .global _ZN11RadialGaugeC1Ev
-    .type _ZN11RadialGaugeC1Ev, %function
-_ZN11RadialGaugeC1Ev:
-    adrp x0, .Lstub_name_318
-    add x0, x0, :lo12:.Lstub_name_318
-    b ArtsStubCalled
-    .size _ZN11RadialGaugeC1Ev, . - _ZN11RadialGaugeC1Ev
-
-    // asForm::asForm()
-    .global _ZN6asFormC1Ev
-    .type _ZN6asFormC1Ev, %function
-_ZN6asFormC1Ev:
-    adrp x0, .Lstub_name_319
-    add x0, x0, :lo12:.Lstub_name_319
-    b ArtsStubCalled
-    .size _ZN6asFormC1Ev, . - _ZN6asFormC1Ev
 
     // mmMiscData::mmMiscData()
     .global _ZN10mmMiscDataC1Ev
     .type _ZN10mmMiscDataC1Ev, %function
 _ZN10mmMiscDataC1Ev:
-    adrp x0, .Lstub_name_320
-    add x0, x0, :lo12:.Lstub_name_320
+    adrp x0, .Lstub_name_314
+    add x0, x0, :lo12:.Lstub_name_314
     b ArtsStubCalled
     .size _ZN10mmMiscDataC1Ev, . - _ZN10mmMiscDataC1Ev
 
@@ -2901,8 +2847,8 @@ _ZN10mmMiscDataC1Ev:
     .global _ZN14mmPlayerConfigC1Ev
     .type _ZN14mmPlayerConfigC1Ev, %function
 _ZN14mmPlayerConfigC1Ev:
-    adrp x0, .Lstub_name_321
-    add x0, x0, :lo12:.Lstub_name_321
+    adrp x0, .Lstub_name_315
+    add x0, x0, :lo12:.Lstub_name_315
     b ArtsStubCalled
     .size _ZN14mmPlayerConfigC1Ev, . - _ZN14mmPlayerConfigC1Ev
 
@@ -2910,8 +2856,8 @@ _ZN14mmPlayerConfigC1Ev:
     .global _ZN14mmPlayerConfig11GetControlsEv
     .type _ZN14mmPlayerConfig11GetControlsEv, %function
 _ZN14mmPlayerConfig11GetControlsEv:
-    adrp x0, .Lstub_name_322
-    add x0, x0, :lo12:.Lstub_name_322
+    adrp x0, .Lstub_name_316
+    add x0, x0, :lo12:.Lstub_name_316
     b ArtsStubCalled
     .size _ZN14mmPlayerConfig11GetControlsEv, . - _ZN14mmPlayerConfig11GetControlsEv
 
@@ -2919,8 +2865,8 @@ _ZN14mmPlayerConfig11GetControlsEv:
     .global _ZN14mmPlayerConfig8GetAudioEv
     .type _ZN14mmPlayerConfig8GetAudioEv, %function
 _ZN14mmPlayerConfig8GetAudioEv:
-    adrp x0, .Lstub_name_323
-    add x0, x0, :lo12:.Lstub_name_323
+    adrp x0, .Lstub_name_317
+    add x0, x0, :lo12:.Lstub_name_317
     b ArtsStubCalled
     .size _ZN14mmPlayerConfig8GetAudioEv, . - _ZN14mmPlayerConfig8GetAudioEv
 
@@ -2928,8 +2874,8 @@ _ZN14mmPlayerConfig8GetAudioEv:
     .global _ZN14mmPlayerConfig11GetGraphicsEv
     .type _ZN14mmPlayerConfig11GetGraphicsEv, %function
 _ZN14mmPlayerConfig11GetGraphicsEv:
-    adrp x0, .Lstub_name_324
-    add x0, x0, :lo12:.Lstub_name_324
+    adrp x0, .Lstub_name_318
+    add x0, x0, :lo12:.Lstub_name_318
     b ArtsStubCalled
     .size _ZN14mmPlayerConfig11GetGraphicsEv, . - _ZN14mmPlayerConfig11GetGraphicsEv
 
@@ -2937,8 +2883,8 @@ _ZN14mmPlayerConfig11GetGraphicsEv:
     .global _ZN8mmHudMap7SetModeEi
     .type _ZN8mmHudMap7SetModeEi, %function
 _ZN8mmHudMap7SetModeEi:
-    adrp x0, .Lstub_name_325
-    add x0, x0, :lo12:.Lstub_name_325
+    adrp x0, .Lstub_name_319
+    add x0, x0, :lo12:.Lstub_name_319
     b ArtsStubCalled
     .size _ZN8mmHudMap7SetModeEi, . - _ZN8mmHudMap7SetModeEi
 
@@ -2946,8 +2892,8 @@ _ZN8mmHudMap7SetModeEi:
     .global _ZN14mmPlayerConfig15GetViewSettingsEv
     .type _ZN14mmPlayerConfig15GetViewSettingsEv, %function
 _ZN14mmPlayerConfig15GetViewSettingsEv:
-    adrp x0, .Lstub_name_326
-    add x0, x0, :lo12:.Lstub_name_326
+    adrp x0, .Lstub_name_320
+    add x0, x0, :lo12:.Lstub_name_320
     b ArtsStubCalled
     .size _ZN14mmPlayerConfig15GetViewSettingsEv, . - _ZN14mmPlayerConfig15GetViewSettingsEv
 
@@ -2955,8 +2901,8 @@ _ZN14mmPlayerConfig15GetViewSettingsEv:
     .global _ZN12mmPlayerData11GetFileNameEv
     .type _ZN12mmPlayerData11GetFileNameEv, %function
 _ZN12mmPlayerData11GetFileNameEv:
-    adrp x0, .Lstub_name_327
-    add x0, x0, :lo12:.Lstub_name_327
+    adrp x0, .Lstub_name_321
+    add x0, x0, :lo12:.Lstub_name_321
     b ArtsStubCalled
     .size _ZN12mmPlayerData11GetFileNameEv, . - _ZN12mmPlayerData11GetFileNameEv
 
@@ -2964,8 +2910,8 @@ _ZN12mmPlayerData11GetFileNameEv:
     .global _ZN14mmPlayerConfig4SaveEPcb
     .type _ZN14mmPlayerConfig4SaveEPcb, %function
 _ZN14mmPlayerConfig4SaveEPcb:
-    adrp x0, .Lstub_name_328
-    add x0, x0, :lo12:.Lstub_name_328
+    adrp x0, .Lstub_name_322
+    add x0, x0, :lo12:.Lstub_name_322
     b ArtsStubCalled
     .size _ZN14mmPlayerConfig4SaveEPcb, . - _ZN14mmPlayerConfig4SaveEPcb
 
@@ -2973,8 +2919,8 @@ _ZN14mmPlayerConfig4SaveEPcb:
     .global _Z13DumpPositionsPKc
     .type _Z13DumpPositionsPKc, %function
 _Z13DumpPositionsPKc:
-    adrp x0, .Lstub_name_329
-    add x0, x0, :lo12:.Lstub_name_329
+    adrp x0, .Lstub_name_323
+    add x0, x0, :lo12:.Lstub_name_323
     b ArtsStubCalled
     .size _Z13DumpPositionsPKc, . - _Z13DumpPositionsPKc
 
@@ -2982,8 +2928,8 @@ _Z13DumpPositionsPKc:
     .global _ZN5aiMap5CleanEv
     .type _ZN5aiMap5CleanEv, %function
 _ZN5aiMap5CleanEv:
-    adrp x0, .Lstub_name_330
-    add x0, x0, :lo12:.Lstub_name_330
+    adrp x0, .Lstub_name_324
+    add x0, x0, :lo12:.Lstub_name_324
     b ArtsStubCalled
     .size _ZN5aiMap5CleanEv, . - _ZN5aiMap5CleanEv
 
@@ -2991,8 +2937,8 @@ _ZN5aiMap5CleanEv:
     .global _ZN9mmAnimMgrD1Ev
     .type _ZN9mmAnimMgrD1Ev, %function
 _ZN9mmAnimMgrD1Ev:
-    adrp x0, .Lstub_name_331
-    add x0, x0, :lo12:.Lstub_name_331
+    adrp x0, .Lstub_name_325
+    add x0, x0, :lo12:.Lstub_name_325
     b ArtsStubCalled
     .size _ZN9mmAnimMgrD1Ev, . - _ZN9mmAnimMgrD1Ev
 
@@ -3000,8 +2946,8 @@ _ZN9mmAnimMgrD1Ev:
     .global _ZN12mmPhysicsMGR8ShutdownEv
     .type _ZN12mmPhysicsMGR8ShutdownEv, %function
 _ZN12mmPhysicsMGR8ShutdownEv:
-    adrp x0, .Lstub_name_332
-    add x0, x0, :lo12:.Lstub_name_332
+    adrp x0, .Lstub_name_326
+    add x0, x0, :lo12:.Lstub_name_326
     b ArtsStubCalled
     .size _ZN12mmPhysicsMGR8ShutdownEv, . - _ZN12mmPhysicsMGR8ShutdownEv
 
@@ -3009,8 +2955,8 @@ _ZN12mmPhysicsMGR8ShutdownEv:
     .global _ZN14mmAmbientAudioD1Ev
     .type _ZN14mmAmbientAudioD1Ev, %function
 _ZN14mmAmbientAudioD1Ev:
-    adrp x0, .Lstub_name_333
-    add x0, x0, :lo12:.Lstub_name_333
+    adrp x0, .Lstub_name_327
+    add x0, x0, :lo12:.Lstub_name_327
     b ArtsStubCalled
     .size _ZN14mmAmbientAudioD1Ev, . - _ZN14mmAmbientAudioD1Ev
 
@@ -3018,8 +2964,8 @@ _ZN14mmAmbientAudioD1Ev:
     .global _ZN14mmPlayerConfigD1Ev
     .type _ZN14mmPlayerConfigD1Ev, %function
 _ZN14mmPlayerConfigD1Ev:
-    adrp x0, .Lstub_name_334
-    add x0, x0, :lo12:.Lstub_name_334
+    adrp x0, .Lstub_name_328
+    add x0, x0, :lo12:.Lstub_name_328
     b ArtsStubCalled
     .size _ZN14mmPlayerConfigD1Ev, . - _ZN14mmPlayerConfigD1Ev
 
@@ -3027,8 +2973,8 @@ _ZN14mmPlayerConfigD1Ev:
     .global _ZN10mmMiscDataD1Ev
     .type _ZN10mmMiscDataD1Ev, %function
 _ZN10mmMiscDataD1Ev:
-    adrp x0, .Lstub_name_335
-    add x0, x0, :lo12:.Lstub_name_335
+    adrp x0, .Lstub_name_329
+    add x0, x0, :lo12:.Lstub_name_329
     b ArtsStubCalled
     .size _ZN10mmMiscDataD1Ev, . - _ZN10mmMiscDataD1Ev
 
@@ -3036,8 +2982,8 @@ _ZN10mmMiscDataD1Ev:
     .global _ZN8AudSoundD1Ev
     .type _ZN8AudSoundD1Ev, %function
 _ZN8AudSoundD1Ev:
-    adrp x0, .Lstub_name_336
-    add x0, x0, :lo12:.Lstub_name_336
+    adrp x0, .Lstub_name_330
+    add x0, x0, :lo12:.Lstub_name_330
     b ArtsStubCalled
     .size _ZN8AudSoundD1Ev, . - _ZN8AudSoundD1Ev
 
@@ -3045,8 +2991,8 @@ _ZN8AudSoundD1Ev:
     .global _ZN7mmIconsD1Ev
     .type _ZN7mmIconsD1Ev, %function
 _ZN7mmIconsD1Ev:
-    adrp x0, .Lstub_name_337
-    add x0, x0, :lo12:.Lstub_name_337
+    adrp x0, .Lstub_name_331
+    add x0, x0, :lo12:.Lstub_name_331
     b ArtsStubCalled
     .size _ZN7mmIconsD1Ev, . - _ZN7mmIconsD1Ev
 
@@ -3054,8 +3000,8 @@ _ZN7mmIconsD1Ev:
     .global _ZN7mmPopup11ProcessChatEv
     .type _ZN7mmPopup11ProcessChatEv, %function
 _ZN7mmPopup11ProcessChatEv:
-    adrp x0, .Lstub_name_338
-    add x0, x0, :lo12:.Lstub_name_338
+    adrp x0, .Lstub_name_332
+    add x0, x0, :lo12:.Lstub_name_332
     b ArtsStubCalled
     .size _ZN7mmPopup11ProcessChatEv, . - _ZN7mmPopup11ProcessChatEv
 
@@ -3063,8 +3009,8 @@ _ZN7mmPopup11ProcessChatEv:
     .global _ZN7mmPopup13ProcessKeymapEi
     .type _ZN7mmPopup13ProcessKeymapEi, %function
 _ZN7mmPopup13ProcessKeymapEi:
-    adrp x0, .Lstub_name_339
-    add x0, x0, :lo12:.Lstub_name_339
+    adrp x0, .Lstub_name_333
+    add x0, x0, :lo12:.Lstub_name_333
     b ArtsStubCalled
     .size _ZN7mmPopup13ProcessKeymapEi, . - _ZN7mmPopup13ProcessKeymapEi
 
@@ -3072,8 +3018,8 @@ _ZN7mmPopup13ProcessKeymapEi:
     .global _ZN7mmPopup10ShowRosterEv
     .type _ZN7mmPopup10ShowRosterEv, %function
 _ZN7mmPopup10ShowRosterEv:
-    adrp x0, .Lstub_name_340
-    add x0, x0, :lo12:.Lstub_name_340
+    adrp x0, .Lstub_name_334
+    add x0, x0, :lo12:.Lstub_name_334
     b ArtsStubCalled
     .size _ZN7mmPopup10ShowRosterEv, . - _ZN7mmPopup10ShowRosterEv
 
@@ -3081,8 +3027,8 @@ _ZN7mmPopup10ShowRosterEv:
     .global _ZN17mmVoiceCommentary7StopNowEv
     .type _ZN17mmVoiceCommentary7StopNowEv, %function
 _ZN17mmVoiceCommentary7StopNowEv:
-    adrp x0, .Lstub_name_341
-    add x0, x0, :lo12:.Lstub_name_341
+    adrp x0, .Lstub_name_335
+    add x0, x0, :lo12:.Lstub_name_335
     b ArtsStubCalled
     .size _ZN17mmVoiceCommentary7StopNowEv, . - _ZN17mmVoiceCommentary7StopNowEv
 
@@ -3090,8 +3036,8 @@ _ZN17mmVoiceCommentary7StopNowEv:
     .global _ZN7mmPopup13ProcessEscapeEi
     .type _ZN7mmPopup13ProcessEscapeEi, %function
 _ZN7mmPopup13ProcessEscapeEi:
-    adrp x0, .Lstub_name_342
-    add x0, x0, :lo12:.Lstub_name_342
+    adrp x0, .Lstub_name_336
+    add x0, x0, :lo12:.Lstub_name_336
     b ArtsStubCalled
     .size _ZN7mmPopup13ProcessEscapeEi, . - _ZN7mmPopup13ProcessEscapeEi
 
@@ -3099,8 +3045,8 @@ _ZN7mmPopup13ProcessEscapeEi:
     .global _ZN7mmInput8PopEventEPi
     .type _ZN7mmInput8PopEventEPi, %function
 _ZN7mmInput8PopEventEPi:
-    adrp x0, .Lstub_name_343
-    add x0, x0, :lo12:.Lstub_name_343
+    adrp x0, .Lstub_name_337
+    add x0, x0, :lo12:.Lstub_name_337
     b ArtsStubCalled
     .size _ZN7mmInput8PopEventEPi, . - _ZN7mmInput8PopEventEPi
 
@@ -3108,8 +3054,8 @@ _ZN7mmInput8PopEventEPi:
     .global _ZN10mmCDPlayer8PlayStopEv
     .type _ZN10mmCDPlayer8PlayStopEv, %function
 _ZN10mmCDPlayer8PlayStopEv:
-    adrp x0, .Lstub_name_344
-    add x0, x0, :lo12:.Lstub_name_344
+    adrp x0, .Lstub_name_338
+    add x0, x0, :lo12:.Lstub_name_338
     b ArtsStubCalled
     .size _ZN10mmCDPlayer8PlayStopEv, . - _ZN10mmCDPlayer8PlayStopEv
 
@@ -3117,8 +3063,8 @@ _ZN10mmCDPlayer8PlayStopEv:
     .global _ZN8mmHudMap5CycleEv
     .type _ZN8mmHudMap5CycleEv, %function
 _ZN8mmHudMap5CycleEv:
-    adrp x0, .Lstub_name_345
-    add x0, x0, :lo12:.Lstub_name_345
+    adrp x0, .Lstub_name_339
+    add x0, x0, :lo12:.Lstub_name_339
     b ArtsStubCalled
     .size _ZN8mmHudMap5CycleEv, . - _ZN8mmHudMap5CycleEv
 
@@ -3126,8 +3072,8 @@ _ZN8mmHudMap5CycleEv:
     .global _ZN8mmPlayer5IsPOVEv
     .type _ZN8mmPlayer5IsPOVEv, %function
 _ZN8mmPlayer5IsPOVEv:
-    adrp x0, .Lstub_name_346
-    add x0, x0, :lo12:.Lstub_name_346
+    adrp x0, .Lstub_name_340
+    add x0, x0, :lo12:.Lstub_name_340
     b ArtsStubCalled
     .size _ZN8mmPlayer5IsPOVEv, . - _ZN8mmPlayer5IsPOVEv
 
@@ -3135,8 +3081,8 @@ _ZN8mmPlayer5IsPOVEv:
     .global _ZN8mmPlayer10SetWideFOVEb
     .type _ZN8mmPlayer10SetWideFOVEb, %function
 _ZN8mmPlayer10SetWideFOVEb:
-    adrp x0, .Lstub_name_347
-    add x0, x0, :lo12:.Lstub_name_347
+    adrp x0, .Lstub_name_341
+    add x0, x0, :lo12:.Lstub_name_341
     b ArtsStubCalled
     .size _ZN8mmPlayer10SetWideFOVEb, . - _ZN8mmPlayer10SetWideFOVEb
 
@@ -3144,8 +3090,8 @@ _ZN8mmPlayer10SetWideFOVEb:
     .global _ZN14mmTransmission9DownshiftEv
     .type _ZN14mmTransmission9DownshiftEv, %function
 _ZN14mmTransmission9DownshiftEv:
-    adrp x0, .Lstub_name_348
-    add x0, x0, :lo12:.Lstub_name_348
+    adrp x0, .Lstub_name_342
+    add x0, x0, :lo12:.Lstub_name_342
     b ArtsStubCalled
     .size _ZN14mmTransmission9DownshiftEv, . - _ZN14mmTransmission9DownshiftEv
 
@@ -3153,8 +3099,8 @@ _ZN14mmTransmission9DownshiftEv:
     .global _ZN8mmPlayer9ToggleCamEv
     .type _ZN8mmPlayer9ToggleCamEv, %function
 _ZN8mmPlayer9ToggleCamEv:
-    adrp x0, .Lstub_name_349
-    add x0, x0, :lo12:.Lstub_name_349
+    adrp x0, .Lstub_name_343
+    add x0, x0, :lo12:.Lstub_name_343
     b ArtsStubCalled
     .size _ZN8mmPlayer9ToggleCamEv, . - _ZN8mmPlayer9ToggleCamEv
 
@@ -3162,8 +3108,8 @@ _ZN8mmPlayer9ToggleCamEv:
     .global _ZN10mmCDPlayer6ToggleEv
     .type _ZN10mmCDPlayer6ToggleEv, %function
 _ZN10mmCDPlayer6ToggleEv:
-    adrp x0, .Lstub_name_350
-    add x0, x0, :lo12:.Lstub_name_350
+    adrp x0, .Lstub_name_344
+    add x0, x0, :lo12:.Lstub_name_344
     b ArtsStubCalled
     .size _ZN10mmCDPlayer6ToggleEv, . - _ZN10mmCDPlayer6ToggleEv
 
@@ -3171,8 +3117,8 @@ _ZN10mmCDPlayer6ToggleEv:
     .global _ZN8mmHudMap16ToggleFullScreenEv
     .type _ZN8mmHudMap16ToggleFullScreenEv, %function
 _ZN8mmHudMap16ToggleFullScreenEv:
-    adrp x0, .Lstub_name_351
-    add x0, x0, :lo12:.Lstub_name_351
+    adrp x0, .Lstub_name_345
+    add x0, x0, :lo12:.Lstub_name_345
     b ArtsStubCalled
     .size _ZN8mmHudMap16ToggleFullScreenEv, . - _ZN8mmHudMap16ToggleFullScreenEv
 
@@ -3180,8 +3126,8 @@ _ZN8mmHudMap16ToggleFullScreenEv:
     .global _ZN8mmPlayer18ToggleExternalViewEv
     .type _ZN8mmPlayer18ToggleExternalViewEv, %function
 _ZN8mmPlayer18ToggleExternalViewEv:
-    adrp x0, .Lstub_name_352
-    add x0, x0, :lo12:.Lstub_name_352
+    adrp x0, .Lstub_name_346
+    add x0, x0, :lo12:.Lstub_name_346
     b ArtsStubCalled
     .size _ZN8mmPlayer18ToggleExternalViewEv, . - _ZN8mmPlayer18ToggleExternalViewEv
 
@@ -3189,8 +3135,8 @@ _ZN8mmPlayer18ToggleExternalViewEv:
     .global _ZN5mmHUD18ToggleExternalViewEv
     .type _ZN5mmHUD18ToggleExternalViewEv, %function
 _ZN5mmHUD18ToggleExternalViewEv:
-    adrp x0, .Lstub_name_353
-    add x0, x0, :lo12:.Lstub_name_353
+    adrp x0, .Lstub_name_347
+    add x0, x0, :lo12:.Lstub_name_347
     b ArtsStubCalled
     .size _ZN5mmHUD18ToggleExternalViewEv, . - _ZN5mmHUD18ToggleExternalViewEv
 
@@ -3198,8 +3144,8 @@ _ZN5mmHUD18ToggleExternalViewEv:
     .global _ZN8mmHudMap12ToggleMapResEv
     .type _ZN8mmHudMap12ToggleMapResEv, %function
 _ZN8mmHudMap12ToggleMapResEv:
-    adrp x0, .Lstub_name_354
-    add x0, x0, :lo12:.Lstub_name_354
+    adrp x0, .Lstub_name_348
+    add x0, x0, :lo12:.Lstub_name_348
     b ArtsStubCalled
     .size _ZN8mmHudMap12ToggleMapResEv, . - _ZN8mmHudMap12ToggleMapResEv
 
@@ -3207,8 +3153,8 @@ _ZN8mmHudMap12ToggleMapResEv:
     .global _ZN8mmPlayer13ToggleWideFOVEv
     .type _ZN8mmPlayer13ToggleWideFOVEv, %function
 _ZN8mmPlayer13ToggleWideFOVEv:
-    adrp x0, .Lstub_name_355
-    add x0, x0, :lo12:.Lstub_name_355
+    adrp x0, .Lstub_name_349
+    add x0, x0, :lo12:.Lstub_name_349
     b ArtsStubCalled
     .size _ZN8mmPlayer13ToggleWideFOVEv, . - _ZN8mmPlayer13ToggleWideFOVEv
 
@@ -3216,8 +3162,8 @@ _ZN8mmPlayer13ToggleWideFOVEv:
     .global _ZN5mmHUD12IsDashActiveEv
     .type _ZN5mmHUD12IsDashActiveEv, %function
 _ZN5mmHUD12IsDashActiveEv:
-    adrp x0, .Lstub_name_356
-    add x0, x0, :lo12:.Lstub_name_356
+    adrp x0, .Lstub_name_350
+    add x0, x0, :lo12:.Lstub_name_350
     b ArtsStubCalled
     .size _ZN5mmHUD12IsDashActiveEv, . - _ZN5mmHUD12IsDashActiveEv
 
@@ -3225,8 +3171,8 @@ _ZN5mmHUD12IsDashActiveEv:
     .global _ZN5mmHUD14DeactivateDashEv
     .type _ZN5mmHUD14DeactivateDashEv, %function
 _ZN5mmHUD14DeactivateDashEv:
-    adrp x0, .Lstub_name_357
-    add x0, x0, :lo12:.Lstub_name_357
+    adrp x0, .Lstub_name_351
+    add x0, x0, :lo12:.Lstub_name_351
     b ArtsStubCalled
     .size _ZN5mmHUD14DeactivateDashEv, . - _ZN5mmHUD14DeactivateDashEv
 
@@ -3234,557 +3180,17 @@ _ZN5mmHUD14DeactivateDashEv:
     .global _ZN10mmCarModel10DeactivateEv
     .type _ZN10mmCarModel10DeactivateEv, %function
 _ZN10mmCarModel10DeactivateEv:
-    adrp x0, .Lstub_name_358
-    add x0, x0, :lo12:.Lstub_name_358
+    adrp x0, .Lstub_name_352
+    add x0, x0, :lo12:.Lstub_name_352
     b ArtsStubCalled
     .size _ZN10mmCarModel10DeactivateEv, . - _ZN10mmCarModel10DeactivateEv
-
-    // mmHUD::ActivateDash()
-    .global _ZN5mmHUD12ActivateDashEv
-    .type _ZN5mmHUD12ActivateDashEv, %function
-_ZN5mmHUD12ActivateDashEv:
-    adrp x0, .Lstub_name_359
-    add x0, x0, :lo12:.Lstub_name_359
-    b ArtsStubCalled
-    .size _ZN5mmHUD12ActivateDashEv, . - _ZN5mmHUD12ActivateDashEv
-
-    // mmPlayer::ToggleDash()
-    .global _ZN8mmPlayer10ToggleDashEv
-    .type _ZN8mmPlayer10ToggleDashEv, %function
-_ZN8mmPlayer10ToggleDashEv:
-    adrp x0, .Lstub_name_360
-    add x0, x0, :lo12:.Lstub_name_360
-    b ArtsStubCalled
-    .size _ZN8mmPlayer10ToggleDashEv, . - _ZN8mmPlayer10ToggleDashEv
-
-    // mmCDPlayer::PrevTrack()
-    .global _ZN10mmCDPlayer9PrevTrackEv
-    .type _ZN10mmCDPlayer9PrevTrackEv, %function
-_ZN10mmCDPlayer9PrevTrackEv:
-    adrp x0, .Lstub_name_361
-    add x0, x0, :lo12:.Lstub_name_361
-    b ArtsStubCalled
-    .size _ZN10mmCDPlayer9PrevTrackEv, . - _ZN10mmCDPlayer9PrevTrackEv
-
-    // mmCDPlayer::NextTrack()
-    .global _ZN10mmCDPlayer9NextTrackEv
-    .type _ZN10mmCDPlayer9NextTrackEv, %function
-_ZN10mmCDPlayer9NextTrackEv:
-    adrp x0, .Lstub_name_362
-    add x0, x0, :lo12:.Lstub_name_362
-    b ArtsStubCalled
-    .size _ZN10mmCDPlayer9NextTrackEv, . - _ZN10mmCDPlayer9NextTrackEv
-
-    // mmTransmission::SetDrive()
-    .global _ZN14mmTransmission8SetDriveEv
-    .type _ZN14mmTransmission8SetDriveEv, %function
-_ZN14mmTransmission8SetDriveEv:
-    adrp x0, .Lstub_name_363
-    add x0, x0, :lo12:.Lstub_name_363
-    b ArtsStubCalled
-    .size _ZN14mmTransmission8SetDriveEv, . - _ZN14mmTransmission8SetDriveEv
-
-    // mmTransmission::Automatic(int)
-    .global _ZN14mmTransmission9AutomaticEi
-    .type _ZN14mmTransmission9AutomaticEi, %function
-_ZN14mmTransmission9AutomaticEi:
-    adrp x0, .Lstub_name_364
-    add x0, x0, :lo12:.Lstub_name_364
-    b ArtsStubCalled
-    .size _ZN14mmTransmission9AutomaticEi, . - _ZN14mmTransmission9AutomaticEi
-
-    // mmTransmission::Upshift()
-    .global _ZN14mmTransmission7UpshiftEv
-    .type _ZN14mmTransmission7UpshiftEv, %function
-_ZN14mmTransmission7UpshiftEv:
-    adrp x0, .Lstub_name_365
-    add x0, x0, :lo12:.Lstub_name_365
-    b ArtsStubCalled
-    .size _ZN14mmTransmission7UpshiftEv, . - _ZN14mmTransmission7UpshiftEv
-
-    // mmInput::GetCamPan()
-    .global _ZN7mmInput9GetCamPanEv
-    .type _ZN7mmInput9GetCamPanEv, %function
-_ZN7mmInput9GetCamPanEv:
-    adrp x0, .Lstub_name_366
-    add x0, x0, :lo12:.Lstub_name_366
-    b ArtsStubCalled
-    .size _ZN7mmInput9GetCamPanEv, . - _ZN7mmInput9GetCamPanEv
-
-    // mmCarSim::StopHorn()
-    .global _ZN8mmCarSim8StopHornEv
-    .type _ZN8mmCarSim8StopHornEv, %function
-_ZN8mmCarSim8StopHornEv:
-    adrp x0, .Lstub_name_367
-    add x0, x0, :lo12:.Lstub_name_367
-    b ArtsStubCalled
-    .size _ZN8mmCarSim8StopHornEv, . - _ZN8mmCarSim8StopHornEv
-
-    // mmBangerData::LaunchInstance(float, Vector3*)
-    .global _ZN12mmBangerData14LaunchInstanceEfP7Vector3
-    .type _ZN12mmBangerData14LaunchInstanceEfP7Vector3, %function
-_ZN12mmBangerData14LaunchInstanceEfP7Vector3:
-    adrp x0, .Lstub_name_368
-    add x0, x0, :lo12:.Lstub_name_368
-    b ArtsStubCalled
-    .size _ZN12mmBangerData14LaunchInstanceEfP7Vector3, . - _ZN12mmBangerData14LaunchInstanceEfP7Vector3
-
-    // mmCarSim::PlayHorn()
-    .global _ZN8mmCarSim8PlayHornEv
-    .type _ZN8mmCarSim8PlayHornEv, %function
-_ZN8mmCarSim8PlayHornEv:
-    adrp x0, .Lstub_name_369
-    add x0, x0, :lo12:.Lstub_name_369
-    b ArtsStubCalled
-    .size _ZN8mmCarSim8PlayHornEv, . - _ZN8mmCarSim8PlayHornEv
-
-    // mmPositions::mmPositions()
-    .global _ZN11mmPositionsC1Ev
-    .type _ZN11mmPositionsC1Ev, %function
-_ZN11mmPositionsC1Ev:
-    adrp x0, .Lstub_name_370
-    add x0, x0, :lo12:.Lstub_name_370
-    b ArtsStubCalled
-    .size _ZN11mmPositionsC1Ev, . - _ZN11mmPositionsC1Ev
-
-    // mmPositions::Init(int)
-    .global _ZN11mmPositions4InitEi
-    .type _ZN11mmPositions4InitEi, %function
-_ZN11mmPositions4InitEi:
-    adrp x0, .Lstub_name_371
-    add x0, x0, :lo12:.Lstub_name_371
-    b ArtsStubCalled
-    .size _ZN11mmPositions4InitEi, . - _ZN11mmPositions4InitEi
-
-    // mmGame::PlayerSetState()
-    .global _ZN6mmGame14PlayerSetStateEv
-    .type _ZN6mmGame14PlayerSetStateEv, %function
-_ZN6mmGame14PlayerSetStateEv:
-    adrp x0, .Lstub_name_372
-    add x0, x0, :lo12:.Lstub_name_372
-    b ArtsStubCalled
-    .size _ZN6mmGame14PlayerSetStateEv, . - _ZN6mmGame14PlayerSetStateEv
-
-    // AudManager::SetBitDepthAndSampleRate(int, unsigned long)
-    .global _ZN10AudManager24SetBitDepthAndSampleRateEim
-    .type _ZN10AudManager24SetBitDepthAndSampleRateEim, %function
-_ZN10AudManager24SetBitDepthAndSampleRateEim:
-    adrp x0, .Lstub_name_373
-    add x0, x0, :lo12:.Lstub_name_373
-    b ArtsStubCalled
-    .size _ZN10AudManager24SetBitDepthAndSampleRateEim, . - _ZN10AudManager24SetBitDepthAndSampleRateEim
-
-    // SetRainSurfaceAudioInfos()
-    .global _Z24SetRainSurfaceAudioInfosv
-    .type _Z24SetRainSurfaceAudioInfosv, %function
-_Z24SetRainSurfaceAudioInfosv:
-    adrp x0, .Lstub_name_374
-    add x0, x0, :lo12:.Lstub_name_374
-    b ArtsStubCalled
-    .size _Z24SetRainSurfaceAudioInfosv, . - _Z24SetRainSurfaceAudioInfosv
-
-    // LoadPositions(char const*)
-    .global _Z13LoadPositionsPKc
-    .type _Z13LoadPositionsPKc, %function
-_Z13LoadPositionsPKc:
-    adrp x0, .Lstub_name_375
-    add x0, x0, :lo12:.Lstub_name_375
-    b ArtsStubCalled
-    .size _Z13LoadPositionsPKc, . - _Z13LoadPositionsPKc
-
-    // mmPositions::Load(char const*)
-    .global _ZN11mmPositions4LoadEPKc
-    .type _ZN11mmPositions4LoadEPKc, %function
-_ZN11mmPositions4LoadEPKc:
-    adrp x0, .Lstub_name_376
-    add x0, x0, :lo12:.Lstub_name_376
-    b ArtsStubCalled
-    .size _ZN11mmPositions4LoadEPKc, . - _ZN11mmPositions4LoadEPKc
-
-    // mmPositions::Register(Vector4&, int, int, int, int, char*)
-    .global _ZN11mmPositions8RegisterER7Vector4iiiiPc
-    .type _ZN11mmPositions8RegisterER7Vector4iiiiPc, %function
-_ZN11mmPositions8RegisterER7Vector4iiiiPc:
-    adrp x0, .Lstub_name_377
-    add x0, x0, :lo12:.Lstub_name_377
-    b ArtsStubCalled
-    .size _ZN11mmPositions8RegisterER7Vector4iiiiPc, . - _ZN11mmPositions8RegisterER7Vector4iiiiPc
-
-    // SetSnowSurfaceAudioInfos()
-    .global _Z24SetSnowSurfaceAudioInfosv
-    .type _Z24SetSnowSurfaceAudioInfosv, %function
-_Z24SetSnowSurfaceAudioInfosv:
-    adrp x0, .Lstub_name_378
-    add x0, x0, :lo12:.Lstub_name_378
-    b ArtsStubCalled
-    .size _Z24SetSnowSurfaceAudioInfosv, . - _Z24SetSnowSurfaceAudioInfosv
-
-    // SetClearSurfaceAudioInfos()
-    .global _Z25SetClearSurfaceAudioInfosv
-    .type _Z25SetClearSurfaceAudioInfosv, %function
-_Z25SetClearSurfaceAudioInfosv:
-    adrp x0, .Lstub_name_379
-    add x0, x0, :lo12:.Lstub_name_379
-    b ArtsStubCalled
-    .size _Z25SetClearSurfaceAudioInfosv, . - _Z25SetClearSurfaceAudioInfosv
-
-    // mmVoiceCommentary::mmVoiceCommentary()
-    .global _ZN17mmVoiceCommentaryC1Ev
-    .type _ZN17mmVoiceCommentaryC1Ev, %function
-_ZN17mmVoiceCommentaryC1Ev:
-    adrp x0, .Lstub_name_380
-    add x0, x0, :lo12:.Lstub_name_380
-    b ArtsStubCalled
-    .size _ZN17mmVoiceCommentaryC1Ev, . - _ZN17mmVoiceCommentaryC1Ev
-
-    // mmVoiceCommentary::ValidateCity(char*)
-    .global _ZN17mmVoiceCommentary12ValidateCityEPc
-    .type _ZN17mmVoiceCommentary12ValidateCityEPc, %function
-_ZN17mmVoiceCommentary12ValidateCityEPc:
-    adrp x0, .Lstub_name_381
-    add x0, x0, :lo12:.Lstub_name_381
-    b ArtsStubCalled
-    .size _ZN17mmVoiceCommentary12ValidateCityEPc, . - _ZN17mmVoiceCommentary12ValidateCityEPc
-
-    // AudManager::SetVoiceCommentaryPtr(mmVoiceCommentary*)
-    .global _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary
-    .type _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary, %function
-_ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary:
-    adrp x0, .Lstub_name_382
-    add x0, x0, :lo12:.Lstub_name_382
-    b ArtsStubCalled
-    .size _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary, . - _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary
-
-    // mmPhysicsMGR::Init(asInertialCS*, mmViewCS*)
-    .global _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS
-    .type _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS, %function
-_ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS:
-    adrp x0, .Lstub_name_383
-    add x0, x0, :lo12:.Lstub_name_383
-    b ArtsStubCalled
-    .size _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS, . - _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS
-
-    // mmPlayer::Init(char*, char*, mmGame*)
-    .global _ZN8mmPlayer4InitEPcS0_P6mmGame
-    .type _ZN8mmPlayer4InitEPcS0_P6mmGame, %function
-_ZN8mmPlayer4InitEPcS0_P6mmGame:
-    adrp x0, .Lstub_name_384
-    add x0, x0, :lo12:.Lstub_name_384
-    b ArtsStubCalled
-    .size _ZN8mmPlayer4InitEPcS0_P6mmGame, . - _ZN8mmPlayer4InitEPcS0_P6mmGame
-
-    // mmIcons::Init(Matrix34*, float, float)
-    .global _ZN7mmIcons4InitEP8Matrix34ff
-    .type _ZN7mmIcons4InitEP8Matrix34ff, %function
-_ZN7mmIcons4InitEP8Matrix34ff:
-    adrp x0, .Lstub_name_385
-    add x0, x0, :lo12:.Lstub_name_385
-    b ArtsStubCalled
-    .size _ZN7mmIcons4InitEP8Matrix34ff, . - _ZN7mmIcons4InitEP8Matrix34ff
-
-    // AudManager::GetDSound3DMask()
-    .global _ZN10AudManager15GetDSound3DMaskEv
-    .type _ZN10AudManager15GetDSound3DMaskEv, %function
-_ZN10AudManager15GetDSound3DMaskEv:
-    adrp x0, .Lstub_name_386
-    add x0, x0, :lo12:.Lstub_name_386
-    b ArtsStubCalled
-    .size _ZN10AudManager15GetDSound3DMaskEv, . - _ZN10AudManager15GetDSound3DMaskEv
-
-    // AudHead::AudHead(Matrix34*)
-    .global _ZN7AudHeadC1EP8Matrix34
-    .type _ZN7AudHeadC1EP8Matrix34, %function
-_ZN7AudHeadC1EP8Matrix34:
-    adrp x0, .Lstub_name_387
-    add x0, x0, :lo12:.Lstub_name_387
-    b ArtsStubCalled
-    .size _ZN7AudHeadC1EP8Matrix34, . - _ZN7AudHeadC1EP8Matrix34
-
-    // AudHead::Init()
-    .global _ZN7AudHead4InitEv
-    .type _ZN7AudHead4InitEv, %function
-_ZN7AudHead4InitEv:
-    adrp x0, .Lstub_name_388
-    add x0, x0, :lo12:.Lstub_name_388
-    b ArtsStubCalled
-    .size _ZN7AudHead4InitEv, . - _ZN7AudHead4InitEv
-
-    // AudHead::SetRolloff(float)
-    .global _ZN7AudHead10SetRolloffEf
-    .type _ZN7AudHead10SetRolloffEf, %function
-_ZN7AudHead10SetRolloffEf:
-    adrp x0, .Lstub_name_389
-    add x0, x0, :lo12:.Lstub_name_389
-    b ArtsStubCalled
-    .size _ZN7AudHead10SetRolloffEf, . - _ZN7AudHead10SetRolloffEf
-
-    // AudHead::SetDoppler(float)
-    .global _ZN7AudHead10SetDopplerEf
-    .type _ZN7AudHead10SetDopplerEf, %function
-_ZN7AudHead10SetDopplerEf:
-    adrp x0, .Lstub_name_390
-    add x0, x0, :lo12:.Lstub_name_390
-    b ArtsStubCalled
-    .size _ZN7AudHead10SetDopplerEf, . - _ZN7AudHead10SetDopplerEf
-
-    // aiMap::Init(char*, char*, char*, mmCar*)
-    .global _ZN5aiMap4InitEPcS0_S0_P5mmCar
-    .type _ZN5aiMap4InitEPcS0_S0_P5mmCar, %function
-_ZN5aiMap4InitEPcS0_S0_P5mmCar:
-    adrp x0, .Lstub_name_391
-    add x0, x0, :lo12:.Lstub_name_391
-    b ArtsStubCalled
-    .size _ZN5aiMap4InitEPcS0_S0_P5mmCar, . - _ZN5aiMap4InitEPcS0_S0_P5mmCar
-
-    // mmHudMap::RegisterOpponents(OppIconInfo*, int)
-    .global _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi
-    .type _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi, %function
-_ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi:
-    adrp x0, .Lstub_name_392
-    add x0, x0, :lo12:.Lstub_name_392
-    b ArtsStubCalled
-    .size _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi, . - _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi
-
-    // mmIcons::RegisterOpponents(OppIconInfo*, int, void*)
-    .global _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv
-    .type _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv, %function
-_ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv:
-    adrp x0, .Lstub_name_393
-    add x0, x0, :lo12:.Lstub_name_393
-    b ArtsStubCalled
-    .size _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv, . - _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv
-
-    // mmAnimMgr::Init(char*, mmInstance*, mmInstance**, int)
-    .global _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i
-    .type _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i, %function
-_ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i:
-    adrp x0, .Lstub_name_394
-    add x0, x0, :lo12:.Lstub_name_394
-    b ArtsStubCalled
-    .size _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i, . - _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i
-
-    // mmAmbientAudio::mmAmbientAudio(mmPlayer*)
-    .global _ZN14mmAmbientAudioC1EP8mmPlayer
-    .type _ZN14mmAmbientAudioC1EP8mmPlayer, %function
-_ZN14mmAmbientAudioC1EP8mmPlayer:
-    adrp x0, .Lstub_name_395
-    add x0, x0, :lo12:.Lstub_name_395
-    b ArtsStubCalled
-    .size _ZN14mmAmbientAudioC1EP8mmPlayer, . - _ZN14mmAmbientAudioC1EP8mmPlayer
-
-    // asLamp::SetDistant()
-    .global _ZN6asLamp10SetDistantEv
-    .type _ZN6asLamp10SetDistantEv, %function
-_ZN6asLamp10SetDistantEv:
-    adrp x0, .Lstub_name_396
-    add x0, x0, :lo12:.Lstub_name_396
-    b ArtsStubCalled
-    .size _ZN6asLamp10SetDistantEv, . - _ZN6asLamp10SetDistantEv
-
-    // mmPopup::mmPopup(mmGame*, float, float, float, float)
-    .global _ZN7mmPopupC1EP6mmGameffff
-    .type _ZN7mmPopupC1EP6mmGameffff, %function
-_ZN7mmPopupC1EP6mmGameffff:
-    adrp x0, .Lstub_name_397
-    add x0, x0, :lo12:.Lstub_name_397
-    b ArtsStubCalled
-    .size _ZN7mmPopupC1EP6mmGameffff, . - _ZN7mmPopupC1EP6mmGameffff
-
-    // mmPopup::Reset()
-    .global _ZN7mmPopup5ResetEv
-    .type _ZN7mmPopup5ResetEv, %function
-_ZN7mmPopup5ResetEv:
-    adrp x0, .Lstub_name_398
-    add x0, x0, :lo12:.Lstub_name_398
-    b ArtsStubCalled
-    .size _ZN7mmPopup5ResetEv, . - _ZN7mmPopup5ResetEv
-
-    // PUResults::AddTitle(LocString*, LocString*)
-    .global _ZN9PUResults8AddTitleEP9LocStringS1_
-    .type _ZN9PUResults8AddTitleEP9LocStringS1_, %function
-_ZN9PUResults8AddTitleEP9LocStringS1_:
-    adrp x0, .Lstub_name_399
-    add x0, x0, :lo12:.Lstub_name_399
-    b ArtsStubCalled
-    .size _ZN9PUResults8AddTitleEP9LocStringS1_, . - _ZN9PUResults8AddTitleEP9LocStringS1_
-
-    // mmAnimMgr::AirlinerSwap()
-    .global _ZN9mmAnimMgr12AirlinerSwapEv
-    .type _ZN9mmAnimMgr12AirlinerSwapEv, %function
-_ZN9mmAnimMgr12AirlinerSwapEv:
-    adrp x0, .Lstub_name_400
-    add x0, x0, :lo12:.Lstub_name_400
-    b ArtsStubCalled
-    .size _ZN9mmAnimMgr12AirlinerSwapEv, . - _ZN9mmAnimMgr12AirlinerSwapEv
-
-    // mmAnimMgr::UFOSwap()
-    .global _ZN9mmAnimMgr7UFOSwapEv
-    .type _ZN9mmAnimMgr7UFOSwapEv, %function
-_ZN9mmAnimMgr7UFOSwapEv:
-    adrp x0, .Lstub_name_401
-    add x0, x0, :lo12:.Lstub_name_401
-    b ArtsStubCalled
-    .size _ZN9mmAnimMgr7UFOSwapEv, . - _ZN9mmAnimMgr7UFOSwapEv
-
-    // mmHUD::PostChatMessage(char const*)
-    .global _ZN5mmHUD15PostChatMessageEPKc
-    .type _ZN5mmHUD15PostChatMessageEPKc, %function
-_ZN5mmHUD15PostChatMessageEPKc:
-    adrp x0, .Lstub_name_402
-    add x0, x0, :lo12:.Lstub_name_402
-    b ArtsStubCalled
-    .size _ZN5mmHUD15PostChatMessageEPKc, . - _ZN5mmHUD15PostChatMessageEPKc
-
-    // AudManager::GetVoiceCommentaryPtr()
-    .global _ZN10AudManager21GetVoiceCommentaryPtrEv
-    .type _ZN10AudManager21GetVoiceCommentaryPtrEv, %function
-_ZN10AudManager21GetVoiceCommentaryPtrEv:
-    adrp x0, .Lstub_name_403
-    add x0, x0, :lo12:.Lstub_name_403
-    b ArtsStubCalled
-    .size _ZN10AudManager21GetVoiceCommentaryPtrEv, . - _ZN10AudManager21GetVoiceCommentaryPtrEv
-
-    // mmVoiceCommentary::SetFrequency(float)
-    .global _ZN17mmVoiceCommentary12SetFrequencyEf
-    .type _ZN17mmVoiceCommentary12SetFrequencyEf, %function
-_ZN17mmVoiceCommentary12SetFrequencyEf:
-    adrp x0, .Lstub_name_404
-    add x0, x0, :lo12:.Lstub_name_404
-    b ArtsStubCalled
-    .size _ZN17mmVoiceCommentary12SetFrequencyEf, . - _ZN17mmVoiceCommentary12SetFrequencyEf
-
-    // mmGame::UpdateSteeringBrakes()
-    .global _ZN6mmGame20UpdateSteeringBrakesEv
-    .type _ZN6mmGame20UpdateSteeringBrakesEv, %function
-_ZN6mmGame20UpdateSteeringBrakesEv:
-    adrp x0, .Lstub_name_405
-    add x0, x0, :lo12:.Lstub_name_405
-    b ArtsStubCalled
-    .size _ZN6mmGame20UpdateSteeringBrakesEv, . - _ZN6mmGame20UpdateSteeringBrakesEv
-
-    // mmAmbientAudio::Update()
-    .global _ZN14mmAmbientAudio6UpdateEv
-    .type _ZN14mmAmbientAudio6UpdateEv, %function
-_ZN14mmAmbientAudio6UpdateEv:
-    adrp x0, .Lstub_name_406
-    add x0, x0, :lo12:.Lstub_name_406
-    b ArtsStubCalled
-    .size _ZN14mmAmbientAudio6UpdateEv, . - _ZN14mmAmbientAudio6UpdateEv
-
-    // mmVoiceCommentary::Update()
-    .global _ZN17mmVoiceCommentary6UpdateEv
-    .type _ZN17mmVoiceCommentary6UpdateEv, %function
-_ZN17mmVoiceCommentary6UpdateEv:
-    adrp x0, .Lstub_name_407
-    add x0, x0, :lo12:.Lstub_name_407
-    b ArtsStubCalled
-    .size _ZN17mmVoiceCommentary6UpdateEv, . - _ZN17mmVoiceCommentary6UpdateEv
-
-    // mmHUD::SetMessage(LocString*, float, bool)
-    .global _ZN5mmHUD10SetMessageEP9LocStringfb
-    .type _ZN5mmHUD10SetMessageEP9LocStringfb, %function
-_ZN5mmHUD10SetMessageEP9LocStringfb:
-    adrp x0, .Lstub_name_408
-    add x0, x0, :lo12:.Lstub_name_408
-    b ArtsStubCalled
-    .size _ZN5mmHUD10SetMessageEP9LocStringfb, . - _ZN5mmHUD10SetMessageEP9LocStringfb
-
-    // TrackCamCS::~TrackCamCS()
-    .global _ZN10TrackCamCSD1Ev
-    .type _ZN10TrackCamCSD1Ev, %function
-_ZN10TrackCamCSD1Ev:
-    adrp x0, .Lstub_name_409
-    add x0, x0, :lo12:.Lstub_name_409
-    b ArtsStubCalled
-    .size _ZN10TrackCamCSD1Ev, . - _ZN10TrackCamCSD1Ev
-
-    // mmHUD::~mmHUD()
-    .global _ZN5mmHUDD1Ev
-    .type _ZN5mmHUDD1Ev, %function
-_ZN5mmHUDD1Ev:
-    adrp x0, .Lstub_name_410
-    add x0, x0, :lo12:.Lstub_name_410
-    b ArtsStubCalled
-    .size _ZN5mmHUDD1Ev, . - _ZN5mmHUDD1Ev
-
-    // mmSkidManager::~mmSkidManager()
-    .global _ZN13mmSkidManagerD1Ev
-    .type _ZN13mmSkidManagerD1Ev, %function
-_ZN13mmSkidManagerD1Ev:
-    adrp x0, .Lstub_name_411
-    add x0, x0, :lo12:.Lstub_name_411
-    b ArtsStubCalled
-    .size _ZN13mmSkidManagerD1Ev, . - _ZN13mmSkidManagerD1Ev
-
-    // mmCarSim::~mmCarSim()
-    .global _ZN8mmCarSimD1Ev
-    .type _ZN8mmCarSimD1Ev, %function
-_ZN8mmCarSimD1Ev:
-    adrp x0, .Lstub_name_412
-    add x0, x0, :lo12:.Lstub_name_412
-    b ArtsStubCalled
-    .size _ZN8mmCarSimD1Ev, . - _ZN8mmCarSimD1Ev
-
-    // mmGame::GetClass()
-    .global _ZN6mmGame8GetClassEv
-    .type _ZN6mmGame8GetClassEv, %function
-_ZN6mmGame8GetClassEv:
-    adrp x0, .Lstub_name_413
-    add x0, x0, :lo12:.Lstub_name_413
-    b ArtsStubCalled
-    .size _ZN6mmGame8GetClassEv, . - _ZN6mmGame8GetClassEv
-
-    // asNetwork::Logout()
-    .global _ZN9asNetwork6LogoutEv
-    .type _ZN9asNetwork6LogoutEv, %function
-_ZN9asNetwork6LogoutEv:
-    adrp x0, .Lstub_name_414
-    add x0, x0, :lo12:.Lstub_name_414
-    b ArtsStubCalled
-    .size _ZN9asNetwork6LogoutEv, . - _ZN9asNetwork6LogoutEv
-
-    // asNetwork::DestroyPlayer()
-    .global _ZN9asNetwork13DestroyPlayerEv
-    .type _ZN9asNetwork13DestroyPlayerEv, %function
-_ZN9asNetwork13DestroyPlayerEv:
-    adrp x0, .Lstub_name_415
-    add x0, x0, :lo12:.Lstub_name_415
-    b ArtsStubCalled
-    .size _ZN9asNetwork13DestroyPlayerEv, . - _ZN9asNetwork13DestroyPlayerEv
-
-    // asNetwork::CloseSession()
-    .global _ZN9asNetwork12CloseSessionEv
-    .type _ZN9asNetwork12CloseSessionEv, %function
-_ZN9asNetwork12CloseSessionEv:
-    adrp x0, .Lstub_name_416
-    add x0, x0, :lo12:.Lstub_name_416
-    b ArtsStubCalled
-    .size _ZN9asNetwork12CloseSessionEv, . - _ZN9asNetwork12CloseSessionEv
-
-    // asNetwork::Deallocate()
-    .global _ZN9asNetwork10DeallocateEv
-    .type _ZN9asNetwork10DeallocateEv, %function
-_ZN9asNetwork10DeallocateEv:
-    adrp x0, .Lstub_name_417
-    add x0, x0, :lo12:.Lstub_name_417
-    b ArtsStubCalled
-    .size _ZN9asNetwork10DeallocateEv, . - _ZN9asNetwork10DeallocateEv
-
-    // Matrix34::Rotate(Vector3 const&, float)
-    .global _ZN8Matrix346RotateERK7Vector3f
-    .type _ZN8Matrix346RotateERK7Vector3f, %function
-_ZN8Matrix346RotateERK7Vector3f:
-    adrp x0, .Lstub_name_418
-    add x0, x0, :lo12:.Lstub_name_418
-    b ArtsStubCalled
-    .size _ZN8Matrix346RotateERK7Vector3f, . - _ZN8Matrix346RotateERK7Vector3f
 
     // DebugLog(int, void*, int)
     .global _Z8DebugLogiPvi
     .type _Z8DebugLogiPvi, %function
 _Z8DebugLogiPvi:
-    adrp x0, .Lstub_name_419
-    add x0, x0, :lo12:.Lstub_name_419
+    adrp x0, .Lstub_name_353
+    add x0, x0, :lo12:.Lstub_name_353
     b ArtsStubCalled
     .size _Z8DebugLogiPvi, . - _Z8DebugLogiPvi
 
@@ -3792,8 +3198,8 @@ _Z8DebugLogiPvi:
     .global _ZN7mmInput11GetSteeringEv
     .type _ZN7mmInput11GetSteeringEv, %function
 _ZN7mmInput11GetSteeringEv:
-    adrp x0, .Lstub_name_420
-    add x0, x0, :lo12:.Lstub_name_420
+    adrp x0, .Lstub_name_354
+    add x0, x0, :lo12:.Lstub_name_354
     b ArtsStubCalled
     .size _ZN7mmInput11GetSteeringEv, . - _ZN7mmInput11GetSteeringEv
 
@@ -3801,8 +3207,8 @@ _ZN7mmInput11GetSteeringEv:
     .global _ZN7mmInput11GetThrottleEv
     .type _ZN7mmInput11GetThrottleEv, %function
 _ZN7mmInput11GetThrottleEv:
-    adrp x0, .Lstub_name_421
-    add x0, x0, :lo12:.Lstub_name_421
+    adrp x0, .Lstub_name_355
+    add x0, x0, :lo12:.Lstub_name_355
     b ArtsStubCalled
     .size _ZN7mmInput11GetThrottleEv, . - _ZN7mmInput11GetThrottleEv
 
@@ -3810,8 +3216,8 @@ _ZN7mmInput11GetThrottleEv:
     .global _ZN11mmMultiRaceC1Ev
     .type _ZN11mmMultiRaceC1Ev, %function
 _ZN11mmMultiRaceC1Ev:
-    adrp x0, .Lstub_name_422
-    add x0, x0, :lo12:.Lstub_name_422
+    adrp x0, .Lstub_name_356
+    add x0, x0, :lo12:.Lstub_name_356
     b ArtsStubCalled
     .size _ZN11mmMultiRaceC1Ev, . - _ZN11mmMultiRaceC1Ev
 
@@ -3819,8 +3225,8 @@ _ZN11mmMultiRaceC1Ev:
     .global _ZN11mmMultiRace4InitEv
     .type _ZN11mmMultiRace4InitEv, %function
 _ZN11mmMultiRace4InitEv:
-    adrp x0, .Lstub_name_423
-    add x0, x0, :lo12:.Lstub_name_423
+    adrp x0, .Lstub_name_357
+    add x0, x0, :lo12:.Lstub_name_357
     b ArtsStubCalled
     .size _ZN11mmMultiRace4InitEv, . - _ZN11mmMultiRace4InitEv
 
@@ -3828,8 +3234,8 @@ _ZN11mmMultiRace4InitEv:
     .global _ZN10mmGameEditC1Ev
     .type _ZN10mmGameEditC1Ev, %function
 _ZN10mmGameEditC1Ev:
-    adrp x0, .Lstub_name_424
-    add x0, x0, :lo12:.Lstub_name_424
+    adrp x0, .Lstub_name_358
+    add x0, x0, :lo12:.Lstub_name_358
     b ArtsStubCalled
     .size _ZN10mmGameEditC1Ev, . - _ZN10mmGameEditC1Ev
 
@@ -3837,8 +3243,8 @@ _ZN10mmGameEditC1Ev:
     .global _ZN10mmGameEdit4InitEv
     .type _ZN10mmGameEdit4InitEv, %function
 _ZN10mmGameEdit4InitEv:
-    adrp x0, .Lstub_name_425
-    add x0, x0, :lo12:.Lstub_name_425
+    adrp x0, .Lstub_name_359
+    add x0, x0, :lo12:.Lstub_name_359
     b ArtsStubCalled
     .size _ZN10mmGameEdit4InitEv, . - _ZN10mmGameEdit4InitEv
 
@@ -3846,8 +3252,8 @@ _ZN10mmGameEdit4InitEv:
     .global _ZN12mmMultiBlitzC1Ev
     .type _ZN12mmMultiBlitzC1Ev, %function
 _ZN12mmMultiBlitzC1Ev:
-    adrp x0, .Lstub_name_426
-    add x0, x0, :lo12:.Lstub_name_426
+    adrp x0, .Lstub_name_360
+    add x0, x0, :lo12:.Lstub_name_360
     b ArtsStubCalled
     .size _ZN12mmMultiBlitzC1Ev, . - _ZN12mmMultiBlitzC1Ev
 
@@ -3855,8 +3261,8 @@ _ZN12mmMultiBlitzC1Ev:
     .global _ZN12mmMultiBlitz4InitEv
     .type _ZN12mmMultiBlitz4InitEv, %function
 _ZN12mmMultiBlitz4InitEv:
-    adrp x0, .Lstub_name_427
-    add x0, x0, :lo12:.Lstub_name_427
+    adrp x0, .Lstub_name_361
+    add x0, x0, :lo12:.Lstub_name_361
     b ArtsStubCalled
     .size _ZN12mmMultiBlitz4InitEv, . - _ZN12mmMultiBlitz4InitEv
 
@@ -3864,8 +3270,8 @@ _ZN12mmMultiBlitz4InitEv:
     .global _ZN9mmMultiCRC1Ev
     .type _ZN9mmMultiCRC1Ev, %function
 _ZN9mmMultiCRC1Ev:
-    adrp x0, .Lstub_name_428
-    add x0, x0, :lo12:.Lstub_name_428
+    adrp x0, .Lstub_name_362
+    add x0, x0, :lo12:.Lstub_name_362
     b ArtsStubCalled
     .size _ZN9mmMultiCRC1Ev, . - _ZN9mmMultiCRC1Ev
 
@@ -3873,8 +3279,8 @@ _ZN9mmMultiCRC1Ev:
     .global _ZN9mmMultiCR4InitEv
     .type _ZN9mmMultiCR4InitEv, %function
 _ZN9mmMultiCR4InitEv:
-    adrp x0, .Lstub_name_429
-    add x0, x0, :lo12:.Lstub_name_429
+    adrp x0, .Lstub_name_363
+    add x0, x0, :lo12:.Lstub_name_363
     b ArtsStubCalled
     .size _ZN9mmMultiCR4InitEv, . - _ZN9mmMultiCR4InitEv
 
@@ -3882,8 +3288,8 @@ _ZN9mmMultiCR4InitEv:
     .global _ZN13mmSingleBlitzC1Ev
     .type _ZN13mmSingleBlitzC1Ev, %function
 _ZN13mmSingleBlitzC1Ev:
-    adrp x0, .Lstub_name_430
-    add x0, x0, :lo12:.Lstub_name_430
+    adrp x0, .Lstub_name_364
+    add x0, x0, :lo12:.Lstub_name_364
     b ArtsStubCalled
     .size _ZN13mmSingleBlitzC1Ev, . - _ZN13mmSingleBlitzC1Ev
 
@@ -3891,8 +3297,8 @@ _ZN13mmSingleBlitzC1Ev:
     .global _ZN13mmSingleBlitz4InitEv
     .type _ZN13mmSingleBlitz4InitEv, %function
 _ZN13mmSingleBlitz4InitEv:
-    adrp x0, .Lstub_name_431
-    add x0, x0, :lo12:.Lstub_name_431
+    adrp x0, .Lstub_name_365
+    add x0, x0, :lo12:.Lstub_name_365
     b ArtsStubCalled
     .size _ZN13mmSingleBlitz4InitEv, . - _ZN13mmSingleBlitz4InitEv
 
@@ -3900,8 +3306,8 @@ _ZN13mmSingleBlitz4InitEv:
     .global _ZN14mmMultiCircuitC1Ev
     .type _ZN14mmMultiCircuitC1Ev, %function
 _ZN14mmMultiCircuitC1Ev:
-    adrp x0, .Lstub_name_432
-    add x0, x0, :lo12:.Lstub_name_432
+    adrp x0, .Lstub_name_366
+    add x0, x0, :lo12:.Lstub_name_366
     b ArtsStubCalled
     .size _ZN14mmMultiCircuitC1Ev, . - _ZN14mmMultiCircuitC1Ev
 
@@ -3909,8 +3315,8 @@ _ZN14mmMultiCircuitC1Ev:
     .global _ZN14mmMultiCircuit4InitEv
     .type _ZN14mmMultiCircuit4InitEv, %function
 _ZN14mmMultiCircuit4InitEv:
-    adrp x0, .Lstub_name_433
-    add x0, x0, :lo12:.Lstub_name_433
+    adrp x0, .Lstub_name_367
+    add x0, x0, :lo12:.Lstub_name_367
     b ArtsStubCalled
     .size _ZN14mmMultiCircuit4InitEv, . - _ZN14mmMultiCircuit4InitEv
 
@@ -3918,8 +3324,8 @@ _ZN14mmMultiCircuit4InitEv:
     .global _Z8randcallv
     .type _Z8randcallv, %function
 _Z8randcallv:
-    adrp x0, .Lstub_name_434
-    add x0, x0, :lo12:.Lstub_name_434
+    adrp x0, .Lstub_name_368
+    add x0, x0, :lo12:.Lstub_name_368
     b ArtsStubCalled
     .size _Z8randcallv, . - _Z8randcallv
 
@@ -3927,8 +3333,8 @@ _Z8randcallv:
     .global _ZN6Card2DC1Ev
     .type _ZN6Card2DC1Ev, %function
 _ZN6Card2DC1Ev:
-    adrp x0, .Lstub_name_435
-    add x0, x0, :lo12:.Lstub_name_435
+    adrp x0, .Lstub_name_369
+    add x0, x0, :lo12:.Lstub_name_369
     b ArtsStubCalled
     .size _ZN6Card2DC1Ev, . - _ZN6Card2DC1Ev
 
@@ -3936,62 +3342,17 @@ _ZN6Card2DC1Ev:
     .global _ZN6Card2D13SetDimensionsEffff
     .type _ZN6Card2D13SetDimensionsEffff, %function
 _ZN6Card2D13SetDimensionsEffff:
-    adrp x0, .Lstub_name_436
-    add x0, x0, :lo12:.Lstub_name_436
+    adrp x0, .Lstub_name_370
+    add x0, x0, :lo12:.Lstub_name_370
     b ArtsStubCalled
     .size _ZN6Card2D13SetDimensionsEffff, . - _ZN6Card2D13SetDimensionsEffff
-
-    // mmGame::Reset()
-    .global _ZN6mmGame5ResetEv
-    .type _ZN6mmGame5ResetEv, %function
-_ZN6mmGame5ResetEv:
-    adrp x0, .Lstub_name_437
-    add x0, x0, :lo12:.Lstub_name_437
-    b ArtsStubCalled
-    .size _ZN6mmGame5ResetEv, . - _ZN6mmGame5ResetEv
-
-    // mmGame::InitGameStrings()
-    .global _ZN6mmGame15InitGameStringsEv
-    .type _ZN6mmGame15InitGameStringsEv, %function
-_ZN6mmGame15InitGameStringsEv:
-    adrp x0, .Lstub_name_438
-    add x0, x0, :lo12:.Lstub_name_438
-    b ArtsStubCalled
-    .size _ZN6mmGame15InitGameStringsEv, . - _ZN6mmGame15InitGameStringsEv
-
-    // mmGame::InitOtherPlayers()
-    .global _ZN6mmGame16InitOtherPlayersEv
-    .type _ZN6mmGame16InitOtherPlayersEv, %function
-_ZN6mmGame16InitOtherPlayersEv:
-    adrp x0, .Lstub_name_439
-    add x0, x0, :lo12:.Lstub_name_439
-    b ArtsStubCalled
-    .size _ZN6mmGame16InitOtherPlayersEv, . - _ZN6mmGame16InitOtherPlayersEv
-
-    // mmGame::HitWaterHandler()
-    .global _ZN6mmGame15HitWaterHandlerEv
-    .type _ZN6mmGame15HitWaterHandlerEv, %function
-_ZN6mmGame15HitWaterHandlerEv:
-    adrp x0, .Lstub_name_440
-    add x0, x0, :lo12:.Lstub_name_440
-    b ArtsStubCalled
-    .size _ZN6mmGame15HitWaterHandlerEv, . - _ZN6mmGame15HitWaterHandlerEv
-
-    // mmGame::DropThruCityHandler()
-    .global _ZN6mmGame19DropThruCityHandlerEv
-    .type _ZN6mmGame19DropThruCityHandlerEv, %function
-_ZN6mmGame19DropThruCityHandlerEv:
-    adrp x0, .Lstub_name_441
-    add x0, x0, :lo12:.Lstub_name_441
-    b ArtsStubCalled
-    .size _ZN6mmGame19DropThruCityHandlerEv, . - _ZN6mmGame19DropThruCityHandlerEv
 
     // mmMultiRace::~mmMultiRace()
     .global _ZN11mmMultiRaceD1Ev
     .type _ZN11mmMultiRaceD1Ev, %function
 _ZN11mmMultiRaceD1Ev:
-    adrp x0, .Lstub_name_442
-    add x0, x0, :lo12:.Lstub_name_442
+    adrp x0, .Lstub_name_371
+    add x0, x0, :lo12:.Lstub_name_371
     b ArtsStubCalled
     .size _ZN11mmMultiRaceD1Ev, . - _ZN11mmMultiRaceD1Ev
 
@@ -3999,8 +3360,8 @@ _ZN11mmMultiRaceD1Ev:
     .global _ZN9mmMultiCRD1Ev
     .type _ZN9mmMultiCRD1Ev, %function
 _ZN9mmMultiCRD1Ev:
-    adrp x0, .Lstub_name_443
-    add x0, x0, :lo12:.Lstub_name_443
+    adrp x0, .Lstub_name_372
+    add x0, x0, :lo12:.Lstub_name_372
     b ArtsStubCalled
     .size _ZN9mmMultiCRD1Ev, . - _ZN9mmMultiCRD1Ev
 
@@ -4008,8 +3369,8 @@ _ZN9mmMultiCRD1Ev:
     .global _ZN15mmSingleCircuitD1Ev
     .type _ZN15mmSingleCircuitD1Ev, %function
 _ZN15mmSingleCircuitD1Ev:
-    adrp x0, .Lstub_name_444
-    add x0, x0, :lo12:.Lstub_name_444
+    adrp x0, .Lstub_name_373
+    add x0, x0, :lo12:.Lstub_name_373
     b ArtsStubCalled
     .size _ZN15mmSingleCircuitD1Ev, . - _ZN15mmSingleCircuitD1Ev
 
@@ -4017,8 +3378,8 @@ _ZN15mmSingleCircuitD1Ev:
     .global _ZN13mmSingleBlitzD1Ev
     .type _ZN13mmSingleBlitzD1Ev, %function
 _ZN13mmSingleBlitzD1Ev:
-    adrp x0, .Lstub_name_445
-    add x0, x0, :lo12:.Lstub_name_445
+    adrp x0, .Lstub_name_374
+    add x0, x0, :lo12:.Lstub_name_374
     b ArtsStubCalled
     .size _ZN13mmSingleBlitzD1Ev, . - _ZN13mmSingleBlitzD1Ev
 
@@ -4026,8 +3387,8 @@ _ZN13mmSingleBlitzD1Ev:
     .global _ZN10mmGameEditD1Ev
     .type _ZN10mmGameEditD1Ev, %function
 _ZN10mmGameEditD1Ev:
-    adrp x0, .Lstub_name_446
-    add x0, x0, :lo12:.Lstub_name_446
+    adrp x0, .Lstub_name_375
+    add x0, x0, :lo12:.Lstub_name_375
     b ArtsStubCalled
     .size _ZN10mmGameEditD1Ev, . - _ZN10mmGameEditD1Ev
 
@@ -4035,8 +3396,8 @@ _ZN10mmGameEditD1Ev:
     .global _ZN14mmMultiCircuitD1Ev
     .type _ZN14mmMultiCircuitD1Ev, %function
 _ZN14mmMultiCircuitD1Ev:
-    adrp x0, .Lstub_name_447
-    add x0, x0, :lo12:.Lstub_name_447
+    adrp x0, .Lstub_name_376
+    add x0, x0, :lo12:.Lstub_name_376
     b ArtsStubCalled
     .size _ZN14mmMultiCircuitD1Ev, . - _ZN14mmMultiCircuitD1Ev
 
@@ -4044,17 +3405,260 @@ _ZN14mmMultiCircuitD1Ev:
     .global _ZN12mmMultiBlitzD1Ev
     .type _ZN12mmMultiBlitzD1Ev, %function
 _ZN12mmMultiBlitzD1Ev:
-    adrp x0, .Lstub_name_448
-    add x0, x0, :lo12:.Lstub_name_448
+    adrp x0, .Lstub_name_377
+    add x0, x0, :lo12:.Lstub_name_377
     b ArtsStubCalled
     .size _ZN12mmMultiBlitzD1Ev, . - _ZN12mmMultiBlitzD1Ev
+
+    // DebugLogShutdown()
+    .global _Z16DebugLogShutdownv
+    .type _Z16DebugLogShutdownv, %function
+_Z16DebugLogShutdownv:
+    adrp x0, .Lstub_name_378
+    add x0, x0, :lo12:.Lstub_name_378
+    b ArtsStubCalled
+    .size _Z16DebugLogShutdownv, . - _Z16DebugLogShutdownv
+
+    // mmGameManager::GetClass()
+    .global _ZN13mmGameManager8GetClassEv
+    .type _ZN13mmGameManager8GetClassEv, %function
+_ZN13mmGameManager8GetClassEv:
+    adrp x0, .Lstub_name_379
+    add x0, x0, :lo12:.Lstub_name_379
+    b ArtsStubCalled
+    .size _ZN13mmGameManager8GetClassEv, . - _ZN13mmGameManager8GetClassEv
+
+    // RadialGauge::Init(char const*, char const*, float*, float*, float)
+    .global _ZN11RadialGauge4InitEPKcS1_PfS2_f
+    .type _ZN11RadialGauge4InitEPKcS1_PfS2_f, %function
+_ZN11RadialGauge4InitEPKcS1_PfS2_f:
+    adrp x0, .Lstub_name_380
+    add x0, x0, :lo12:.Lstub_name_380
+    b ArtsStubCalled
+    .size _ZN11RadialGauge4InitEPKcS1_PfS2_f, . - _ZN11RadialGauge4InitEPKcS1_PfS2_f
+
+    // mmHUD::ActivateDash()
+    .global _ZN5mmHUD12ActivateDashEv
+    .type _ZN5mmHUD12ActivateDashEv, %function
+_ZN5mmHUD12ActivateDashEv:
+    adrp x0, .Lstub_name_381
+    add x0, x0, :lo12:.Lstub_name_381
+    b ArtsStubCalled
+    .size _ZN5mmHUD12ActivateDashEv, . - _ZN5mmHUD12ActivateDashEv
+
+    // mmPlayer::ToggleDash()
+    .global _ZN8mmPlayer10ToggleDashEv
+    .type _ZN8mmPlayer10ToggleDashEv, %function
+_ZN8mmPlayer10ToggleDashEv:
+    adrp x0, .Lstub_name_382
+    add x0, x0, :lo12:.Lstub_name_382
+    b ArtsStubCalled
+    .size _ZN8mmPlayer10ToggleDashEv, . - _ZN8mmPlayer10ToggleDashEv
+
+    // mmCDPlayer::PrevTrack()
+    .global _ZN10mmCDPlayer9PrevTrackEv
+    .type _ZN10mmCDPlayer9PrevTrackEv, %function
+_ZN10mmCDPlayer9PrevTrackEv:
+    adrp x0, .Lstub_name_383
+    add x0, x0, :lo12:.Lstub_name_383
+    b ArtsStubCalled
+    .size _ZN10mmCDPlayer9PrevTrackEv, . - _ZN10mmCDPlayer9PrevTrackEv
+
+    // mmCDPlayer::NextTrack()
+    .global _ZN10mmCDPlayer9NextTrackEv
+    .type _ZN10mmCDPlayer9NextTrackEv, %function
+_ZN10mmCDPlayer9NextTrackEv:
+    adrp x0, .Lstub_name_384
+    add x0, x0, :lo12:.Lstub_name_384
+    b ArtsStubCalled
+    .size _ZN10mmCDPlayer9NextTrackEv, . - _ZN10mmCDPlayer9NextTrackEv
+
+    // mmTransmission::SetDrive()
+    .global _ZN14mmTransmission8SetDriveEv
+    .type _ZN14mmTransmission8SetDriveEv, %function
+_ZN14mmTransmission8SetDriveEv:
+    adrp x0, .Lstub_name_385
+    add x0, x0, :lo12:.Lstub_name_385
+    b ArtsStubCalled
+    .size _ZN14mmTransmission8SetDriveEv, . - _ZN14mmTransmission8SetDriveEv
+
+    // mmTransmission::Automatic(int)
+    .global _ZN14mmTransmission9AutomaticEi
+    .type _ZN14mmTransmission9AutomaticEi, %function
+_ZN14mmTransmission9AutomaticEi:
+    adrp x0, .Lstub_name_386
+    add x0, x0, :lo12:.Lstub_name_386
+    b ArtsStubCalled
+    .size _ZN14mmTransmission9AutomaticEi, . - _ZN14mmTransmission9AutomaticEi
+
+    // asNetwork::Logout()
+    .global _ZN9asNetwork6LogoutEv
+    .type _ZN9asNetwork6LogoutEv, %function
+_ZN9asNetwork6LogoutEv:
+    adrp x0, .Lstub_name_387
+    add x0, x0, :lo12:.Lstub_name_387
+    b ArtsStubCalled
+    .size _ZN9asNetwork6LogoutEv, . - _ZN9asNetwork6LogoutEv
+
+    // mmTransmission::Upshift()
+    .global _ZN14mmTransmission7UpshiftEv
+    .type _ZN14mmTransmission7UpshiftEv, %function
+_ZN14mmTransmission7UpshiftEv:
+    adrp x0, .Lstub_name_388
+    add x0, x0, :lo12:.Lstub_name_388
+    b ArtsStubCalled
+    .size _ZN14mmTransmission7UpshiftEv, . - _ZN14mmTransmission7UpshiftEv
+
+    // asNetwork::DestroyPlayer()
+    .global _ZN9asNetwork13DestroyPlayerEv
+    .type _ZN9asNetwork13DestroyPlayerEv, %function
+_ZN9asNetwork13DestroyPlayerEv:
+    adrp x0, .Lstub_name_389
+    add x0, x0, :lo12:.Lstub_name_389
+    b ArtsStubCalled
+    .size _ZN9asNetwork13DestroyPlayerEv, . - _ZN9asNetwork13DestroyPlayerEv
+
+    // asNetwork::CloseSession()
+    .global _ZN9asNetwork12CloseSessionEv
+    .type _ZN9asNetwork12CloseSessionEv, %function
+_ZN9asNetwork12CloseSessionEv:
+    adrp x0, .Lstub_name_390
+    add x0, x0, :lo12:.Lstub_name_390
+    b ArtsStubCalled
+    .size _ZN9asNetwork12CloseSessionEv, . - _ZN9asNetwork12CloseSessionEv
+
+    // asNetwork::Deallocate()
+    .global _ZN9asNetwork10DeallocateEv
+    .type _ZN9asNetwork10DeallocateEv, %function
+_ZN9asNetwork10DeallocateEv:
+    adrp x0, .Lstub_name_391
+    add x0, x0, :lo12:.Lstub_name_391
+    b ArtsStubCalled
+    .size _ZN9asNetwork10DeallocateEv, . - _ZN9asNetwork10DeallocateEv
+
+    // mmInput::GetCamPan()
+    .global _ZN7mmInput9GetCamPanEv
+    .type _ZN7mmInput9GetCamPanEv, %function
+_ZN7mmInput9GetCamPanEv:
+    adrp x0, .Lstub_name_392
+    add x0, x0, :lo12:.Lstub_name_392
+    b ArtsStubCalled
+    .size _ZN7mmInput9GetCamPanEv, . - _ZN7mmInput9GetCamPanEv
+
+    // mmCarSim::StopHorn()
+    .global _ZN8mmCarSim8StopHornEv
+    .type _ZN8mmCarSim8StopHornEv, %function
+_ZN8mmCarSim8StopHornEv:
+    adrp x0, .Lstub_name_393
+    add x0, x0, :lo12:.Lstub_name_393
+    b ArtsStubCalled
+    .size _ZN8mmCarSim8StopHornEv, . - _ZN8mmCarSim8StopHornEv
+
+    // mmBangerData::LaunchInstance(float, Vector3*)
+    .global _ZN12mmBangerData14LaunchInstanceEfP7Vector3
+    .type _ZN12mmBangerData14LaunchInstanceEfP7Vector3, %function
+_ZN12mmBangerData14LaunchInstanceEfP7Vector3:
+    adrp x0, .Lstub_name_394
+    add x0, x0, :lo12:.Lstub_name_394
+    b ArtsStubCalled
+    .size _ZN12mmBangerData14LaunchInstanceEfP7Vector3, . - _ZN12mmBangerData14LaunchInstanceEfP7Vector3
+
+    // mmCarSim::PlayHorn()
+    .global _ZN8mmCarSim8PlayHornEv
+    .type _ZN8mmCarSim8PlayHornEv, %function
+_ZN8mmCarSim8PlayHornEv:
+    adrp x0, .Lstub_name_395
+    add x0, x0, :lo12:.Lstub_name_395
+    b ArtsStubCalled
+    .size _ZN8mmCarSim8PlayHornEv, . - _ZN8mmCarSim8PlayHornEv
+
+    // mmPositions::mmPositions()
+    .global _ZN11mmPositionsC1Ev
+    .type _ZN11mmPositionsC1Ev, %function
+_ZN11mmPositionsC1Ev:
+    adrp x0, .Lstub_name_396
+    add x0, x0, :lo12:.Lstub_name_396
+    b ArtsStubCalled
+    .size _ZN11mmPositionsC1Ev, . - _ZN11mmPositionsC1Ev
+
+    // mmPositions::Init(int)
+    .global _ZN11mmPositions4InitEi
+    .type _ZN11mmPositions4InitEi, %function
+_ZN11mmPositions4InitEi:
+    adrp x0, .Lstub_name_397
+    add x0, x0, :lo12:.Lstub_name_397
+    b ArtsStubCalled
+    .size _ZN11mmPositions4InitEi, . - _ZN11mmPositions4InitEi
+
+    // Matrix34::Rotate(Vector3 const&, float)
+    .global _ZN8Matrix346RotateERK7Vector3f
+    .type _ZN8Matrix346RotateERK7Vector3f, %function
+_ZN8Matrix346RotateERK7Vector3f:
+    adrp x0, .Lstub_name_398
+    add x0, x0, :lo12:.Lstub_name_398
+    b ArtsStubCalled
+    .size _ZN8Matrix346RotateERK7Vector3f, . - _ZN8Matrix346RotateERK7Vector3f
+
+    // mmGame::PlayerSetState()
+    .global _ZN6mmGame14PlayerSetStateEv
+    .type _ZN6mmGame14PlayerSetStateEv, %function
+_ZN6mmGame14PlayerSetStateEv:
+    adrp x0, .Lstub_name_399
+    add x0, x0, :lo12:.Lstub_name_399
+    b ArtsStubCalled
+    .size _ZN6mmGame14PlayerSetStateEv, . - _ZN6mmGame14PlayerSetStateEv
+
+    // AudManager::SetBitDepthAndSampleRate(int, unsigned long)
+    .global _ZN10AudManager24SetBitDepthAndSampleRateEim
+    .type _ZN10AudManager24SetBitDepthAndSampleRateEim, %function
+_ZN10AudManager24SetBitDepthAndSampleRateEim:
+    adrp x0, .Lstub_name_400
+    add x0, x0, :lo12:.Lstub_name_400
+    b ArtsStubCalled
+    .size _ZN10AudManager24SetBitDepthAndSampleRateEim, . - _ZN10AudManager24SetBitDepthAndSampleRateEim
+
+    // SetRainSurfaceAudioInfos()
+    .global _Z24SetRainSurfaceAudioInfosv
+    .type _Z24SetRainSurfaceAudioInfosv, %function
+_Z24SetRainSurfaceAudioInfosv:
+    adrp x0, .Lstub_name_401
+    add x0, x0, :lo12:.Lstub_name_401
+    b ArtsStubCalled
+    .size _Z24SetRainSurfaceAudioInfosv, . - _Z24SetRainSurfaceAudioInfosv
+
+    // LoadPositions(char const*)
+    .global _Z13LoadPositionsPKc
+    .type _Z13LoadPositionsPKc, %function
+_Z13LoadPositionsPKc:
+    adrp x0, .Lstub_name_402
+    add x0, x0, :lo12:.Lstub_name_402
+    b ArtsStubCalled
+    .size _Z13LoadPositionsPKc, . - _Z13LoadPositionsPKc
+
+    // mmPositions::Load(char const*)
+    .global _ZN11mmPositions4LoadEPKc
+    .type _ZN11mmPositions4LoadEPKc, %function
+_ZN11mmPositions4LoadEPKc:
+    adrp x0, .Lstub_name_403
+    add x0, x0, :lo12:.Lstub_name_403
+    b ArtsStubCalled
+    .size _ZN11mmPositions4LoadEPKc, . - _ZN11mmPositions4LoadEPKc
+
+    // mmPositions::Register(Vector4&, int, int, int, int, char*)
+    .global _ZN11mmPositions8RegisterER7Vector4iiiiPc
+    .type _ZN11mmPositions8RegisterER7Vector4iiiiPc, %function
+_ZN11mmPositions8RegisterER7Vector4iiiiPc:
+    adrp x0, .Lstub_name_404
+    add x0, x0, :lo12:.Lstub_name_404
+    b ArtsStubCalled
+    .size _ZN11mmPositions8RegisterER7Vector4iiiiPc, . - _ZN11mmPositions8RegisterER7Vector4iiiiPc
 
     // mmRaceData::mmRaceData()
     .global _ZN10mmRaceDataC1Ev
     .type _ZN10mmRaceDataC1Ev, %function
 _ZN10mmRaceDataC1Ev:
-    adrp x0, .Lstub_name_449
-    add x0, x0, :lo12:.Lstub_name_449
+    adrp x0, .Lstub_name_405
+    add x0, x0, :lo12:.Lstub_name_405
     b ArtsStubCalled
     .size _ZN10mmRaceDataC1Ev, . - _ZN10mmRaceDataC1Ev
 
@@ -4062,323 +3666,17 @@ _ZN10mmRaceDataC1Ev:
     .global _ZN10mmRaceData4LoadEPc
     .type _ZN10mmRaceData4LoadEPc, %function
 _ZN10mmRaceData4LoadEPc:
-    adrp x0, .Lstub_name_450
-    add x0, x0, :lo12:.Lstub_name_450
+    adrp x0, .Lstub_name_406
+    add x0, x0, :lo12:.Lstub_name_406
     b ArtsStubCalled
     .size _ZN10mmRaceData4LoadEPc, . - _ZN10mmRaceData4LoadEPc
-
-    // DebugLogShutdown()
-    .global _Z16DebugLogShutdownv
-    .type _Z16DebugLogShutdownv, %function
-_Z16DebugLogShutdownv:
-    adrp x0, .Lstub_name_451
-    add x0, x0, :lo12:.Lstub_name_451
-    b ArtsStubCalled
-    .size _Z16DebugLogShutdownv, . - _Z16DebugLogShutdownv
-
-    // asMeshSetForm::asMeshSetForm()
-    .global _ZN13asMeshSetFormC1Ev
-    .type _ZN13asMeshSetFormC1Ev, %function
-_ZN13asMeshSetFormC1Ev:
-    adrp x0, .Lstub_name_452
-    add x0, x0, :lo12:.Lstub_name_452
-    b ArtsStubCalled
-    .size _ZN13asMeshSetFormC1Ev, . - _ZN13asMeshSetFormC1Ev
-
-    // asMeshSetForm::SetZRead(int)
-    .global _ZN13asMeshSetForm8SetZReadEi
-    .type _ZN13asMeshSetForm8SetZReadEi, %function
-_ZN13asMeshSetForm8SetZReadEi:
-    adrp x0, .Lstub_name_453
-    add x0, x0, :lo12:.Lstub_name_453
-    b ArtsStubCalled
-    .size _ZN13asMeshSetForm8SetZReadEi, . - _ZN13asMeshSetForm8SetZReadEi
-
-    // asMeshSetForm::SetZWrite(int)
-    .global _ZN13asMeshSetForm9SetZWriteEi
-    .type _ZN13asMeshSetForm9SetZWriteEi, %function
-_ZN13asMeshSetForm9SetZWriteEi:
-    adrp x0, .Lstub_name_454
-    add x0, x0, :lo12:.Lstub_name_454
-    b ArtsStubCalled
-    .size _ZN13asMeshSetForm9SetZWriteEi, . - _ZN13asMeshSetForm9SetZWriteEi
-
-    // AudSound::Get2DFlags()
-    .global _ZN8AudSound10Get2DFlagsEv
-    .type _ZN8AudSound10Get2DFlagsEv, %function
-_ZN8AudSound10Get2DFlagsEv:
-    adrp x0, .Lstub_name_455
-    add x0, x0, :lo12:.Lstub_name_455
-    b ArtsStubCalled
-    .size _ZN8AudSound10Get2DFlagsEv, . - _ZN8AudSound10Get2DFlagsEv
-
-    // AudSound::AudSound(unsigned long, int, short)
-    .global _ZN8AudSoundC1Emis
-    .type _ZN8AudSoundC1Emis, %function
-_ZN8AudSoundC1Emis:
-    adrp x0, .Lstub_name_456
-    add x0, x0, :lo12:.Lstub_name_456
-    b ArtsStubCalled
-    .size _ZN8AudSoundC1Emis, . - _ZN8AudSoundC1Emis
-
-    // AudSound::Load(char*, int)
-    .global _ZN8AudSound4LoadEPci
-    .type _ZN8AudSound4LoadEPci, %function
-_ZN8AudSound4LoadEPci:
-    adrp x0, .Lstub_name_457
-    add x0, x0, :lo12:.Lstub_name_457
-    b ArtsStubCalled
-    .size _ZN8AudSound4LoadEPci, . - _ZN8AudSound4LoadEPci
-
-    // AudSound::SetPriority(int)
-    .global _ZN8AudSound11SetPriorityEi
-    .type _ZN8AudSound11SetPriorityEi, %function
-_ZN8AudSound11SetPriorityEi:
-    adrp x0, .Lstub_name_458
-    add x0, x0, :lo12:.Lstub_name_458
-    b ArtsStubCalled
-    .size _ZN8AudSound11SetPriorityEi, . - _ZN8AudSound11SetPriorityEi
-
-    // AudSound::SetVolume(float, int)
-    .global _ZN8AudSound9SetVolumeEfi
-    .type _ZN8AudSound9SetVolumeEfi, %function
-_ZN8AudSound9SetVolumeEfi:
-    adrp x0, .Lstub_name_459
-    add x0, x0, :lo12:.Lstub_name_459
-    b ArtsStubCalled
-    .size _ZN8AudSound9SetVolumeEfi, . - _ZN8AudSound9SetVolumeEfi
-
-    // mmCDPlayer::Init(mmHUD*)
-    .global _ZN10mmCDPlayer4InitEP5mmHUD
-    .type _ZN10mmCDPlayer4InitEP5mmHUD, %function
-_ZN10mmCDPlayer4InitEP5mmHUD:
-    adrp x0, .Lstub_name_460
-    add x0, x0, :lo12:.Lstub_name_460
-    b ArtsStubCalled
-    .size _ZN10mmCDPlayer4InitEP5mmHUD, . - _ZN10mmCDPlayer4InitEP5mmHUD
-
-    // mmArrow::Update()
-    .global _ZN7mmArrow6UpdateEv
-    .type _ZN7mmArrow6UpdateEv, %function
-_ZN7mmArrow6UpdateEv:
-    adrp x0, .Lstub_name_461
-    add x0, x0, :lo12:.Lstub_name_461
-    b ArtsStubCalled
-    .size _ZN7mmArrow6UpdateEv, . - _ZN7mmArrow6UpdateEv
-
-    // asInertialCS::GetVelocity(Vector3 const*)
-    .global _ZN12asInertialCS11GetVelocityEPK7Vector3
-    .type _ZN12asInertialCS11GetVelocityEPK7Vector3, %function
-_ZN12asInertialCS11GetVelocityEPK7Vector3:
-    adrp x0, .Lstub_name_462
-    add x0, x0, :lo12:.Lstub_name_462
-    b ArtsStubCalled
-    .size _ZN12asInertialCS11GetVelocityEPK7Vector3, . - _ZN12asInertialCS11GetVelocityEPK7Vector3
-
-    // mmViewCS::Instance(asCamera*)
-    .global _ZN8mmViewCS8InstanceEP8asCamera
-    .type _ZN8mmViewCS8InstanceEP8asCamera, %function
-_ZN8mmViewCS8InstanceEP8asCamera:
-    adrp x0, .Lstub_name_463
-    add x0, x0, :lo12:.Lstub_name_463
-    b ArtsStubCalled
-    .size _ZN8mmViewCS8InstanceEP8asCamera, . - _ZN8mmViewCS8InstanceEP8asCamera
-
-    // mmCarSim::AddPlayerSpecifics()
-    .global _ZN8mmCarSim18AddPlayerSpecificsEv
-    .type _ZN8mmCarSim18AddPlayerSpecificsEv, %function
-_ZN8mmCarSim18AddPlayerSpecificsEv:
-    adrp x0, .Lstub_name_464
-    add x0, x0, :lo12:.Lstub_name_464
-    b ArtsStubCalled
-    .size _ZN8mmCarSim18AddPlayerSpecificsEv, . - _ZN8mmCarSim18AddPlayerSpecificsEv
-
-    // mmPlayer::GetClass()
-    .global _ZN8mmPlayer8GetClassEv
-    .type _ZN8mmPlayer8GetClassEv, %function
-_ZN8mmPlayer8GetClassEv:
-    adrp x0, .Lstub_name_465
-    add x0, x0, :lo12:.Lstub_name_465
-    b ArtsStubCalled
-    .size _ZN8mmPlayer8GetClassEv, . - _ZN8mmPlayer8GetClassEv
-
-    // mmPlayer::Update()
-    .global _ZN8mmPlayer6UpdateEv
-    .type _ZN8mmPlayer6UpdateEv, %function
-_ZN8mmPlayer6UpdateEv:
-    adrp x0, .Lstub_name_466
-    add x0, x0, :lo12:.Lstub_name_466
-    b ArtsStubCalled
-    .size _ZN8mmPlayer6UpdateEv, . - _ZN8mmPlayer6UpdateEv
-
-    // mmPlayer::Reset()
-    .global _ZN8mmPlayer5ResetEv
-    .type _ZN8mmPlayer5ResetEv, %function
-_ZN8mmPlayer5ResetEv:
-    adrp x0, .Lstub_name_467
-    add x0, x0, :lo12:.Lstub_name_467
-    b ArtsStubCalled
-    .size _ZN8mmPlayer5ResetEv, . - _ZN8mmPlayer5ResetEv
-
-    // mmGameManager::GetClass()
-    .global _ZN13mmGameManager8GetClassEv
-    .type _ZN13mmGameManager8GetClassEv, %function
-_ZN13mmGameManager8GetClassEv:
-    adrp x0, .Lstub_name_468
-    add x0, x0, :lo12:.Lstub_name_468
-    b ArtsStubCalled
-    .size _ZN13mmGameManager8GetClassEv, . - _ZN13mmGameManager8GetClassEv
-
-    // PUControl::~PUControl()
-    .global _ZN9PUControlD1Ev
-    .type _ZN9PUControlD1Ev, %function
-_ZN9PUControlD1Ev:
-    adrp x0, .Lstub_name_469
-    add x0, x0, :lo12:.Lstub_name_469
-    b ArtsStubCalled
-    .size _ZN9PUControlD1Ev, . - _ZN9PUControlD1Ev
-
-    // MenuManager::Switch(int)
-    .global _ZN11MenuManager6SwitchEi
-    .type _ZN11MenuManager6SwitchEi, %function
-_ZN11MenuManager6SwitchEi:
-    adrp x0, .Lstub_name_470
-    add x0, x0, :lo12:.Lstub_name_470
-    b ArtsStubCalled
-    .size _ZN11MenuManager6SwitchEi, . - _ZN11MenuManager6SwitchEi
-
-    // MenuManager::DisablePU()
-    .global _ZN11MenuManager9DisablePUEv
-    .type _ZN11MenuManager9DisablePUEv, %function
-_ZN11MenuManager9DisablePUEv:
-    adrp x0, .Lstub_name_471
-    add x0, x0, :lo12:.Lstub_name_471
-    b ArtsStubCalled
-    .size _ZN11MenuManager9DisablePUEv, . - _ZN11MenuManager9DisablePUEv
-
-    // mmHUD::Enable()
-    .global _ZN5mmHUD6EnableEv
-    .type _ZN5mmHUD6EnableEv, %function
-_ZN5mmHUD6EnableEv:
-    adrp x0, .Lstub_name_472
-    add x0, x0, :lo12:.Lstub_name_472
-    b ArtsStubCalled
-    .size _ZN5mmHUD6EnableEv, . - _ZN5mmHUD6EnableEv
-
-    // mmHudMap::Activate()
-    .global _ZN8mmHudMap8ActivateEv
-    .type _ZN8mmHudMap8ActivateEv, %function
-_ZN8mmHudMap8ActivateEv:
-    adrp x0, .Lstub_name_473
-    add x0, x0, :lo12:.Lstub_name_473
-    b ArtsStubCalled
-    .size _ZN8mmHudMap8ActivateEv, . - _ZN8mmHudMap8ActivateEv
-
-    // AudManager::PlayCDTrack(int, unsigned char, unsigned char, unsigned char, bool)
-    .global _ZN10AudManager11PlayCDTrackEihhhb
-    .type _ZN10AudManager11PlayCDTrackEihhhb, %function
-_ZN10AudManager11PlayCDTrackEihhhb:
-    adrp x0, .Lstub_name_474
-    add x0, x0, :lo12:.Lstub_name_474
-    b ArtsStubCalled
-    .size _ZN10AudManager11PlayCDTrackEihhhb, . - _ZN10AudManager11PlayCDTrackEihhhb
-
-    // PUMenuBase::DisableExit()
-    .global _ZN10PUMenuBase11DisableExitEv
-    .type _ZN10PUMenuBase11DisableExitEv, %function
-_ZN10PUMenuBase11DisableExitEv:
-    adrp x0, .Lstub_name_475
-    add x0, x0, :lo12:.Lstub_name_475
-    b ArtsStubCalled
-    .size _ZN10PUMenuBase11DisableExitEv, . - _ZN10PUMenuBase11DisableExitEv
-
-    // mmPopup::Update()
-    .global _ZN7mmPopup6UpdateEv
-    .type _ZN7mmPopup6UpdateEv, %function
-_ZN7mmPopup6UpdateEv:
-    adrp x0, .Lstub_name_476
-    add x0, x0, :lo12:.Lstub_name_476
-    b ArtsStubCalled
-    .size _ZN7mmPopup6UpdateEv, . - _ZN7mmPopup6UpdateEv
-
-    // mmHudMap::DrawMisc()
-    .global _ZN8mmHudMap8DrawMiscEv
-    .type _ZN8mmHudMap8DrawMiscEv, %function
-_ZN8mmHudMap8DrawMiscEv:
-    adrp x0, .Lstub_name_477
-    add x0, x0, :lo12:.Lstub_name_477
-    b ArtsStubCalled
-    .size _ZN8mmHudMap8DrawMiscEv, . - _ZN8mmHudMap8DrawMiscEv
-
-    // mmHudMap::DrawCops()
-    .global _ZN8mmHudMap8DrawCopsEv
-    .type _ZN8mmHudMap8DrawCopsEv, %function
-_ZN8mmHudMap8DrawCopsEv:
-    adrp x0, .Lstub_name_478
-    add x0, x0, :lo12:.Lstub_name_478
-    b ArtsStubCalled
-    .size _ZN8mmHudMap8DrawCopsEv, . - _ZN8mmHudMap8DrawCopsEv
-
-    // mmHudMap::DrawOrientedBitmap(Matrix34*, agiBitmap*)
-    .global _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap
-    .type _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap, %function
-_ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap:
-    adrp x0, .Lstub_name_479
-    add x0, x0, :lo12:.Lstub_name_479
-    b ArtsStubCalled
-    .size _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap, . - _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap
-
-    // mmHudMap::DrawWaypoints()
-    .global _ZN8mmHudMap13DrawWaypointsEv
-    .type _ZN8mmHudMap13DrawWaypointsEv, %function
-_ZN8mmHudMap13DrawWaypointsEv:
-    adrp x0, .Lstub_name_480
-    add x0, x0, :lo12:.Lstub_name_480
-    b ArtsStubCalled
-    .size _ZN8mmHudMap13DrawWaypointsEv, . - _ZN8mmHudMap13DrawWaypointsEv
-
-    // mmHudMap::DrawCopsnRobbers()
-    .global _ZN8mmHudMap16DrawCopsnRobbersEv
-    .type _ZN8mmHudMap16DrawCopsnRobbersEv, %function
-_ZN8mmHudMap16DrawCopsnRobbersEv:
-    adrp x0, .Lstub_name_481
-    add x0, x0, :lo12:.Lstub_name_481
-    b ArtsStubCalled
-    .size _ZN8mmHudMap16DrawCopsnRobbersEv, . - _ZN8mmHudMap16DrawCopsnRobbersEv
-
-    // mmHudMap::GetClass()
-    .global _ZN8mmHudMap8GetClassEv
-    .type _ZN8mmHudMap8GetClassEv, %function
-_ZN8mmHudMap8GetClassEv:
-    adrp x0, .Lstub_name_482
-    add x0, x0, :lo12:.Lstub_name_482
-    b ArtsStubCalled
-    .size _ZN8mmHudMap8GetClassEv, . - _ZN8mmHudMap8GetClassEv
-
-    // mmHudMap::Update()
-    .global _ZN8mmHudMap6UpdateEv
-    .type _ZN8mmHudMap6UpdateEv, %function
-_ZN8mmHudMap6UpdateEv:
-    adrp x0, .Lstub_name_483
-    add x0, x0, :lo12:.Lstub_name_483
-    b ArtsStubCalled
-    .size _ZN8mmHudMap6UpdateEv, . - _ZN8mmHudMap6UpdateEv
-
-    // mmHudMap::Reset()
-    .global _ZN8mmHudMap5ResetEv
-    .type _ZN8mmHudMap5ResetEv, %function
-_ZN8mmHudMap5ResetEv:
-    adrp x0, .Lstub_name_484
-    add x0, x0, :lo12:.Lstub_name_484
-    b ArtsStubCalled
-    .size _ZN8mmHudMap5ResetEv, . - _ZN8mmHudMap5ResetEv
 
     // AudManager::Reset()
     .global _ZN10AudManager5ResetEv
     .type _ZN10AudManager5ResetEv, %function
 _ZN10AudManager5ResetEv:
-    adrp x0, .Lstub_name_485
-    add x0, x0, :lo12:.Lstub_name_485
+    adrp x0, .Lstub_name_407
+    add x0, x0, :lo12:.Lstub_name_407
     b ArtsStubCalled
     .size _ZN10AudManager5ResetEv, . - _ZN10AudManager5ResetEv
 
@@ -4386,35 +3684,62 @@ _ZN10AudManager5ResetEv:
     .global _ZN10AudManager6StopCDEv
     .type _ZN10AudManager6StopCDEv, %function
 _ZN10AudManager6StopCDEv:
-    adrp x0, .Lstub_name_486
-    add x0, x0, :lo12:.Lstub_name_486
+    adrp x0, .Lstub_name_408
+    add x0, x0, :lo12:.Lstub_name_408
     b ArtsStubCalled
     .size _ZN10AudManager6StopCDEv, . - _ZN10AudManager6StopCDEv
+
+    // mmTransmission::GetCurrentGear()
+    .global _ZN14mmTransmission14GetCurrentGearEv
+    .type _ZN14mmTransmission14GetCurrentGearEv, %function
+_ZN14mmTransmission14GetCurrentGearEv:
+    adrp x0, .Lstub_name_409
+    add x0, x0, :lo12:.Lstub_name_409
+    b ArtsStubCalled
+    .size _ZN14mmTransmission14GetCurrentGearEv, . - _ZN14mmTransmission14GetCurrentGearEv
+
+    // aiAudioManager::LoadCopVoice()
+    .global _ZN14aiAudioManager12LoadCopVoiceEv
+    .type _ZN14aiAudioManager12LoadCopVoiceEv, %function
+_ZN14aiAudioManager12LoadCopVoiceEv:
+    adrp x0, .Lstub_name_410
+    add x0, x0, :lo12:.Lstub_name_410
+    b ArtsStubCalled
+    .size _ZN14aiAudioManager12LoadCopVoiceEv, . - _ZN14aiAudioManager12LoadCopVoiceEv
 
     // mmInput::Reset()
     .global _ZN7mmInput5ResetEv
     .type _ZN7mmInput5ResetEv, %function
 _ZN7mmInput5ResetEv:
-    adrp x0, .Lstub_name_487
-    add x0, x0, :lo12:.Lstub_name_487
+    adrp x0, .Lstub_name_411
+    add x0, x0, :lo12:.Lstub_name_411
     b ArtsStubCalled
     .size _ZN7mmInput5ResetEv, . - _ZN7mmInput5ResetEv
 
-    // mmSingleCircuit::DisableRacers()
-    .global _ZN15mmSingleCircuit13DisableRacersEv
-    .type _ZN15mmSingleCircuit13DisableRacersEv, %function
-_ZN15mmSingleCircuit13DisableRacersEv:
-    adrp x0, .Lstub_name_488
-    add x0, x0, :lo12:.Lstub_name_488
+    // mmGameSingle::DisableRacers()
+    .global _ZN12mmGameSingle13DisableRacersEv
+    .type _ZN12mmGameSingle13DisableRacersEv, %function
+_ZN12mmGameSingle13DisableRacersEv:
+    adrp x0, .Lstub_name_412
+    add x0, x0, :lo12:.Lstub_name_412
     b ArtsStubCalled
-    .size _ZN15mmSingleCircuit13DisableRacersEv, . - _ZN15mmSingleCircuit13DisableRacersEv
+    .size _ZN12mmGameSingle13DisableRacersEv, . - _ZN12mmGameSingle13DisableRacersEv
+
+    // mmGame::Reset()
+    .global _ZN6mmGame5ResetEv
+    .type _ZN6mmGame5ResetEv, %function
+_ZN6mmGame5ResetEv:
+    adrp x0, .Lstub_name_413
+    add x0, x0, :lo12:.Lstub_name_413
+    b ArtsStubCalled
+    .size _ZN6mmGame5ResetEv, . - _ZN6mmGame5ResetEv
 
     // mmPlayer::SetPreRaceCam()
     .global _ZN8mmPlayer13SetPreRaceCamEv
     .type _ZN8mmPlayer13SetPreRaceCamEv, %function
 _ZN8mmPlayer13SetPreRaceCamEv:
-    adrp x0, .Lstub_name_489
-    add x0, x0, :lo12:.Lstub_name_489
+    adrp x0, .Lstub_name_414
+    add x0, x0, :lo12:.Lstub_name_414
     b ArtsStubCalled
     .size _ZN8mmPlayer13SetPreRaceCamEv, . - _ZN8mmPlayer13SetPreRaceCamEv
 
@@ -4422,8 +3747,8 @@ _ZN8mmPlayer13SetPreRaceCamEv:
     .global _ZN6mmGame10GetCDTrackEs
     .type _ZN6mmGame10GetCDTrackEs, %function
 _ZN6mmGame10GetCDTrackEs:
-    adrp x0, .Lstub_name_490
-    add x0, x0, :lo12:.Lstub_name_490
+    adrp x0, .Lstub_name_415
+    add x0, x0, :lo12:.Lstub_name_415
     b ArtsStubCalled
     .size _ZN6mmGame10GetCDTrackEs, . - _ZN6mmGame10GetCDTrackEs
 
@@ -4431,8 +3756,8 @@ _ZN6mmGame10GetCDTrackEs:
     .global _ZN10AudManager11PlayCDTrackEib
     .type _ZN10AudManager11PlayCDTrackEib, %function
 _ZN10AudManager11PlayCDTrackEib:
-    adrp x0, .Lstub_name_491
-    add x0, x0, :lo12:.Lstub_name_491
+    adrp x0, .Lstub_name_416
+    add x0, x0, :lo12:.Lstub_name_416
     b ArtsStubCalled
     .size _ZN10AudManager11PlayCDTrackEib, . - _ZN10AudManager11PlayCDTrackEib
 
@@ -4440,8 +3765,8 @@ _ZN10AudManager11PlayCDTrackEib:
     .global _ZN17mmVoiceCommentary11PlayPreRaceEv
     .type _ZN17mmVoiceCommentary11PlayPreRaceEv, %function
 _ZN17mmVoiceCommentary11PlayPreRaceEv:
-    adrp x0, .Lstub_name_492
-    add x0, x0, :lo12:.Lstub_name_492
+    adrp x0, .Lstub_name_417
+    add x0, x0, :lo12:.Lstub_name_417
     b ArtsStubCalled
     .size _ZN17mmVoiceCommentary11PlayPreRaceEv, . - _ZN17mmVoiceCommentary11PlayPreRaceEv
 
@@ -4449,35 +3774,17 @@ _ZN17mmVoiceCommentary11PlayPreRaceEv:
     .global _ZN5mmHUD10StopTimersEv
     .type _ZN5mmHUD10StopTimersEv, %function
 _ZN5mmHUD10StopTimersEv:
-    adrp x0, .Lstub_name_493
-    add x0, x0, :lo12:.Lstub_name_493
+    adrp x0, .Lstub_name_418
+    add x0, x0, :lo12:.Lstub_name_418
     b ArtsStubCalled
     .size _ZN5mmHUD10StopTimersEv, . - _ZN5mmHUD10StopTimersEv
-
-    // aiAudioManager::LoadCopVoice()
-    .global _ZN14aiAudioManager12LoadCopVoiceEv
-    .type _ZN14aiAudioManager12LoadCopVoiceEv, %function
-_ZN14aiAudioManager12LoadCopVoiceEv:
-    adrp x0, .Lstub_name_494
-    add x0, x0, :lo12:.Lstub_name_494
-    b ArtsStubCalled
-    .size _ZN14aiAudioManager12LoadCopVoiceEv, . - _ZN14aiAudioManager12LoadCopVoiceEv
-
-    // mmGameSingle::DisableRacers()
-    .global _ZN12mmGameSingle13DisableRacersEv
-    .type _ZN12mmGameSingle13DisableRacersEv, %function
-_ZN12mmGameSingle13DisableRacersEv:
-    adrp x0, .Lstub_name_495
-    add x0, x0, :lo12:.Lstub_name_495
-    b ArtsStubCalled
-    .size _ZN12mmGameSingle13DisableRacersEv, . - _ZN12mmGameSingle13DisableRacersEv
 
     // mmVoiceCommentary::PlayRoam()
     .global _ZN17mmVoiceCommentary8PlayRoamEv
     .type _ZN17mmVoiceCommentary8PlayRoamEv, %function
 _ZN17mmVoiceCommentary8PlayRoamEv:
-    adrp x0, .Lstub_name_496
-    add x0, x0, :lo12:.Lstub_name_496
+    adrp x0, .Lstub_name_419
+    add x0, x0, :lo12:.Lstub_name_419
     b ArtsStubCalled
     .size _ZN17mmVoiceCommentary8PlayRoamEv, . - _ZN17mmVoiceCommentary8PlayRoamEv
 
@@ -4485,8 +3792,8 @@ _ZN17mmVoiceCommentary8PlayRoamEv:
     .global _ZN11mmWaypointsD1Ev
     .type _ZN11mmWaypointsD1Ev, %function
 _ZN11mmWaypointsD1Ev:
-    adrp x0, .Lstub_name_497
-    add x0, x0, :lo12:.Lstub_name_497
+    adrp x0, .Lstub_name_420
+    add x0, x0, :lo12:.Lstub_name_420
     b ArtsStubCalled
     .size _ZN11mmWaypointsD1Ev, . - _ZN11mmWaypointsD1Ev
 
@@ -4494,8 +3801,8 @@ _ZN11mmWaypointsD1Ev:
     .global _Z13agiBeginConesv
     .type _Z13agiBeginConesv, %function
 _Z13agiBeginConesv:
-    adrp x0, .Lstub_name_498
-    add x0, x0, :lo12:.Lstub_name_498
+    adrp x0, .Lstub_name_421
+    add x0, x0, :lo12:.Lstub_name_421
     b ArtsStubCalled
     .size _Z13agiBeginConesv, . - _Z13agiBeginConesv
 
@@ -4503,17 +3810,26 @@ _Z13agiBeginConesv:
     .global _ZN12mmGameSingle8GetClassEv
     .type _ZN12mmGameSingle8GetClassEv, %function
 _ZN12mmGameSingle8GetClassEv:
-    adrp x0, .Lstub_name_499
-    add x0, x0, :lo12:.Lstub_name_499
+    adrp x0, .Lstub_name_422
+    add x0, x0, :lo12:.Lstub_name_422
     b ArtsStubCalled
     .size _ZN12mmGameSingle8GetClassEv, . - _ZN12mmGameSingle8GetClassEv
+
+    // mmGame::InitGameStrings()
+    .global _ZN6mmGame15InitGameStringsEv
+    .type _ZN6mmGame15InitGameStringsEv, %function
+_ZN6mmGame15InitGameStringsEv:
+    adrp x0, .Lstub_name_423
+    add x0, x0, :lo12:.Lstub_name_423
+    b ArtsStubCalled
+    .size _ZN6mmGame15InitGameStringsEv, . - _ZN6mmGame15InitGameStringsEv
 
     // mmGameSingle::InitOtherPlayers()
     .global _ZN12mmGameSingle16InitOtherPlayersEv
     .type _ZN12mmGameSingle16InitOtherPlayersEv, %function
 _ZN12mmGameSingle16InitOtherPlayersEv:
-    adrp x0, .Lstub_name_500
-    add x0, x0, :lo12:.Lstub_name_500
+    adrp x0, .Lstub_name_424
+    add x0, x0, :lo12:.Lstub_name_424
     b ArtsStubCalled
     .size _ZN12mmGameSingle16InitOtherPlayersEv, . - _ZN12mmGameSingle16InitOtherPlayersEv
 
@@ -4521,8 +3837,8 @@ _ZN12mmGameSingle16InitOtherPlayersEv:
     .global _ZN12mmGameSingle15InitGameObjectsEv
     .type _ZN12mmGameSingle15InitGameObjectsEv, %function
 _ZN12mmGameSingle15InitGameObjectsEv:
-    adrp x0, .Lstub_name_501
-    add x0, x0, :lo12:.Lstub_name_501
+    adrp x0, .Lstub_name_425
+    add x0, x0, :lo12:.Lstub_name_425
     b ArtsStubCalled
     .size _ZN12mmGameSingle15InitGameObjectsEv, . - _ZN12mmGameSingle15InitGameObjectsEv
 
@@ -4530,8 +3846,8 @@ _ZN12mmGameSingle15InitGameObjectsEv:
     .global _ZN12mmGameSingle7InitHUDEv
     .type _ZN12mmGameSingle7InitHUDEv, %function
 _ZN12mmGameSingle7InitHUDEv:
-    adrp x0, .Lstub_name_502
-    add x0, x0, :lo12:.Lstub_name_502
+    adrp x0, .Lstub_name_426
+    add x0, x0, :lo12:.Lstub_name_426
     b ArtsStubCalled
     .size _ZN12mmGameSingle7InitHUDEv, . - _ZN12mmGameSingle7InitHUDEv
 
@@ -4539,8 +3855,8 @@ _ZN12mmGameSingle7InitHUDEv:
     .global _ZN12mmGameSingle15UpdateGameInputEi
     .type _ZN12mmGameSingle15UpdateGameInputEi, %function
 _ZN12mmGameSingle15UpdateGameInputEi:
-    adrp x0, .Lstub_name_503
-    add x0, x0, :lo12:.Lstub_name_503
+    adrp x0, .Lstub_name_427
+    add x0, x0, :lo12:.Lstub_name_427
     b ArtsStubCalled
     .size _ZN12mmGameSingle15UpdateGameInputEi, . - _ZN12mmGameSingle15UpdateGameInputEi
 
@@ -4548,8 +3864,8 @@ _ZN12mmGameSingle15UpdateGameInputEi:
     .global _ZN12mmGameSingle10UpdateGameEv
     .type _ZN12mmGameSingle10UpdateGameEv, %function
 _ZN12mmGameSingle10UpdateGameEv:
-    adrp x0, .Lstub_name_504
-    add x0, x0, :lo12:.Lstub_name_504
+    adrp x0, .Lstub_name_428
+    add x0, x0, :lo12:.Lstub_name_428
     b ArtsStubCalled
     .size _ZN12mmGameSingle10UpdateGameEv, . - _ZN12mmGameSingle10UpdateGameEv
 
@@ -4557,8 +3873,8 @@ _ZN12mmGameSingle10UpdateGameEv:
     .global _ZN12mmGameSingle8NextRaceEv
     .type _ZN12mmGameSingle8NextRaceEv, %function
 _ZN12mmGameSingle8NextRaceEv:
-    adrp x0, .Lstub_name_505
-    add x0, x0, :lo12:.Lstub_name_505
+    adrp x0, .Lstub_name_429
+    add x0, x0, :lo12:.Lstub_name_429
     b ArtsStubCalled
     .size _ZN12mmGameSingle8NextRaceEv, . - _ZN12mmGameSingle8NextRaceEv
 
@@ -4566,143 +3882,305 @@ _ZN12mmGameSingle8NextRaceEv:
     .global _ZN12mmGameSingle15HitWaterHandlerEv
     .type _ZN12mmGameSingle15HitWaterHandlerEv, %function
 _ZN12mmGameSingle15HitWaterHandlerEv:
-    adrp x0, .Lstub_name_506
-    add x0, x0, :lo12:.Lstub_name_506
+    adrp x0, .Lstub_name_430
+    add x0, x0, :lo12:.Lstub_name_430
     b ArtsStubCalled
     .size _ZN12mmGameSingle15HitWaterHandlerEv, . - _ZN12mmGameSingle15HitWaterHandlerEv
+
+    // SetSnowSurfaceAudioInfos()
+    .global _Z24SetSnowSurfaceAudioInfosv
+    .type _Z24SetSnowSurfaceAudioInfosv, %function
+_Z24SetSnowSurfaceAudioInfosv:
+    adrp x0, .Lstub_name_431
+    add x0, x0, :lo12:.Lstub_name_431
+    b ArtsStubCalled
+    .size _Z24SetSnowSurfaceAudioInfosv, . - _Z24SetSnowSurfaceAudioInfosv
+
+    // SetClearSurfaceAudioInfos()
+    .global _Z25SetClearSurfaceAudioInfosv
+    .type _Z25SetClearSurfaceAudioInfosv, %function
+_Z25SetClearSurfaceAudioInfosv:
+    adrp x0, .Lstub_name_432
+    add x0, x0, :lo12:.Lstub_name_432
+    b ArtsStubCalled
+    .size _Z25SetClearSurfaceAudioInfosv, . - _Z25SetClearSurfaceAudioInfosv
+
+    // mmGame::DropThruCityHandler()
+    .global _ZN6mmGame19DropThruCityHandlerEv
+    .type _ZN6mmGame19DropThruCityHandlerEv, %function
+_ZN6mmGame19DropThruCityHandlerEv:
+    adrp x0, .Lstub_name_433
+    add x0, x0, :lo12:.Lstub_name_433
+    b ArtsStubCalled
+    .size _ZN6mmGame19DropThruCityHandlerEv, . - _ZN6mmGame19DropThruCityHandlerEv
 
     // mmGameSingle::GetWaypoints()
     .global _ZN12mmGameSingle12GetWaypointsEv
     .type _ZN12mmGameSingle12GetWaypointsEv, %function
 _ZN12mmGameSingle12GetWaypointsEv:
-    adrp x0, .Lstub_name_507
-    add x0, x0, :lo12:.Lstub_name_507
+    adrp x0, .Lstub_name_434
+    add x0, x0, :lo12:.Lstub_name_434
     b ArtsStubCalled
     .size _ZN12mmGameSingle12GetWaypointsEv, . - _ZN12mmGameSingle12GetWaypointsEv
 
-    // asNetObject::asNetObject()
-    .global _ZN11asNetObjectC2Ev
-    .type _ZN11asNetObjectC2Ev, %function
-_ZN11asNetObjectC2Ev:
-    adrp x0, .Lstub_name_508
-    add x0, x0, :lo12:.Lstub_name_508
+    // mmLinearGauge::mmLinearGauge()
+    .global _ZN13mmLinearGaugeC1Ev
+    .type _ZN13mmLinearGaugeC1Ev, %function
+_ZN13mmLinearGaugeC1Ev:
+    adrp x0, .Lstub_name_435
+    add x0, x0, :lo12:.Lstub_name_435
     b ArtsStubCalled
-    .size _ZN11asNetObjectC2Ev, . - _ZN11asNetObjectC2Ev
+    .size _ZN13mmLinearGaugeC1Ev, . - _ZN13mmLinearGaugeC1Ev
 
-    // mmMultiCR::FondleCarMass(mmCar*, float)
-    .global _ZN9mmMultiCR13FondleCarMassEP5mmCarf
-    .type _ZN9mmMultiCR13FondleCarMassEP5mmCarf, %function
-_ZN9mmMultiCR13FondleCarMassEP5mmCarf:
-    adrp x0, .Lstub_name_509
-    add x0, x0, :lo12:.Lstub_name_509
+    // mmVoiceCommentary::mmVoiceCommentary()
+    .global _ZN17mmVoiceCommentaryC1Ev
+    .type _ZN17mmVoiceCommentaryC1Ev, %function
+_ZN17mmVoiceCommentaryC1Ev:
+    adrp x0, .Lstub_name_436
+    add x0, x0, :lo12:.Lstub_name_436
     b ArtsStubCalled
-    .size _ZN9mmMultiCR13FondleCarMassEP5mmCarf, . - _ZN9mmMultiCR13FondleCarMassEP5mmCarf
+    .size _ZN17mmVoiceCommentaryC1Ev, . - _ZN17mmVoiceCommentaryC1Ev
 
-    // mmCRHUD::ActivateRosterGold(unsigned long)
-    .global _ZN7mmCRHUD18ActivateRosterGoldEm
-    .type _ZN7mmCRHUD18ActivateRosterGoldEm, %function
-_ZN7mmCRHUD18ActivateRosterGoldEm:
-    adrp x0, .Lstub_name_510
-    add x0, x0, :lo12:.Lstub_name_510
+    // mmVoiceCommentary::ValidateCity(char*)
+    .global _ZN17mmVoiceCommentary12ValidateCityEPc
+    .type _ZN17mmVoiceCommentary12ValidateCityEPc, %function
+_ZN17mmVoiceCommentary12ValidateCityEPc:
+    adrp x0, .Lstub_name_437
+    add x0, x0, :lo12:.Lstub_name_437
     b ArtsStubCalled
-    .size _ZN7mmCRHUD18ActivateRosterGoldEm, . - _ZN7mmCRHUD18ActivateRosterGoldEm
+    .size _ZN17mmVoiceCommentary12ValidateCityEPc, . - _ZN17mmVoiceCommentary12ValidateCityEPc
 
-    // mmPopup::ShowResults()
-    .global _ZN7mmPopup11ShowResultsEv
-    .type _ZN7mmPopup11ShowResultsEv, %function
-_ZN7mmPopup11ShowResultsEv:
-    adrp x0, .Lstub_name_511
-    add x0, x0, :lo12:.Lstub_name_511
+    // asMeshSetForm::asMeshSetForm()
+    .global _ZN13asMeshSetFormC1Ev
+    .type _ZN13asMeshSetFormC1Ev, %function
+_ZN13asMeshSetFormC1Ev:
+    adrp x0, .Lstub_name_438
+    add x0, x0, :lo12:.Lstub_name_438
     b ArtsStubCalled
-    .size _ZN7mmPopup11ShowResultsEv, . - _ZN7mmPopup11ShowResultsEv
+    .size _ZN13asMeshSetFormC1Ev, . - _ZN13asMeshSetFormC1Ev
 
-    // mmPlayer::IsMaxDamaged()
-    .global _ZN8mmPlayer12IsMaxDamagedEv
-    .type _ZN8mmPlayer12IsMaxDamagedEv, %function
-_ZN8mmPlayer12IsMaxDamagedEv:
-    adrp x0, .Lstub_name_512
-    add x0, x0, :lo12:.Lstub_name_512
+    // AudManager::SetVoiceCommentaryPtr(mmVoiceCommentary*)
+    .global _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary
+    .type _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary, %function
+_ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary:
+    adrp x0, .Lstub_name_439
+    add x0, x0, :lo12:.Lstub_name_439
     b ArtsStubCalled
-    .size _ZN8mmPlayer12IsMaxDamagedEv, . - _ZN8mmPlayer12IsMaxDamagedEv
+    .size _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary, . - _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary
 
-    // Matrix34::FromEulers(Vector3 const&)
-    .global _ZN8Matrix3410FromEulersERK7Vector3
-    .type _ZN8Matrix3410FromEulersERK7Vector3, %function
-_ZN8Matrix3410FromEulersERK7Vector3:
-    adrp x0, .Lstub_name_513
-    add x0, x0, :lo12:.Lstub_name_513
+    // RadialGauge::RadialGauge()
+    .global _ZN11RadialGaugeC1Ev
+    .type _ZN11RadialGaugeC1Ev, %function
+_ZN11RadialGaugeC1Ev:
+    adrp x0, .Lstub_name_440
+    add x0, x0, :lo12:.Lstub_name_440
     b ArtsStubCalled
-    .size _ZN8Matrix3410FromEulersERK7Vector3, . - _ZN8Matrix3410FromEulersERK7Vector3
+    .size _ZN11RadialGaugeC1Ev, . - _ZN11RadialGaugeC1Ev
 
-    // mmCarSim::StartSiren()
-    .global _ZN8mmCarSim10StartSirenEv
-    .type _ZN8mmCarSim10StartSirenEv, %function
-_ZN8mmCarSim10StartSirenEv:
-    adrp x0, .Lstub_name_514
-    add x0, x0, :lo12:.Lstub_name_514
+    // mmPhysicsMGR::Init(asInertialCS*, mmViewCS*)
+    .global _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS
+    .type _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS, %function
+_ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS:
+    adrp x0, .Lstub_name_441
+    add x0, x0, :lo12:.Lstub_name_441
     b ArtsStubCalled
-    .size _ZN8mmCarSim10StartSirenEv, . - _ZN8mmCarSim10StartSirenEv
+    .size _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS, . - _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS
 
-    // mmCarSim::StopSiren()
-    .global _ZN8mmCarSim9StopSirenEv
-    .type _ZN8mmCarSim9StopSirenEv, %function
-_ZN8mmCarSim9StopSirenEv:
-    adrp x0, .Lstub_name_515
-    add x0, x0, :lo12:.Lstub_name_515
+    // mmPlayer::Init(char*, char*, mmGame*)
+    .global _ZN8mmPlayer4InitEPcS0_P6mmGame
+    .type _ZN8mmPlayer4InitEPcS0_P6mmGame, %function
+_ZN8mmPlayer4InitEPcS0_P6mmGame:
+    adrp x0, .Lstub_name_442
+    add x0, x0, :lo12:.Lstub_name_442
     b ArtsStubCalled
-    .size _ZN8mmCarSim9StopSirenEv, . - _ZN8mmCarSim9StopSirenEv
+    .size _ZN8mmPlayer4InitEPcS0_P6mmGame, . - _ZN8mmPlayer4InitEPcS0_P6mmGame
 
-    // Matrix34::Approach(Matrix34 const&, float, float, float)
-    .global _ZN8Matrix348ApproachERKS_fff
-    .type _ZN8Matrix348ApproachERKS_fff, %function
-_ZN8Matrix348ApproachERKS_fff:
-    adrp x0, .Lstub_name_516
-    add x0, x0, :lo12:.Lstub_name_516
+    // mmIcons::Init(Matrix34*, float, float)
+    .global _ZN7mmIcons4InitEP8Matrix34ff
+    .type _ZN7mmIcons4InitEP8Matrix34ff, %function
+_ZN7mmIcons4InitEP8Matrix34ff:
+    adrp x0, .Lstub_name_443
+    add x0, x0, :lo12:.Lstub_name_443
     b ArtsStubCalled
-    .size _ZN8Matrix348ApproachERKS_fff, . - _ZN8Matrix348ApproachERKS_fff
+    .size _ZN7mmIcons4InitEP8Matrix34ff, . - _ZN7mmIcons4InitEP8Matrix34ff
 
-    // Matrix34::GetEulers() const
-    .global _ZNK8Matrix349GetEulersEv
-    .type _ZNK8Matrix349GetEulersEv, %function
-_ZNK8Matrix349GetEulersEv:
-    adrp x0, .Lstub_name_517
-    add x0, x0, :lo12:.Lstub_name_517
+    // AudManager::GetDSound3DMask()
+    .global _ZN10AudManager15GetDSound3DMaskEv
+    .type _ZN10AudManager15GetDSound3DMaskEv, %function
+_ZN10AudManager15GetDSound3DMaskEv:
+    adrp x0, .Lstub_name_444
+    add x0, x0, :lo12:.Lstub_name_444
     b ArtsStubCalled
-    .size _ZNK8Matrix349GetEulersEv, . - _ZNK8Matrix349GetEulersEv
+    .size _ZN10AudManager15GetDSound3DMaskEv, . - _ZN10AudManager15GetDSound3DMaskEv
 
-    // asNetwork::Send(unsigned long, void*, unsigned long, int)
-    .global _ZN9asNetwork4SendEmPvmi
-    .type _ZN9asNetwork4SendEmPvmi, %function
-_ZN9asNetwork4SendEmPvmi:
-    adrp x0, .Lstub_name_518
-    add x0, x0, :lo12:.Lstub_name_518
+    // AudHead::AudHead(Matrix34*)
+    .global _ZN7AudHeadC1EP8Matrix34
+    .type _ZN7AudHeadC1EP8Matrix34, %function
+_ZN7AudHeadC1EP8Matrix34:
+    adrp x0, .Lstub_name_445
+    add x0, x0, :lo12:.Lstub_name_445
     b ArtsStubCalled
-    .size _ZN9asNetwork4SendEmPvmi, . - _ZN9asNetwork4SendEmPvmi
+    .size _ZN7AudHeadC1EP8Matrix34, . - _ZN7AudHeadC1EP8Matrix34
 
-    // asNetObject::Update()
-    .global _ZN11asNetObject6UpdateEv
-    .type _ZN11asNetObject6UpdateEv, %function
-_ZN11asNetObject6UpdateEv:
-    adrp x0, .Lstub_name_519
-    add x0, x0, :lo12:.Lstub_name_519
+    // asForm::asForm()
+    .global _ZN6asFormC1Ev
+    .type _ZN6asFormC1Ev, %function
+_ZN6asFormC1Ev:
+    adrp x0, .Lstub_name_446
+    add x0, x0, :lo12:.Lstub_name_446
     b ArtsStubCalled
-    .size _ZN11asNetObject6UpdateEv, . - _ZN11asNetObject6UpdateEv
+    .size _ZN6asFormC1Ev, . - _ZN6asFormC1Ev
 
-    // asNetObject::PositionUpdate(Matrix34*, Vector3, float, float, float)
-    .global _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff
-    .type _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff, %function
-_ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff:
-    adrp x0, .Lstub_name_520
-    add x0, x0, :lo12:.Lstub_name_520
+    // AudHead::Init()
+    .global _ZN7AudHead4InitEv
+    .type _ZN7AudHead4InitEv, %function
+_ZN7AudHead4InitEv:
+    adrp x0, .Lstub_name_447
+    add x0, x0, :lo12:.Lstub_name_447
     b ArtsStubCalled
-    .size _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff, . - _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff
+    .size _ZN7AudHead4InitEv, . - _ZN7AudHead4InitEv
+
+    // asMeshSetForm::SetZRead(int)
+    .global _ZN13asMeshSetForm8SetZReadEi
+    .type _ZN13asMeshSetForm8SetZReadEi, %function
+_ZN13asMeshSetForm8SetZReadEi:
+    adrp x0, .Lstub_name_448
+    add x0, x0, :lo12:.Lstub_name_448
+    b ArtsStubCalled
+    .size _ZN13asMeshSetForm8SetZReadEi, . - _ZN13asMeshSetForm8SetZReadEi
+
+    // AudHead::SetRolloff(float)
+    .global _ZN7AudHead10SetRolloffEf
+    .type _ZN7AudHead10SetRolloffEf, %function
+_ZN7AudHead10SetRolloffEf:
+    adrp x0, .Lstub_name_449
+    add x0, x0, :lo12:.Lstub_name_449
+    b ArtsStubCalled
+    .size _ZN7AudHead10SetRolloffEf, . - _ZN7AudHead10SetRolloffEf
+
+    // asMeshSetForm::SetZWrite(int)
+    .global _ZN13asMeshSetForm9SetZWriteEi
+    .type _ZN13asMeshSetForm9SetZWriteEi, %function
+_ZN13asMeshSetForm9SetZWriteEi:
+    adrp x0, .Lstub_name_450
+    add x0, x0, :lo12:.Lstub_name_450
+    b ArtsStubCalled
+    .size _ZN13asMeshSetForm9SetZWriteEi, . - _ZN13asMeshSetForm9SetZWriteEi
+
+    // mmHudMap::DrawMisc()
+    .global _ZN8mmHudMap8DrawMiscEv
+    .type _ZN8mmHudMap8DrawMiscEv, %function
+_ZN8mmHudMap8DrawMiscEv:
+    adrp x0, .Lstub_name_451
+    add x0, x0, :lo12:.Lstub_name_451
+    b ArtsStubCalled
+    .size _ZN8mmHudMap8DrawMiscEv, . - _ZN8mmHudMap8DrawMiscEv
+
+    // mmHudMap::DrawCops()
+    .global _ZN8mmHudMap8DrawCopsEv
+    .type _ZN8mmHudMap8DrawCopsEv, %function
+_ZN8mmHudMap8DrawCopsEv:
+    adrp x0, .Lstub_name_452
+    add x0, x0, :lo12:.Lstub_name_452
+    b ArtsStubCalled
+    .size _ZN8mmHudMap8DrawCopsEv, . - _ZN8mmHudMap8DrawCopsEv
+
+    // mmHudMap::DrawOrientedBitmap(Matrix34*, agiBitmap*)
+    .global _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap
+    .type _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap, %function
+_ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap:
+    adrp x0, .Lstub_name_453
+    add x0, x0, :lo12:.Lstub_name_453
+    b ArtsStubCalled
+    .size _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap, . - _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap
+
+    // mmHudMap::DrawWaypoints()
+    .global _ZN8mmHudMap13DrawWaypointsEv
+    .type _ZN8mmHudMap13DrawWaypointsEv, %function
+_ZN8mmHudMap13DrawWaypointsEv:
+    adrp x0, .Lstub_name_454
+    add x0, x0, :lo12:.Lstub_name_454
+    b ArtsStubCalled
+    .size _ZN8mmHudMap13DrawWaypointsEv, . - _ZN8mmHudMap13DrawWaypointsEv
+
+    // mmHudMap::DrawCopsnRobbers()
+    .global _ZN8mmHudMap16DrawCopsnRobbersEv
+    .type _ZN8mmHudMap16DrawCopsnRobbersEv, %function
+_ZN8mmHudMap16DrawCopsnRobbersEv:
+    adrp x0, .Lstub_name_455
+    add x0, x0, :lo12:.Lstub_name_455
+    b ArtsStubCalled
+    .size _ZN8mmHudMap16DrawCopsnRobbersEv, . - _ZN8mmHudMap16DrawCopsnRobbersEv
+
+    // AudSound::Get2DFlags()
+    .global _ZN8AudSound10Get2DFlagsEv
+    .type _ZN8AudSound10Get2DFlagsEv, %function
+_ZN8AudSound10Get2DFlagsEv:
+    adrp x0, .Lstub_name_456
+    add x0, x0, :lo12:.Lstub_name_456
+    b ArtsStubCalled
+    .size _ZN8AudSound10Get2DFlagsEv, . - _ZN8AudSound10Get2DFlagsEv
+
+    // AudSound::AudSound(unsigned long, int, short)
+    .global _ZN8AudSoundC1Emis
+    .type _ZN8AudSoundC1Emis, %function
+_ZN8AudSoundC1Emis:
+    adrp x0, .Lstub_name_457
+    add x0, x0, :lo12:.Lstub_name_457
+    b ArtsStubCalled
+    .size _ZN8AudSoundC1Emis, . - _ZN8AudSoundC1Emis
+
+    // AudSound::Load(char*, int)
+    .global _ZN8AudSound4LoadEPci
+    .type _ZN8AudSound4LoadEPci, %function
+_ZN8AudSound4LoadEPci:
+    adrp x0, .Lstub_name_458
+    add x0, x0, :lo12:.Lstub_name_458
+    b ArtsStubCalled
+    .size _ZN8AudSound4LoadEPci, . - _ZN8AudSound4LoadEPci
+
+    // AudSound::SetPriority(int)
+    .global _ZN8AudSound11SetPriorityEi
+    .type _ZN8AudSound11SetPriorityEi, %function
+_ZN8AudSound11SetPriorityEi:
+    adrp x0, .Lstub_name_459
+    add x0, x0, :lo12:.Lstub_name_459
+    b ArtsStubCalled
+    .size _ZN8AudSound11SetPriorityEi, . - _ZN8AudSound11SetPriorityEi
+
+    // AudSound::SetVolume(float, int)
+    .global _ZN8AudSound9SetVolumeEfi
+    .type _ZN8AudSound9SetVolumeEfi, %function
+_ZN8AudSound9SetVolumeEfi:
+    adrp x0, .Lstub_name_460
+    add x0, x0, :lo12:.Lstub_name_460
+    b ArtsStubCalled
+    .size _ZN8AudSound9SetVolumeEfi, . - _ZN8AudSound9SetVolumeEfi
+
+    // mmCDPlayer::Init(mmHUD*)
+    .global _ZN10mmCDPlayer4InitEP5mmHUD
+    .type _ZN10mmCDPlayer4InitEP5mmHUD, %function
+_ZN10mmCDPlayer4InitEP5mmHUD:
+    adrp x0, .Lstub_name_461
+    add x0, x0, :lo12:.Lstub_name_461
+    b ArtsStubCalled
+    .size _ZN10mmCDPlayer4InitEP5mmHUD, . - _ZN10mmCDPlayer4InitEP5mmHUD
+
+    // mmArrow::Update()
+    .global _ZN7mmArrow6UpdateEv
+    .type _ZN7mmArrow6UpdateEv, %function
+_ZN7mmArrow6UpdateEv:
+    adrp x0, .Lstub_name_462
+    add x0, x0, :lo12:.Lstub_name_462
+    b ArtsStubCalled
+    .size _ZN7mmArrow6UpdateEv, . - _ZN7mmArrow6UpdateEv
 
     // swSetInterlace(int)
     .global _Z14swSetInterlacei
     .type _Z14swSetInterlacei, %function
 _Z14swSetInterlacei:
-    adrp x0, .Lstub_name_521
-    add x0, x0, :lo12:.Lstub_name_521
+    adrp x0, .Lstub_name_463
+    add x0, x0, :lo12:.Lstub_name_463
     b ArtsStubCalled
     .size _Z14swSetInterlacei, . - _Z14swSetInterlacei
 
@@ -4710,8 +4188,8 @@ _Z14swSetInterlacei:
     .global _ZN10AudManager15DeallocateUIADFEv
     .type _ZN10AudManager15DeallocateUIADFEv, %function
 _ZN10AudManager15DeallocateUIADFEv:
-    adrp x0, .Lstub_name_522
-    add x0, x0, :lo12:.Lstub_name_522
+    adrp x0, .Lstub_name_464
+    add x0, x0, :lo12:.Lstub_name_464
     b ArtsStubCalled
     .size _ZN10AudManager15DeallocateUIADFEv, . - _ZN10AudManager15DeallocateUIADFEv
 
@@ -4719,8 +4197,8 @@ _ZN10AudManager15DeallocateUIADFEv:
     .global _ZN11MenuManagerD1Ev
     .type _ZN11MenuManagerD1Ev, %function
 _ZN11MenuManagerD1Ev:
-    adrp x0, .Lstub_name_523
-    add x0, x0, :lo12:.Lstub_name_523
+    adrp x0, .Lstub_name_465
+    add x0, x0, :lo12:.Lstub_name_465
     b ArtsStubCalled
     .size _ZN11MenuManagerD1Ev, . - _ZN11MenuManagerD1Ev
 
@@ -4728,8 +4206,8 @@ _ZN11MenuManagerD1Ev:
     .global _ZN17mmPlayerDirectoryD1Ev
     .type _ZN17mmPlayerDirectoryD1Ev, %function
 _ZN17mmPlayerDirectoryD1Ev:
-    adrp x0, .Lstub_name_524
-    add x0, x0, :lo12:.Lstub_name_524
+    adrp x0, .Lstub_name_466
+    add x0, x0, :lo12:.Lstub_name_466
     b ArtsStubCalled
     .size _ZN17mmPlayerDirectoryD1Ev, . - _ZN17mmPlayerDirectoryD1Ev
 
@@ -4737,8 +4215,8 @@ _ZN17mmPlayerDirectoryD1Ev:
     .global _ZN9asNetwork15InitializeLobbyEib
     .type _ZN9asNetwork15InitializeLobbyEib, %function
 _ZN9asNetwork15InitializeLobbyEib:
-    adrp x0, .Lstub_name_525
-    add x0, x0, :lo12:.Lstub_name_525
+    adrp x0, .Lstub_name_467
+    add x0, x0, :lo12:.Lstub_name_467
     b ArtsStubCalled
     .size _ZN9asNetwork15InitializeLobbyEib, . - _ZN9asNetwork15InitializeLobbyEib
 
@@ -4746,8 +4224,8 @@ _ZN9asNetwork15InitializeLobbyEib:
     .global _ZN9asNetwork16JoinLobbySessionEv
     .type _ZN9asNetwork16JoinLobbySessionEv, %function
 _ZN9asNetwork16JoinLobbySessionEv:
-    adrp x0, .Lstub_name_526
-    add x0, x0, :lo12:.Lstub_name_526
+    adrp x0, .Lstub_name_468
+    add x0, x0, :lo12:.Lstub_name_468
     b ArtsStubCalled
     .size _ZN9asNetwork16JoinLobbySessionEv, . - _ZN9asNetwork16JoinLobbySessionEv
 
@@ -4755,8 +4233,8 @@ _ZN9asNetwork16JoinLobbySessionEv:
     .global _ZN12mmPlayerData14GetTotalPassedEv
     .type _ZN12mmPlayerData14GetTotalPassedEv, %function
 _ZN12mmPlayerData14GetTotalPassedEv:
-    adrp x0, .Lstub_name_527
-    add x0, x0, :lo12:.Lstub_name_527
+    adrp x0, .Lstub_name_469
+    add x0, x0, :lo12:.Lstub_name_469
     b ArtsStubCalled
     .size _ZN12mmPlayerData14GetTotalPassedEv, . - _ZN12mmPlayerData14GetTotalPassedEv
 
@@ -4764,8 +4242,8 @@ _ZN12mmPlayerData14GetTotalPassedEv:
     .global _ZN12mmPlayerData14GetBlitzPassedEv
     .type _ZN12mmPlayerData14GetBlitzPassedEv, %function
 _ZN12mmPlayerData14GetBlitzPassedEv:
-    adrp x0, .Lstub_name_528
-    add x0, x0, :lo12:.Lstub_name_528
+    adrp x0, .Lstub_name_470
+    add x0, x0, :lo12:.Lstub_name_470
     b ArtsStubCalled
     .size _ZN12mmPlayerData14GetBlitzPassedEv, . - _ZN12mmPlayerData14GetBlitzPassedEv
 
@@ -4773,8 +4251,8 @@ _ZN12mmPlayerData14GetBlitzPassedEv:
     .global _ZN12mmPlayerData16GetCircuitPassedEv
     .type _ZN12mmPlayerData16GetCircuitPassedEv, %function
 _ZN12mmPlayerData16GetCircuitPassedEv:
-    adrp x0, .Lstub_name_529
-    add x0, x0, :lo12:.Lstub_name_529
+    adrp x0, .Lstub_name_471
+    add x0, x0, :lo12:.Lstub_name_471
     b ArtsStubCalled
     .size _ZN12mmPlayerData16GetCircuitPassedEv, . - _ZN12mmPlayerData16GetCircuitPassedEv
 
@@ -4782,8 +4260,8 @@ _ZN12mmPlayerData16GetCircuitPassedEv:
     .global _ZN12mmPlayerData19GetCheckpointPassedEv
     .type _ZN12mmPlayerData19GetCheckpointPassedEv, %function
 _ZN12mmPlayerData19GetCheckpointPassedEv:
-    adrp x0, .Lstub_name_530
-    add x0, x0, :lo12:.Lstub_name_530
+    adrp x0, .Lstub_name_472
+    add x0, x0, :lo12:.Lstub_name_472
     b ArtsStubCalled
     .size _ZN12mmPlayerData19GetCheckpointPassedEv, . - _ZN12mmPlayerData19GetCheckpointPassedEv
 
@@ -4791,8 +4269,8 @@ _ZN12mmPlayerData19GetCheckpointPassedEv:
     .global _ZN12mmPlayerData13GetTotalScoreEv
     .type _ZN12mmPlayerData13GetTotalScoreEv, %function
 _ZN12mmPlayerData13GetTotalScoreEv:
-    adrp x0, .Lstub_name_531
-    add x0, x0, :lo12:.Lstub_name_531
+    adrp x0, .Lstub_name_473
+    add x0, x0, :lo12:.Lstub_name_473
     b ArtsStubCalled
     .size _ZN12mmPlayerData13GetTotalScoreEv, . - _ZN12mmPlayerData13GetTotalScoreEv
 
@@ -4800,8 +4278,8 @@ _ZN12mmPlayerData13GetTotalScoreEv:
     .global _ZN6UIMenu18SetNavigationOrderEPKPKcm
     .type _ZN6UIMenu18SetNavigationOrderEPKPKcm, %function
 _ZN6UIMenu18SetNavigationOrderEPKPKcm:
-    adrp x0, .Lstub_name_532
-    add x0, x0, :lo12:.Lstub_name_532
+    adrp x0, .Lstub_name_474
+    add x0, x0, :lo12:.Lstub_name_474
     b ArtsStubCalled
     .size _ZN6UIMenu18SetNavigationOrderEPKPKcm, . - _ZN6UIMenu18SetNavigationOrderEPKPKcm
 
@@ -4809,8 +4287,8 @@ _ZN6UIMenu18SetNavigationOrderEPKPKcm:
     .global _ZN11mmInterface15MessageCallbackEPvS0_
     .type _ZN11mmInterface15MessageCallbackEPvS0_, %function
 _ZN11mmInterface15MessageCallbackEPvS0_:
-    adrp x0, .Lstub_name_533
-    add x0, x0, :lo12:.Lstub_name_533
+    adrp x0, .Lstub_name_475
+    add x0, x0, :lo12:.Lstub_name_475
     b ArtsStubCalled
     .size _ZN11mmInterface15MessageCallbackEPvS0_, . - _ZN11mmInterface15MessageCallbackEPvS0_
 
@@ -4818,80 +4296,62 @@ _ZN11mmInterface15MessageCallbackEPvS0_:
     .global _ZN11mmInterface16MessageCallback2EPvS0_
     .type _ZN11mmInterface16MessageCallback2EPvS0_, %function
 _ZN11mmInterface16MessageCallback2EPvS0_:
-    adrp x0, .Lstub_name_534
-    add x0, x0, :lo12:.Lstub_name_534
+    adrp x0, .Lstub_name_476
+    add x0, x0, :lo12:.Lstub_name_476
     b ArtsStubCalled
     .size _ZN11mmInterface16MessageCallback2EPvS0_, . - _ZN11mmInterface16MessageCallback2EPvS0_
 
-    // mmVoiceCommentary::PlayTimePenalty()
-    .global _ZN17mmVoiceCommentary15PlayTimePenaltyEv
-    .type _ZN17mmVoiceCommentary15PlayTimePenaltyEv, %function
-_ZN17mmVoiceCommentary15PlayTimePenaltyEv:
-    adrp x0, .Lstub_name_535
-    add x0, x0, :lo12:.Lstub_name_535
+    // asNetObject::asNetObject()
+    .global _ZN11asNetObjectC2Ev
+    .type _ZN11asNetObjectC2Ev, %function
+_ZN11asNetObjectC2Ev:
+    adrp x0, .Lstub_name_477
+    add x0, x0, :lo12:.Lstub_name_477
     b ArtsStubCalled
-    .size _ZN17mmVoiceCommentary15PlayTimePenaltyEv, . - _ZN17mmVoiceCommentary15PlayTimePenaltyEv
+    .size _ZN11asNetObjectC2Ev, . - _ZN11asNetObjectC2Ev
 
-    // mmMultiCR::DropGold(Vector3, int)
-    .global _ZN9mmMultiCR8DropGoldE7Vector3i
-    .type _ZN9mmMultiCR8DropGoldE7Vector3i, %function
-_ZN9mmMultiCR8DropGoldE7Vector3i:
-    adrp x0, .Lstub_name_536
-    add x0, x0, :lo12:.Lstub_name_536
+    // Matrix34::FromEulers(Vector3 const&)
+    .global _ZN8Matrix3410FromEulersERK7Vector3
+    .type _ZN8Matrix3410FromEulersERK7Vector3, %function
+_ZN8Matrix3410FromEulersERK7Vector3:
+    adrp x0, .Lstub_name_478
+    add x0, x0, :lo12:.Lstub_name_478
     b ArtsStubCalled
-    .size _ZN9mmMultiCR8DropGoldE7Vector3i, . - _ZN9mmMultiCR8DropGoldE7Vector3i
+    .size _ZN8Matrix3410FromEulersERK7Vector3, . - _ZN8Matrix3410FromEulersERK7Vector3
 
-    // mmVoiceCommentary::PlayCR(short, short)
-    .global _ZN17mmVoiceCommentary6PlayCREss
-    .type _ZN17mmVoiceCommentary6PlayCREss, %function
-_ZN17mmVoiceCommentary6PlayCREss:
-    adrp x0, .Lstub_name_537
-    add x0, x0, :lo12:.Lstub_name_537
+    // mmCarSim::StartSiren()
+    .global _ZN8mmCarSim10StartSirenEv
+    .type _ZN8mmCarSim10StartSirenEv, %function
+_ZN8mmCarSim10StartSirenEv:
+    adrp x0, .Lstub_name_479
+    add x0, x0, :lo12:.Lstub_name_479
     b ArtsStubCalled
-    .size _ZN17mmVoiceCommentary6PlayCREss, . - _ZN17mmVoiceCommentary6PlayCREss
+    .size _ZN8mmCarSim10StartSirenEv, . - _ZN8mmCarSim10StartSirenEv
 
-    // mmPlayer::EnableRegen(int)
-    .global _ZN8mmPlayer11EnableRegenEi
-    .type _ZN8mmPlayer11EnableRegenEi, %function
-_ZN8mmPlayer11EnableRegenEi:
-    adrp x0, .Lstub_name_538
-    add x0, x0, :lo12:.Lstub_name_538
+    // mmCarSim::StopSiren()
+    .global _ZN8mmCarSim9StopSirenEv
+    .type _ZN8mmCarSim9StopSirenEv, %function
+_ZN8mmCarSim9StopSirenEv:
+    adrp x0, .Lstub_name_480
+    add x0, x0, :lo12:.Lstub_name_480
     b ArtsStubCalled
-    .size _ZN8mmPlayer11EnableRegenEi, . - _ZN8mmPlayer11EnableRegenEi
-
-    // mmPlayer::ResetDamage()
-    .global _ZN8mmPlayer11ResetDamageEv
-    .type _ZN8mmPlayer11ResetDamageEv, %function
-_ZN8mmPlayer11ResetDamageEv:
-    adrp x0, .Lstub_name_539
-    add x0, x0, :lo12:.Lstub_name_539
-    b ArtsStubCalled
-    .size _ZN8mmPlayer11ResetDamageEv, . - _ZN8mmPlayer11ResetDamageEv
+    .size _ZN8mmCarSim9StopSirenEv, . - _ZN8mmCarSim9StopSirenEv
 
     // mmInterface::GetClass()
     .global _ZN11mmInterface8GetClassEv
     .type _ZN11mmInterface8GetClassEv, %function
 _ZN11mmInterface8GetClassEv:
-    adrp x0, .Lstub_name_540
-    add x0, x0, :lo12:.Lstub_name_540
+    adrp x0, .Lstub_name_481
+    add x0, x0, :lo12:.Lstub_name_481
     b ArtsStubCalled
     .size _ZN11mmInterface8GetClassEv, . - _ZN11mmInterface8GetClassEv
-
-    // mmGameMulti::SendMsg(int)
-    .global _ZN11mmGameMulti7SendMsgEi
-    .type _ZN11mmGameMulti7SendMsgEi, %function
-_ZN11mmGameMulti7SendMsgEi:
-    adrp x0, .Lstub_name_541
-    add x0, x0, :lo12:.Lstub_name_541
-    b ArtsStubCalled
-    .size _ZN11mmGameMulti7SendMsgEi, . - _ZN11mmGameMulti7SendMsgEi
 
     // mmInterface::Update()
     .global _ZN11mmInterface6UpdateEv
     .type _ZN11mmInterface6UpdateEv, %function
 _ZN11mmInterface6UpdateEv:
-    adrp x0, .Lstub_name_542
-    add x0, x0, :lo12:.Lstub_name_542
+    adrp x0, .Lstub_name_482
+    add x0, x0, :lo12:.Lstub_name_482
     b ArtsStubCalled
     .size _ZN11mmInterface6UpdateEv, . - _ZN11mmInterface6UpdateEv
 
@@ -4899,17 +4359,485 @@ _ZN11mmInterface6UpdateEv:
     .global _ZN11mmInterface5ResetEv
     .type _ZN11mmInterface5ResetEv, %function
 _ZN11mmInterface5ResetEv:
-    adrp x0, .Lstub_name_543
-    add x0, x0, :lo12:.Lstub_name_543
+    adrp x0, .Lstub_name_483
+    add x0, x0, :lo12:.Lstub_name_483
     b ArtsStubCalled
     .size _ZN11mmInterface5ResetEv, . - _ZN11mmInterface5ResetEv
+
+    // asInertialCS::GetVelocity(Vector3 const*)
+    .global _ZN12asInertialCS11GetVelocityEPK7Vector3
+    .type _ZN12asInertialCS11GetVelocityEPK7Vector3, %function
+_ZN12asInertialCS11GetVelocityEPK7Vector3:
+    adrp x0, .Lstub_name_484
+    add x0, x0, :lo12:.Lstub_name_484
+    b ArtsStubCalled
+    .size _ZN12asInertialCS11GetVelocityEPK7Vector3, . - _ZN12asInertialCS11GetVelocityEPK7Vector3
+
+    // mmViewCS::Instance(asCamera*)
+    .global _ZN8mmViewCS8InstanceEP8asCamera
+    .type _ZN8mmViewCS8InstanceEP8asCamera, %function
+_ZN8mmViewCS8InstanceEP8asCamera:
+    adrp x0, .Lstub_name_485
+    add x0, x0, :lo12:.Lstub_name_485
+    b ArtsStubCalled
+    .size _ZN8mmViewCS8InstanceEP8asCamera, . - _ZN8mmViewCS8InstanceEP8asCamera
+
+    // mmCarSim::AddPlayerSpecifics()
+    .global _ZN8mmCarSim18AddPlayerSpecificsEv
+    .type _ZN8mmCarSim18AddPlayerSpecificsEv, %function
+_ZN8mmCarSim18AddPlayerSpecificsEv:
+    adrp x0, .Lstub_name_486
+    add x0, x0, :lo12:.Lstub_name_486
+    b ArtsStubCalled
+    .size _ZN8mmCarSim18AddPlayerSpecificsEv, . - _ZN8mmCarSim18AddPlayerSpecificsEv
+
+    // mmPlayer::GetClass()
+    .global _ZN8mmPlayer8GetClassEv
+    .type _ZN8mmPlayer8GetClassEv, %function
+_ZN8mmPlayer8GetClassEv:
+    adrp x0, .Lstub_name_487
+    add x0, x0, :lo12:.Lstub_name_487
+    b ArtsStubCalled
+    .size _ZN8mmPlayer8GetClassEv, . - _ZN8mmPlayer8GetClassEv
+
+    // AudHead::SetDoppler(float)
+    .global _ZN7AudHead10SetDopplerEf
+    .type _ZN7AudHead10SetDopplerEf, %function
+_ZN7AudHead10SetDopplerEf:
+    adrp x0, .Lstub_name_488
+    add x0, x0, :lo12:.Lstub_name_488
+    b ArtsStubCalled
+    .size _ZN7AudHead10SetDopplerEf, . - _ZN7AudHead10SetDopplerEf
+
+    // aiMap::Init(char*, char*, char*, mmCar*)
+    .global _ZN5aiMap4InitEPcS0_S0_P5mmCar
+    .type _ZN5aiMap4InitEPcS0_S0_P5mmCar, %function
+_ZN5aiMap4InitEPcS0_S0_P5mmCar:
+    adrp x0, .Lstub_name_489
+    add x0, x0, :lo12:.Lstub_name_489
+    b ArtsStubCalled
+    .size _ZN5aiMap4InitEPcS0_S0_P5mmCar, . - _ZN5aiMap4InitEPcS0_S0_P5mmCar
+
+    // mmHudMap::RegisterOpponents(OppIconInfo*, int)
+    .global _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi
+    .type _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi, %function
+_ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi:
+    adrp x0, .Lstub_name_490
+    add x0, x0, :lo12:.Lstub_name_490
+    b ArtsStubCalled
+    .size _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi, . - _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi
+
+    // mmIcons::RegisterOpponents(OppIconInfo*, int, void*)
+    .global _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv
+    .type _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv, %function
+_ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv:
+    adrp x0, .Lstub_name_491
+    add x0, x0, :lo12:.Lstub_name_491
+    b ArtsStubCalled
+    .size _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv, . - _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv
+
+    // mmAnimMgr::Init(char*, mmInstance*, mmInstance**, int)
+    .global _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i
+    .type _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i, %function
+_ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i:
+    adrp x0, .Lstub_name_492
+    add x0, x0, :lo12:.Lstub_name_492
+    b ArtsStubCalled
+    .size _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i, . - _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i
+
+    // mmAmbientAudio::mmAmbientAudio(mmPlayer*)
+    .global _ZN14mmAmbientAudioC1EP8mmPlayer
+    .type _ZN14mmAmbientAudioC1EP8mmPlayer, %function
+_ZN14mmAmbientAudioC1EP8mmPlayer:
+    adrp x0, .Lstub_name_493
+    add x0, x0, :lo12:.Lstub_name_493
+    b ArtsStubCalled
+    .size _ZN14mmAmbientAudioC1EP8mmPlayer, . - _ZN14mmAmbientAudioC1EP8mmPlayer
+
+    // asLamp::SetDistant()
+    .global _ZN6asLamp10SetDistantEv
+    .type _ZN6asLamp10SetDistantEv, %function
+_ZN6asLamp10SetDistantEv:
+    adrp x0, .Lstub_name_494
+    add x0, x0, :lo12:.Lstub_name_494
+    b ArtsStubCalled
+    .size _ZN6asLamp10SetDistantEv, . - _ZN6asLamp10SetDistantEv
+
+    // mmPopup::mmPopup(mmGame*, float, float, float, float)
+    .global _ZN7mmPopupC1EP6mmGameffff
+    .type _ZN7mmPopupC1EP6mmGameffff, %function
+_ZN7mmPopupC1EP6mmGameffff:
+    adrp x0, .Lstub_name_495
+    add x0, x0, :lo12:.Lstub_name_495
+    b ArtsStubCalled
+    .size _ZN7mmPopupC1EP6mmGameffff, . - _ZN7mmPopupC1EP6mmGameffff
+
+    // mmPopup::Reset()
+    .global _ZN7mmPopup5ResetEv
+    .type _ZN7mmPopup5ResetEv, %function
+_ZN7mmPopup5ResetEv:
+    adrp x0, .Lstub_name_496
+    add x0, x0, :lo12:.Lstub_name_496
+    b ArtsStubCalled
+    .size _ZN7mmPopup5ResetEv, . - _ZN7mmPopup5ResetEv
+
+    // PUResults::AddTitle(LocString*, LocString*)
+    .global _ZN9PUResults8AddTitleEP9LocStringS1_
+    .type _ZN9PUResults8AddTitleEP9LocStringS1_, %function
+_ZN9PUResults8AddTitleEP9LocStringS1_:
+    adrp x0, .Lstub_name_497
+    add x0, x0, :lo12:.Lstub_name_497
+    b ArtsStubCalled
+    .size _ZN9PUResults8AddTitleEP9LocStringS1_, . - _ZN9PUResults8AddTitleEP9LocStringS1_
+
+    // mmHudMap::GetClass()
+    .global _ZN8mmHudMap8GetClassEv
+    .type _ZN8mmHudMap8GetClassEv, %function
+_ZN8mmHudMap8GetClassEv:
+    adrp x0, .Lstub_name_498
+    add x0, x0, :lo12:.Lstub_name_498
+    b ArtsStubCalled
+    .size _ZN8mmHudMap8GetClassEv, . - _ZN8mmHudMap8GetClassEv
+
+    // mmHudMap::Update()
+    .global _ZN8mmHudMap6UpdateEv
+    .type _ZN8mmHudMap6UpdateEv, %function
+_ZN8mmHudMap6UpdateEv:
+    adrp x0, .Lstub_name_499
+    add x0, x0, :lo12:.Lstub_name_499
+    b ArtsStubCalled
+    .size _ZN8mmHudMap6UpdateEv, . - _ZN8mmHudMap6UpdateEv
+
+    // mmHudMap::Reset()
+    .global _ZN8mmHudMap5ResetEv
+    .type _ZN8mmHudMap5ResetEv, %function
+_ZN8mmHudMap5ResetEv:
+    adrp x0, .Lstub_name_500
+    add x0, x0, :lo12:.Lstub_name_500
+    b ArtsStubCalled
+    .size _ZN8mmHudMap5ResetEv, . - _ZN8mmHudMap5ResetEv
+
+    // Matrix34::Approach(Matrix34 const&, float, float, float)
+    .global _ZN8Matrix348ApproachERKS_fff
+    .type _ZN8Matrix348ApproachERKS_fff, %function
+_ZN8Matrix348ApproachERKS_fff:
+    adrp x0, .Lstub_name_501
+    add x0, x0, :lo12:.Lstub_name_501
+    b ArtsStubCalled
+    .size _ZN8Matrix348ApproachERKS_fff, . - _ZN8Matrix348ApproachERKS_fff
+
+    // mmMultiCR::FondleCarMass(mmCar*, float)
+    .global _ZN9mmMultiCR13FondleCarMassEP5mmCarf
+    .type _ZN9mmMultiCR13FondleCarMassEP5mmCarf, %function
+_ZN9mmMultiCR13FondleCarMassEP5mmCarf:
+    adrp x0, .Lstub_name_502
+    add x0, x0, :lo12:.Lstub_name_502
+    b ArtsStubCalled
+    .size _ZN9mmMultiCR13FondleCarMassEP5mmCarf, . - _ZN9mmMultiCR13FondleCarMassEP5mmCarf
+
+    // mmCRHUD::ActivateRosterGold(unsigned long)
+    .global _ZN7mmCRHUD18ActivateRosterGoldEm
+    .type _ZN7mmCRHUD18ActivateRosterGoldEm, %function
+_ZN7mmCRHUD18ActivateRosterGoldEm:
+    adrp x0, .Lstub_name_503
+    add x0, x0, :lo12:.Lstub_name_503
+    b ArtsStubCalled
+    .size _ZN7mmCRHUD18ActivateRosterGoldEm, . - _ZN7mmCRHUD18ActivateRosterGoldEm
+
+    // Matrix34::GetEulers() const
+    .global _ZNK8Matrix349GetEulersEv
+    .type _ZNK8Matrix349GetEulersEv, %function
+_ZNK8Matrix349GetEulersEv:
+    adrp x0, .Lstub_name_504
+    add x0, x0, :lo12:.Lstub_name_504
+    b ArtsStubCalled
+    .size _ZNK8Matrix349GetEulersEv, . - _ZNK8Matrix349GetEulersEv
+
+    // mmAnimMgr::AirlinerSwap()
+    .global _ZN9mmAnimMgr12AirlinerSwapEv
+    .type _ZN9mmAnimMgr12AirlinerSwapEv, %function
+_ZN9mmAnimMgr12AirlinerSwapEv:
+    adrp x0, .Lstub_name_505
+    add x0, x0, :lo12:.Lstub_name_505
+    b ArtsStubCalled
+    .size _ZN9mmAnimMgr12AirlinerSwapEv, . - _ZN9mmAnimMgr12AirlinerSwapEv
+
+    // mmAnimMgr::UFOSwap()
+    .global _ZN9mmAnimMgr7UFOSwapEv
+    .type _ZN9mmAnimMgr7UFOSwapEv, %function
+_ZN9mmAnimMgr7UFOSwapEv:
+    adrp x0, .Lstub_name_506
+    add x0, x0, :lo12:.Lstub_name_506
+    b ArtsStubCalled
+    .size _ZN9mmAnimMgr7UFOSwapEv, . - _ZN9mmAnimMgr7UFOSwapEv
+
+    // asNetwork::Send(unsigned long, void*, unsigned long, int)
+    .global _ZN9asNetwork4SendEmPvmi
+    .type _ZN9asNetwork4SendEmPvmi, %function
+_ZN9asNetwork4SendEmPvmi:
+    adrp x0, .Lstub_name_507
+    add x0, x0, :lo12:.Lstub_name_507
+    b ArtsStubCalled
+    .size _ZN9asNetwork4SendEmPvmi, . - _ZN9asNetwork4SendEmPvmi
+
+    // asNetObject::Update()
+    .global _ZN11asNetObject6UpdateEv
+    .type _ZN11asNetObject6UpdateEv, %function
+_ZN11asNetObject6UpdateEv:
+    adrp x0, .Lstub_name_508
+    add x0, x0, :lo12:.Lstub_name_508
+    b ArtsStubCalled
+    .size _ZN11asNetObject6UpdateEv, . - _ZN11asNetObject6UpdateEv
+
+    // asNetObject::PositionUpdate(Matrix34*, Vector3, float, float, float)
+    .global _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff
+    .type _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff, %function
+_ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff:
+    adrp x0, .Lstub_name_509
+    add x0, x0, :lo12:.Lstub_name_509
+    b ArtsStubCalled
+    .size _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff, . - _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff
+
+    // PUControl::~PUControl()
+    .global _ZN9PUControlD1Ev
+    .type _ZN9PUControlD1Ev, %function
+_ZN9PUControlD1Ev:
+    adrp x0, .Lstub_name_510
+    add x0, x0, :lo12:.Lstub_name_510
+    b ArtsStubCalled
+    .size _ZN9PUControlD1Ev, . - _ZN9PUControlD1Ev
+
+    // mmPlayer::Update()
+    .global _ZN8mmPlayer6UpdateEv
+    .type _ZN8mmPlayer6UpdateEv, %function
+_ZN8mmPlayer6UpdateEv:
+    adrp x0, .Lstub_name_511
+    add x0, x0, :lo12:.Lstub_name_511
+    b ArtsStubCalled
+    .size _ZN8mmPlayer6UpdateEv, . - _ZN8mmPlayer6UpdateEv
+
+    // mmPlayer::Reset()
+    .global _ZN8mmPlayer5ResetEv
+    .type _ZN8mmPlayer5ResetEv, %function
+_ZN8mmPlayer5ResetEv:
+    adrp x0, .Lstub_name_512
+    add x0, x0, :lo12:.Lstub_name_512
+    b ArtsStubCalled
+    .size _ZN8mmPlayer5ResetEv, . - _ZN8mmPlayer5ResetEv
+
+    // mmHUD::PostChatMessage(char const*)
+    .global _ZN5mmHUD15PostChatMessageEPKc
+    .type _ZN5mmHUD15PostChatMessageEPKc, %function
+_ZN5mmHUD15PostChatMessageEPKc:
+    adrp x0, .Lstub_name_513
+    add x0, x0, :lo12:.Lstub_name_513
+    b ArtsStubCalled
+    .size _ZN5mmHUD15PostChatMessageEPKc, . - _ZN5mmHUD15PostChatMessageEPKc
+
+    // mmPopup::ShowResults()
+    .global _ZN7mmPopup11ShowResultsEv
+    .type _ZN7mmPopup11ShowResultsEv, %function
+_ZN7mmPopup11ShowResultsEv:
+    adrp x0, .Lstub_name_514
+    add x0, x0, :lo12:.Lstub_name_514
+    b ArtsStubCalled
+    .size _ZN7mmPopup11ShowResultsEv, . - _ZN7mmPopup11ShowResultsEv
+
+    // MenuManager::Switch(int)
+    .global _ZN11MenuManager6SwitchEi
+    .type _ZN11MenuManager6SwitchEi, %function
+_ZN11MenuManager6SwitchEi:
+    adrp x0, .Lstub_name_515
+    add x0, x0, :lo12:.Lstub_name_515
+    b ArtsStubCalled
+    .size _ZN11MenuManager6SwitchEi, . - _ZN11MenuManager6SwitchEi
+
+    // MenuManager::DisablePU()
+    .global _ZN11MenuManager9DisablePUEv
+    .type _ZN11MenuManager9DisablePUEv, %function
+_ZN11MenuManager9DisablePUEv:
+    adrp x0, .Lstub_name_516
+    add x0, x0, :lo12:.Lstub_name_516
+    b ArtsStubCalled
+    .size _ZN11MenuManager9DisablePUEv, . - _ZN11MenuManager9DisablePUEv
+
+    // mmHUD::Enable()
+    .global _ZN5mmHUD6EnableEv
+    .type _ZN5mmHUD6EnableEv, %function
+_ZN5mmHUD6EnableEv:
+    adrp x0, .Lstub_name_517
+    add x0, x0, :lo12:.Lstub_name_517
+    b ArtsStubCalled
+    .size _ZN5mmHUD6EnableEv, . - _ZN5mmHUD6EnableEv
+
+    // AudManager::GetVoiceCommentaryPtr()
+    .global _ZN10AudManager21GetVoiceCommentaryPtrEv
+    .type _ZN10AudManager21GetVoiceCommentaryPtrEv, %function
+_ZN10AudManager21GetVoiceCommentaryPtrEv:
+    adrp x0, .Lstub_name_518
+    add x0, x0, :lo12:.Lstub_name_518
+    b ArtsStubCalled
+    .size _ZN10AudManager21GetVoiceCommentaryPtrEv, . - _ZN10AudManager21GetVoiceCommentaryPtrEv
+
+    // mmVoiceCommentary::SetFrequency(float)
+    .global _ZN17mmVoiceCommentary12SetFrequencyEf
+    .type _ZN17mmVoiceCommentary12SetFrequencyEf, %function
+_ZN17mmVoiceCommentary12SetFrequencyEf:
+    adrp x0, .Lstub_name_519
+    add x0, x0, :lo12:.Lstub_name_519
+    b ArtsStubCalled
+    .size _ZN17mmVoiceCommentary12SetFrequencyEf, . - _ZN17mmVoiceCommentary12SetFrequencyEf
+
+    // mmGame::UpdateSteeringBrakes()
+    .global _ZN6mmGame20UpdateSteeringBrakesEv
+    .type _ZN6mmGame20UpdateSteeringBrakesEv, %function
+_ZN6mmGame20UpdateSteeringBrakesEv:
+    adrp x0, .Lstub_name_520
+    add x0, x0, :lo12:.Lstub_name_520
+    b ArtsStubCalled
+    .size _ZN6mmGame20UpdateSteeringBrakesEv, . - _ZN6mmGame20UpdateSteeringBrakesEv
+
+    // mmAmbientAudio::Update()
+    .global _ZN14mmAmbientAudio6UpdateEv
+    .type _ZN14mmAmbientAudio6UpdateEv, %function
+_ZN14mmAmbientAudio6UpdateEv:
+    adrp x0, .Lstub_name_521
+    add x0, x0, :lo12:.Lstub_name_521
+    b ArtsStubCalled
+    .size _ZN14mmAmbientAudio6UpdateEv, . - _ZN14mmAmbientAudio6UpdateEv
+
+    // mmVoiceCommentary::Update()
+    .global _ZN17mmVoiceCommentary6UpdateEv
+    .type _ZN17mmVoiceCommentary6UpdateEv, %function
+_ZN17mmVoiceCommentary6UpdateEv:
+    adrp x0, .Lstub_name_522
+    add x0, x0, :lo12:.Lstub_name_522
+    b ArtsStubCalled
+    .size _ZN17mmVoiceCommentary6UpdateEv, . - _ZN17mmVoiceCommentary6UpdateEv
+
+    // mmHUD::SetMessage(LocString*, float, bool)
+    .global _ZN5mmHUD10SetMessageEP9LocStringfb
+    .type _ZN5mmHUD10SetMessageEP9LocStringfb, %function
+_ZN5mmHUD10SetMessageEP9LocStringfb:
+    adrp x0, .Lstub_name_523
+    add x0, x0, :lo12:.Lstub_name_523
+    b ArtsStubCalled
+    .size _ZN5mmHUD10SetMessageEP9LocStringfb, . - _ZN5mmHUD10SetMessageEP9LocStringfb
+
+    // mmHudMap::Activate()
+    .global _ZN8mmHudMap8ActivateEv
+    .type _ZN8mmHudMap8ActivateEv, %function
+_ZN8mmHudMap8ActivateEv:
+    adrp x0, .Lstub_name_524
+    add x0, x0, :lo12:.Lstub_name_524
+    b ArtsStubCalled
+    .size _ZN8mmHudMap8ActivateEv, . - _ZN8mmHudMap8ActivateEv
+
+    // AudManager::PlayCDTrack(int, unsigned char, unsigned char, unsigned char, bool)
+    .global _ZN10AudManager11PlayCDTrackEihhhb
+    .type _ZN10AudManager11PlayCDTrackEihhhb, %function
+_ZN10AudManager11PlayCDTrackEihhhb:
+    adrp x0, .Lstub_name_525
+    add x0, x0, :lo12:.Lstub_name_525
+    b ArtsStubCalled
+    .size _ZN10AudManager11PlayCDTrackEihhhb, . - _ZN10AudManager11PlayCDTrackEihhhb
+
+    // PUMenuBase::DisableExit()
+    .global _ZN10PUMenuBase11DisableExitEv
+    .type _ZN10PUMenuBase11DisableExitEv, %function
+_ZN10PUMenuBase11DisableExitEv:
+    adrp x0, .Lstub_name_526
+    add x0, x0, :lo12:.Lstub_name_526
+    b ArtsStubCalled
+    .size _ZN10PUMenuBase11DisableExitEv, . - _ZN10PUMenuBase11DisableExitEv
+
+    // mmPopup::Update()
+    .global _ZN7mmPopup6UpdateEv
+    .type _ZN7mmPopup6UpdateEv, %function
+_ZN7mmPopup6UpdateEv:
+    adrp x0, .Lstub_name_527
+    add x0, x0, :lo12:.Lstub_name_527
+    b ArtsStubCalled
+    .size _ZN7mmPopup6UpdateEv, . - _ZN7mmPopup6UpdateEv
+
+    // mmSingleCircuit::DisableRacers()
+    .global _ZN15mmSingleCircuit13DisableRacersEv
+    .type _ZN15mmSingleCircuit13DisableRacersEv, %function
+_ZN15mmSingleCircuit13DisableRacersEv:
+    adrp x0, .Lstub_name_528
+    add x0, x0, :lo12:.Lstub_name_528
+    b ArtsStubCalled
+    .size _ZN15mmSingleCircuit13DisableRacersEv, . - _ZN15mmSingleCircuit13DisableRacersEv
+
+    // mmPlayer::IsMaxDamaged()
+    .global _ZN8mmPlayer12IsMaxDamagedEv
+    .type _ZN8mmPlayer12IsMaxDamagedEv, %function
+_ZN8mmPlayer12IsMaxDamagedEv:
+    adrp x0, .Lstub_name_529
+    add x0, x0, :lo12:.Lstub_name_529
+    b ArtsStubCalled
+    .size _ZN8mmPlayer12IsMaxDamagedEv, . - _ZN8mmPlayer12IsMaxDamagedEv
+
+    // mmVoiceCommentary::PlayTimePenalty()
+    .global _ZN17mmVoiceCommentary15PlayTimePenaltyEv
+    .type _ZN17mmVoiceCommentary15PlayTimePenaltyEv, %function
+_ZN17mmVoiceCommentary15PlayTimePenaltyEv:
+    adrp x0, .Lstub_name_530
+    add x0, x0, :lo12:.Lstub_name_530
+    b ArtsStubCalled
+    .size _ZN17mmVoiceCommentary15PlayTimePenaltyEv, . - _ZN17mmVoiceCommentary15PlayTimePenaltyEv
+
+    // mmMultiCR::DropGold(Vector3, int)
+    .global _ZN9mmMultiCR8DropGoldE7Vector3i
+    .type _ZN9mmMultiCR8DropGoldE7Vector3i, %function
+_ZN9mmMultiCR8DropGoldE7Vector3i:
+    adrp x0, .Lstub_name_531
+    add x0, x0, :lo12:.Lstub_name_531
+    b ArtsStubCalled
+    .size _ZN9mmMultiCR8DropGoldE7Vector3i, . - _ZN9mmMultiCR8DropGoldE7Vector3i
+
+    // mmVoiceCommentary::PlayCR(short, short)
+    .global _ZN17mmVoiceCommentary6PlayCREss
+    .type _ZN17mmVoiceCommentary6PlayCREss, %function
+_ZN17mmVoiceCommentary6PlayCREss:
+    adrp x0, .Lstub_name_532
+    add x0, x0, :lo12:.Lstub_name_532
+    b ArtsStubCalled
+    .size _ZN17mmVoiceCommentary6PlayCREss, . - _ZN17mmVoiceCommentary6PlayCREss
+
+    // mmPlayer::EnableRegen(int)
+    .global _ZN8mmPlayer11EnableRegenEi
+    .type _ZN8mmPlayer11EnableRegenEi, %function
+_ZN8mmPlayer11EnableRegenEi:
+    adrp x0, .Lstub_name_533
+    add x0, x0, :lo12:.Lstub_name_533
+    b ArtsStubCalled
+    .size _ZN8mmPlayer11EnableRegenEi, . - _ZN8mmPlayer11EnableRegenEi
+
+    // mmPlayer::ResetDamage()
+    .global _ZN8mmPlayer11ResetDamageEv
+    .type _ZN8mmPlayer11ResetDamageEv, %function
+_ZN8mmPlayer11ResetDamageEv:
+    adrp x0, .Lstub_name_534
+    add x0, x0, :lo12:.Lstub_name_534
+    b ArtsStubCalled
+    .size _ZN8mmPlayer11ResetDamageEv, . - _ZN8mmPlayer11ResetDamageEv
+
+    // mmGameMulti::SendMsg(int)
+    .global _ZN11mmGameMulti7SendMsgEi
+    .type _ZN11mmGameMulti7SendMsgEi, %function
+_ZN11mmGameMulti7SendMsgEi:
+    adrp x0, .Lstub_name_535
+    add x0, x0, :lo12:.Lstub_name_535
+    b ArtsStubCalled
+    .size _ZN11mmGameMulti7SendMsgEi, . - _ZN11mmGameMulti7SendMsgEi
 
     // AudSound::PlayOnce(float, float)
     .global _ZN8AudSound8PlayOnceEff
     .type _ZN8AudSound8PlayOnceEff, %function
 _ZN8AudSound8PlayOnceEff:
-    adrp x0, .Lstub_name_544
-    add x0, x0, :lo12:.Lstub_name_544
+    adrp x0, .Lstub_name_536
+    add x0, x0, :lo12:.Lstub_name_536
     b ArtsStubCalled
     .size _ZN8AudSound8PlayOnceEff, . - _ZN8AudSound8PlayOnceEff
 
@@ -4917,8 +4845,8 @@ _ZN8AudSound8PlayOnceEff:
     .global _ZN17mmVoiceCommentary13PlayCRPreRaceEv
     .type _ZN17mmVoiceCommentary13PlayCRPreRaceEv, %function
 _ZN17mmVoiceCommentary13PlayCRPreRaceEv:
-    adrp x0, .Lstub_name_545
-    add x0, x0, :lo12:.Lstub_name_545
+    adrp x0, .Lstub_name_537
+    add x0, x0, :lo12:.Lstub_name_537
     b ArtsStubCalled
     .size _ZN17mmVoiceCommentary13PlayCRPreRaceEv, . - _ZN17mmVoiceCommentary13PlayCRPreRaceEv
 
@@ -4926,8 +4854,8 @@ _ZN17mmVoiceCommentary13PlayCRPreRaceEv:
     .global _ZN11mmGameMulti12EnableRacersEv
     .type _ZN11mmGameMulti12EnableRacersEv, %function
 _ZN11mmGameMulti12EnableRacersEv:
-    adrp x0, .Lstub_name_546
-    add x0, x0, :lo12:.Lstub_name_546
+    adrp x0, .Lstub_name_538
+    add x0, x0, :lo12:.Lstub_name_538
     b ArtsStubCalled
     .size _ZN11mmGameMulti12EnableRacersEv, . - _ZN11mmGameMulti12EnableRacersEv
 
@@ -4935,8 +4863,8 @@ _ZN11mmGameMulti12EnableRacersEv:
     .global _ZN9mmMultiCR9UpdateHUDEv
     .type _ZN9mmMultiCR9UpdateHUDEv, %function
 _ZN9mmMultiCR9UpdateHUDEv:
-    adrp x0, .Lstub_name_547
-    add x0, x0, :lo12:.Lstub_name_547
+    adrp x0, .Lstub_name_539
+    add x0, x0, :lo12:.Lstub_name_539
     b ArtsStubCalled
     .size _ZN9mmMultiCR9UpdateHUDEv, . - _ZN9mmMultiCR9UpdateHUDEv
 
@@ -4944,8 +4872,8 @@ _ZN9mmMultiCR9UpdateHUDEv:
     .global _ZN9mmMultiCR11UpdateLimitEv
     .type _ZN9mmMultiCR11UpdateLimitEv, %function
 _ZN9mmMultiCR11UpdateLimitEv:
-    adrp x0, .Lstub_name_548
-    add x0, x0, :lo12:.Lstub_name_548
+    adrp x0, .Lstub_name_540
+    add x0, x0, :lo12:.Lstub_name_540
     b ArtsStubCalled
     .size _ZN9mmMultiCR11UpdateLimitEv, . - _ZN9mmMultiCR11UpdateLimitEv
 
@@ -4953,8 +4881,8 @@ _ZN9mmMultiCR11UpdateLimitEv:
     .global _ZN9mmMultiCR17UpdateTimeWarningEv
     .type _ZN9mmMultiCR17UpdateTimeWarningEv, %function
 _ZN9mmMultiCR17UpdateTimeWarningEv:
-    adrp x0, .Lstub_name_549
-    add x0, x0, :lo12:.Lstub_name_549
+    adrp x0, .Lstub_name_541
+    add x0, x0, :lo12:.Lstub_name_541
     b ArtsStubCalled
     .size _ZN9mmMultiCR17UpdateTimeWarningEv, . - _ZN9mmMultiCR17UpdateTimeWarningEv
 
@@ -4962,8 +4890,8 @@ _ZN9mmMultiCR17UpdateTimeWarningEv:
     .global _ZN9mmMultiCR10UpdateGoldEv
     .type _ZN9mmMultiCR10UpdateGoldEv, %function
 _ZN9mmMultiCR10UpdateGoldEv:
-    adrp x0, .Lstub_name_550
-    add x0, x0, :lo12:.Lstub_name_550
+    adrp x0, .Lstub_name_542
+    add x0, x0, :lo12:.Lstub_name_542
     b ArtsStubCalled
     .size _ZN9mmMultiCR10UpdateGoldEv, . - _ZN9mmMultiCR10UpdateGoldEv
 
@@ -4971,8 +4899,8 @@ _ZN9mmMultiCR10UpdateGoldEv:
     .global _ZN9mmMultiCR13UpdateHideoutEv
     .type _ZN9mmMultiCR13UpdateHideoutEv, %function
 _ZN9mmMultiCR13UpdateHideoutEv:
-    adrp x0, .Lstub_name_551
-    add x0, x0, :lo12:.Lstub_name_551
+    adrp x0, .Lstub_name_543
+    add x0, x0, :lo12:.Lstub_name_543
     b ArtsStubCalled
     .size _ZN9mmMultiCR13UpdateHideoutEv, . - _ZN9mmMultiCR13UpdateHideoutEv
 
@@ -4980,8 +4908,8 @@ _ZN9mmMultiCR13UpdateHideoutEv:
     .global _ZN9mmMultiCR10UpdateBankEv
     .type _ZN9mmMultiCR10UpdateBankEv, %function
 _ZN9mmMultiCR10UpdateBankEv:
-    adrp x0, .Lstub_name_552
-    add x0, x0, :lo12:.Lstub_name_552
+    adrp x0, .Lstub_name_544
+    add x0, x0, :lo12:.Lstub_name_544
     b ArtsStubCalled
     .size _ZN9mmMultiCR10UpdateBankEv, . - _ZN9mmMultiCR10UpdateBankEv
 
@@ -4989,8 +4917,8 @@ _ZN9mmMultiCR10UpdateBankEv:
     .global _ZN11mmGameMulti10UpdateGameEv
     .type _ZN11mmGameMulti10UpdateGameEv, %function
 _ZN11mmGameMulti10UpdateGameEv:
-    adrp x0, .Lstub_name_553
-    add x0, x0, :lo12:.Lstub_name_553
+    adrp x0, .Lstub_name_545
+    add x0, x0, :lo12:.Lstub_name_545
     b ArtsStubCalled
     .size _ZN11mmGameMulti10UpdateGameEv, . - _ZN11mmGameMulti10UpdateGameEv
 
@@ -4998,17 +4926,80 @@ _ZN11mmGameMulti10UpdateGameEv:
     .global _ZN9mmMultiCR11FillResultsEv
     .type _ZN9mmMultiCR11FillResultsEv, %function
 _ZN9mmMultiCR11FillResultsEv:
-    adrp x0, .Lstub_name_554
-    add x0, x0, :lo12:.Lstub_name_554
+    adrp x0, .Lstub_name_546
+    add x0, x0, :lo12:.Lstub_name_546
     b ArtsStubCalled
     .size _ZN9mmMultiCR11FillResultsEv, . - _ZN9mmMultiCR11FillResultsEv
+
+    // TrackCamCS::~TrackCamCS()
+    .global _ZN10TrackCamCSD1Ev
+    .type _ZN10TrackCamCSD1Ev, %function
+_ZN10TrackCamCSD1Ev:
+    adrp x0, .Lstub_name_547
+    add x0, x0, :lo12:.Lstub_name_547
+    b ArtsStubCalled
+    .size _ZN10TrackCamCSD1Ev, . - _ZN10TrackCamCSD1Ev
+
+    // mmHUD::~mmHUD()
+    .global _ZN5mmHUDD1Ev
+    .type _ZN5mmHUDD1Ev, %function
+_ZN5mmHUDD1Ev:
+    adrp x0, .Lstub_name_548
+    add x0, x0, :lo12:.Lstub_name_548
+    b ArtsStubCalled
+    .size _ZN5mmHUDD1Ev, . - _ZN5mmHUDD1Ev
+
+    // mmSkidManager::~mmSkidManager()
+    .global _ZN13mmSkidManagerD1Ev
+    .type _ZN13mmSkidManagerD1Ev, %function
+_ZN13mmSkidManagerD1Ev:
+    adrp x0, .Lstub_name_549
+    add x0, x0, :lo12:.Lstub_name_549
+    b ArtsStubCalled
+    .size _ZN13mmSkidManagerD1Ev, . - _ZN13mmSkidManagerD1Ev
+
+    // mmCarSim::~mmCarSim()
+    .global _ZN8mmCarSimD1Ev
+    .type _ZN8mmCarSimD1Ev, %function
+_ZN8mmCarSimD1Ev:
+    adrp x0, .Lstub_name_550
+    add x0, x0, :lo12:.Lstub_name_550
+    b ArtsStubCalled
+    .size _ZN8mmCarSimD1Ev, . - _ZN8mmCarSimD1Ev
+
+    // mmGame::GetClass()
+    .global _ZN6mmGame8GetClassEv
+    .type _ZN6mmGame8GetClassEv, %function
+_ZN6mmGame8GetClassEv:
+    adrp x0, .Lstub_name_551
+    add x0, x0, :lo12:.Lstub_name_551
+    b ArtsStubCalled
+    .size _ZN6mmGame8GetClassEv, . - _ZN6mmGame8GetClassEv
+
+    // mmGame::InitOtherPlayers()
+    .global _ZN6mmGame16InitOtherPlayersEv
+    .type _ZN6mmGame16InitOtherPlayersEv, %function
+_ZN6mmGame16InitOtherPlayersEv:
+    adrp x0, .Lstub_name_552
+    add x0, x0, :lo12:.Lstub_name_552
+    b ArtsStubCalled
+    .size _ZN6mmGame16InitOtherPlayersEv, . - _ZN6mmGame16InitOtherPlayersEv
+
+    // mmGame::HitWaterHandler()
+    .global _ZN6mmGame15HitWaterHandlerEv
+    .type _ZN6mmGame15HitWaterHandlerEv, %function
+_ZN6mmGame15HitWaterHandlerEv:
+    adrp x0, .Lstub_name_553
+    add x0, x0, :lo12:.Lstub_name_553
+    b ArtsStubCalled
+    .size _ZN6mmGame15HitWaterHandlerEv, . - _ZN6mmGame15HitWaterHandlerEv
 
     // sdlCreatePipeline(int, char**)
     .global _Z17sdlCreatePipelineiPPc
     .type _Z17sdlCreatePipelineiPPc, %function
 _Z17sdlCreatePipelineiPPc:
-    adrp x0, .Lstub_name_555
-    add x0, x0, :lo12:.Lstub_name_555
+    adrp x0, .Lstub_name_554
+    add x0, x0, :lo12:.Lstub_name_554
     b ArtsStubCalled
     .size _Z17sdlCreatePipelineiPPc, . - _Z17sdlCreatePipelineiPPc
 
@@ -5016,8 +5007,8 @@ _Z17sdlCreatePipelineiPPc:
     .global _Z14GameStaticInitv
     .type _Z14GameStaticInitv, %function
 _Z14GameStaticInitv:
-    adrp x0, .Lstub_name_556
-    add x0, x0, :lo12:.Lstub_name_556
+    adrp x0, .Lstub_name_555
+    add x0, x0, :lo12:.Lstub_name_555
     b ArtsStubCalled
     .size _Z14GameStaticInitv, . - _Z14GameStaticInitv
 
@@ -5025,8 +5016,8 @@ _Z14GameStaticInitv:
     .global _ZN10AudManager7DisableEss
     .type _ZN10AudManager7DisableEss, %function
 _ZN10AudManager7DisableEss:
-    adrp x0, .Lstub_name_557
-    add x0, x0, :lo12:.Lstub_name_557
+    adrp x0, .Lstub_name_556
+    add x0, x0, :lo12:.Lstub_name_556
     b ArtsStubCalled
     .size _ZN10AudManager7DisableEss, . - _ZN10AudManager7DisableEss
 
@@ -5034,8 +5025,8 @@ _ZN10AudManager7DisableEss:
     .global _ZN11mmInterfaceC1Ev
     .type _ZN11mmInterfaceC1Ev, %function
 _ZN11mmInterfaceC1Ev:
-    adrp x0, .Lstub_name_558
-    add x0, x0, :lo12:.Lstub_name_558
+    adrp x0, .Lstub_name_557
+    add x0, x0, :lo12:.Lstub_name_557
     b ArtsStubCalled
     .size _ZN11mmInterfaceC1Ev, . - _ZN11mmInterfaceC1Ev
 
@@ -5043,8 +5034,8 @@ _ZN11mmInterfaceC1Ev:
     .global _ZN11mmInterface8ShowMainEi
     .type _ZN11mmInterface8ShowMainEi, %function
 _ZN11mmInterface8ShowMainEi:
-    adrp x0, .Lstub_name_559
-    add x0, x0, :lo12:.Lstub_name_559
+    adrp x0, .Lstub_name_558
+    add x0, x0, :lo12:.Lstub_name_558
     b ArtsStubCalled
     .size _ZN11mmInterface8ShowMainEi, . - _ZN11mmInterface8ShowMainEi
 
@@ -5052,8 +5043,8 @@ _ZN11mmInterface8ShowMainEi:
     .global _ZN10AudManager16AssignWaveVolumeEf
     .type _ZN10AudManager16AssignWaveVolumeEf, %function
 _ZN10AudManager16AssignWaveVolumeEf:
-    adrp x0, .Lstub_name_560
-    add x0, x0, :lo12:.Lstub_name_560
+    adrp x0, .Lstub_name_559
+    add x0, x0, :lo12:.Lstub_name_559
     b ArtsStubCalled
     .size _ZN10AudManager16AssignWaveVolumeEf, . - _ZN10AudManager16AssignWaveVolumeEf
 
@@ -5061,8 +5052,8 @@ _ZN10AudManager16AssignWaveVolumeEf:
     .global _ZN10AudManager14AssignCDVolumeEf
     .type _ZN10AudManager14AssignCDVolumeEf, %function
 _ZN10AudManager14AssignCDVolumeEf:
-    adrp x0, .Lstub_name_561
-    add x0, x0, :lo12:.Lstub_name_561
+    adrp x0, .Lstub_name_560
+    add x0, x0, :lo12:.Lstub_name_560
     b ArtsStubCalled
     .size _ZN10AudManager14AssignCDVolumeEf, . - _ZN10AudManager14AssignCDVolumeEf
 
@@ -5070,8 +5061,8 @@ _ZN10AudManager14AssignCDVolumeEf:
     .global _ZN13mmGameManager10LoadReplayEPKc
     .type _ZN13mmGameManager10LoadReplayEPKc, %function
 _ZN13mmGameManager10LoadReplayEPKc:
-    adrp x0, .Lstub_name_562
-    add x0, x0, :lo12:.Lstub_name_562
+    adrp x0, .Lstub_name_561
+    add x0, x0, :lo12:.Lstub_name_561
     b ArtsStubCalled
     .size _ZN13mmGameManager10LoadReplayEPKc, . - _ZN13mmGameManager10LoadReplayEPKc
 
@@ -5079,8 +5070,8 @@ _ZN13mmGameManager10LoadReplayEPKc:
     .global _ZN7mmInputD1Ev
     .type _ZN7mmInputD1Ev, %function
 _ZN7mmInputD1Ev:
-    adrp x0, .Lstub_name_563
-    add x0, x0, :lo12:.Lstub_name_563
+    adrp x0, .Lstub_name_562
+    add x0, x0, :lo12:.Lstub_name_562
     b ArtsStubCalled
     .size _ZN7mmInputD1Ev, . - _ZN7mmInputD1Ev
 
@@ -5088,8 +5079,8 @@ _ZN7mmInputD1Ev:
     .global _ZN10AudManagerD1Ev
     .type _ZN10AudManagerD1Ev, %function
 _ZN10AudManagerD1Ev:
-    adrp x0, .Lstub_name_564
-    add x0, x0, :lo12:.Lstub_name_564
+    adrp x0, .Lstub_name_563
+    add x0, x0, :lo12:.Lstub_name_563
     b ArtsStubCalled
     .size _ZN10AudManagerD1Ev, . - _ZN10AudManagerD1Ev
 
@@ -5097,8 +5088,8 @@ _ZN10AudManagerD1Ev:
     .global _Z31dummy_symbol_agisw_swemitrunallv
     .type _Z31dummy_symbol_agisw_swemitrunallv, %function
 _Z31dummy_symbol_agisw_swemitrunallv:
-    adrp x0, .Lstub_name_565
-    add x0, x0, :lo12:.Lstub_name_565
+    adrp x0, .Lstub_name_564
+    add x0, x0, :lo12:.Lstub_name_564
     b ArtsStubCalled
     .size _Z31dummy_symbol_agisw_swemitrunallv, . - _Z31dummy_symbol_agisw_swemitrunallv
 
@@ -5106,8 +5097,8 @@ _Z31dummy_symbol_agisw_swemitrunallv:
     .global _Z25dummy_symbol_agisw_swrendv
     .type _Z25dummy_symbol_agisw_swrendv, %function
 _Z25dummy_symbol_agisw_swrendv:
-    adrp x0, .Lstub_name_566
-    add x0, x0, :lo12:.Lstub_name_566
+    adrp x0, .Lstub_name_565
+    add x0, x0, :lo12:.Lstub_name_565
     b ArtsStubCalled
     .size _Z25dummy_symbol_agisw_swrendv, . - _Z25dummy_symbol_agisw_swrendv
 
@@ -5115,8 +5106,8 @@ _Z25dummy_symbol_agisw_swrendv:
     .global _Z25dummy_symbol_agisw_swrsysv
     .type _Z25dummy_symbol_agisw_swrsysv, %function
 _Z25dummy_symbol_agisw_swrsysv:
-    adrp x0, .Lstub_name_567
-    add x0, x0, :lo12:.Lstub_name_567
+    adrp x0, .Lstub_name_566
+    add x0, x0, :lo12:.Lstub_name_566
     b ArtsStubCalled
     .size _Z25dummy_symbol_agisw_swrsysv, . - _Z25dummy_symbol_agisw_swrsysv
 
@@ -5124,8 +5115,8 @@ _Z25dummy_symbol_agisw_swrsysv:
     .global _Z27dummy_symbol_agisw_swtexdefv
     .type _Z27dummy_symbol_agisw_swtexdefv, %function
 _Z27dummy_symbol_agisw_swtexdefv:
-    adrp x0, .Lstub_name_568
-    add x0, x0, :lo12:.Lstub_name_568
+    adrp x0, .Lstub_name_567
+    add x0, x0, :lo12:.Lstub_name_567
     b ArtsStubCalled
     .size _Z27dummy_symbol_agisw_swtexdefv, . - _Z27dummy_symbol_agisw_swtexdefv
 
@@ -5133,8 +5124,8 @@ _Z27dummy_symbol_agisw_swtexdefv:
     .global _Z22dummy_symbol_data7_ipcv
     .type _Z22dummy_symbol_data7_ipcv, %function
 _Z22dummy_symbol_data7_ipcv:
-    adrp x0, .Lstub_name_569
-    add x0, x0, :lo12:.Lstub_name_569
+    adrp x0, .Lstub_name_568
+    add x0, x0, :lo12:.Lstub_name_568
     b ArtsStubCalled
     .size _Z22dummy_symbol_data7_ipcv, . - _Z22dummy_symbol_data7_ipcv
 
@@ -5142,8 +5133,8 @@ _Z22dummy_symbol_data7_ipcv:
     .global _Z25dummy_symbol_memory_stackv
     .type _Z25dummy_symbol_memory_stackv, %function
 _Z25dummy_symbol_memory_stackv:
-    adrp x0, .Lstub_name_570
-    add x0, x0, :lo12:.Lstub_name_570
+    adrp x0, .Lstub_name_569
+    add x0, x0, :lo12:.Lstub_name_569
     b ArtsStubCalled
     .size _Z25dummy_symbol_memory_stackv, . - _Z25dummy_symbol_memory_stackv
 
@@ -5151,8 +5142,8 @@ _Z25dummy_symbol_memory_stackv:
     .global _Z30dummy_symbol_mmaudio_audstreamv
     .type _Z30dummy_symbol_mmaudio_audstreamv, %function
 _Z30dummy_symbol_mmaudio_audstreamv:
-    adrp x0, .Lstub_name_571
-    add x0, x0, :lo12:.Lstub_name_571
+    adrp x0, .Lstub_name_570
+    add x0, x0, :lo12:.Lstub_name_570
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmaudio_audstreamv, . - _Z30dummy_symbol_mmaudio_audstreamv
 
@@ -5160,8 +5151,8 @@ _Z30dummy_symbol_mmaudio_audstreamv:
     .global _Z23dummy_symbol_mmaudio_cdv
     .type _Z23dummy_symbol_mmaudio_cdv, %function
 _Z23dummy_symbol_mmaudio_cdv:
-    adrp x0, .Lstub_name_572
-    add x0, x0, :lo12:.Lstub_name_572
+    adrp x0, .Lstub_name_571
+    add x0, x0, :lo12:.Lstub_name_571
     b ArtsStubCalled
     .size _Z23dummy_symbol_mmaudio_cdv, . - _Z23dummy_symbol_mmaudio_cdv
 
@@ -5169,8 +5160,8 @@ _Z23dummy_symbol_mmaudio_cdv:
     .global _Z28dummy_symbol_mmaudio_crevbufv
     .type _Z28dummy_symbol_mmaudio_crevbufv, %function
 _Z28dummy_symbol_mmaudio_crevbufv:
-    adrp x0, .Lstub_name_573
-    add x0, x0, :lo12:.Lstub_name_573
+    adrp x0, .Lstub_name_572
+    add x0, x0, :lo12:.Lstub_name_572
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmaudio_crevbufv, . - _Z28dummy_symbol_mmaudio_crevbufv
 
@@ -5178,8 +5169,8 @@ _Z28dummy_symbol_mmaudio_crevbufv:
     .global _Z28dummy_symbol_mmaudio_creverbv
     .type _Z28dummy_symbol_mmaudio_creverbv, %function
 _Z28dummy_symbol_mmaudio_creverbv:
-    adrp x0, .Lstub_name_574
-    add x0, x0, :lo12:.Lstub_name_574
+    adrp x0, .Lstub_name_573
+    add x0, x0, :lo12:.Lstub_name_573
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmaudio_creverbv, . - _Z28dummy_symbol_mmaudio_creverbv
 
@@ -5187,8 +5178,8 @@ _Z28dummy_symbol_mmaudio_creverbv:
     .global _Z29dummy_symbol_mmaudio_dsglobalv
     .type _Z29dummy_symbol_mmaudio_dsglobalv, %function
 _Z29dummy_symbol_mmaudio_dsglobalv:
-    adrp x0, .Lstub_name_575
-    add x0, x0, :lo12:.Lstub_name_575
+    adrp x0, .Lstub_name_574
+    add x0, x0, :lo12:.Lstub_name_574
     b ArtsStubCalled
     .size _Z29dummy_symbol_mmaudio_dsglobalv, . - _Z29dummy_symbol_mmaudio_dsglobalv
 
@@ -5196,8 +5187,8 @@ _Z29dummy_symbol_mmaudio_dsglobalv:
     .global _Z34dummy_symbol_mmaudio_dupbufcreatorv
     .type _Z34dummy_symbol_mmaudio_dupbufcreatorv, %function
 _Z34dummy_symbol_mmaudio_dupbufcreatorv:
-    adrp x0, .Lstub_name_576
-    add x0, x0, :lo12:.Lstub_name_576
+    adrp x0, .Lstub_name_575
+    add x0, x0, :lo12:.Lstub_name_575
     b ArtsStubCalled
     .size _Z34dummy_symbol_mmaudio_dupbufcreatorv, . - _Z34dummy_symbol_mmaudio_dupbufcreatorv
 
@@ -5205,8 +5196,8 @@ _Z34dummy_symbol_mmaudio_dupbufcreatorv:
     .global _Z28dummy_symbol_mmaudio_eaxguidv
     .type _Z28dummy_symbol_mmaudio_eaxguidv, %function
 _Z28dummy_symbol_mmaudio_eaxguidv:
-    adrp x0, .Lstub_name_577
-    add x0, x0, :lo12:.Lstub_name_577
+    adrp x0, .Lstub_name_576
+    add x0, x0, :lo12:.Lstub_name_576
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmaudio_eaxguidv, . - _Z28dummy_symbol_mmaudio_eaxguidv
 
@@ -5214,8 +5205,8 @@ _Z28dummy_symbol_mmaudio_eaxguidv:
     .global _Z25dummy_symbol_mmaudio_headv
     .type _Z25dummy_symbol_mmaudio_headv, %function
 _Z25dummy_symbol_mmaudio_headv:
-    adrp x0, .Lstub_name_578
-    add x0, x0, :lo12:.Lstub_name_578
+    adrp x0, .Lstub_name_577
+    add x0, x0, :lo12:.Lstub_name_577
     b ArtsStubCalled
     .size _Z25dummy_symbol_mmaudio_headv, . - _Z25dummy_symbol_mmaudio_headv
 
@@ -5223,8 +5214,8 @@ _Z25dummy_symbol_mmaudio_headv:
     .global _Z28dummy_symbol_mmaudio_managerv
     .type _Z28dummy_symbol_mmaudio_managerv, %function
 _Z28dummy_symbol_mmaudio_managerv:
-    adrp x0, .Lstub_name_579
-    add x0, x0, :lo12:.Lstub_name_579
+    adrp x0, .Lstub_name_578
+    add x0, x0, :lo12:.Lstub_name_578
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmaudio_managerv, . - _Z28dummy_symbol_mmaudio_managerv
 
@@ -5232,8 +5223,8 @@ _Z28dummy_symbol_mmaudio_managerv:
     .global _Z26dummy_symbol_mmaudio_mixerv
     .type _Z26dummy_symbol_mmaudio_mixerv, %function
 _Z26dummy_symbol_mmaudio_mixerv:
-    adrp x0, .Lstub_name_580
-    add x0, x0, :lo12:.Lstub_name_580
+    adrp x0, .Lstub_name_579
+    add x0, x0, :lo12:.Lstub_name_579
     b ArtsStubCalled
     .size _Z26dummy_symbol_mmaudio_mixerv, . - _Z26dummy_symbol_mmaudio_mixerv
 
@@ -5241,8 +5232,8 @@ _Z26dummy_symbol_mmaudio_mixerv:
     .global _Z38dummy_symbol_mmaudio_mmvoicecommentaryv
     .type _Z38dummy_symbol_mmaudio_mmvoicecommentaryv, %function
 _Z38dummy_symbol_mmaudio_mmvoicecommentaryv:
-    adrp x0, .Lstub_name_581
-    add x0, x0, :lo12:.Lstub_name_581
+    adrp x0, .Lstub_name_580
+    add x0, x0, :lo12:.Lstub_name_580
     b ArtsStubCalled
     .size _Z38dummy_symbol_mmaudio_mmvoicecommentaryv, . - _Z38dummy_symbol_mmaudio_mmvoicecommentaryv
 
@@ -5250,8 +5241,8 @@ _Z38dummy_symbol_mmaudio_mmvoicecommentaryv:
     .global _Z26dummy_symbol_mmaudio_soundv
     .type _Z26dummy_symbol_mmaudio_soundv, %function
 _Z26dummy_symbol_mmaudio_soundv:
-    adrp x0, .Lstub_name_582
-    add x0, x0, :lo12:.Lstub_name_582
+    adrp x0, .Lstub_name_581
+    add x0, x0, :lo12:.Lstub_name_581
     b ArtsStubCalled
     .size _Z26dummy_symbol_mmaudio_soundv, . - _Z26dummy_symbol_mmaudio_soundv
 
@@ -5259,8 +5250,8 @@ _Z26dummy_symbol_mmaudio_soundv:
     .global _Z29dummy_symbol_mmaudio_soundobjv
     .type _Z29dummy_symbol_mmaudio_soundobjv, %function
 _Z29dummy_symbol_mmaudio_soundobjv:
-    adrp x0, .Lstub_name_583
-    add x0, x0, :lo12:.Lstub_name_583
+    adrp x0, .Lstub_name_582
+    add x0, x0, :lo12:.Lstub_name_582
     b ArtsStubCalled
     .size _Z29dummy_symbol_mmaudio_soundobjv, . - _Z29dummy_symbol_mmaudio_soundobjv
 
@@ -5268,8 +5259,8 @@ _Z29dummy_symbol_mmaudio_soundobjv:
     .global _Z30dummy_symbol_mmaudio_streamobjv
     .type _Z30dummy_symbol_mmaudio_streamobjv, %function
 _Z30dummy_symbol_mmaudio_streamobjv:
-    adrp x0, .Lstub_name_584
-    add x0, x0, :lo12:.Lstub_name_584
+    adrp x0, .Lstub_name_583
+    add x0, x0, :lo12:.Lstub_name_583
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmaudio_streamobjv, . - _Z30dummy_symbol_mmaudio_streamobjv
 
@@ -5277,8 +5268,8 @@ _Z30dummy_symbol_mmaudio_streamobjv:
     .global _Z28dummy_symbol_mminput_collidev
     .type _Z28dummy_symbol_mminput_collidev, %function
 _Z28dummy_symbol_mminput_collidev:
-    adrp x0, .Lstub_name_585
-    add x0, x0, :lo12:.Lstub_name_585
+    adrp x0, .Lstub_name_584
+    add x0, x0, :lo12:.Lstub_name_584
     b ArtsStubCalled
     .size _Z28dummy_symbol_mminput_collidev, . - _Z28dummy_symbol_mminput_collidev
 
@@ -5286,8 +5277,8 @@ _Z28dummy_symbol_mminput_collidev:
     .global _Z27dummy_symbol_mminput_effectv
     .type _Z27dummy_symbol_mminput_effectv, %function
 _Z27dummy_symbol_mminput_effectv:
-    adrp x0, .Lstub_name_586
-    add x0, x0, :lo12:.Lstub_name_586
+    adrp x0, .Lstub_name_585
+    add x0, x0, :lo12:.Lstub_name_585
     b ArtsStubCalled
     .size _Z27dummy_symbol_mminput_effectv, . - _Z27dummy_symbol_mminput_effectv
 
@@ -5295,8 +5286,8 @@ _Z27dummy_symbol_mminput_effectv:
     .global _Z29dummy_symbol_mminput_frictionv
     .type _Z29dummy_symbol_mminput_frictionv, %function
 _Z29dummy_symbol_mminput_frictionv:
-    adrp x0, .Lstub_name_587
-    add x0, x0, :lo12:.Lstub_name_587
+    adrp x0, .Lstub_name_586
+    add x0, x0, :lo12:.Lstub_name_586
     b ArtsStubCalled
     .size _Z29dummy_symbol_mminput_frictionv, . - _Z29dummy_symbol_mminput_frictionv
 
@@ -5304,8 +5295,8 @@ _Z29dummy_symbol_mminput_frictionv:
     .global _Z27dummy_symbol_mminput_joymanv
     .type _Z27dummy_symbol_mminput_joymanv, %function
 _Z27dummy_symbol_mminput_joymanv:
-    adrp x0, .Lstub_name_588
-    add x0, x0, :lo12:.Lstub_name_588
+    adrp x0, .Lstub_name_587
+    add x0, x0, :lo12:.Lstub_name_587
     b ArtsStubCalled
     .size _Z27dummy_symbol_mminput_joymanv, . - _Z27dummy_symbol_mminput_joymanv
 
@@ -5313,8 +5304,8 @@ _Z27dummy_symbol_mminput_joymanv:
     .global _Z29dummy_symbol_mminput_joystickv
     .type _Z29dummy_symbol_mminput_joystickv, %function
 _Z29dummy_symbol_mminput_joystickv:
-    adrp x0, .Lstub_name_589
-    add x0, x0, :lo12:.Lstub_name_589
+    adrp x0, .Lstub_name_588
+    add x0, x0, :lo12:.Lstub_name_588
     b ArtsStubCalled
     .size _Z29dummy_symbol_mminput_joystickv, . - _Z29dummy_symbol_mminput_joystickv
 
@@ -5322,8 +5313,8 @@ _Z29dummy_symbol_mminput_joystickv:
     .global _Z25dummy_symbol_mminput_roadv
     .type _Z25dummy_symbol_mminput_roadv, %function
 _Z25dummy_symbol_mminput_roadv:
-    adrp x0, .Lstub_name_590
-    add x0, x0, :lo12:.Lstub_name_590
+    adrp x0, .Lstub_name_589
+    add x0, x0, :lo12:.Lstub_name_589
     b ArtsStubCalled
     .size _Z25dummy_symbol_mminput_roadv, . - _Z25dummy_symbol_mminput_roadv
 
@@ -5331,8 +5322,8 @@ _Z25dummy_symbol_mminput_roadv:
     .global _Z27dummy_symbol_mminput_springv
     .type _Z27dummy_symbol_mminput_springv, %function
 _Z27dummy_symbol_mminput_springv:
-    adrp x0, .Lstub_name_591
-    add x0, x0, :lo12:.Lstub_name_591
+    adrp x0, .Lstub_name_590
+    add x0, x0, :lo12:.Lstub_name_590
     b ArtsStubCalled
     .size _Z27dummy_symbol_mminput_springv, . - _Z27dummy_symbol_mminput_springv
 
@@ -5340,8 +5331,8 @@ _Z27dummy_symbol_mminput_springv:
     .global _Z32dummy_symbol_mmnetwork_netobjectv
     .type _Z32dummy_symbol_mmnetwork_netobjectv, %function
 _Z32dummy_symbol_mmnetwork_netobjectv:
-    adrp x0, .Lstub_name_592
-    add x0, x0, :lo12:.Lstub_name_592
+    adrp x0, .Lstub_name_591
+    add x0, x0, :lo12:.Lstub_name_591
     b ArtsStubCalled
     .size _Z32dummy_symbol_mmnetwork_netobjectv, . - _Z32dummy_symbol_mmnetwork_netobjectv
 
@@ -5349,8 +5340,8 @@ _Z32dummy_symbol_mmnetwork_netobjectv:
     .global _Z30dummy_symbol_mmnetwork_networkv
     .type _Z30dummy_symbol_mmnetwork_networkv, %function
 _Z30dummy_symbol_mmnetwork_networkv:
-    adrp x0, .Lstub_name_593
-    add x0, x0, :lo12:.Lstub_name_593
+    adrp x0, .Lstub_name_592
+    add x0, x0, :lo12:.Lstub_name_592
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmnetwork_networkv, . - _Z30dummy_symbol_mmnetwork_networkv
 
@@ -5358,8 +5349,8 @@ _Z30dummy_symbol_mmnetwork_networkv:
     .global _Z31dummy_symbol_mmwidget_bm_buttonv
     .type _Z31dummy_symbol_mmwidget_bm_buttonv, %function
 _Z31dummy_symbol_mmwidget_bm_buttonv:
-    adrp x0, .Lstub_name_594
-    add x0, x0, :lo12:.Lstub_name_594
+    adrp x0, .Lstub_name_593
+    add x0, x0, :lo12:.Lstub_name_593
     b ArtsStubCalled
     .size _Z31dummy_symbol_mmwidget_bm_buttonv, . - _Z31dummy_symbol_mmwidget_bm_buttonv
 
@@ -5367,8 +5358,8 @@ _Z31dummy_symbol_mmwidget_bm_buttonv:
     .global _Z30dummy_symbol_mmwidget_bm_labelv
     .type _Z30dummy_symbol_mmwidget_bm_labelv, %function
 _Z30dummy_symbol_mmwidget_bm_labelv:
-    adrp x0, .Lstub_name_595
-    add x0, x0, :lo12:.Lstub_name_595
+    adrp x0, .Lstub_name_594
+    add x0, x0, :lo12:.Lstub_name_594
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_bm_labelv, . - _Z30dummy_symbol_mmwidget_bm_labelv
 
@@ -5376,8 +5367,8 @@ _Z30dummy_symbol_mmwidget_bm_labelv:
     .global _Z28dummy_symbol_mmwidget_buttonv
     .type _Z28dummy_symbol_mmwidget_buttonv, %function
 _Z28dummy_symbol_mmwidget_buttonv:
-    adrp x0, .Lstub_name_596
-    add x0, x0, :lo12:.Lstub_name_596
+    adrp x0, .Lstub_name_595
+    add x0, x0, :lo12:.Lstub_name_595
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_buttonv, . - _Z28dummy_symbol_mmwidget_buttonv
 
@@ -5385,8 +5376,8 @@ _Z28dummy_symbol_mmwidget_buttonv:
     .global _Z30dummy_symbol_mmwidget_compbasev
     .type _Z30dummy_symbol_mmwidget_compbasev, %function
 _Z30dummy_symbol_mmwidget_compbasev:
-    adrp x0, .Lstub_name_597
-    add x0, x0, :lo12:.Lstub_name_597
+    adrp x0, .Lstub_name_596
+    add x0, x0, :lo12:.Lstub_name_596
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_compbasev, . - _Z30dummy_symbol_mmwidget_compbasev
 
@@ -5394,8 +5385,8 @@ _Z30dummy_symbol_mmwidget_compbasev:
     .global _Z28dummy_symbol_mmwidget_compcrv
     .type _Z28dummy_symbol_mmwidget_compcrv, %function
 _Z28dummy_symbol_mmwidget_compcrv:
-    adrp x0, .Lstub_name_598
-    add x0, x0, :lo12:.Lstub_name_598
+    adrp x0, .Lstub_name_597
+    add x0, x0, :lo12:.Lstub_name_597
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_compcrv, . - _Z28dummy_symbol_mmwidget_compcrv
 
@@ -5403,8 +5394,8 @@ _Z28dummy_symbol_mmwidget_compcrv:
     .global _Z30dummy_symbol_mmwidget_compdrecv
     .type _Z30dummy_symbol_mmwidget_compdrecv, %function
 _Z30dummy_symbol_mmwidget_compdrecv:
-    adrp x0, .Lstub_name_599
-    add x0, x0, :lo12:.Lstub_name_599
+    adrp x0, .Lstub_name_598
+    add x0, x0, :lo12:.Lstub_name_598
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_compdrecv, . - _Z30dummy_symbol_mmwidget_compdrecv
 
@@ -5412,8 +5403,8 @@ _Z30dummy_symbol_mmwidget_compdrecv:
     .global _Z32dummy_symbol_mmwidget_comprosterv
     .type _Z32dummy_symbol_mmwidget_comprosterv, %function
 _Z32dummy_symbol_mmwidget_comprosterv:
-    adrp x0, .Lstub_name_600
-    add x0, x0, :lo12:.Lstub_name_600
+    adrp x0, .Lstub_name_599
+    add x0, x0, :lo12:.Lstub_name_599
     b ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_comprosterv, . - _Z32dummy_symbol_mmwidget_comprosterv
 
@@ -5421,8 +5412,8 @@ _Z32dummy_symbol_mmwidget_comprosterv:
     .global _Z30dummy_symbol_mmwidget_comprrecv
     .type _Z30dummy_symbol_mmwidget_comprrecv, %function
 _Z30dummy_symbol_mmwidget_comprrecv:
-    adrp x0, .Lstub_name_601
-    add x0, x0, :lo12:.Lstub_name_601
+    adrp x0, .Lstub_name_600
+    add x0, x0, :lo12:.Lstub_name_600
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_comprrecv, . - _Z30dummy_symbol_mmwidget_comprrecv
 
@@ -5430,8 +5421,8 @@ _Z30dummy_symbol_mmwidget_comprrecv:
     .global _Z32dummy_symbol_mmwidget_compscrollv
     .type _Z32dummy_symbol_mmwidget_compscrollv, %function
 _Z32dummy_symbol_mmwidget_compscrollv:
-    adrp x0, .Lstub_name_602
-    add x0, x0, :lo12:.Lstub_name_602
+    adrp x0, .Lstub_name_601
+    add x0, x0, :lo12:.Lstub_name_601
     b ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_compscrollv, . - _Z32dummy_symbol_mmwidget_compscrollv
 
@@ -5439,8 +5430,8 @@ _Z32dummy_symbol_mmwidget_compscrollv:
     .global _Z35dummy_symbol_mmwidget_controlwidgetv
     .type _Z35dummy_symbol_mmwidget_controlwidgetv, %function
 _Z35dummy_symbol_mmwidget_controlwidgetv:
-    adrp x0, .Lstub_name_603
-    add x0, x0, :lo12:.Lstub_name_603
+    adrp x0, .Lstub_name_602
+    add x0, x0, :lo12:.Lstub_name_602
     b ArtsStubCalled
     .size _Z35dummy_symbol_mmwidget_controlwidgetv, . - _Z35dummy_symbol_mmwidget_controlwidgetv
 
@@ -5448,8 +5439,8 @@ _Z35dummy_symbol_mmwidget_controlwidgetv:
     .global _Z29dummy_symbol_mmwidget_cwarrayv
     .type _Z29dummy_symbol_mmwidget_cwarrayv, %function
 _Z29dummy_symbol_mmwidget_cwarrayv:
-    adrp x0, .Lstub_name_604
-    add x0, x0, :lo12:.Lstub_name_604
+    adrp x0, .Lstub_name_603
+    add x0, x0, :lo12:.Lstub_name_603
     b ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_cwarrayv, . - _Z29dummy_symbol_mmwidget_cwarrayv
 
@@ -5457,8 +5448,8 @@ _Z29dummy_symbol_mmwidget_cwarrayv:
     .global _Z30dummy_symbol_mmwidget_dropdownv
     .type _Z30dummy_symbol_mmwidget_dropdownv, %function
 _Z30dummy_symbol_mmwidget_dropdownv:
-    adrp x0, .Lstub_name_605
-    add x0, x0, :lo12:.Lstub_name_605
+    adrp x0, .Lstub_name_604
+    add x0, x0, :lo12:.Lstub_name_604
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_dropdownv, . - _Z30dummy_symbol_mmwidget_dropdownv
 
@@ -5466,8 +5457,8 @@ _Z30dummy_symbol_mmwidget_dropdownv:
     .global _Z26dummy_symbol_mmwidget_iconv
     .type _Z26dummy_symbol_mmwidget_iconv, %function
 _Z26dummy_symbol_mmwidget_iconv:
-    adrp x0, .Lstub_name_606
-    add x0, x0, :lo12:.Lstub_name_606
+    adrp x0, .Lstub_name_605
+    add x0, x0, :lo12:.Lstub_name_605
     b ArtsStubCalled
     .size _Z26dummy_symbol_mmwidget_iconv, . - _Z26dummy_symbol_mmwidget_iconv
 
@@ -5475,8 +5466,8 @@ _Z26dummy_symbol_mmwidget_iconv:
     .global _Z32dummy_symbol_mmwidget_iconwidgetv
     .type _Z32dummy_symbol_mmwidget_iconwidgetv, %function
 _Z32dummy_symbol_mmwidget_iconwidgetv:
-    adrp x0, .Lstub_name_607
-    add x0, x0, :lo12:.Lstub_name_607
+    adrp x0, .Lstub_name_606
+    add x0, x0, :lo12:.Lstub_name_606
     b ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_iconwidgetv, . - _Z32dummy_symbol_mmwidget_iconwidgetv
 
@@ -5484,8 +5475,8 @@ _Z32dummy_symbol_mmwidget_iconwidgetv:
     .global _Z27dummy_symbol_mmwidget_labelv
     .type _Z27dummy_symbol_mmwidget_labelv, %function
 _Z27dummy_symbol_mmwidget_labelv:
-    adrp x0, .Lstub_name_608
-    add x0, x0, :lo12:.Lstub_name_608
+    adrp x0, .Lstub_name_607
+    add x0, x0, :lo12:.Lstub_name_607
     b ArtsStubCalled
     .size _Z27dummy_symbol_mmwidget_labelv, . - _Z27dummy_symbol_mmwidget_labelv
 
@@ -5493,8 +5484,8 @@ _Z27dummy_symbol_mmwidget_labelv:
     .global _Z29dummy_symbol_mmwidget_managerv
     .type _Z29dummy_symbol_mmwidget_managerv, %function
 _Z29dummy_symbol_mmwidget_managerv:
-    adrp x0, .Lstub_name_609
-    add x0, x0, :lo12:.Lstub_name_609
+    adrp x0, .Lstub_name_608
+    add x0, x0, :lo12:.Lstub_name_608
     b ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_managerv, . - _Z29dummy_symbol_mmwidget_managerv
 
@@ -5502,8 +5493,8 @@ _Z29dummy_symbol_mmwidget_managerv:
     .global _Z26dummy_symbol_mmwidget_menuv
     .type _Z26dummy_symbol_mmwidget_menuv, %function
 _Z26dummy_symbol_mmwidget_menuv:
-    adrp x0, .Lstub_name_610
-    add x0, x0, :lo12:.Lstub_name_610
+    adrp x0, .Lstub_name_609
+    add x0, x0, :lo12:.Lstub_name_609
     b ArtsStubCalled
     .size _Z26dummy_symbol_mmwidget_menuv, . - _Z26dummy_symbol_mmwidget_menuv
 
@@ -5511,8 +5502,8 @@ _Z26dummy_symbol_mmwidget_menuv:
     .global _Z31dummy_symbol_mmwidget_mexbuttonv
     .type _Z31dummy_symbol_mmwidget_mexbuttonv, %function
 _Z31dummy_symbol_mmwidget_mexbuttonv:
-    adrp x0, .Lstub_name_611
-    add x0, x0, :lo12:.Lstub_name_611
+    adrp x0, .Lstub_name_610
+    add x0, x0, :lo12:.Lstub_name_610
     b ArtsStubCalled
     .size _Z31dummy_symbol_mmwidget_mexbuttonv, . - _Z31dummy_symbol_mmwidget_mexbuttonv
 
@@ -5520,8 +5511,8 @@ _Z31dummy_symbol_mmwidget_mexbuttonv:
     .global _Z28dummy_symbol_mmwidget_mstorev
     .type _Z28dummy_symbol_mmwidget_mstorev, %function
 _Z28dummy_symbol_mmwidget_mstorev:
-    adrp x0, .Lstub_name_612
-    add x0, x0, :lo12:.Lstub_name_612
+    adrp x0, .Lstub_name_611
+    add x0, x0, :lo12:.Lstub_name_611
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_mstorev, . - _Z28dummy_symbol_mmwidget_mstorev
 
@@ -5529,8 +5520,8 @@ _Z28dummy_symbol_mmwidget_mstorev:
     .global _Z28dummy_symbol_mmwidget_navbarv
     .type _Z28dummy_symbol_mmwidget_navbarv, %function
 _Z28dummy_symbol_mmwidget_navbarv:
-    adrp x0, .Lstub_name_613
-    add x0, x0, :lo12:.Lstub_name_613
+    adrp x0, .Lstub_name_612
+    add x0, x0, :lo12:.Lstub_name_612
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_navbarv, . - _Z28dummy_symbol_mmwidget_navbarv
 
@@ -5538,8 +5529,8 @@ _Z28dummy_symbol_mmwidget_navbarv:
     .global _Z29dummy_symbol_mmwidget_pointerv
     .type _Z29dummy_symbol_mmwidget_pointerv, %function
 _Z29dummy_symbol_mmwidget_pointerv:
-    adrp x0, .Lstub_name_614
-    add x0, x0, :lo12:.Lstub_name_614
+    adrp x0, .Lstub_name_613
+    add x0, x0, :lo12:.Lstub_name_613
     b ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_pointerv, . - _Z29dummy_symbol_mmwidget_pointerv
 
@@ -5547,8 +5538,8 @@ _Z29dummy_symbol_mmwidget_pointerv:
     .global _Z28dummy_symbol_mmwidget_sliderv
     .type _Z28dummy_symbol_mmwidget_sliderv, %function
 _Z28dummy_symbol_mmwidget_sliderv:
-    adrp x0, .Lstub_name_615
-    add x0, x0, :lo12:.Lstub_name_615
+    adrp x0, .Lstub_name_614
+    add x0, x0, :lo12:.Lstub_name_614
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_sliderv, . - _Z28dummy_symbol_mmwidget_sliderv
 
@@ -5556,8 +5547,8 @@ _Z28dummy_symbol_mmwidget_sliderv:
     .global _Z31dummy_symbol_mmwidget_sliderbarv
     .type _Z31dummy_symbol_mmwidget_sliderbarv, %function
 _Z31dummy_symbol_mmwidget_sliderbarv:
-    adrp x0, .Lstub_name_616
-    add x0, x0, :lo12:.Lstub_name_616
+    adrp x0, .Lstub_name_615
+    add x0, x0, :lo12:.Lstub_name_615
     b ArtsStubCalled
     .size _Z31dummy_symbol_mmwidget_sliderbarv, . - _Z31dummy_symbol_mmwidget_sliderbarv
 
@@ -5565,8 +5556,8 @@ _Z31dummy_symbol_mmwidget_sliderbarv:
     .global _Z30dummy_symbol_mmwidget_tdwidgetv
     .type _Z30dummy_symbol_mmwidget_tdwidgetv, %function
 _Z30dummy_symbol_mmwidget_tdwidgetv:
-    adrp x0, .Lstub_name_617
-    add x0, x0, :lo12:.Lstub_name_617
+    adrp x0, .Lstub_name_616
+    add x0, x0, :lo12:.Lstub_name_616
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_tdwidgetv, . - _Z30dummy_symbol_mmwidget_tdwidgetv
 
@@ -5574,8 +5565,8 @@ _Z30dummy_symbol_mmwidget_tdwidgetv:
     .global _Z30dummy_symbol_mmwidget_textdropv
     .type _Z30dummy_symbol_mmwidget_textdropv, %function
 _Z30dummy_symbol_mmwidget_textdropv:
-    adrp x0, .Lstub_name_618
-    add x0, x0, :lo12:.Lstub_name_618
+    adrp x0, .Lstub_name_617
+    add x0, x0, :lo12:.Lstub_name_617
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_textdropv, . - _Z30dummy_symbol_mmwidget_textdropv
 
@@ -5583,8 +5574,8 @@ _Z30dummy_symbol_mmwidget_textdropv:
     .global _Z31dummy_symbol_mmwidget_textfieldv
     .type _Z31dummy_symbol_mmwidget_textfieldv, %function
 _Z31dummy_symbol_mmwidget_textfieldv:
-    adrp x0, .Lstub_name_619
-    add x0, x0, :lo12:.Lstub_name_619
+    adrp x0, .Lstub_name_618
+    add x0, x0, :lo12:.Lstub_name_618
     b ArtsStubCalled
     .size _Z31dummy_symbol_mmwidget_textfieldv, . - _Z31dummy_symbol_mmwidget_textfieldv
 
@@ -5592,8 +5583,8 @@ _Z31dummy_symbol_mmwidget_textfieldv:
     .global _Z32dummy_symbol_mmwidget_textrollerv
     .type _Z32dummy_symbol_mmwidget_textrollerv, %function
 _Z32dummy_symbol_mmwidget_textrollerv:
-    adrp x0, .Lstub_name_620
-    add x0, x0, :lo12:.Lstub_name_620
+    adrp x0, .Lstub_name_619
+    add x0, x0, :lo12:.Lstub_name_619
     b ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_textrollerv, . - _Z32dummy_symbol_mmwidget_textrollerv
 
@@ -5601,8 +5592,8 @@ _Z32dummy_symbol_mmwidget_textrollerv:
     .global _Z33dummy_symbol_mmwidget_textroller2v
     .type _Z33dummy_symbol_mmwidget_textroller2v, %function
 _Z33dummy_symbol_mmwidget_textroller2v:
-    adrp x0, .Lstub_name_621
-    add x0, x0, :lo12:.Lstub_name_621
+    adrp x0, .Lstub_name_620
+    add x0, x0, :lo12:.Lstub_name_620
     b ArtsStubCalled
     .size _Z33dummy_symbol_mmwidget_textroller2v, . - _Z33dummy_symbol_mmwidget_textroller2v
 
@@ -5610,8 +5601,8 @@ _Z33dummy_symbol_mmwidget_textroller2v:
     .global _Z28dummy_symbol_mmwidget_togglev
     .type _Z28dummy_symbol_mmwidget_togglev, %function
 _Z28dummy_symbol_mmwidget_togglev:
-    adrp x0, .Lstub_name_622
-    add x0, x0, :lo12:.Lstub_name_622
+    adrp x0, .Lstub_name_621
+    add x0, x0, :lo12:.Lstub_name_621
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_togglev, . - _Z28dummy_symbol_mmwidget_togglev
 
@@ -5619,8 +5610,8 @@ _Z28dummy_symbol_mmwidget_togglev:
     .global _Z29dummy_symbol_mmwidget_toggle2v
     .type _Z29dummy_symbol_mmwidget_toggle2v, %function
 _Z29dummy_symbol_mmwidget_toggle2v:
-    adrp x0, .Lstub_name_623
-    add x0, x0, :lo12:.Lstub_name_623
+    adrp x0, .Lstub_name_622
+    add x0, x0, :lo12:.Lstub_name_622
     b ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_toggle2v, . - _Z29dummy_symbol_mmwidget_toggle2v
 
@@ -5628,8 +5619,8 @@ _Z29dummy_symbol_mmwidget_toggle2v:
     .global _Z34dummy_symbol_mmwidget_togglebuttonv
     .type _Z34dummy_symbol_mmwidget_togglebuttonv, %function
 _Z34dummy_symbol_mmwidget_togglebuttonv:
-    adrp x0, .Lstub_name_624
-    add x0, x0, :lo12:.Lstub_name_624
+    adrp x0, .Lstub_name_623
+    add x0, x0, :lo12:.Lstub_name_623
     b ArtsStubCalled
     .size _Z34dummy_symbol_mmwidget_togglebuttonv, . - _Z34dummy_symbol_mmwidget_togglebuttonv
 
@@ -5637,8 +5628,8 @@ _Z34dummy_symbol_mmwidget_togglebuttonv:
     .global _Z35dummy_symbol_mmwidget_togglebutton2v
     .type _Z35dummy_symbol_mmwidget_togglebutton2v, %function
 _Z35dummy_symbol_mmwidget_togglebutton2v:
-    adrp x0, .Lstub_name_625
-    add x0, x0, :lo12:.Lstub_name_625
+    adrp x0, .Lstub_name_624
+    add x0, x0, :lo12:.Lstub_name_624
     b ArtsStubCalled
     .size _Z35dummy_symbol_mmwidget_togglebutton2v, . - _Z35dummy_symbol_mmwidget_togglebutton2v
 
@@ -5646,8 +5637,8 @@ _Z35dummy_symbol_mmwidget_togglebutton2v:
     .global _Z29dummy_symbol_mmwidget_tscrollv
     .type _Z29dummy_symbol_mmwidget_tscrollv, %function
 _Z29dummy_symbol_mmwidget_tscrollv:
-    adrp x0, .Lstub_name_626
-    add x0, x0, :lo12:.Lstub_name_626
+    adrp x0, .Lstub_name_625
+    add x0, x0, :lo12:.Lstub_name_625
     b ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_tscrollv, . - _Z29dummy_symbol_mmwidget_tscrollv
 
@@ -5655,8 +5646,8 @@ _Z29dummy_symbol_mmwidget_tscrollv:
     .global _Z26dummy_symbol_mmwidget_ttipv
     .type _Z26dummy_symbol_mmwidget_ttipv, %function
 _Z26dummy_symbol_mmwidget_ttipv:
-    adrp x0, .Lstub_name_627
-    add x0, x0, :lo12:.Lstub_name_627
+    adrp x0, .Lstub_name_626
+    add x0, x0, :lo12:.Lstub_name_626
     b ArtsStubCalled
     .size _Z26dummy_symbol_mmwidget_ttipv, . - _Z26dummy_symbol_mmwidget_ttipv
 
@@ -5664,8 +5655,8 @@ _Z26dummy_symbol_mmwidget_ttipv:
     .global _Z32dummy_symbol_mmwidget_vscrollbarv
     .type _Z32dummy_symbol_mmwidget_vscrollbarv, %function
 _Z32dummy_symbol_mmwidget_vscrollbarv:
-    adrp x0, .Lstub_name_628
-    add x0, x0, :lo12:.Lstub_name_628
+    adrp x0, .Lstub_name_627
+    add x0, x0, :lo12:.Lstub_name_627
     b ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_vscrollbarv, . - _Z32dummy_symbol_mmwidget_vscrollbarv
 
@@ -5673,8 +5664,8 @@ _Z32dummy_symbol_mmwidget_vscrollbarv:
     .global _Z30dummy_symbol_mmwidget_vswidgetv
     .type _Z30dummy_symbol_mmwidget_vswidgetv, %function
 _Z30dummy_symbol_mmwidget_vswidgetv:
-    adrp x0, .Lstub_name_629
-    add x0, x0, :lo12:.Lstub_name_629
+    adrp x0, .Lstub_name_628
+    add x0, x0, :lo12:.Lstub_name_628
     b ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_vswidgetv, . - _Z30dummy_symbol_mmwidget_vswidgetv
 
@@ -5682,8 +5673,8 @@ _Z30dummy_symbol_mmwidget_vswidgetv:
     .global _Z28dummy_symbol_mmwidget_widgetv
     .type _Z28dummy_symbol_mmwidget_widgetv, %function
 _Z28dummy_symbol_mmwidget_widgetv:
-    adrp x0, .Lstub_name_630
-    add x0, x0, :lo12:.Lstub_name_630
+    adrp x0, .Lstub_name_629
+    add x0, x0, :lo12:.Lstub_name_629
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_widgetv, . - _Z28dummy_symbol_mmwidget_widgetv
 
@@ -5691,8 +5682,8 @@ _Z28dummy_symbol_mmwidget_widgetv:
     .global _Z28dummy_symbol_mmwidget_wstorev
     .type _Z28dummy_symbol_mmwidget_wstorev, %function
 _Z28dummy_symbol_mmwidget_wstorev:
-    adrp x0, .Lstub_name_631
-    add x0, x0, :lo12:.Lstub_name_631
+    adrp x0, .Lstub_name_630
+    add x0, x0, :lo12:.Lstub_name_630
     b ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_wstorev, . - _Z28dummy_symbol_mmwidget_wstorev
 
@@ -5864,16 +5855,16 @@ _Z28dummy_symbol_mmwidget_wstorev:
     .asciz "GetBoundInfo(int, Vector3*, Vector3*, Vector3*, Vector3*, float*)"
 
 .Lstub_name_55:
-    .asciz "ipcYield()"
-
-.Lstub_name_56:
     .asciz "swPoly(agiScreenVtx*, int)"
 
-.Lstub_name_57:
+.Lstub_name_56:
     .asciz "swTri(agiScreenVtx*, agiScreenVtx*, agiScreenVtx*)"
 
-.Lstub_name_58:
+.Lstub_name_57:
     .asciz "swQuad(agiScreenVtx*, agiScreenVtx*, agiScreenVtx*, agiScreenVtx*)"
+
+.Lstub_name_58:
+    .asciz "ipcYield()"
 
 .Lstub_name_59:
     .asciz "agiMeshSet::FirstPass_HW_UV_CPV_noDYNTEX(unsigned int*, Vector2*, unsigned int)"
@@ -5957,1641 +5948,1638 @@ _Z28dummy_symbol_mmwidget_wstorev:
     .asciz "mmEdgeBodyIsect::mmEdgeBodyIsect()"
 
 .Lstub_name_86:
-    .asciz "mmBoundTemplate::ValidatePtr(char*)"
-
-.Lstub_name_87:
-    .asciz "mmBoundTemplate::QuickSphereBox(mmIntersection*)"
-
-.Lstub_name_88:
     .asciz "mmPhysicsMGR::Cull()"
 
-.Lstub_name_89:
-    .asciz "mmBoundTemplate::SphereTable(mmIntersection*)"
-
-.Lstub_name_90:
+.Lstub_name_87:
     .asciz "mmPhysicsMGR::Update()"
 
-.Lstub_name_91:
-    .asciz "mmBoundTemplate::QuickLineBox(mmIntersection*)"
-
-.Lstub_name_92:
+.Lstub_name_88:
     .asciz "mmPhysicsMGR::UpdatePaused()"
 
-.Lstub_name_93:
+.Lstub_name_89:
+    .asciz "mmBoundTemplate::ValidatePtr(char*)"
+
+.Lstub_name_90:
+    .asciz "mmBoundTemplate::QuickSphereBox(mmIntersection*)"
+
+.Lstub_name_91:
+    .asciz "mmBoundTemplate::SphereTable(mmIntersection*)"
+
+.Lstub_name_92:
     .asciz "mmBoundTemplate::LineTable(mmIntersection*)"
 
-.Lstub_name_94:
+.Lstub_name_93:
     .asciz "mmBoundTemplate::SphereSphere(mmIntersection*)"
 
-.Lstub_name_95:
+.Lstub_name_94:
     .asciz "mmBoundTemplate::SphereGeometry(mmIntersection*)"
 
-.Lstub_name_96:
+.Lstub_name_95:
     .asciz "mmBoundTemplate::QuickLineSphere(mmIntersection*)"
 
-.Lstub_name_97:
+.Lstub_name_96:
     .asciz "mmBoundTemplate::LineGeometry(mmIntersection*)"
 
-.Lstub_name_98:
-    .asciz "mmIntersection::Reset()"
-
-.Lstub_name_99:
+.Lstub_name_97:
     .asciz "mmPolygon::mmPolygon()"
 
-.Lstub_name_100:
+.Lstub_name_98:
     .asciz "mmBoundTemplate::DoPageIn()"
 
-.Lstub_name_101:
+.Lstub_name_99:
+    .asciz "mmIntersection::Reset()"
+
+.Lstub_name_100:
     .asciz "mmPolygon::PlotTriangle(int, int, int, mmBoundTemplate*, int)"
 
-.Lstub_name_102:
+.Lstub_name_101:
     .asciz "mmBoundTemplate::AddIndex(int, int, int)"
 
-.Lstub_name_103:
+.Lstub_name_102:
     .asciz "mmDofBangerInstance::ToMatrix(Matrix34&)"
 
-.Lstub_name_104:
+.Lstub_name_103:
     .asciz "mmInstance::GetClass()"
 
-.Lstub_name_105:
+.Lstub_name_104:
     .asciz "mmDofBangerInstance::FromMatrix(Matrix34 const&)"
 
-.Lstub_name_106:
+.Lstub_name_105:
     .asciz "mmDofBangerInstance::GetPos()"
 
-.Lstub_name_107:
+.Lstub_name_106:
     .asciz "mmBangerInstance::DrawShadow()"
 
-.Lstub_name_108:
+.Lstub_name_107:
     .asciz "mmBangerInstance::DrawGlow()"
 
-.Lstub_name_109:
+.Lstub_name_108:
     .asciz "mmDofBangerInstance::SizeOf()"
 
-.Lstub_name_110:
+.Lstub_name_109:
     .asciz "mmUnhitBangerInstance::Reset()"
 
-.Lstub_name_111:
+.Lstub_name_110:
     .asciz "mmBangerInstance::ComputeLod(float, float)"
 
-.Lstub_name_112:
+.Lstub_name_111:
     .asciz "mmBridgeSet::ReadEntry(Stream*, int)"
 
-.Lstub_name_113:
+.Lstub_name_112:
     .asciz "mmAnimTrigger::Init(Vector3*, float*)"
 
-.Lstub_name_114:
+.Lstub_name_113:
     .asciz "AudSound::IsPlaying(int)"
 
-.Lstub_name_115:
+.Lstub_name_114:
     .asciz "AudSound::Stop()"
 
-.Lstub_name_116:
+.Lstub_name_115:
     .asciz "mmBridgeSet::mmBridgeSet()"
 
-.Lstub_name_117:
+.Lstub_name_116:
     .asciz "mmBridgeAudMgr::mmBridgeAudMgr()"
 
-.Lstub_name_118:
+.Lstub_name_117:
     .asciz "mmCullCity::GetRoomFlags(short)"
 
-.Lstub_name_119:
+.Lstub_name_118:
     .asciz "mmBangerDataManager::AddBangerDataEntry(char const*, char const*)"
 
-.Lstub_name_120:
+.Lstub_name_119:
     .asciz "mmUnhitBangerInstance::InitBreakables(char const*, char const*, mmBangerData*)"
 
-.Lstub_name_121:
+.Lstub_name_120:
     .asciz "asInertialCS::ApplyImpulse(Vector3 const&, Vector3 const&)"
 
-.Lstub_name_122:
+.Lstub_name_121:
     .asciz "mmBangerInstance::Draw(int)"
 
-.Lstub_name_123:
+.Lstub_name_122:
     .asciz "mmHitBangerInstance::Draw(int)"
 
-.Lstub_name_124:
+.Lstub_name_123:
     .asciz "mmTextNode::Update()"
 
-.Lstub_name_125:
+.Lstub_name_124:
     .asciz "agiMeshCardInfo::Init(int, agiMeshCardVertex*, int, int, int)"
 
-.Lstub_name_126:
+.Lstub_name_125:
     .asciz "asBirthRule::InitSpark(asSparkInfo*, asSparkPos*)"
 
-.Lstub_name_127:
+.Lstub_name_126:
     .asciz "agiMeshSet::InitCards(agiMeshCardInfo&)"
 
-.Lstub_name_128:
+.Lstub_name_127:
     .asciz "mmDamage::mmDamage()"
 
-.Lstub_name_129:
+.Lstub_name_128:
     .asciz "mmDamage::~mmDamage()"
 
-.Lstub_name_130:
+.Lstub_name_129:
     .asciz "mmVehicleForm::Cull()"
 
-.Lstub_name_131:
+.Lstub_name_130:
     .asciz "GetDLPTemplate(char*)"
 
-.Lstub_name_132:
+.Lstub_name_131:
     .asciz "Matrix34::RotateAbs(Vector3 const&, float)"
 
-.Lstub_name_133:
+.Lstub_name_132:
     .asciz "mmSkidManager::mmSkidManager()"
 
-.Lstub_name_134:
+.Lstub_name_133:
     .asciz "mmTrailer::PostUpdate()"
 
-.Lstub_name_135:
+.Lstub_name_134:
     .asciz "mmShardManager::Update()"
 
-.Lstub_name_136:
+.Lstub_name_135:
     .asciz "mmCarSim::ReInit(char const*)"
 
-.Lstub_name_137:
+.Lstub_name_136:
     .asciz "mmCarModel::Init(char const*, mmCar*, int)"
 
-.Lstub_name_138:
+.Lstub_name_137:
     .asciz "mmSkidManager::ReInit(mmWheel*)"
 
-.Lstub_name_139:
+.Lstub_name_138:
     .asciz "mmTrailer::Deactivate()"
 
-.Lstub_name_140:
+.Lstub_name_139:
     .asciz "Joint3Dof::BreakJoint()"
 
-.Lstub_name_141:
+.Lstub_name_140:
     .asciz "DLPTemplate::GetCentroid(Vector3&, char const*)"
 
-.Lstub_name_142:
-    .asciz "mmTrailer::Init(char const*, mmCarSim*, Vector3)"
-
-.Lstub_name_143:
-    .asciz "Joint3Dof::InitJoint3Dof(asInertialCS*, Vector3 const&, asInertialCS*, Vector3 const&)"
-
-.Lstub_name_144:
-    .asciz "mmTrailer::Activate()"
-
-.Lstub_name_145:
-    .asciz "Joint3Dof::UnbreakJoint()"
-
-.Lstub_name_146:
-    .asciz "DLPTemplate::Release()"
-
-.Lstub_name_147:
-    .asciz "mmCarSim::Reset()"
-
-.Lstub_name_148:
-    .asciz "mmCarModel::Reset()"
-
-.Lstub_name_149:
-    .asciz "mmCarModel::ClearDamage(bool)"
-
-.Lstub_name_150:
-    .asciz "mmSplash::Reset()"
-
-.Lstub_name_151:
-    .asciz "mmTrailer::Reset()"
-
-.Lstub_name_152:
-    .asciz "Joint3Dof::Reset()"
-
-.Lstub_name_153:
-    .asciz "mmSkidManager::Reset()"
-
-.Lstub_name_154:
-    .asciz "mmTrailer::SetHackedImpactParams()"
-
-.Lstub_name_155:
-    .asciz "mmCarSim::RemoveNetVehicleAudio()"
-
-.Lstub_name_156:
-    .asciz "mmPlayerCarAudio::StartSiren()"
-
-.Lstub_name_157:
-    .asciz "mmPlayerCarAudio::StopSiren()"
-
-.Lstub_name_158:
-    .asciz "mmCarModel::ApplyDamage(Vector3&, float)"
-
-.Lstub_name_159:
-    .asciz "mmInput::DoingFF()"
-
-.Lstub_name_160:
-    .asciz "mmInput::FFSetValues(int, float, float)"
-
-.Lstub_name_161:
-    .asciz "mmInput::FFPlay(int)"
-
-.Lstub_name_162:
-    .asciz "mmCullCity::IsPolyWater(mmPolygon*)"
-
-.Lstub_name_163:
-    .asciz "mmCarSim::PlayImpactAudio(short, mmIntersection*, Vector3*)"
-
-.Lstub_name_164:
-    .asciz "mmSplash::Activate(float)"
-
-.Lstub_name_165:
-    .asciz "asLineSparks::RadialBlast(int, Vector3&, Vector3&)"
-
-.Lstub_name_166:
-    .asciz "mmShardManager::EmitShards(Vector3, float, float)"
-
-.Lstub_name_167:
-    .asciz "mmCarModel::Impact(Vector3*)"
-
-.Lstub_name_168:
+.Lstub_name_141:
     .asciz "GetSparkLut(char const*)"
 
-.Lstub_name_169:
+.Lstub_name_142:
     .asciz "mmStuck::Init(mmCarSim*)"
 
-.Lstub_name_170:
+.Lstub_name_143:
+    .asciz "mmTrailer::Init(char const*, mmCarSim*, Vector3)"
+
+.Lstub_name_144:
+    .asciz "Joint3Dof::InitJoint3Dof(asInertialCS*, Vector3 const&, asInertialCS*, Vector3 const&)"
+
+.Lstub_name_145:
+    .asciz "mmTrailer::Activate()"
+
+.Lstub_name_146:
+    .asciz "Joint3Dof::UnbreakJoint()"
+
+.Lstub_name_147:
+    .asciz "DLPTemplate::Release()"
+
+.Lstub_name_148:
+    .asciz "mmCarSim::Reset()"
+
+.Lstub_name_149:
+    .asciz "mmCarModel::Reset()"
+
+.Lstub_name_150:
+    .asciz "mmCarModel::ClearDamage(bool)"
+
+.Lstub_name_151:
+    .asciz "mmSplash::Reset()"
+
+.Lstub_name_152:
+    .asciz "mmTrailer::Reset()"
+
+.Lstub_name_153:
+    .asciz "Joint3Dof::Reset()"
+
+.Lstub_name_154:
+    .asciz "mmSkidManager::Reset()"
+
+.Lstub_name_155:
+    .asciz "mmTrailer::SetHackedImpactParams()"
+
+.Lstub_name_156:
+    .asciz "mmCarSim::RemoveNetVehicleAudio()"
+
+.Lstub_name_157:
+    .asciz "mmPlayerCarAudio::StartSiren()"
+
+.Lstub_name_158:
+    .asciz "mmPlayerCarAudio::StopSiren()"
+
+.Lstub_name_159:
+    .asciz "mmCarModel::ApplyDamage(Vector3&, float)"
+
+.Lstub_name_160:
+    .asciz "mmInput::DoingFF()"
+
+.Lstub_name_161:
+    .asciz "mmInput::FFSetValues(int, float, float)"
+
+.Lstub_name_162:
+    .asciz "mmInput::FFPlay(int)"
+
+.Lstub_name_163:
+    .asciz "mmCullCity::IsPolyWater(mmPolygon*)"
+
+.Lstub_name_164:
+    .asciz "mmCarSim::PlayImpactAudio(short, mmIntersection*, Vector3*)"
+
+.Lstub_name_165:
+    .asciz "mmSplash::Activate(float)"
+
+.Lstub_name_166:
+    .asciz "asLineSparks::RadialBlast(int, Vector3&, Vector3&)"
+
+.Lstub_name_167:
+    .asciz "mmShardManager::EmitShards(Vector3, float, float)"
+
+.Lstub_name_168:
+    .asciz "mmCarModel::Impact(Vector3*)"
+
+.Lstub_name_169:
     .asciz "mmShardManager::GetClass()"
 
-.Lstub_name_171:
+.Lstub_name_170:
     .asciz "mmShard::GetClass()"
 
-.Lstub_name_172:
+.Lstub_name_171:
     .asciz "mmSkidManager::LayTrack()"
 
-.Lstub_name_173:
+.Lstub_name_172:
     .asciz "SplashCB(mmSplash*)"
 
-.Lstub_name_174:
+.Lstub_name_173:
     .asciz "StuckCB(mmStuck*)"
 
-.Lstub_name_175:
+.Lstub_name_174:
     .asciz "mmTransmission::SetCurrentGear(int)"
 
-.Lstub_name_176:
+.Lstub_name_175:
     .asciz "mmWheel::ComputeConstants()"
 
-.Lstub_name_177:
+.Lstub_name_176:
     .asciz "mmSky::Init(char const*)"
 
-.Lstub_name_178:
+.Lstub_name_177:
     .asciz "fix_clip()"
 
-.Lstub_name_179:
+.Lstub_name_178:
     .asciz "mmYInstance::mmYInstance()"
 
-.Lstub_name_180:
+.Lstub_name_179:
     .asciz "mmCullCity::InitTimeOfDayAndWeather()"
 
-.Lstub_name_181:
+.Lstub_name_180:
     .asciz "mmCullCity::InitSnowTextures()"
 
-.Lstub_name_182:
+.Lstub_name_181:
     .asciz "mmBangerManager::Init(int)"
 
-.Lstub_name_183:
+.Lstub_name_182:
     .asciz "mmCullCity::AddInstance(int, char*, char*, int, Vector3*, Vector3*, Vector3*, float)"
 
-.Lstub_name_184:
+.Lstub_name_183:
     .asciz "mmCullCity::UpdateSnowTextures()"
 
-.Lstub_name_185:
+.Lstub_name_184:
     .asciz "agiConeLighter(unsigned char*, unsigned int*, unsigned int*, agiMeshSet*)"
 
-.Lstub_name_186:
+.Lstub_name_185:
     .asciz "agiMeshLighterQuarter(unsigned char*, unsigned int*, unsigned int*, agiMeshSet*)"
 
-.Lstub_name_187:
+.Lstub_name_186:
     .asciz "mmBangerDataManager::mmBangerDataManager()"
 
-.Lstub_name_188:
+.Lstub_name_187:
     .asciz "mmSky::mmSky()"
 
-.Lstub_name_189:
+.Lstub_name_188:
     .asciz "mmInstance::ResetAll()"
 
-.Lstub_name_190:
-    .asciz "mmBoundTemplate::MakeBox(char*, char*, int, Vector3*, Vector3*)"
-
-.Lstub_name_191:
+.Lstub_name_189:
     .asciz "agiTexSheet::Kill()"
 
-.Lstub_name_192:
+.Lstub_name_190:
     .asciz "mmSky::~mmSky()"
 
-.Lstub_name_193:
+.Lstub_name_191:
     .asciz "mmBangerDataManager::~mmBangerDataManager()"
 
-.Lstub_name_194:
+.Lstub_name_192:
     .asciz "mmTextNode::AddText(void*, LocString*, int, float, float)"
 
-.Lstub_name_195:
-    .asciz "mmMatrixInstance::GetClass()"
-
-.Lstub_name_196:
-    .asciz "mmBuildingInstance::GetClass()"
-
-.Lstub_name_197:
-    .asciz "Matrix44::Matrix44(Matrix34 const&)"
-
-.Lstub_name_198:
-    .asciz "Matrix44::Matrix44(Matrix44 const&)"
-
-.Lstub_name_199:
+.Lstub_name_193:
     .asciz "mmCullCity::GetClass()"
 
-.Lstub_name_200:
+.Lstub_name_194:
+    .asciz "Matrix44::Matrix44(Matrix34 const&)"
+
+.Lstub_name_195:
+    .asciz "Matrix44::Matrix44(Matrix44 const&)"
+
+.Lstub_name_196:
+    .asciz "mmBoundTemplate::MakeBox(char*, char*, int, Vector3*, Vector3*)"
+
+.Lstub_name_197:
+    .asciz "mmMatrixInstance::GetClass()"
+
+.Lstub_name_198:
+    .asciz "mmBuildingInstance::GetClass()"
+
+.Lstub_name_199:
     .asciz "mmBuildingInstance::SizeOf()"
 
-.Lstub_name_201:
+.Lstub_name_200:
     .asciz "mmBuildingInstance::GetScale()"
 
-.Lstub_name_202:
+.Lstub_name_201:
     .asciz "mmPolygon::FullSegment(mmIntersection*)"
 
-.Lstub_name_203:
+.Lstub_name_202:
     .asciz "asRenderWeb::Cull()"
 
-.Lstub_name_204:
+.Lstub_name_203:
     .asciz "AudManager::GetHiSampleSizeMask()"
 
-.Lstub_name_205:
+.Lstub_name_204:
     .asciz "AudManager::GetHiResMask()"
 
-.Lstub_name_206:
+.Lstub_name_205:
     .asciz "AudManager::GetStereoOnMask()"
 
-.Lstub_name_207:
+.Lstub_name_206:
     .asciz "AudManager::GetCommentaryOnMask()"
 
-.Lstub_name_208:
+.Lstub_name_207:
     .asciz "AudManager::GetCDMusicOnMask()"
 
-.Lstub_name_209:
+.Lstub_name_208:
     .asciz "AudManager::GetSoundFXOnMask()"
 
-.Lstub_name_210:
+.Lstub_name_209:
     .asciz "mmVehInfo::Print()"
 
-.Lstub_name_211:
+.Lstub_name_210:
     .asciz "mmTransmission::SetReverse()"
 
-.Lstub_name_212:
+.Lstub_name_211:
     .asciz "aiPath::Index(Vector3&)"
 
-.Lstub_name_213:
+.Lstub_name_212:
     .asciz "aiGoalChase::CalcSpeed(float)"
 
-.Lstub_name_214:
+.Lstub_name_213:
     .asciz "aiPath::CenterLength(int, int)"
 
-.Lstub_name_215:
+.Lstub_name_214:
     .asciz "aiRailSet::CalcCopRailPosition(Vector3&, Vector3&, float, float)"
 
-.Lstub_name_216:
+.Lstub_name_215:
     .asciz "aiStuck::Update()"
 
-.Lstub_name_217:
+.Lstub_name_216:
     .asciz "aiGoalFollowWayPts::PlanRoute()"
 
-.Lstub_name_218:
+.Lstub_name_217:
     .asciz "aiGoalFollowWayPts::DetRdSegBetweenInts(aiIntersection*, aiIntersection*)"
 
-.Lstub_name_219:
+.Lstub_name_218:
     .asciz "aiMap::DetermineOppMapComponent(Matrix34&, aiRailSet*, short*, short*, float*, float*, short*, float*, float, short, short)"
 
-.Lstub_name_220:
+.Lstub_name_219:
     .asciz "aiPath::StopDestinationSources(bool)"
 
-.Lstub_name_221:
+.Lstub_name_220:
     .asciz "aiGoalFollowWayPts::DetectOpponentCollision()"
 
-.Lstub_name_222:
+.Lstub_name_221:
     .asciz "aiGoalFollowWayPts::AvoidOpponentCollision(aiVehicleOpponent*)"
 
-.Lstub_name_223:
+.Lstub_name_222:
     .asciz "aiGoalFollowWayPts::DetectCollision(int*)"
 
-.Lstub_name_224:
+.Lstub_name_223:
     .asciz "aiGoalFollowWayPts::AvoidCollision(int)"
 
-.Lstub_name_225:
+.Lstub_name_224:
     .asciz "aiGoalFollowWayPts::SolveTargetPoint()"
 
-.Lstub_name_226:
+.Lstub_name_225:
     .asciz "aiGoalStop::Init()"
 
-.Lstub_name_227:
+.Lstub_name_226:
     .asciz "aiVehicleOpponent::Dump()"
 
-.Lstub_name_228:
+.Lstub_name_227:
     .asciz "aiVehiclePolice::Dump()"
 
-.Lstub_name_229:
+.Lstub_name_228:
     .asciz "aiVehicleAmbient::Dump()"
 
-.Lstub_name_230:
+.Lstub_name_229:
     .asciz "aiMap::ChooseNextRightStraightFreewayLink(aiRailSet*)"
 
-.Lstub_name_231:
+.Lstub_name_230:
     .asciz "aiMap::ChooseNextLeftStraightLink(aiRailSet*)"
 
-.Lstub_name_232:
+.Lstub_name_231:
     .asciz "aiMap::ChooseNextRightStraightLink(aiRailSet*)"
 
-.Lstub_name_233:
+.Lstub_name_232:
     .asciz "aiMap::ChooseNextFreewayLink(aiRailSet*)"
 
-.Lstub_name_234:
+.Lstub_name_233:
     .asciz "aiMap::ChooseNextStraightLink(aiRailSet*)"
 
-.Lstub_name_235:
+.Lstub_name_234:
     .asciz "aiIntersection::Path(int)"
 
-.Lstub_name_236:
+.Lstub_name_235:
     .asciz "frand()"
 
-.Lstub_name_237:
+.Lstub_name_236:
     .asciz "aiRailSet::SolveTurnType(aiPath*, aiPath*)"
 
-.Lstub_name_238:
+.Lstub_name_237:
     .asciz "aiVehicleInstance::GetEntity()"
 
-.Lstub_name_239:
+.Lstub_name_238:
     .asciz "aiVehicleData::aiVehicleData()"
 
-.Lstub_name_240:
+.Lstub_name_239:
     .asciz "aiVehicleActive::aiVehicleActive()"
 
-.Lstub_name_241:
+.Lstub_name_240:
     .asciz "aiVehicleActive::~aiVehicleActive()"
 
-.Lstub_name_242:
-    .asciz "aiVehicleInstance::GetData()"
-
-.Lstub_name_243:
-    .asciz "aiVehicleInstance::ToMatrix(Matrix34&)"
-
-.Lstub_name_244:
-    .asciz "asInertialCS::Update()"
-
-.Lstub_name_245:
-    .asciz "aiVehicleManager::Detach(aiVehicleActive*)"
-
-.Lstub_name_246:
-    .asciz "aiVehicleManager::Update()"
-
-.Lstub_name_247:
-    .asciz "aiVehicleManager::Reset()"
-
-.Lstub_name_248:
+.Lstub_name_241:
     .asciz "mmCar::Init(char const*, int, int)"
 
-.Lstub_name_249:
-    .asciz "aiVehicleManager::Save()"
-
-.Lstub_name_250:
+.Lstub_name_242:
     .asciz "aiVehicle::Init(int)"
 
-.Lstub_name_251:
+.Lstub_name_243:
     .asciz "aiGoalFollowWayPts::aiGoalFollowWayPts(char*, aiRailSet*, aiVehicleOpponent*, bool*, bool*, bool*, char const*, float)"
 
-.Lstub_name_252:
+.Lstub_name_244:
     .asciz "aiGoalFollowWayPts::~aiGoalFollowWayPts()"
 
-.Lstub_name_253:
+.Lstub_name_245:
     .asciz "DLPTemplate::BoundBox(Vector3&, Vector3&, char const*)"
 
-.Lstub_name_254:
+.Lstub_name_246:
     .asciz "aiGoalFollowWayPts::Init()"
 
-.Lstub_name_255:
+.Lstub_name_247:
     .asciz "aiAudioManager::RemoveVehicle(aiVehicleOpponent*, short)"
 
-.Lstub_name_256:
+.Lstub_name_248:
     .asciz "aiVehicle::Reset()"
 
-.Lstub_name_257:
+.Lstub_name_249:
     .asciz "aiVehicleOpponent::AddToAiAudMgr()"
 
-.Lstub_name_258:
+.Lstub_name_250:
     .asciz "aiVehicle::Update()"
 
-.Lstub_name_259:
+.Lstub_name_251:
     .asciz "aiVehicleSpline::Update()"
 
-.Lstub_name_260:
+.Lstub_name_252:
+    .asciz "aiVehicleInstance::GetData()"
+
+.Lstub_name_253:
     .asciz "aiVehicleSpline::Reset()"
 
-.Lstub_name_261:
+.Lstub_name_254:
+    .asciz "aiVehicleInstance::ToMatrix(Matrix34&)"
+
+.Lstub_name_255:
     .asciz "aiVehicleSpline::Type()"
 
-.Lstub_name_262:
+.Lstub_name_256:
+    .asciz "asInertialCS::Update()"
+
+.Lstub_name_257:
     .asciz "aiVehicleSpline::DrawId()"
 
-.Lstub_name_263:
+.Lstub_name_258:
     .asciz "aiVehicleSpline::GetClass()"
 
-.Lstub_name_264:
+.Lstub_name_259:
+    .asciz "aiVehicleManager::Detach(aiVehicleActive*)"
+
+.Lstub_name_260:
+    .asciz "aiVehicleManager::Update()"
+
+.Lstub_name_261:
+    .asciz "aiVehicleManager::Reset()"
+
+.Lstub_name_262:
+    .asciz "aiVehicleManager::Save()"
+
+.Lstub_name_263:
     .asciz "BaseCamCS::GetClass()"
 
-.Lstub_name_265:
+.Lstub_name_264:
     .asciz "BaseCamCS::AfterLoad()"
 
-.Lstub_name_266:
+.Lstub_name_265:
     .asciz "BaseCamCS::ForceMatrixDelta(Vector3 const&)"
 
-.Lstub_name_267:
+.Lstub_name_266:
     .asciz "mmCarModel::Activate()"
 
-.Lstub_name_268:
+.Lstub_name_267:
     .asciz "Matrix34::PolarView(float, float, float, float)"
 
-.Lstub_name_269:
+.Lstub_name_268:
     .asciz "Spline::Spline()"
 
-.Lstub_name_270:
+.Lstub_name_269:
     .asciz "mmInput::DeviceConnected()"
 
-.Lstub_name_271:
+.Lstub_name_270:
     .asciz "mmInput::Init(int)"
 
-.Lstub_name_272:
+.Lstub_name_271:
     .asciz "mmInput::JoystickHasCoolie()"
 
-.Lstub_name_273:
+.Lstub_name_272:
     .asciz "mmInput::ProcessJoyEvents()"
 
-.Lstub_name_274:
+.Lstub_name_273:
     .asciz "mmInput::ClearEventHitFlags()"
 
-.Lstub_name_275:
+.Lstub_name_274:
     .asciz "mmJoyMan::mmJoyMan()"
 
-.Lstub_name_276:
+.Lstub_name_275:
     .asciz "mmInput::RestoreDefaultConfig(int)"
 
-.Lstub_name_277:
+.Lstub_name_276:
     .asciz "mmInput::GetThrottleVal()"
 
-.Lstub_name_278:
+.Lstub_name_277:
     .asciz "mmInput::PutEventInQueue(long)"
 
-.Lstub_name_279:
+.Lstub_name_278:
     .asciz "mmInput::PollStates()"
 
-.Lstub_name_280:
+.Lstub_name_279:
     .asciz "mmJoyMan::Update()"
 
-.Lstub_name_281:
+.Lstub_name_280:
     .asciz "mmJoyMan::GenerateEvents()"
 
-.Lstub_name_282:
+.Lstub_name_281:
     .asciz "mmInput::ProcessStates()"
 
-.Lstub_name_283:
+.Lstub_name_282:
     .asciz "mmIODev::Assign(int, int, int)"
+
+.Lstub_name_283:
+    .asciz "mmIODev::Init(int, long)"
 
 .Lstub_name_284:
     .asciz "AngelReadKeyString(unsigned int)"
 
 .Lstub_name_285:
-    .asciz "mmIODev::Init(int, long)"
-
-.Lstub_name_286:
     .asciz "PUMenuBase::~PUMenuBase()"
 
-.Lstub_name_287:
+.Lstub_name_286:
     .asciz "PUMenuBase::Update()"
 
-.Lstub_name_288:
+.Lstub_name_287:
     .asciz "UIMenu::PostSetup()"
 
-.Lstub_name_289:
+.Lstub_name_288:
     .asciz "UIMenu::BackUp()"
 
-.Lstub_name_290:
+.Lstub_name_289:
     .asciz "UIMenu::CheckInput()"
 
-.Lstub_name_291:
+.Lstub_name_290:
     .asciz "UITextDropdown::AssignString(string)"
 
-.Lstub_name_292:
+.Lstub_name_291:
     .asciz "UITextDropdown::SetValue(int)"
 
-.Lstub_name_293:
+.Lstub_name_292:
     .asciz "SetTexQualString()"
 
-.Lstub_name_294:
+.Lstub_name_293:
     .asciz "UIMenu::UIMenu(int)"
 
-.Lstub_name_295:
+.Lstub_name_294:
     .asciz "UIMenu::AssignName(LocString*)"
 
-.Lstub_name_296:
+.Lstub_name_295:
     .asciz "UIMenu::AddBMButton(int, char const*, float, float, int, Callback, int*, int, int, Callback)"
 
-.Lstub_name_297:
+.Lstub_name_296:
     .asciz "UIMenu::SetBstate(int)"
 
-.Lstub_name_298:
+.Lstub_name_297:
     .asciz "UIMenu::~UIMenu()"
 
-.Lstub_name_299:
+.Lstub_name_298:
     .asciz "UIMenu::Update()"
 
-.Lstub_name_300:
+.Lstub_name_299:
     .asciz "UIMenu::SetFocusWidget(int)"
 
-.Lstub_name_301:
+.Lstub_name_300:
     .asciz "UIMenu::AddHotSpot(int, char const*, float, float, float, float, Callback)"
 
-.Lstub_name_302:
+.Lstub_name_301:
     .asciz "uiNavBar::SetPrevPos(float, float)"
 
-.Lstub_name_303:
+.Lstub_name_302:
     .asciz "PUMenuBase::CreateTitle()"
 
-.Lstub_name_304:
+.Lstub_name_303:
     .asciz "PUMenuBase::AddExit(float, float, float, float)"
 
-.Lstub_name_305:
+.Lstub_name_304:
     .asciz "MenuManager::GetFont(int)"
 
-.Lstub_name_306:
+.Lstub_name_305:
     .asciz "UIMenu::AddButton(int, LocString*, float, float, float, float, int, int, Callback)"
 
-.Lstub_name_307:
+.Lstub_name_306:
     .asciz "UIMenu::FindWidget(int)"
 
-.Lstub_name_308:
+.Lstub_name_307:
     .asciz "uiWidget::SetEnabled(bool)"
 
-.Lstub_name_309:
+.Lstub_name_308:
     .asciz "PUMenuBase::CreateDummyBitmap()"
 
-.Lstub_name_310:
+.Lstub_name_309:
     .asciz "PUResults::Init320()"
 
-.Lstub_name_311:
+.Lstub_name_310:
     .asciz "PUResults::Reset()"
 
-.Lstub_name_312:
+.Lstub_name_311:
     .asciz "UIMenu::PreSetup()"
 
-.Lstub_name_313:
+.Lstub_name_312:
     .asciz "RaceMenuBase::~RaceMenuBase()"
 
-.Lstub_name_314:
+.Lstub_name_313:
     .asciz "UIMenu::AssignBackground(char const*)"
 
-.Lstub_name_315:
-    .asciz "RadialGauge::Init(char const*, char const*, float*, float*, float)"
-
-.Lstub_name_316:
-    .asciz "mmTransmission::GetCurrentGear()"
-
-.Lstub_name_317:
-    .asciz "mmLinearGauge::mmLinearGauge()"
-
-.Lstub_name_318:
-    .asciz "RadialGauge::RadialGauge()"
-
-.Lstub_name_319:
-    .asciz "asForm::asForm()"
-
-.Lstub_name_320:
+.Lstub_name_314:
     .asciz "mmMiscData::mmMiscData()"
 
-.Lstub_name_321:
+.Lstub_name_315:
     .asciz "mmPlayerConfig::mmPlayerConfig()"
 
-.Lstub_name_322:
+.Lstub_name_316:
     .asciz "mmPlayerConfig::GetControls()"
 
-.Lstub_name_323:
+.Lstub_name_317:
     .asciz "mmPlayerConfig::GetAudio()"
 
-.Lstub_name_324:
+.Lstub_name_318:
     .asciz "mmPlayerConfig::GetGraphics()"
 
-.Lstub_name_325:
+.Lstub_name_319:
     .asciz "mmHudMap::SetMode(int)"
 
-.Lstub_name_326:
+.Lstub_name_320:
     .asciz "mmPlayerConfig::GetViewSettings()"
 
-.Lstub_name_327:
+.Lstub_name_321:
     .asciz "mmPlayerData::GetFileName()"
 
-.Lstub_name_328:
+.Lstub_name_322:
     .asciz "mmPlayerConfig::Save(char*, bool)"
 
-.Lstub_name_329:
+.Lstub_name_323:
     .asciz "DumpPositions(char const*)"
 
-.Lstub_name_330:
+.Lstub_name_324:
     .asciz "aiMap::Clean()"
 
-.Lstub_name_331:
+.Lstub_name_325:
     .asciz "mmAnimMgr::~mmAnimMgr()"
 
-.Lstub_name_332:
+.Lstub_name_326:
     .asciz "mmPhysicsMGR::Shutdown()"
 
-.Lstub_name_333:
+.Lstub_name_327:
     .asciz "mmAmbientAudio::~mmAmbientAudio()"
 
-.Lstub_name_334:
+.Lstub_name_328:
     .asciz "mmPlayerConfig::~mmPlayerConfig()"
 
-.Lstub_name_335:
+.Lstub_name_329:
     .asciz "mmMiscData::~mmMiscData()"
 
-.Lstub_name_336:
+.Lstub_name_330:
     .asciz "AudSound::~AudSound()"
 
-.Lstub_name_337:
+.Lstub_name_331:
     .asciz "mmIcons::~mmIcons()"
 
-.Lstub_name_338:
+.Lstub_name_332:
     .asciz "mmPopup::ProcessChat()"
 
-.Lstub_name_339:
+.Lstub_name_333:
     .asciz "mmPopup::ProcessKeymap(int)"
 
-.Lstub_name_340:
+.Lstub_name_334:
     .asciz "mmPopup::ShowRoster()"
 
-.Lstub_name_341:
+.Lstub_name_335:
     .asciz "mmVoiceCommentary::StopNow()"
 
-.Lstub_name_342:
+.Lstub_name_336:
     .asciz "mmPopup::ProcessEscape(int)"
 
-.Lstub_name_343:
+.Lstub_name_337:
     .asciz "mmInput::PopEvent(int*)"
 
-.Lstub_name_344:
+.Lstub_name_338:
     .asciz "mmCDPlayer::PlayStop()"
 
-.Lstub_name_345:
+.Lstub_name_339:
     .asciz "mmHudMap::Cycle()"
 
-.Lstub_name_346:
+.Lstub_name_340:
     .asciz "mmPlayer::IsPOV()"
 
-.Lstub_name_347:
+.Lstub_name_341:
     .asciz "mmPlayer::SetWideFOV(bool)"
 
-.Lstub_name_348:
+.Lstub_name_342:
     .asciz "mmTransmission::Downshift()"
 
-.Lstub_name_349:
+.Lstub_name_343:
     .asciz "mmPlayer::ToggleCam()"
 
-.Lstub_name_350:
+.Lstub_name_344:
     .asciz "mmCDPlayer::Toggle()"
 
-.Lstub_name_351:
+.Lstub_name_345:
     .asciz "mmHudMap::ToggleFullScreen()"
 
-.Lstub_name_352:
+.Lstub_name_346:
     .asciz "mmPlayer::ToggleExternalView()"
 
-.Lstub_name_353:
+.Lstub_name_347:
     .asciz "mmHUD::ToggleExternalView()"
 
-.Lstub_name_354:
+.Lstub_name_348:
     .asciz "mmHudMap::ToggleMapRes()"
 
-.Lstub_name_355:
+.Lstub_name_349:
     .asciz "mmPlayer::ToggleWideFOV()"
 
-.Lstub_name_356:
+.Lstub_name_350:
     .asciz "mmHUD::IsDashActive()"
 
-.Lstub_name_357:
+.Lstub_name_351:
     .asciz "mmHUD::DeactivateDash()"
 
-.Lstub_name_358:
+.Lstub_name_352:
     .asciz "mmCarModel::Deactivate()"
 
-.Lstub_name_359:
-    .asciz "mmHUD::ActivateDash()"
-
-.Lstub_name_360:
-    .asciz "mmPlayer::ToggleDash()"
-
-.Lstub_name_361:
-    .asciz "mmCDPlayer::PrevTrack()"
-
-.Lstub_name_362:
-    .asciz "mmCDPlayer::NextTrack()"
-
-.Lstub_name_363:
-    .asciz "mmTransmission::SetDrive()"
-
-.Lstub_name_364:
-    .asciz "mmTransmission::Automatic(int)"
-
-.Lstub_name_365:
-    .asciz "mmTransmission::Upshift()"
-
-.Lstub_name_366:
-    .asciz "mmInput::GetCamPan()"
-
-.Lstub_name_367:
-    .asciz "mmCarSim::StopHorn()"
-
-.Lstub_name_368:
-    .asciz "mmBangerData::LaunchInstance(float, Vector3*)"
-
-.Lstub_name_369:
-    .asciz "mmCarSim::PlayHorn()"
-
-.Lstub_name_370:
-    .asciz "mmPositions::mmPositions()"
-
-.Lstub_name_371:
-    .asciz "mmPositions::Init(int)"
-
-.Lstub_name_372:
-    .asciz "mmGame::PlayerSetState()"
-
-.Lstub_name_373:
-    .asciz "AudManager::SetBitDepthAndSampleRate(int, unsigned long)"
-
-.Lstub_name_374:
-    .asciz "SetRainSurfaceAudioInfos()"
-
-.Lstub_name_375:
-    .asciz "LoadPositions(char const*)"
-
-.Lstub_name_376:
-    .asciz "mmPositions::Load(char const*)"
-
-.Lstub_name_377:
-    .asciz "mmPositions::Register(Vector4&, int, int, int, int, char*)"
-
-.Lstub_name_378:
-    .asciz "SetSnowSurfaceAudioInfos()"
-
-.Lstub_name_379:
-    .asciz "SetClearSurfaceAudioInfos()"
-
-.Lstub_name_380:
-    .asciz "mmVoiceCommentary::mmVoiceCommentary()"
-
-.Lstub_name_381:
-    .asciz "mmVoiceCommentary::ValidateCity(char*)"
-
-.Lstub_name_382:
-    .asciz "AudManager::SetVoiceCommentaryPtr(mmVoiceCommentary*)"
-
-.Lstub_name_383:
-    .asciz "mmPhysicsMGR::Init(asInertialCS*, mmViewCS*)"
-
-.Lstub_name_384:
-    .asciz "mmPlayer::Init(char*, char*, mmGame*)"
-
-.Lstub_name_385:
-    .asciz "mmIcons::Init(Matrix34*, float, float)"
-
-.Lstub_name_386:
-    .asciz "AudManager::GetDSound3DMask()"
-
-.Lstub_name_387:
-    .asciz "AudHead::AudHead(Matrix34*)"
-
-.Lstub_name_388:
-    .asciz "AudHead::Init()"
-
-.Lstub_name_389:
-    .asciz "AudHead::SetRolloff(float)"
-
-.Lstub_name_390:
-    .asciz "AudHead::SetDoppler(float)"
-
-.Lstub_name_391:
-    .asciz "aiMap::Init(char*, char*, char*, mmCar*)"
-
-.Lstub_name_392:
-    .asciz "mmHudMap::RegisterOpponents(OppIconInfo*, int)"
-
-.Lstub_name_393:
-    .asciz "mmIcons::RegisterOpponents(OppIconInfo*, int, void*)"
-
-.Lstub_name_394:
-    .asciz "mmAnimMgr::Init(char*, mmInstance*, mmInstance**, int)"
-
-.Lstub_name_395:
-    .asciz "mmAmbientAudio::mmAmbientAudio(mmPlayer*)"
-
-.Lstub_name_396:
-    .asciz "asLamp::SetDistant()"
-
-.Lstub_name_397:
-    .asciz "mmPopup::mmPopup(mmGame*, float, float, float, float)"
-
-.Lstub_name_398:
-    .asciz "mmPopup::Reset()"
-
-.Lstub_name_399:
-    .asciz "PUResults::AddTitle(LocString*, LocString*)"
-
-.Lstub_name_400:
-    .asciz "mmAnimMgr::AirlinerSwap()"
-
-.Lstub_name_401:
-    .asciz "mmAnimMgr::UFOSwap()"
-
-.Lstub_name_402:
-    .asciz "mmHUD::PostChatMessage(char const*)"
-
-.Lstub_name_403:
-    .asciz "AudManager::GetVoiceCommentaryPtr()"
-
-.Lstub_name_404:
-    .asciz "mmVoiceCommentary::SetFrequency(float)"
-
-.Lstub_name_405:
-    .asciz "mmGame::UpdateSteeringBrakes()"
-
-.Lstub_name_406:
-    .asciz "mmAmbientAudio::Update()"
-
-.Lstub_name_407:
-    .asciz "mmVoiceCommentary::Update()"
-
-.Lstub_name_408:
-    .asciz "mmHUD::SetMessage(LocString*, float, bool)"
-
-.Lstub_name_409:
-    .asciz "TrackCamCS::~TrackCamCS()"
-
-.Lstub_name_410:
-    .asciz "mmHUD::~mmHUD()"
-
-.Lstub_name_411:
-    .asciz "mmSkidManager::~mmSkidManager()"
-
-.Lstub_name_412:
-    .asciz "mmCarSim::~mmCarSim()"
-
-.Lstub_name_413:
-    .asciz "mmGame::GetClass()"
-
-.Lstub_name_414:
-    .asciz "asNetwork::Logout()"
-
-.Lstub_name_415:
-    .asciz "asNetwork::DestroyPlayer()"
-
-.Lstub_name_416:
-    .asciz "asNetwork::CloseSession()"
-
-.Lstub_name_417:
-    .asciz "asNetwork::Deallocate()"
-
-.Lstub_name_418:
-    .asciz "Matrix34::Rotate(Vector3 const&, float)"
-
-.Lstub_name_419:
+.Lstub_name_353:
     .asciz "DebugLog(int, void*, int)"
 
-.Lstub_name_420:
+.Lstub_name_354:
     .asciz "mmInput::GetSteering()"
 
-.Lstub_name_421:
+.Lstub_name_355:
     .asciz "mmInput::GetThrottle()"
 
-.Lstub_name_422:
+.Lstub_name_356:
     .asciz "mmMultiRace::mmMultiRace()"
 
-.Lstub_name_423:
+.Lstub_name_357:
     .asciz "mmMultiRace::Init()"
 
-.Lstub_name_424:
+.Lstub_name_358:
     .asciz "mmGameEdit::mmGameEdit()"
 
-.Lstub_name_425:
+.Lstub_name_359:
     .asciz "mmGameEdit::Init()"
 
-.Lstub_name_426:
+.Lstub_name_360:
     .asciz "mmMultiBlitz::mmMultiBlitz()"
 
-.Lstub_name_427:
+.Lstub_name_361:
     .asciz "mmMultiBlitz::Init()"
 
-.Lstub_name_428:
+.Lstub_name_362:
     .asciz "mmMultiCR::mmMultiCR()"
 
-.Lstub_name_429:
+.Lstub_name_363:
     .asciz "mmMultiCR::Init()"
 
-.Lstub_name_430:
+.Lstub_name_364:
     .asciz "mmSingleBlitz::mmSingleBlitz()"
 
-.Lstub_name_431:
+.Lstub_name_365:
     .asciz "mmSingleBlitz::Init()"
 
-.Lstub_name_432:
+.Lstub_name_366:
     .asciz "mmMultiCircuit::mmMultiCircuit()"
 
-.Lstub_name_433:
+.Lstub_name_367:
     .asciz "mmMultiCircuit::Init()"
 
-.Lstub_name_434:
+.Lstub_name_368:
     .asciz "randcall()"
 
-.Lstub_name_435:
+.Lstub_name_369:
     .asciz "Card2D::Card2D()"
 
-.Lstub_name_436:
+.Lstub_name_370:
     .asciz "Card2D::SetDimensions(float, float, float, float)"
 
-.Lstub_name_437:
-    .asciz "mmGame::Reset()"
-
-.Lstub_name_438:
-    .asciz "mmGame::InitGameStrings()"
-
-.Lstub_name_439:
-    .asciz "mmGame::InitOtherPlayers()"
-
-.Lstub_name_440:
-    .asciz "mmGame::HitWaterHandler()"
-
-.Lstub_name_441:
-    .asciz "mmGame::DropThruCityHandler()"
-
-.Lstub_name_442:
+.Lstub_name_371:
     .asciz "mmMultiRace::~mmMultiRace()"
 
-.Lstub_name_443:
+.Lstub_name_372:
     .asciz "mmMultiCR::~mmMultiCR()"
 
-.Lstub_name_444:
+.Lstub_name_373:
     .asciz "mmSingleCircuit::~mmSingleCircuit()"
 
-.Lstub_name_445:
+.Lstub_name_374:
     .asciz "mmSingleBlitz::~mmSingleBlitz()"
 
-.Lstub_name_446:
+.Lstub_name_375:
     .asciz "mmGameEdit::~mmGameEdit()"
 
-.Lstub_name_447:
+.Lstub_name_376:
     .asciz "mmMultiCircuit::~mmMultiCircuit()"
 
-.Lstub_name_448:
+.Lstub_name_377:
     .asciz "mmMultiBlitz::~mmMultiBlitz()"
 
-.Lstub_name_449:
-    .asciz "mmRaceData::mmRaceData()"
-
-.Lstub_name_450:
-    .asciz "mmRaceData::Load(char*)"
-
-.Lstub_name_451:
+.Lstub_name_378:
     .asciz "DebugLogShutdown()"
 
-.Lstub_name_452:
-    .asciz "asMeshSetForm::asMeshSetForm()"
-
-.Lstub_name_453:
-    .asciz "asMeshSetForm::SetZRead(int)"
-
-.Lstub_name_454:
-    .asciz "asMeshSetForm::SetZWrite(int)"
-
-.Lstub_name_455:
-    .asciz "AudSound::Get2DFlags()"
-
-.Lstub_name_456:
-    .asciz "AudSound::AudSound(unsigned long, int, short)"
-
-.Lstub_name_457:
-    .asciz "AudSound::Load(char*, int)"
-
-.Lstub_name_458:
-    .asciz "AudSound::SetPriority(int)"
-
-.Lstub_name_459:
-    .asciz "AudSound::SetVolume(float, int)"
-
-.Lstub_name_460:
-    .asciz "mmCDPlayer::Init(mmHUD*)"
-
-.Lstub_name_461:
-    .asciz "mmArrow::Update()"
-
-.Lstub_name_462:
-    .asciz "asInertialCS::GetVelocity(Vector3 const*)"
-
-.Lstub_name_463:
-    .asciz "mmViewCS::Instance(asCamera*)"
-
-.Lstub_name_464:
-    .asciz "mmCarSim::AddPlayerSpecifics()"
-
-.Lstub_name_465:
-    .asciz "mmPlayer::GetClass()"
-
-.Lstub_name_466:
-    .asciz "mmPlayer::Update()"
-
-.Lstub_name_467:
-    .asciz "mmPlayer::Reset()"
-
-.Lstub_name_468:
+.Lstub_name_379:
     .asciz "mmGameManager::GetClass()"
 
-.Lstub_name_469:
-    .asciz "PUControl::~PUControl()"
+.Lstub_name_380:
+    .asciz "RadialGauge::Init(char const*, char const*, float*, float*, float)"
 
-.Lstub_name_470:
-    .asciz "MenuManager::Switch(int)"
+.Lstub_name_381:
+    .asciz "mmHUD::ActivateDash()"
 
-.Lstub_name_471:
-    .asciz "MenuManager::DisablePU()"
+.Lstub_name_382:
+    .asciz "mmPlayer::ToggleDash()"
 
-.Lstub_name_472:
-    .asciz "mmHUD::Enable()"
+.Lstub_name_383:
+    .asciz "mmCDPlayer::PrevTrack()"
 
-.Lstub_name_473:
-    .asciz "mmHudMap::Activate()"
+.Lstub_name_384:
+    .asciz "mmCDPlayer::NextTrack()"
 
-.Lstub_name_474:
-    .asciz "AudManager::PlayCDTrack(int, unsigned char, unsigned char, unsigned char, bool)"
+.Lstub_name_385:
+    .asciz "mmTransmission::SetDrive()"
 
-.Lstub_name_475:
-    .asciz "PUMenuBase::DisableExit()"
+.Lstub_name_386:
+    .asciz "mmTransmission::Automatic(int)"
 
-.Lstub_name_476:
-    .asciz "mmPopup::Update()"
+.Lstub_name_387:
+    .asciz "asNetwork::Logout()"
 
-.Lstub_name_477:
-    .asciz "mmHudMap::DrawMisc()"
+.Lstub_name_388:
+    .asciz "mmTransmission::Upshift()"
 
-.Lstub_name_478:
-    .asciz "mmHudMap::DrawCops()"
+.Lstub_name_389:
+    .asciz "asNetwork::DestroyPlayer()"
 
-.Lstub_name_479:
-    .asciz "mmHudMap::DrawOrientedBitmap(Matrix34*, agiBitmap*)"
+.Lstub_name_390:
+    .asciz "asNetwork::CloseSession()"
 
-.Lstub_name_480:
-    .asciz "mmHudMap::DrawWaypoints()"
+.Lstub_name_391:
+    .asciz "asNetwork::Deallocate()"
 
-.Lstub_name_481:
-    .asciz "mmHudMap::DrawCopsnRobbers()"
+.Lstub_name_392:
+    .asciz "mmInput::GetCamPan()"
 
-.Lstub_name_482:
-    .asciz "mmHudMap::GetClass()"
+.Lstub_name_393:
+    .asciz "mmCarSim::StopHorn()"
 
-.Lstub_name_483:
-    .asciz "mmHudMap::Update()"
+.Lstub_name_394:
+    .asciz "mmBangerData::LaunchInstance(float, Vector3*)"
 
-.Lstub_name_484:
-    .asciz "mmHudMap::Reset()"
+.Lstub_name_395:
+    .asciz "mmCarSim::PlayHorn()"
 
-.Lstub_name_485:
+.Lstub_name_396:
+    .asciz "mmPositions::mmPositions()"
+
+.Lstub_name_397:
+    .asciz "mmPositions::Init(int)"
+
+.Lstub_name_398:
+    .asciz "Matrix34::Rotate(Vector3 const&, float)"
+
+.Lstub_name_399:
+    .asciz "mmGame::PlayerSetState()"
+
+.Lstub_name_400:
+    .asciz "AudManager::SetBitDepthAndSampleRate(int, unsigned long)"
+
+.Lstub_name_401:
+    .asciz "SetRainSurfaceAudioInfos()"
+
+.Lstub_name_402:
+    .asciz "LoadPositions(char const*)"
+
+.Lstub_name_403:
+    .asciz "mmPositions::Load(char const*)"
+
+.Lstub_name_404:
+    .asciz "mmPositions::Register(Vector4&, int, int, int, int, char*)"
+
+.Lstub_name_405:
+    .asciz "mmRaceData::mmRaceData()"
+
+.Lstub_name_406:
+    .asciz "mmRaceData::Load(char*)"
+
+.Lstub_name_407:
     .asciz "AudManager::Reset()"
 
-.Lstub_name_486:
+.Lstub_name_408:
     .asciz "AudManager::StopCD()"
 
-.Lstub_name_487:
-    .asciz "mmInput::Reset()"
+.Lstub_name_409:
+    .asciz "mmTransmission::GetCurrentGear()"
 
-.Lstub_name_488:
-    .asciz "mmSingleCircuit::DisableRacers()"
-
-.Lstub_name_489:
-    .asciz "mmPlayer::SetPreRaceCam()"
-
-.Lstub_name_490:
-    .asciz "mmGame::GetCDTrack(short)"
-
-.Lstub_name_491:
-    .asciz "AudManager::PlayCDTrack(int, bool)"
-
-.Lstub_name_492:
-    .asciz "mmVoiceCommentary::PlayPreRace()"
-
-.Lstub_name_493:
-    .asciz "mmHUD::StopTimers()"
-
-.Lstub_name_494:
+.Lstub_name_410:
     .asciz "aiAudioManager::LoadCopVoice()"
 
-.Lstub_name_495:
+.Lstub_name_411:
+    .asciz "mmInput::Reset()"
+
+.Lstub_name_412:
     .asciz "mmGameSingle::DisableRacers()"
 
-.Lstub_name_496:
+.Lstub_name_413:
+    .asciz "mmGame::Reset()"
+
+.Lstub_name_414:
+    .asciz "mmPlayer::SetPreRaceCam()"
+
+.Lstub_name_415:
+    .asciz "mmGame::GetCDTrack(short)"
+
+.Lstub_name_416:
+    .asciz "AudManager::PlayCDTrack(int, bool)"
+
+.Lstub_name_417:
+    .asciz "mmVoiceCommentary::PlayPreRace()"
+
+.Lstub_name_418:
+    .asciz "mmHUD::StopTimers()"
+
+.Lstub_name_419:
     .asciz "mmVoiceCommentary::PlayRoam()"
 
-.Lstub_name_497:
+.Lstub_name_420:
     .asciz "mmWaypoints::~mmWaypoints()"
 
-.Lstub_name_498:
+.Lstub_name_421:
     .asciz "agiBeginCones()"
 
-.Lstub_name_499:
+.Lstub_name_422:
     .asciz "mmGameSingle::GetClass()"
 
-.Lstub_name_500:
+.Lstub_name_423:
+    .asciz "mmGame::InitGameStrings()"
+
+.Lstub_name_424:
     .asciz "mmGameSingle::InitOtherPlayers()"
 
-.Lstub_name_501:
+.Lstub_name_425:
     .asciz "mmGameSingle::InitGameObjects()"
 
-.Lstub_name_502:
+.Lstub_name_426:
     .asciz "mmGameSingle::InitHUD()"
 
-.Lstub_name_503:
+.Lstub_name_427:
     .asciz "mmGameSingle::UpdateGameInput(int)"
 
-.Lstub_name_504:
+.Lstub_name_428:
     .asciz "mmGameSingle::UpdateGame()"
 
-.Lstub_name_505:
+.Lstub_name_429:
     .asciz "mmGameSingle::NextRace()"
 
-.Lstub_name_506:
+.Lstub_name_430:
     .asciz "mmGameSingle::HitWaterHandler()"
 
-.Lstub_name_507:
+.Lstub_name_431:
+    .asciz "SetSnowSurfaceAudioInfos()"
+
+.Lstub_name_432:
+    .asciz "SetClearSurfaceAudioInfos()"
+
+.Lstub_name_433:
+    .asciz "mmGame::DropThruCityHandler()"
+
+.Lstub_name_434:
     .asciz "mmGameSingle::GetWaypoints()"
 
-.Lstub_name_508:
-    .asciz "asNetObject::asNetObject()"
+.Lstub_name_435:
+    .asciz "mmLinearGauge::mmLinearGauge()"
 
-.Lstub_name_509:
-    .asciz "mmMultiCR::FondleCarMass(mmCar*, float)"
+.Lstub_name_436:
+    .asciz "mmVoiceCommentary::mmVoiceCommentary()"
 
-.Lstub_name_510:
-    .asciz "mmCRHUD::ActivateRosterGold(unsigned long)"
+.Lstub_name_437:
+    .asciz "mmVoiceCommentary::ValidateCity(char*)"
 
-.Lstub_name_511:
-    .asciz "mmPopup::ShowResults()"
+.Lstub_name_438:
+    .asciz "asMeshSetForm::asMeshSetForm()"
 
-.Lstub_name_512:
-    .asciz "mmPlayer::IsMaxDamaged()"
+.Lstub_name_439:
+    .asciz "AudManager::SetVoiceCommentaryPtr(mmVoiceCommentary*)"
 
-.Lstub_name_513:
-    .asciz "Matrix34::FromEulers(Vector3 const&)"
+.Lstub_name_440:
+    .asciz "RadialGauge::RadialGauge()"
 
-.Lstub_name_514:
-    .asciz "mmCarSim::StartSiren()"
+.Lstub_name_441:
+    .asciz "mmPhysicsMGR::Init(asInertialCS*, mmViewCS*)"
 
-.Lstub_name_515:
-    .asciz "mmCarSim::StopSiren()"
+.Lstub_name_442:
+    .asciz "mmPlayer::Init(char*, char*, mmGame*)"
 
-.Lstub_name_516:
-    .asciz "Matrix34::Approach(Matrix34 const&, float, float, float)"
+.Lstub_name_443:
+    .asciz "mmIcons::Init(Matrix34*, float, float)"
 
-.Lstub_name_517:
-    .asciz "Matrix34::GetEulers() const"
+.Lstub_name_444:
+    .asciz "AudManager::GetDSound3DMask()"
 
-.Lstub_name_518:
-    .asciz "asNetwork::Send(unsigned long, void*, unsigned long, int)"
+.Lstub_name_445:
+    .asciz "AudHead::AudHead(Matrix34*)"
 
-.Lstub_name_519:
-    .asciz "asNetObject::Update()"
+.Lstub_name_446:
+    .asciz "asForm::asForm()"
 
-.Lstub_name_520:
-    .asciz "asNetObject::PositionUpdate(Matrix34*, Vector3, float, float, float)"
+.Lstub_name_447:
+    .asciz "AudHead::Init()"
 
-.Lstub_name_521:
+.Lstub_name_448:
+    .asciz "asMeshSetForm::SetZRead(int)"
+
+.Lstub_name_449:
+    .asciz "AudHead::SetRolloff(float)"
+
+.Lstub_name_450:
+    .asciz "asMeshSetForm::SetZWrite(int)"
+
+.Lstub_name_451:
+    .asciz "mmHudMap::DrawMisc()"
+
+.Lstub_name_452:
+    .asciz "mmHudMap::DrawCops()"
+
+.Lstub_name_453:
+    .asciz "mmHudMap::DrawOrientedBitmap(Matrix34*, agiBitmap*)"
+
+.Lstub_name_454:
+    .asciz "mmHudMap::DrawWaypoints()"
+
+.Lstub_name_455:
+    .asciz "mmHudMap::DrawCopsnRobbers()"
+
+.Lstub_name_456:
+    .asciz "AudSound::Get2DFlags()"
+
+.Lstub_name_457:
+    .asciz "AudSound::AudSound(unsigned long, int, short)"
+
+.Lstub_name_458:
+    .asciz "AudSound::Load(char*, int)"
+
+.Lstub_name_459:
+    .asciz "AudSound::SetPriority(int)"
+
+.Lstub_name_460:
+    .asciz "AudSound::SetVolume(float, int)"
+
+.Lstub_name_461:
+    .asciz "mmCDPlayer::Init(mmHUD*)"
+
+.Lstub_name_462:
+    .asciz "mmArrow::Update()"
+
+.Lstub_name_463:
     .asciz "swSetInterlace(int)"
 
-.Lstub_name_522:
+.Lstub_name_464:
     .asciz "AudManager::DeallocateUIADF()"
 
-.Lstub_name_523:
+.Lstub_name_465:
     .asciz "MenuManager::~MenuManager()"
 
-.Lstub_name_524:
+.Lstub_name_466:
     .asciz "mmPlayerDirectory::~mmPlayerDirectory()"
 
-.Lstub_name_525:
+.Lstub_name_467:
     .asciz "asNetwork::InitializeLobby(int, bool)"
 
-.Lstub_name_526:
+.Lstub_name_468:
     .asciz "asNetwork::JoinLobbySession()"
 
-.Lstub_name_527:
+.Lstub_name_469:
     .asciz "mmPlayerData::GetTotalPassed()"
 
-.Lstub_name_528:
+.Lstub_name_470:
     .asciz "mmPlayerData::GetBlitzPassed()"
 
-.Lstub_name_529:
+.Lstub_name_471:
     .asciz "mmPlayerData::GetCircuitPassed()"
 
-.Lstub_name_530:
+.Lstub_name_472:
     .asciz "mmPlayerData::GetCheckpointPassed()"
 
-.Lstub_name_531:
+.Lstub_name_473:
     .asciz "mmPlayerData::GetTotalScore()"
 
-.Lstub_name_532:
+.Lstub_name_474:
     .asciz "UIMenu::SetNavigationOrder(char const* const*, unsigned long)"
 
-.Lstub_name_533:
+.Lstub_name_475:
     .asciz "mmInterface::MessageCallback(void*, void*)"
 
-.Lstub_name_534:
+.Lstub_name_476:
     .asciz "mmInterface::MessageCallback2(void*, void*)"
 
-.Lstub_name_535:
-    .asciz "mmVoiceCommentary::PlayTimePenalty()"
+.Lstub_name_477:
+    .asciz "asNetObject::asNetObject()"
 
-.Lstub_name_536:
-    .asciz "mmMultiCR::DropGold(Vector3, int)"
+.Lstub_name_478:
+    .asciz "Matrix34::FromEulers(Vector3 const&)"
 
-.Lstub_name_537:
-    .asciz "mmVoiceCommentary::PlayCR(short, short)"
+.Lstub_name_479:
+    .asciz "mmCarSim::StartSiren()"
 
-.Lstub_name_538:
-    .asciz "mmPlayer::EnableRegen(int)"
+.Lstub_name_480:
+    .asciz "mmCarSim::StopSiren()"
 
-.Lstub_name_539:
-    .asciz "mmPlayer::ResetDamage()"
-
-.Lstub_name_540:
+.Lstub_name_481:
     .asciz "mmInterface::GetClass()"
 
-.Lstub_name_541:
-    .asciz "mmGameMulti::SendMsg(int)"
-
-.Lstub_name_542:
+.Lstub_name_482:
     .asciz "mmInterface::Update()"
 
-.Lstub_name_543:
+.Lstub_name_483:
     .asciz "mmInterface::Reset()"
 
-.Lstub_name_544:
+.Lstub_name_484:
+    .asciz "asInertialCS::GetVelocity(Vector3 const*)"
+
+.Lstub_name_485:
+    .asciz "mmViewCS::Instance(asCamera*)"
+
+.Lstub_name_486:
+    .asciz "mmCarSim::AddPlayerSpecifics()"
+
+.Lstub_name_487:
+    .asciz "mmPlayer::GetClass()"
+
+.Lstub_name_488:
+    .asciz "AudHead::SetDoppler(float)"
+
+.Lstub_name_489:
+    .asciz "aiMap::Init(char*, char*, char*, mmCar*)"
+
+.Lstub_name_490:
+    .asciz "mmHudMap::RegisterOpponents(OppIconInfo*, int)"
+
+.Lstub_name_491:
+    .asciz "mmIcons::RegisterOpponents(OppIconInfo*, int, void*)"
+
+.Lstub_name_492:
+    .asciz "mmAnimMgr::Init(char*, mmInstance*, mmInstance**, int)"
+
+.Lstub_name_493:
+    .asciz "mmAmbientAudio::mmAmbientAudio(mmPlayer*)"
+
+.Lstub_name_494:
+    .asciz "asLamp::SetDistant()"
+
+.Lstub_name_495:
+    .asciz "mmPopup::mmPopup(mmGame*, float, float, float, float)"
+
+.Lstub_name_496:
+    .asciz "mmPopup::Reset()"
+
+.Lstub_name_497:
+    .asciz "PUResults::AddTitle(LocString*, LocString*)"
+
+.Lstub_name_498:
+    .asciz "mmHudMap::GetClass()"
+
+.Lstub_name_499:
+    .asciz "mmHudMap::Update()"
+
+.Lstub_name_500:
+    .asciz "mmHudMap::Reset()"
+
+.Lstub_name_501:
+    .asciz "Matrix34::Approach(Matrix34 const&, float, float, float)"
+
+.Lstub_name_502:
+    .asciz "mmMultiCR::FondleCarMass(mmCar*, float)"
+
+.Lstub_name_503:
+    .asciz "mmCRHUD::ActivateRosterGold(unsigned long)"
+
+.Lstub_name_504:
+    .asciz "Matrix34::GetEulers() const"
+
+.Lstub_name_505:
+    .asciz "mmAnimMgr::AirlinerSwap()"
+
+.Lstub_name_506:
+    .asciz "mmAnimMgr::UFOSwap()"
+
+.Lstub_name_507:
+    .asciz "asNetwork::Send(unsigned long, void*, unsigned long, int)"
+
+.Lstub_name_508:
+    .asciz "asNetObject::Update()"
+
+.Lstub_name_509:
+    .asciz "asNetObject::PositionUpdate(Matrix34*, Vector3, float, float, float)"
+
+.Lstub_name_510:
+    .asciz "PUControl::~PUControl()"
+
+.Lstub_name_511:
+    .asciz "mmPlayer::Update()"
+
+.Lstub_name_512:
+    .asciz "mmPlayer::Reset()"
+
+.Lstub_name_513:
+    .asciz "mmHUD::PostChatMessage(char const*)"
+
+.Lstub_name_514:
+    .asciz "mmPopup::ShowResults()"
+
+.Lstub_name_515:
+    .asciz "MenuManager::Switch(int)"
+
+.Lstub_name_516:
+    .asciz "MenuManager::DisablePU()"
+
+.Lstub_name_517:
+    .asciz "mmHUD::Enable()"
+
+.Lstub_name_518:
+    .asciz "AudManager::GetVoiceCommentaryPtr()"
+
+.Lstub_name_519:
+    .asciz "mmVoiceCommentary::SetFrequency(float)"
+
+.Lstub_name_520:
+    .asciz "mmGame::UpdateSteeringBrakes()"
+
+.Lstub_name_521:
+    .asciz "mmAmbientAudio::Update()"
+
+.Lstub_name_522:
+    .asciz "mmVoiceCommentary::Update()"
+
+.Lstub_name_523:
+    .asciz "mmHUD::SetMessage(LocString*, float, bool)"
+
+.Lstub_name_524:
+    .asciz "mmHudMap::Activate()"
+
+.Lstub_name_525:
+    .asciz "AudManager::PlayCDTrack(int, unsigned char, unsigned char, unsigned char, bool)"
+
+.Lstub_name_526:
+    .asciz "PUMenuBase::DisableExit()"
+
+.Lstub_name_527:
+    .asciz "mmPopup::Update()"
+
+.Lstub_name_528:
+    .asciz "mmSingleCircuit::DisableRacers()"
+
+.Lstub_name_529:
+    .asciz "mmPlayer::IsMaxDamaged()"
+
+.Lstub_name_530:
+    .asciz "mmVoiceCommentary::PlayTimePenalty()"
+
+.Lstub_name_531:
+    .asciz "mmMultiCR::DropGold(Vector3, int)"
+
+.Lstub_name_532:
+    .asciz "mmVoiceCommentary::PlayCR(short, short)"
+
+.Lstub_name_533:
+    .asciz "mmPlayer::EnableRegen(int)"
+
+.Lstub_name_534:
+    .asciz "mmPlayer::ResetDamage()"
+
+.Lstub_name_535:
+    .asciz "mmGameMulti::SendMsg(int)"
+
+.Lstub_name_536:
     .asciz "AudSound::PlayOnce(float, float)"
 
-.Lstub_name_545:
+.Lstub_name_537:
     .asciz "mmVoiceCommentary::PlayCRPreRace()"
 
-.Lstub_name_546:
+.Lstub_name_538:
     .asciz "mmGameMulti::EnableRacers()"
 
-.Lstub_name_547:
+.Lstub_name_539:
     .asciz "mmMultiCR::UpdateHUD()"
 
-.Lstub_name_548:
+.Lstub_name_540:
     .asciz "mmMultiCR::UpdateLimit()"
 
-.Lstub_name_549:
+.Lstub_name_541:
     .asciz "mmMultiCR::UpdateTimeWarning()"
 
-.Lstub_name_550:
+.Lstub_name_542:
     .asciz "mmMultiCR::UpdateGold()"
 
-.Lstub_name_551:
+.Lstub_name_543:
     .asciz "mmMultiCR::UpdateHideout()"
 
-.Lstub_name_552:
+.Lstub_name_544:
     .asciz "mmMultiCR::UpdateBank()"
 
-.Lstub_name_553:
+.Lstub_name_545:
     .asciz "mmGameMulti::UpdateGame()"
 
-.Lstub_name_554:
+.Lstub_name_546:
     .asciz "mmMultiCR::FillResults()"
 
-.Lstub_name_555:
+.Lstub_name_547:
+    .asciz "TrackCamCS::~TrackCamCS()"
+
+.Lstub_name_548:
+    .asciz "mmHUD::~mmHUD()"
+
+.Lstub_name_549:
+    .asciz "mmSkidManager::~mmSkidManager()"
+
+.Lstub_name_550:
+    .asciz "mmCarSim::~mmCarSim()"
+
+.Lstub_name_551:
+    .asciz "mmGame::GetClass()"
+
+.Lstub_name_552:
+    .asciz "mmGame::InitOtherPlayers()"
+
+.Lstub_name_553:
+    .asciz "mmGame::HitWaterHandler()"
+
+.Lstub_name_554:
     .asciz "sdlCreatePipeline(int, char**)"
 
-.Lstub_name_556:
+.Lstub_name_555:
     .asciz "GameStaticInit()"
 
-.Lstub_name_557:
+.Lstub_name_556:
     .asciz "AudManager::Disable(short, short)"
 
-.Lstub_name_558:
+.Lstub_name_557:
     .asciz "mmInterface::mmInterface()"
 
-.Lstub_name_559:
+.Lstub_name_558:
     .asciz "mmInterface::ShowMain(int)"
 
-.Lstub_name_560:
+.Lstub_name_559:
     .asciz "AudManager::AssignWaveVolume(float)"
 
-.Lstub_name_561:
+.Lstub_name_560:
     .asciz "AudManager::AssignCDVolume(float)"
 
-.Lstub_name_562:
+.Lstub_name_561:
     .asciz "mmGameManager::LoadReplay(char const*)"
 
-.Lstub_name_563:
+.Lstub_name_562:
     .asciz "mmInput::~mmInput()"
 
-.Lstub_name_564:
+.Lstub_name_563:
     .asciz "AudManager::~AudManager()"
 
-.Lstub_name_565:
+.Lstub_name_564:
     .asciz "dummy_symbol_agisw_swemitrunall()"
 
-.Lstub_name_566:
+.Lstub_name_565:
     .asciz "dummy_symbol_agisw_swrend()"
 
-.Lstub_name_567:
+.Lstub_name_566:
     .asciz "dummy_symbol_agisw_swrsys()"
 
-.Lstub_name_568:
+.Lstub_name_567:
     .asciz "dummy_symbol_agisw_swtexdef()"
 
-.Lstub_name_569:
+.Lstub_name_568:
     .asciz "dummy_symbol_data7_ipc()"
 
-.Lstub_name_570:
+.Lstub_name_569:
     .asciz "dummy_symbol_memory_stack()"
 
-.Lstub_name_571:
+.Lstub_name_570:
     .asciz "dummy_symbol_mmaudio_audstream()"
 
-.Lstub_name_572:
+.Lstub_name_571:
     .asciz "dummy_symbol_mmaudio_cd()"
 
-.Lstub_name_573:
+.Lstub_name_572:
     .asciz "dummy_symbol_mmaudio_crevbuf()"
 
-.Lstub_name_574:
+.Lstub_name_573:
     .asciz "dummy_symbol_mmaudio_creverb()"
 
-.Lstub_name_575:
+.Lstub_name_574:
     .asciz "dummy_symbol_mmaudio_dsglobal()"
 
-.Lstub_name_576:
+.Lstub_name_575:
     .asciz "dummy_symbol_mmaudio_dupbufcreator()"
 
-.Lstub_name_577:
+.Lstub_name_576:
     .asciz "dummy_symbol_mmaudio_eaxguid()"
 
-.Lstub_name_578:
+.Lstub_name_577:
     .asciz "dummy_symbol_mmaudio_head()"
 
-.Lstub_name_579:
+.Lstub_name_578:
     .asciz "dummy_symbol_mmaudio_manager()"
 
-.Lstub_name_580:
+.Lstub_name_579:
     .asciz "dummy_symbol_mmaudio_mixer()"
 
-.Lstub_name_581:
+.Lstub_name_580:
     .asciz "dummy_symbol_mmaudio_mmvoicecommentary()"
 
-.Lstub_name_582:
+.Lstub_name_581:
     .asciz "dummy_symbol_mmaudio_sound()"
 
-.Lstub_name_583:
+.Lstub_name_582:
     .asciz "dummy_symbol_mmaudio_soundobj()"
 
-.Lstub_name_584:
+.Lstub_name_583:
     .asciz "dummy_symbol_mmaudio_streamobj()"
 
-.Lstub_name_585:
+.Lstub_name_584:
     .asciz "dummy_symbol_mminput_collide()"
 
-.Lstub_name_586:
+.Lstub_name_585:
     .asciz "dummy_symbol_mminput_effect()"
 
-.Lstub_name_587:
+.Lstub_name_586:
     .asciz "dummy_symbol_mminput_friction()"
 
-.Lstub_name_588:
+.Lstub_name_587:
     .asciz "dummy_symbol_mminput_joyman()"
 
-.Lstub_name_589:
+.Lstub_name_588:
     .asciz "dummy_symbol_mminput_joystick()"
 
-.Lstub_name_590:
+.Lstub_name_589:
     .asciz "dummy_symbol_mminput_road()"
 
-.Lstub_name_591:
+.Lstub_name_590:
     .asciz "dummy_symbol_mminput_spring()"
 
-.Lstub_name_592:
+.Lstub_name_591:
     .asciz "dummy_symbol_mmnetwork_netobject()"
 
-.Lstub_name_593:
+.Lstub_name_592:
     .asciz "dummy_symbol_mmnetwork_network()"
 
-.Lstub_name_594:
+.Lstub_name_593:
     .asciz "dummy_symbol_mmwidget_bm_button()"
 
-.Lstub_name_595:
+.Lstub_name_594:
     .asciz "dummy_symbol_mmwidget_bm_label()"
 
-.Lstub_name_596:
+.Lstub_name_595:
     .asciz "dummy_symbol_mmwidget_button()"
 
-.Lstub_name_597:
+.Lstub_name_596:
     .asciz "dummy_symbol_mmwidget_compbase()"
 
-.Lstub_name_598:
+.Lstub_name_597:
     .asciz "dummy_symbol_mmwidget_compcr()"
 
-.Lstub_name_599:
+.Lstub_name_598:
     .asciz "dummy_symbol_mmwidget_compdrec()"
 
-.Lstub_name_600:
+.Lstub_name_599:
     .asciz "dummy_symbol_mmwidget_comproster()"
 
-.Lstub_name_601:
+.Lstub_name_600:
     .asciz "dummy_symbol_mmwidget_comprrec()"
 
-.Lstub_name_602:
+.Lstub_name_601:
     .asciz "dummy_symbol_mmwidget_compscroll()"
 
-.Lstub_name_603:
+.Lstub_name_602:
     .asciz "dummy_symbol_mmwidget_controlwidget()"
 
-.Lstub_name_604:
+.Lstub_name_603:
     .asciz "dummy_symbol_mmwidget_cwarray()"
 
-.Lstub_name_605:
+.Lstub_name_604:
     .asciz "dummy_symbol_mmwidget_dropdown()"
 
-.Lstub_name_606:
+.Lstub_name_605:
     .asciz "dummy_symbol_mmwidget_icon()"
 
-.Lstub_name_607:
+.Lstub_name_606:
     .asciz "dummy_symbol_mmwidget_iconwidget()"
 
-.Lstub_name_608:
+.Lstub_name_607:
     .asciz "dummy_symbol_mmwidget_label()"
 
-.Lstub_name_609:
+.Lstub_name_608:
     .asciz "dummy_symbol_mmwidget_manager()"
 
-.Lstub_name_610:
+.Lstub_name_609:
     .asciz "dummy_symbol_mmwidget_menu()"
 
-.Lstub_name_611:
+.Lstub_name_610:
     .asciz "dummy_symbol_mmwidget_mexbutton()"
 
-.Lstub_name_612:
+.Lstub_name_611:
     .asciz "dummy_symbol_mmwidget_mstore()"
 
-.Lstub_name_613:
+.Lstub_name_612:
     .asciz "dummy_symbol_mmwidget_navbar()"
 
-.Lstub_name_614:
+.Lstub_name_613:
     .asciz "dummy_symbol_mmwidget_pointer()"
 
-.Lstub_name_615:
+.Lstub_name_614:
     .asciz "dummy_symbol_mmwidget_slider()"
 
-.Lstub_name_616:
+.Lstub_name_615:
     .asciz "dummy_symbol_mmwidget_sliderbar()"
 
-.Lstub_name_617:
+.Lstub_name_616:
     .asciz "dummy_symbol_mmwidget_tdwidget()"
 
-.Lstub_name_618:
+.Lstub_name_617:
     .asciz "dummy_symbol_mmwidget_textdrop()"
 
-.Lstub_name_619:
+.Lstub_name_618:
     .asciz "dummy_symbol_mmwidget_textfield()"
 
-.Lstub_name_620:
+.Lstub_name_619:
     .asciz "dummy_symbol_mmwidget_textroller()"
 
-.Lstub_name_621:
+.Lstub_name_620:
     .asciz "dummy_symbol_mmwidget_textroller2()"
 
-.Lstub_name_622:
+.Lstub_name_621:
     .asciz "dummy_symbol_mmwidget_toggle()"
 
-.Lstub_name_623:
+.Lstub_name_622:
     .asciz "dummy_symbol_mmwidget_toggle2()"
 
-.Lstub_name_624:
+.Lstub_name_623:
     .asciz "dummy_symbol_mmwidget_togglebutton()"
 
-.Lstub_name_625:
+.Lstub_name_624:
     .asciz "dummy_symbol_mmwidget_togglebutton2()"
 
-.Lstub_name_626:
+.Lstub_name_625:
     .asciz "dummy_symbol_mmwidget_tscroll()"
 
-.Lstub_name_627:
+.Lstub_name_626:
     .asciz "dummy_symbol_mmwidget_ttip()"
 
-.Lstub_name_628:
+.Lstub_name_627:
     .asciz "dummy_symbol_mmwidget_vscrollbar()"
 
-.Lstub_name_629:
+.Lstub_name_628:
     .asciz "dummy_symbol_mmwidget_vswidget()"
 
-.Lstub_name_630:
+.Lstub_name_629:
     .asciz "dummy_symbol_mmwidget_widget()"
 
-.Lstub_name_631:
+.Lstub_name_630:
     .asciz "dummy_symbol_mmwidget_wstore()"
 
     .section .data.rel.ro
@@ -7728,18 +7716,6 @@ _ZTV10agiBILight:
     .endr
     .size _ZTV10agiBILight, . - _ZTV10agiBILight
 
-    // vtable for agiBILightModel
-    .global _ZTV15agiBILightModel
-    .type _ZTV15agiBILightModel, %object
-    .p2align 3
-_ZTV15agiBILightModel:
-    .quad 0    // offset to top
-    .quad 0    // typeinfo
-    .rept 64
-    .quad ArtsVirtualStub
-    .endr
-    .size _ZTV15agiBILightModel, . - _ZTV15agiBILightModel
-
     // vtable for agiZBufRenderer
     .global _ZTV15agiZBufRenderer
     .type _ZTV15agiZBufRenderer, %object
@@ -7751,6 +7727,18 @@ _ZTV15agiZBufRenderer:
     .quad ArtsVirtualStub
     .endr
     .size _ZTV15agiZBufRenderer, . - _ZTV15agiZBufRenderer
+
+    // vtable for agiBILightModel
+    .global _ZTV15agiBILightModel
+    .type _ZTV15agiBILightModel, %object
+    .p2align 3
+_ZTV15agiBILightModel:
+    .quad 0    // offset to top
+    .quad 0    // typeinfo
+    .rept 64
+    .quad ArtsVirtualStub
+    .endr
+    .size _ZTV15agiBILightModel, . - _ZTV15agiBILightModel
 
     // vtable for asAero
     .global _ZTV6asAero
@@ -8148,6 +8136,30 @@ _ZTV10mmCDPlayer:
     .endr
     .size _ZTV10mmCDPlayer, . - _ZTV10mmCDPlayer
 
+    // vtable for mmScreenClearFlunky
+    .global _ZTV19mmScreenClearFlunky
+    .type _ZTV19mmScreenClearFlunky, %object
+    .p2align 3
+_ZTV19mmScreenClearFlunky:
+    .quad 0    // offset to top
+    .quad 0    // typeinfo
+    .rept 64
+    .quad ArtsVirtualStub
+    .endr
+    .size _ZTV19mmScreenClearFlunky, . - _ZTV19mmScreenClearFlunky
+
+    // vtable for foobar
+    .global _ZTV6foobar
+    .type _ZTV6foobar, %object
+    .p2align 3
+_ZTV6foobar:
+    .quad 0    // offset to top
+    .quad 0    // typeinfo
+    .rept 64
+    .quad ArtsVirtualStub
+    .endr
+    .size _ZTV6foobar, . - _ZTV6foobar
+
     // vtable for mmExternalView
     .global _ZTV14mmExternalView
     .type _ZTV14mmExternalView, %object
@@ -8172,18 +8184,6 @@ _ZTV10mmDashView:
     .endr
     .size _ZTV10mmDashView, . - _ZTV10mmDashView
 
-    // vtable for mmScreenClearFlunky
-    .global _ZTV19mmScreenClearFlunky
-    .type _ZTV19mmScreenClearFlunky, %object
-    .p2align 3
-_ZTV19mmScreenClearFlunky:
-    .quad 0    // offset to top
-    .quad 0    // typeinfo
-    .rept 64
-    .quad ArtsVirtualStub
-    .endr
-    .size _ZTV19mmScreenClearFlunky, . - _ZTV19mmScreenClearFlunky
-
     // vtable for mmHUD
     .global _ZTV5mmHUD
     .type _ZTV5mmHUD, %object
@@ -8195,6 +8195,18 @@ _ZTV5mmHUD:
     .quad ArtsVirtualStub
     .endr
     .size _ZTV5mmHUD, . - _ZTV5mmHUD
+
+    // vtable for mmIcons
+    .global _ZTV7mmIcons
+    .type _ZTV7mmIcons, %object
+    .p2align 3
+_ZTV7mmIcons:
+    .quad 0    // offset to top
+    .quad 0    // typeinfo
+    .rept 64
+    .quad ArtsVirtualStub
+    .endr
+    .size _ZTV7mmIcons, . - _ZTV7mmIcons
 
     // vtable for PreCamCS
     .global _ZTV8PreCamCS
@@ -8220,31 +8232,22 @@ _ZTV15mmSingleCircuit:
     .endr
     .size _ZTV15mmSingleCircuit, . - _ZTV15mmSingleCircuit
 
-    // vtable for foobar
-    .global _ZTV6foobar
-    .type _ZTV6foobar, %object
-    .p2align 3
-_ZTV6foobar:
-    .quad 0    // offset to top
-    .quad 0    // typeinfo
-    .rept 64
-    .quad ArtsVirtualStub
-    .endr
-    .size _ZTV6foobar, . - _ZTV6foobar
-
-    // vtable for mmIcons
-    .global _ZTV7mmIcons
-    .type _ZTV7mmIcons, %object
-    .p2align 3
-_ZTV7mmIcons:
-    .quad 0    // offset to top
-    .quad 0    // typeinfo
-    .rept 64
-    .quad ArtsVirtualStub
-    .endr
-    .size _ZTV7mmIcons, . - _ZTV7mmIcons
-
     .bss
+
+    // PGRAPH
+    .global PGRAPH
+    .type PGRAPH, %object
+    .comm PGRAPH, 4096, 16
+
+    // LogRandomCalls
+    .global LogRandomCalls
+    .type LogRandomCalls, %object
+    .comm LogRandomCalls, 4096, 16
+
+    // gRandSeed
+    .global gRandSeed
+    .type gRandSeed, %object
+    .comm gRandSeed, 4096, 16
 
     // agiPipeline::CurrentPipe
     .global _ZN11agiPipeline11CurrentPipeE
@@ -8271,21 +8274,6 @@ _ZTV7mmIcons:
     .type ORIGIN, %object
     .comm ORIGIN, 4096, 16
 
-    // PGRAPH
-    .global PGRAPH
-    .type PGRAPH, %object
-    .comm PGRAPH, 4096, 16
-
-    // LogRandomCalls
-    .global LogRandomCalls
-    .type LogRandomCalls, %object
-    .comm LogRandomCalls, 4096, 16
-
-    // gRandSeed
-    .global gRandSeed
-    .type gRandSeed, %object
-    .comm gRandSeed, 4096, 16
-
     // Update3D
     .global Update3D
     .type Update3D, %object
@@ -8301,15 +8289,15 @@ _ZTV7mmIcons:
     .type DebugMemory, %object
     .comm DebugMemory, 4096, 16
 
-    // DLPTemplateHash
-    .global DLPTemplateHash
-    .type DLPTemplateHash, %object
-    .comm DLPTemplateHash, 4096, 16
-
     // agiVerbose
     .global agiVerbose
     .type agiVerbose, %object
     .comm agiVerbose, 4096, 16
+
+    // DLPTemplateHash
+    .global DLPTemplateHash
+    .type DLPTemplateHash, %object
+    .comm DLPTemplateHash, 4096, 16
 
     // agiPipeline::CurrentRenderer
     .global _ZN11agiPipeline15CurrentRendererE
@@ -8686,6 +8674,11 @@ _ZTV7mmIcons:
     .type VehicleListPtr, %object
     .comm VehicleListPtr, 4096, 16
 
+    // mmCarSim::GrassTex
+    .global _ZN8mmCarSim8GrassTexE
+    .type _ZN8mmCarSim8GrassTexE, %object
+    .comm _ZN8mmCarSim8GrassTexE, 4096, 16
+
     // GameInputPtr
     .global GameInputPtr
     .type GameInputPtr, %object
@@ -8695,11 +8688,6 @@ _ZTV7mmIcons:
     .global HitWaterTimer
     .type HitWaterTimer, %object
     .comm HitWaterTimer, 4096, 16
-
-    // mmCarSim::GrassTex
-    .global _ZN8mmCarSim8GrassTexE
-    .type _ZN8mmCarSim8GrassTexE, %object
-    .comm _ZN8mmCarSim8GrassTexE, 4096, 16
 
     // mmShardManager::NumInstances
     .global _ZN14mmShardManager12NumInstancesE
@@ -8781,6 +8769,11 @@ _ZTV7mmIcons:
     .type _ZN13mmRunwayLight5PhaseE, %object
     .comm _ZN13mmRunwayLight5PhaseE, 4096, 16
 
+    // CityListPtr
+    .global CityListPtr
+    .type CityListPtr, %object
+    .comm CityListPtr, 4096, 16
+
     // MakeTableStats
     .global MakeTableStats
     .type MakeTableStats, %object
@@ -8831,11 +8824,6 @@ _ZTV7mmIcons:
     .type ZREAD, %object
     .comm ZREAD, 4096, 16
 
-    // CityListPtr
-    .global CityListPtr
-    .type CityListPtr, %object
-    .comm CityListPtr, 4096, 16
-
     // VehicleDataHash
     .global VehicleDataHash
     .type VehicleDataHash, %object
@@ -8861,30 +8849,30 @@ _ZTV7mmIcons:
     .type InputConfiguration, %object
     .comm InputConfiguration, 4096, 16
 
-    // LocStrJoystick
-    .global LocStrJoystick
-    .type LocStrJoystick, %object
-    .comm LocStrJoystick, 4096, 16
+    // LocStrUndef
+    .global LocStrUndef
+    .type LocStrUndef, %object
+    .comm LocStrUndef, 4096, 16
 
     // LocStrButton
     .global LocStrButton
     .type LocStrButton, %object
     .comm LocStrButton, 4096, 16
 
-    // LocStrUndef
-    .global LocStrUndef
-    .type LocStrUndef, %object
-    .comm LocStrUndef, 4096, 16
-
-    // UseDIKey
-    .global UseDIKey
-    .type UseDIKey, %object
-    .comm UseDIKey, 4096, 16
+    // LocStrJoystick
+    .global LocStrJoystick
+    .type LocStrJoystick, %object
+    .comm LocStrJoystick, 4096, 16
 
     // LocStrKey
     .global LocStrKey
     .type LocStrKey, %object
     .comm LocStrKey, 4096, 16
+
+    // UseDIKey
+    .global UseDIKey
+    .type UseDIKey, %object
+    .comm UseDIKey, 4096, 16
 
     // typeinfo for PUMenuBase
     .global _ZTI10PUMenuBase
@@ -8916,16 +8904,6 @@ _ZTV7mmIcons:
     .type _ZTI12RaceMenuBase, %object
     .comm _ZTI12RaceMenuBase, 4096, 16
 
-    // DashAlphaRef
-    .global DashAlphaRef
-    .type DashAlphaRef, %object
-    .comm DashAlphaRef, 4096, 16
-
-    // DashColorScale
-    .global DashColorScale
-    .type DashColorScale, %object
-    .comm DashColorScale, 4096, 16
-
     // LocPlayerName
     .global LocPlayerName
     .type LocPlayerName, %object
@@ -8946,10 +8924,25 @@ _ZTV7mmIcons:
     .type DontClearPositions, %object
     .comm DontClearPositions, 4096, 16
 
+    // BoundsPaged
+    .global BoundsPaged
+    .type BoundsPaged, %object
+    .comm BoundsPaged, 4096, 16
+
+    // BoundBytesPaged
+    .global BoundBytesPaged
+    .type BoundBytesPaged, %object
+    .comm BoundBytesPaged, 4096, 16
+
     // mmGameManager::Instance
     .global _ZN13mmGameManager8InstanceE
     .type _ZN13mmGameManager8InstanceE, %object
     .comm _ZN13mmGameManager8InstanceE, 4096, 16
+
+    // DashAlphaRef
+    .global DashAlphaRef
+    .type DashAlphaRef, %object
+    .comm DashAlphaRef, 4096, 16
 
     // ProjectileY
     .global ProjectileY
@@ -8961,35 +8954,20 @@ _ZTV7mmIcons:
     .type ProjectileV, %object
     .comm ProjectileV, 4096, 16
 
-    // AUDMGRPTR
-    .global AUDMGRPTR
-    .type AUDMGRPTR, %object
-    .comm AUDMGRPTR, 4096, 16
-
-    // BoneScale
-    .global BoneScale
-    .type BoneScale, %object
-    .comm BoneScale, 4096, 16
-
-    // EggFriction
-    .global EggFriction
-    .type EggFriction, %object
-    .comm EggFriction, 4096, 16
-
-    // BoundsPaged
-    .global BoundsPaged
-    .type BoundsPaged, %object
-    .comm BoundsPaged, 4096, 16
-
     // YAXIS
     .global YAXIS
     .type YAXIS, %object
     .comm YAXIS, 4096, 16
 
-    // BoundBytesPaged
-    .global BoundBytesPaged
-    .type BoundBytesPaged, %object
-    .comm BoundBytesPaged, 4096, 16
+    // AUDMGRPTR
+    .global AUDMGRPTR
+    .type AUDMGRPTR, %object
+    .comm AUDMGRPTR, 4096, 16
+
+    // DashColorScale
+    .global DashColorScale
+    .type DashColorScale, %object
+    .comm DashColorScale, 4096, 16
 
     // asMeshSetForm::Lighter
     .global _ZN13asMeshSetForm7LighterE
@@ -9000,6 +8978,26 @@ _ZTV7mmIcons:
     .global _ZN13asMeshSetForm9SphMapTexE
     .type _ZN13asMeshSetForm9SphMapTexE, %object
     .comm _ZN13asMeshSetForm9SphMapTexE, 4096, 16
+
+    // JoinViaZone
+    .global JoinViaZone
+    .type JoinViaZone, %object
+    .comm JoinViaZone, 4096, 16
+
+    // BoneScale
+    .global BoneScale
+    .type BoneScale, %object
+    .comm BoneScale, 4096, 16
+
+    // typeinfo for asNetObject
+    .global _ZTI11asNetObject
+    .type _ZTI11asNetObject, %object
+    .comm _ZTI11asNetObject, 4096, 16
+
+    // EggFriction
+    .global EggFriction
+    .type EggFriction, %object
+    .comm EggFriction, 4096, 16
 
     // PopupEnabled
     .global PopupEnabled
@@ -9025,16 +9023,6 @@ _ZTV7mmIcons:
     .global PopupCDFrame
     .type PopupCDFrame, %object
     .comm PopupCDFrame, 4096, 16
-
-    // typeinfo for asNetObject
-    .global _ZTI11asNetObject
-    .type _ZTI11asNetObject, %object
-    .comm _ZTI11asNetObject, 4096, 16
-
-    // JoinViaZone
-    .global JoinViaZone
-    .type JoinViaZone, %object
-    .comm JoinViaZone, 4096, 16
 
     // SynchronousMessageQueues
     .global SynchronousMessageQueues
@@ -9487,19 +9475,11 @@ _Z12GetBoundInfoiP7Vector3S0_S0_S0_Pf:
     jmp ArtsStubCalled
     .size _Z12GetBoundInfoiP7Vector3S0_S0_S0_Pf, . - _Z12GetBoundInfoiP7Vector3S0_S0_S0_Pf
 
-    // ipcYield()
-    .global _Z8ipcYieldv
-    .type _Z8ipcYieldv, %function
-_Z8ipcYieldv:
-    leaq .Lstub_name_55(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _Z8ipcYieldv, . - _Z8ipcYieldv
-
     // swPoly(agiScreenVtx*, int)
     .global _Z6swPolyP12agiScreenVtxi
     .type _Z6swPolyP12agiScreenVtxi, %function
 _Z6swPolyP12agiScreenVtxi:
-    leaq .Lstub_name_56(%rip), %rdi
+    leaq .Lstub_name_55(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z6swPolyP12agiScreenVtxi, . - _Z6swPolyP12agiScreenVtxi
 
@@ -9507,7 +9487,7 @@ _Z6swPolyP12agiScreenVtxi:
     .global _Z5swTriP12agiScreenVtxS0_S0_
     .type _Z5swTriP12agiScreenVtxS0_S0_, %function
 _Z5swTriP12agiScreenVtxS0_S0_:
-    leaq .Lstub_name_57(%rip), %rdi
+    leaq .Lstub_name_56(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z5swTriP12agiScreenVtxS0_S0_, . - _Z5swTriP12agiScreenVtxS0_S0_
 
@@ -9515,9 +9495,17 @@ _Z5swTriP12agiScreenVtxS0_S0_:
     .global _Z6swQuadP12agiScreenVtxS0_S0_S0_
     .type _Z6swQuadP12agiScreenVtxS0_S0_S0_, %function
 _Z6swQuadP12agiScreenVtxS0_S0_S0_:
-    leaq .Lstub_name_58(%rip), %rdi
+    leaq .Lstub_name_57(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z6swQuadP12agiScreenVtxS0_S0_S0_, . - _Z6swQuadP12agiScreenVtxS0_S0_S0_
+
+    // ipcYield()
+    .global _Z8ipcYieldv
+    .type _Z8ipcYieldv, %function
+_Z8ipcYieldv:
+    leaq .Lstub_name_58(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _Z8ipcYieldv, . - _Z8ipcYieldv
 
     // agiMeshSet::FirstPass_HW_UV_CPV_noDYNTEX(unsigned int*, Vector2*, unsigned int)
     .global _ZN10agiMeshSet28FirstPass_HW_UV_CPV_noDYNTEXEPjP7Vector2j
@@ -9735,11 +9723,35 @@ _ZN15mmEdgeBodyIsectC1Ev:
     jmp ArtsStubCalled
     .size _ZN15mmEdgeBodyIsectC1Ev, . - _ZN15mmEdgeBodyIsectC1Ev
 
+    // mmPhysicsMGR::Cull()
+    .global _ZN12mmPhysicsMGR4CullEv
+    .type _ZN12mmPhysicsMGR4CullEv, %function
+_ZN12mmPhysicsMGR4CullEv:
+    leaq .Lstub_name_86(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN12mmPhysicsMGR4CullEv, . - _ZN12mmPhysicsMGR4CullEv
+
+    // mmPhysicsMGR::Update()
+    .global _ZN12mmPhysicsMGR6UpdateEv
+    .type _ZN12mmPhysicsMGR6UpdateEv, %function
+_ZN12mmPhysicsMGR6UpdateEv:
+    leaq .Lstub_name_87(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN12mmPhysicsMGR6UpdateEv, . - _ZN12mmPhysicsMGR6UpdateEv
+
+    // mmPhysicsMGR::UpdatePaused()
+    .global _ZN12mmPhysicsMGR12UpdatePausedEv
+    .type _ZN12mmPhysicsMGR12UpdatePausedEv, %function
+_ZN12mmPhysicsMGR12UpdatePausedEv:
+    leaq .Lstub_name_88(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN12mmPhysicsMGR12UpdatePausedEv, . - _ZN12mmPhysicsMGR12UpdatePausedEv
+
     // mmBoundTemplate::ValidatePtr(char*)
     .global _ZN15mmBoundTemplate11ValidatePtrEPc
     .type _ZN15mmBoundTemplate11ValidatePtrEPc, %function
 _ZN15mmBoundTemplate11ValidatePtrEPc:
-    leaq .Lstub_name_86(%rip), %rdi
+    leaq .Lstub_name_89(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBoundTemplate11ValidatePtrEPc, . - _ZN15mmBoundTemplate11ValidatePtrEPc
 
@@ -9747,55 +9759,23 @@ _ZN15mmBoundTemplate11ValidatePtrEPc:
     .global _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection
     .type _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection, %function
 _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection:
-    leaq .Lstub_name_87(%rip), %rdi
+    leaq .Lstub_name_90(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection, . - _ZN15mmBoundTemplate14QuickSphereBoxEP14mmIntersection
-
-    // mmPhysicsMGR::Cull()
-    .global _ZN12mmPhysicsMGR4CullEv
-    .type _ZN12mmPhysicsMGR4CullEv, %function
-_ZN12mmPhysicsMGR4CullEv:
-    leaq .Lstub_name_88(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN12mmPhysicsMGR4CullEv, . - _ZN12mmPhysicsMGR4CullEv
 
     // mmBoundTemplate::SphereTable(mmIntersection*)
     .global _ZN15mmBoundTemplate11SphereTableEP14mmIntersection
     .type _ZN15mmBoundTemplate11SphereTableEP14mmIntersection, %function
 _ZN15mmBoundTemplate11SphereTableEP14mmIntersection:
-    leaq .Lstub_name_89(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN15mmBoundTemplate11SphereTableEP14mmIntersection, . - _ZN15mmBoundTemplate11SphereTableEP14mmIntersection
-
-    // mmPhysicsMGR::Update()
-    .global _ZN12mmPhysicsMGR6UpdateEv
-    .type _ZN12mmPhysicsMGR6UpdateEv, %function
-_ZN12mmPhysicsMGR6UpdateEv:
-    leaq .Lstub_name_90(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN12mmPhysicsMGR6UpdateEv, . - _ZN12mmPhysicsMGR6UpdateEv
-
-    // mmBoundTemplate::QuickLineBox(mmIntersection*)
-    .global _ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection
-    .type _ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection, %function
-_ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection:
     leaq .Lstub_name_91(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection, . - _ZN15mmBoundTemplate12QuickLineBoxEP14mmIntersection
-
-    // mmPhysicsMGR::UpdatePaused()
-    .global _ZN12mmPhysicsMGR12UpdatePausedEv
-    .type _ZN12mmPhysicsMGR12UpdatePausedEv, %function
-_ZN12mmPhysicsMGR12UpdatePausedEv:
-    leaq .Lstub_name_92(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN12mmPhysicsMGR12UpdatePausedEv, . - _ZN12mmPhysicsMGR12UpdatePausedEv
+    .size _ZN15mmBoundTemplate11SphereTableEP14mmIntersection, . - _ZN15mmBoundTemplate11SphereTableEP14mmIntersection
 
     // mmBoundTemplate::LineTable(mmIntersection*)
     .global _ZN15mmBoundTemplate9LineTableEP14mmIntersection
     .type _ZN15mmBoundTemplate9LineTableEP14mmIntersection, %function
 _ZN15mmBoundTemplate9LineTableEP14mmIntersection:
-    leaq .Lstub_name_93(%rip), %rdi
+    leaq .Lstub_name_92(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBoundTemplate9LineTableEP14mmIntersection, . - _ZN15mmBoundTemplate9LineTableEP14mmIntersection
 
@@ -9803,7 +9783,7 @@ _ZN15mmBoundTemplate9LineTableEP14mmIntersection:
     .global _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection
     .type _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection, %function
 _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection:
-    leaq .Lstub_name_94(%rip), %rdi
+    leaq .Lstub_name_93(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection, . - _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection
 
@@ -9811,7 +9791,7 @@ _ZN15mmBoundTemplate12SphereSphereEP14mmIntersection:
     .global _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection
     .type _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection, %function
 _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection:
-    leaq .Lstub_name_95(%rip), %rdi
+    leaq .Lstub_name_94(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection, . - _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection
 
@@ -9819,7 +9799,7 @@ _ZN15mmBoundTemplate14SphereGeometryEP14mmIntersection:
     .global _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection
     .type _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection, %function
 _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection:
-    leaq .Lstub_name_96(%rip), %rdi
+    leaq .Lstub_name_95(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection, . - _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection
 
@@ -9827,23 +9807,15 @@ _ZN15mmBoundTemplate15QuickLineSphereEP14mmIntersection:
     .global _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection
     .type _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection, %function
 _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection:
-    leaq .Lstub_name_97(%rip), %rdi
+    leaq .Lstub_name_96(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection, . - _ZN15mmBoundTemplate12LineGeometryEP14mmIntersection
-
-    // mmIntersection::Reset()
-    .global _ZN14mmIntersection5ResetEv
-    .type _ZN14mmIntersection5ResetEv, %function
-_ZN14mmIntersection5ResetEv:
-    leaq .Lstub_name_98(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN14mmIntersection5ResetEv, . - _ZN14mmIntersection5ResetEv
 
     // mmPolygon::mmPolygon()
     .global _ZN9mmPolygonC1Ev
     .type _ZN9mmPolygonC1Ev, %function
 _ZN9mmPolygonC1Ev:
-    leaq .Lstub_name_99(%rip), %rdi
+    leaq .Lstub_name_97(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmPolygonC1Ev, . - _ZN9mmPolygonC1Ev
 
@@ -9851,15 +9823,23 @@ _ZN9mmPolygonC1Ev:
     .global _ZN15mmBoundTemplate8DoPageInEv
     .type _ZN15mmBoundTemplate8DoPageInEv, %function
 _ZN15mmBoundTemplate8DoPageInEv:
-    leaq .Lstub_name_100(%rip), %rdi
+    leaq .Lstub_name_98(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBoundTemplate8DoPageInEv, . - _ZN15mmBoundTemplate8DoPageInEv
+
+    // mmIntersection::Reset()
+    .global _ZN14mmIntersection5ResetEv
+    .type _ZN14mmIntersection5ResetEv, %function
+_ZN14mmIntersection5ResetEv:
+    leaq .Lstub_name_99(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN14mmIntersection5ResetEv, . - _ZN14mmIntersection5ResetEv
 
     // mmPolygon::PlotTriangle(int, int, int, mmBoundTemplate*, int)
     .global _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei
     .type _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei, %function
 _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei:
-    leaq .Lstub_name_101(%rip), %rdi
+    leaq .Lstub_name_100(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei, . - _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei
 
@@ -9867,7 +9847,7 @@ _ZN9mmPolygon12PlotTriangleEiiiP15mmBoundTemplatei:
     .global _ZN15mmBoundTemplate8AddIndexEiii
     .type _ZN15mmBoundTemplate8AddIndexEiii, %function
 _ZN15mmBoundTemplate8AddIndexEiii:
-    leaq .Lstub_name_102(%rip), %rdi
+    leaq .Lstub_name_101(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBoundTemplate8AddIndexEiii, . - _ZN15mmBoundTemplate8AddIndexEiii
 
@@ -9875,7 +9855,7 @@ _ZN15mmBoundTemplate8AddIndexEiii:
     .global _ZN19mmDofBangerInstance8ToMatrixER8Matrix34
     .type _ZN19mmDofBangerInstance8ToMatrixER8Matrix34, %function
 _ZN19mmDofBangerInstance8ToMatrixER8Matrix34:
-    leaq .Lstub_name_103(%rip), %rdi
+    leaq .Lstub_name_102(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN19mmDofBangerInstance8ToMatrixER8Matrix34, . - _ZN19mmDofBangerInstance8ToMatrixER8Matrix34
 
@@ -9883,7 +9863,7 @@ _ZN19mmDofBangerInstance8ToMatrixER8Matrix34:
     .global _ZN10mmInstance8GetClassEv
     .type _ZN10mmInstance8GetClassEv, %function
 _ZN10mmInstance8GetClassEv:
-    leaq .Lstub_name_104(%rip), %rdi
+    leaq .Lstub_name_103(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmInstance8GetClassEv, . - _ZN10mmInstance8GetClassEv
 
@@ -9891,7 +9871,7 @@ _ZN10mmInstance8GetClassEv:
     .global _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34
     .type _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34, %function
 _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34:
-    leaq .Lstub_name_105(%rip), %rdi
+    leaq .Lstub_name_104(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34, . - _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34
 
@@ -9899,7 +9879,7 @@ _ZN19mmDofBangerInstance10FromMatrixERK8Matrix34:
     .global _ZN19mmDofBangerInstance6GetPosEv
     .type _ZN19mmDofBangerInstance6GetPosEv, %function
 _ZN19mmDofBangerInstance6GetPosEv:
-    leaq .Lstub_name_106(%rip), %rdi
+    leaq .Lstub_name_105(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN19mmDofBangerInstance6GetPosEv, . - _ZN19mmDofBangerInstance6GetPosEv
 
@@ -9907,7 +9887,7 @@ _ZN19mmDofBangerInstance6GetPosEv:
     .global _ZN16mmBangerInstance10DrawShadowEv
     .type _ZN16mmBangerInstance10DrawShadowEv, %function
 _ZN16mmBangerInstance10DrawShadowEv:
-    leaq .Lstub_name_107(%rip), %rdi
+    leaq .Lstub_name_106(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN16mmBangerInstance10DrawShadowEv, . - _ZN16mmBangerInstance10DrawShadowEv
 
@@ -9915,7 +9895,7 @@ _ZN16mmBangerInstance10DrawShadowEv:
     .global _ZN16mmBangerInstance8DrawGlowEv
     .type _ZN16mmBangerInstance8DrawGlowEv, %function
 _ZN16mmBangerInstance8DrawGlowEv:
-    leaq .Lstub_name_108(%rip), %rdi
+    leaq .Lstub_name_107(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN16mmBangerInstance8DrawGlowEv, . - _ZN16mmBangerInstance8DrawGlowEv
 
@@ -9923,7 +9903,7 @@ _ZN16mmBangerInstance8DrawGlowEv:
     .global _ZN19mmDofBangerInstance6SizeOfEv
     .type _ZN19mmDofBangerInstance6SizeOfEv, %function
 _ZN19mmDofBangerInstance6SizeOfEv:
-    leaq .Lstub_name_109(%rip), %rdi
+    leaq .Lstub_name_108(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN19mmDofBangerInstance6SizeOfEv, . - _ZN19mmDofBangerInstance6SizeOfEv
 
@@ -9931,7 +9911,7 @@ _ZN19mmDofBangerInstance6SizeOfEv:
     .global _ZN21mmUnhitBangerInstance5ResetEv
     .type _ZN21mmUnhitBangerInstance5ResetEv, %function
 _ZN21mmUnhitBangerInstance5ResetEv:
-    leaq .Lstub_name_110(%rip), %rdi
+    leaq .Lstub_name_109(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN21mmUnhitBangerInstance5ResetEv, . - _ZN21mmUnhitBangerInstance5ResetEv
 
@@ -9939,7 +9919,7 @@ _ZN21mmUnhitBangerInstance5ResetEv:
     .global _ZN16mmBangerInstance10ComputeLodEff
     .type _ZN16mmBangerInstance10ComputeLodEff, %function
 _ZN16mmBangerInstance10ComputeLodEff:
-    leaq .Lstub_name_111(%rip), %rdi
+    leaq .Lstub_name_110(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN16mmBangerInstance10ComputeLodEff, . - _ZN16mmBangerInstance10ComputeLodEff
 
@@ -9947,7 +9927,7 @@ _ZN16mmBangerInstance10ComputeLodEff:
     .global _ZN11mmBridgeSet9ReadEntryEP6Streami
     .type _ZN11mmBridgeSet9ReadEntryEP6Streami, %function
 _ZN11mmBridgeSet9ReadEntryEP6Streami:
-    leaq .Lstub_name_112(%rip), %rdi
+    leaq .Lstub_name_111(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmBridgeSet9ReadEntryEP6Streami, . - _ZN11mmBridgeSet9ReadEntryEP6Streami
 
@@ -9955,7 +9935,7 @@ _ZN11mmBridgeSet9ReadEntryEP6Streami:
     .global _ZN13mmAnimTrigger4InitEP7Vector3Pf
     .type _ZN13mmAnimTrigger4InitEP7Vector3Pf, %function
 _ZN13mmAnimTrigger4InitEP7Vector3Pf:
-    leaq .Lstub_name_113(%rip), %rdi
+    leaq .Lstub_name_112(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13mmAnimTrigger4InitEP7Vector3Pf, . - _ZN13mmAnimTrigger4InitEP7Vector3Pf
 
@@ -9963,7 +9943,7 @@ _ZN13mmAnimTrigger4InitEP7Vector3Pf:
     .global _ZN8AudSound9IsPlayingEi
     .type _ZN8AudSound9IsPlayingEi, %function
 _ZN8AudSound9IsPlayingEi:
-    leaq .Lstub_name_114(%rip), %rdi
+    leaq .Lstub_name_113(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8AudSound9IsPlayingEi, . - _ZN8AudSound9IsPlayingEi
 
@@ -9971,7 +9951,7 @@ _ZN8AudSound9IsPlayingEi:
     .global _ZN8AudSound4StopEv
     .type _ZN8AudSound4StopEv, %function
 _ZN8AudSound4StopEv:
-    leaq .Lstub_name_115(%rip), %rdi
+    leaq .Lstub_name_114(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8AudSound4StopEv, . - _ZN8AudSound4StopEv
 
@@ -9979,7 +9959,7 @@ _ZN8AudSound4StopEv:
     .global _ZN11mmBridgeSetC1Ev
     .type _ZN11mmBridgeSetC1Ev, %function
 _ZN11mmBridgeSetC1Ev:
-    leaq .Lstub_name_116(%rip), %rdi
+    leaq .Lstub_name_115(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmBridgeSetC1Ev, . - _ZN11mmBridgeSetC1Ev
 
@@ -9987,7 +9967,7 @@ _ZN11mmBridgeSetC1Ev:
     .global _ZN14mmBridgeAudMgrC1Ev
     .type _ZN14mmBridgeAudMgrC1Ev, %function
 _ZN14mmBridgeAudMgrC1Ev:
-    leaq .Lstub_name_117(%rip), %rdi
+    leaq .Lstub_name_116(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmBridgeAudMgrC1Ev, . - _ZN14mmBridgeAudMgrC1Ev
 
@@ -9995,7 +9975,7 @@ _ZN14mmBridgeAudMgrC1Ev:
     .global _ZN10mmCullCity12GetRoomFlagsEs
     .type _ZN10mmCullCity12GetRoomFlagsEs, %function
 _ZN10mmCullCity12GetRoomFlagsEs:
-    leaq .Lstub_name_118(%rip), %rdi
+    leaq .Lstub_name_117(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCullCity12GetRoomFlagsEs, . - _ZN10mmCullCity12GetRoomFlagsEs
 
@@ -10003,7 +9983,7 @@ _ZN10mmCullCity12GetRoomFlagsEs:
     .global _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_
     .type _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_, %function
 _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_:
-    leaq .Lstub_name_119(%rip), %rdi
+    leaq .Lstub_name_118(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_, . - _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_
 
@@ -10011,7 +9991,7 @@ _ZN19mmBangerDataManager18AddBangerDataEntryEPKcS1_:
     .global _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData
     .type _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData, %function
 _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData:
-    leaq .Lstub_name_120(%rip), %rdi
+    leaq .Lstub_name_119(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData, . - _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData
 
@@ -10019,7 +9999,7 @@ _ZN21mmUnhitBangerInstance14InitBreakablesEPKcS1_P12mmBangerData:
     .global _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_
     .type _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_, %function
 _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_:
-    leaq .Lstub_name_121(%rip), %rdi
+    leaq .Lstub_name_120(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_, . - _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_
 
@@ -10027,7 +10007,7 @@ _ZN12asInertialCS12ApplyImpulseERK7Vector3S2_:
     .global _ZN16mmBangerInstance4DrawEi
     .type _ZN16mmBangerInstance4DrawEi, %function
 _ZN16mmBangerInstance4DrawEi:
-    leaq .Lstub_name_122(%rip), %rdi
+    leaq .Lstub_name_121(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN16mmBangerInstance4DrawEi, . - _ZN16mmBangerInstance4DrawEi
 
@@ -10035,7 +10015,7 @@ _ZN16mmBangerInstance4DrawEi:
     .global _ZN19mmHitBangerInstance4DrawEi
     .type _ZN19mmHitBangerInstance4DrawEi, %function
 _ZN19mmHitBangerInstance4DrawEi:
-    leaq .Lstub_name_123(%rip), %rdi
+    leaq .Lstub_name_122(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN19mmHitBangerInstance4DrawEi, . - _ZN19mmHitBangerInstance4DrawEi
 
@@ -10043,7 +10023,7 @@ _ZN19mmHitBangerInstance4DrawEi:
     .global _ZN10mmTextNode6UpdateEv
     .type _ZN10mmTextNode6UpdateEv, %function
 _ZN10mmTextNode6UpdateEv:
-    leaq .Lstub_name_124(%rip), %rdi
+    leaq .Lstub_name_123(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmTextNode6UpdateEv, . - _ZN10mmTextNode6UpdateEv
 
@@ -10051,7 +10031,7 @@ _ZN10mmTextNode6UpdateEv:
     .global _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii
     .type _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii, %function
 _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii:
-    leaq .Lstub_name_125(%rip), %rdi
+    leaq .Lstub_name_124(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii, . - _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii
 
@@ -10059,7 +10039,7 @@ _ZN15agiMeshCardInfo4InitEiP17agiMeshCardVertexiii:
     .global _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos
     .type _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos, %function
 _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos:
-    leaq .Lstub_name_126(%rip), %rdi
+    leaq .Lstub_name_125(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos, . - _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos
 
@@ -10067,7 +10047,7 @@ _ZN11asBirthRule9InitSparkEP11asSparkInfoP10asSparkPos:
     .global _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo
     .type _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo, %function
 _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo:
-    leaq .Lstub_name_127(%rip), %rdi
+    leaq .Lstub_name_126(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo, . - _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo
 
@@ -10075,7 +10055,7 @@ _ZN10agiMeshSet9InitCardsER15agiMeshCardInfo:
     .global _ZN8mmDamageC1Ev
     .type _ZN8mmDamageC1Ev, %function
 _ZN8mmDamageC1Ev:
-    leaq .Lstub_name_128(%rip), %rdi
+    leaq .Lstub_name_127(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmDamageC1Ev, . - _ZN8mmDamageC1Ev
 
@@ -10083,7 +10063,7 @@ _ZN8mmDamageC1Ev:
     .global _ZN8mmDamageD1Ev
     .type _ZN8mmDamageD1Ev, %function
 _ZN8mmDamageD1Ev:
-    leaq .Lstub_name_129(%rip), %rdi
+    leaq .Lstub_name_128(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmDamageD1Ev, . - _ZN8mmDamageD1Ev
 
@@ -10091,7 +10071,7 @@ _ZN8mmDamageD1Ev:
     .global _ZN13mmVehicleForm4CullEv
     .type _ZN13mmVehicleForm4CullEv, %function
 _ZN13mmVehicleForm4CullEv:
-    leaq .Lstub_name_130(%rip), %rdi
+    leaq .Lstub_name_129(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13mmVehicleForm4CullEv, . - _ZN13mmVehicleForm4CullEv
 
@@ -10099,7 +10079,7 @@ _ZN13mmVehicleForm4CullEv:
     .global _Z14GetDLPTemplatePc
     .type _Z14GetDLPTemplatePc, %function
 _Z14GetDLPTemplatePc:
-    leaq .Lstub_name_131(%rip), %rdi
+    leaq .Lstub_name_130(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z14GetDLPTemplatePc, . - _Z14GetDLPTemplatePc
 
@@ -10107,7 +10087,7 @@ _Z14GetDLPTemplatePc:
     .global _ZN8Matrix349RotateAbsERK7Vector3f
     .type _ZN8Matrix349RotateAbsERK7Vector3f, %function
 _ZN8Matrix349RotateAbsERK7Vector3f:
-    leaq .Lstub_name_132(%rip), %rdi
+    leaq .Lstub_name_131(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8Matrix349RotateAbsERK7Vector3f, . - _ZN8Matrix349RotateAbsERK7Vector3f
 
@@ -10115,7 +10095,7 @@ _ZN8Matrix349RotateAbsERK7Vector3f:
     .global _ZN13mmSkidManagerC1Ev
     .type _ZN13mmSkidManagerC1Ev, %function
 _ZN13mmSkidManagerC1Ev:
-    leaq .Lstub_name_133(%rip), %rdi
+    leaq .Lstub_name_132(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13mmSkidManagerC1Ev, . - _ZN13mmSkidManagerC1Ev
 
@@ -10123,7 +10103,7 @@ _ZN13mmSkidManagerC1Ev:
     .global _ZN9mmTrailer10PostUpdateEv
     .type _ZN9mmTrailer10PostUpdateEv, %function
 _ZN9mmTrailer10PostUpdateEv:
-    leaq .Lstub_name_134(%rip), %rdi
+    leaq .Lstub_name_133(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmTrailer10PostUpdateEv, . - _ZN9mmTrailer10PostUpdateEv
 
@@ -10131,7 +10111,7 @@ _ZN9mmTrailer10PostUpdateEv:
     .global _ZN14mmShardManager6UpdateEv
     .type _ZN14mmShardManager6UpdateEv, %function
 _ZN14mmShardManager6UpdateEv:
-    leaq .Lstub_name_135(%rip), %rdi
+    leaq .Lstub_name_134(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmShardManager6UpdateEv, . - _ZN14mmShardManager6UpdateEv
 
@@ -10139,7 +10119,7 @@ _ZN14mmShardManager6UpdateEv:
     .global _ZN8mmCarSim6ReInitEPKc
     .type _ZN8mmCarSim6ReInitEPKc, %function
 _ZN8mmCarSim6ReInitEPKc:
-    leaq .Lstub_name_136(%rip), %rdi
+    leaq .Lstub_name_135(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmCarSim6ReInitEPKc, . - _ZN8mmCarSim6ReInitEPKc
 
@@ -10147,7 +10127,7 @@ _ZN8mmCarSim6ReInitEPKc:
     .global _ZN10mmCarModel4InitEPKcP5mmCari
     .type _ZN10mmCarModel4InitEPKcP5mmCari, %function
 _ZN10mmCarModel4InitEPKcP5mmCari:
-    leaq .Lstub_name_137(%rip), %rdi
+    leaq .Lstub_name_136(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCarModel4InitEPKcP5mmCari, . - _ZN10mmCarModel4InitEPKcP5mmCari
 
@@ -10155,7 +10135,7 @@ _ZN10mmCarModel4InitEPKcP5mmCari:
     .global _ZN13mmSkidManager6ReInitEP7mmWheel
     .type _ZN13mmSkidManager6ReInitEP7mmWheel, %function
 _ZN13mmSkidManager6ReInitEP7mmWheel:
-    leaq .Lstub_name_138(%rip), %rdi
+    leaq .Lstub_name_137(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13mmSkidManager6ReInitEP7mmWheel, . - _ZN13mmSkidManager6ReInitEP7mmWheel
 
@@ -10163,7 +10143,7 @@ _ZN13mmSkidManager6ReInitEP7mmWheel:
     .global _ZN9mmTrailer10DeactivateEv
     .type _ZN9mmTrailer10DeactivateEv, %function
 _ZN9mmTrailer10DeactivateEv:
-    leaq .Lstub_name_139(%rip), %rdi
+    leaq .Lstub_name_138(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmTrailer10DeactivateEv, . - _ZN9mmTrailer10DeactivateEv
 
@@ -10171,7 +10151,7 @@ _ZN9mmTrailer10DeactivateEv:
     .global _ZN9Joint3Dof10BreakJointEv
     .type _ZN9Joint3Dof10BreakJointEv, %function
 _ZN9Joint3Dof10BreakJointEv:
-    leaq .Lstub_name_140(%rip), %rdi
+    leaq .Lstub_name_139(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9Joint3Dof10BreakJointEv, . - _ZN9Joint3Dof10BreakJointEv
 
@@ -10179,223 +10159,15 @@ _ZN9Joint3Dof10BreakJointEv:
     .global _ZN11DLPTemplate11GetCentroidER7Vector3PKc
     .type _ZN11DLPTemplate11GetCentroidER7Vector3PKc, %function
 _ZN11DLPTemplate11GetCentroidER7Vector3PKc:
-    leaq .Lstub_name_141(%rip), %rdi
+    leaq .Lstub_name_140(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11DLPTemplate11GetCentroidER7Vector3PKc, . - _ZN11DLPTemplate11GetCentroidER7Vector3PKc
-
-    // mmTrailer::Init(char const*, mmCarSim*, Vector3)
-    .global _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3
-    .type _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3, %function
-_ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3:
-    leaq .Lstub_name_142(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3, . - _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3
-
-    // Joint3Dof::InitJoint3Dof(asInertialCS*, Vector3 const&, asInertialCS*, Vector3 const&)
-    .global _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_
-    .type _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_, %function
-_ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_:
-    leaq .Lstub_name_143(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_, . - _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_
-
-    // mmTrailer::Activate()
-    .global _ZN9mmTrailer8ActivateEv
-    .type _ZN9mmTrailer8ActivateEv, %function
-_ZN9mmTrailer8ActivateEv:
-    leaq .Lstub_name_144(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9mmTrailer8ActivateEv, . - _ZN9mmTrailer8ActivateEv
-
-    // Joint3Dof::UnbreakJoint()
-    .global _ZN9Joint3Dof12UnbreakJointEv
-    .type _ZN9Joint3Dof12UnbreakJointEv, %function
-_ZN9Joint3Dof12UnbreakJointEv:
-    leaq .Lstub_name_145(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9Joint3Dof12UnbreakJointEv, . - _ZN9Joint3Dof12UnbreakJointEv
-
-    // DLPTemplate::Release()
-    .global _ZN11DLPTemplate7ReleaseEv
-    .type _ZN11DLPTemplate7ReleaseEv, %function
-_ZN11DLPTemplate7ReleaseEv:
-    leaq .Lstub_name_146(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11DLPTemplate7ReleaseEv, . - _ZN11DLPTemplate7ReleaseEv
-
-    // mmCarSim::Reset()
-    .global _ZN8mmCarSim5ResetEv
-    .type _ZN8mmCarSim5ResetEv, %function
-_ZN8mmCarSim5ResetEv:
-    leaq .Lstub_name_147(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmCarSim5ResetEv, . - _ZN8mmCarSim5ResetEv
-
-    // mmCarModel::Reset()
-    .global _ZN10mmCarModel5ResetEv
-    .type _ZN10mmCarModel5ResetEv, %function
-_ZN10mmCarModel5ResetEv:
-    leaq .Lstub_name_148(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10mmCarModel5ResetEv, . - _ZN10mmCarModel5ResetEv
-
-    // mmCarModel::ClearDamage(bool)
-    .global _ZN10mmCarModel11ClearDamageEb
-    .type _ZN10mmCarModel11ClearDamageEb, %function
-_ZN10mmCarModel11ClearDamageEb:
-    leaq .Lstub_name_149(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10mmCarModel11ClearDamageEb, . - _ZN10mmCarModel11ClearDamageEb
-
-    // mmSplash::Reset()
-    .global _ZN8mmSplash5ResetEv
-    .type _ZN8mmSplash5ResetEv, %function
-_ZN8mmSplash5ResetEv:
-    leaq .Lstub_name_150(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmSplash5ResetEv, . - _ZN8mmSplash5ResetEv
-
-    // mmTrailer::Reset()
-    .global _ZN9mmTrailer5ResetEv
-    .type _ZN9mmTrailer5ResetEv, %function
-_ZN9mmTrailer5ResetEv:
-    leaq .Lstub_name_151(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9mmTrailer5ResetEv, . - _ZN9mmTrailer5ResetEv
-
-    // Joint3Dof::Reset()
-    .global _ZN9Joint3Dof5ResetEv
-    .type _ZN9Joint3Dof5ResetEv, %function
-_ZN9Joint3Dof5ResetEv:
-    leaq .Lstub_name_152(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9Joint3Dof5ResetEv, . - _ZN9Joint3Dof5ResetEv
-
-    // mmSkidManager::Reset()
-    .global _ZN13mmSkidManager5ResetEv
-    .type _ZN13mmSkidManager5ResetEv, %function
-_ZN13mmSkidManager5ResetEv:
-    leaq .Lstub_name_153(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN13mmSkidManager5ResetEv, . - _ZN13mmSkidManager5ResetEv
-
-    // mmTrailer::SetHackedImpactParams()
-    .global _ZN9mmTrailer21SetHackedImpactParamsEv
-    .type _ZN9mmTrailer21SetHackedImpactParamsEv, %function
-_ZN9mmTrailer21SetHackedImpactParamsEv:
-    leaq .Lstub_name_154(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9mmTrailer21SetHackedImpactParamsEv, . - _ZN9mmTrailer21SetHackedImpactParamsEv
-
-    // mmCarSim::RemoveNetVehicleAudio()
-    .global _ZN8mmCarSim21RemoveNetVehicleAudioEv
-    .type _ZN8mmCarSim21RemoveNetVehicleAudioEv, %function
-_ZN8mmCarSim21RemoveNetVehicleAudioEv:
-    leaq .Lstub_name_155(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmCarSim21RemoveNetVehicleAudioEv, . - _ZN8mmCarSim21RemoveNetVehicleAudioEv
-
-    // mmPlayerCarAudio::StartSiren()
-    .global _ZN16mmPlayerCarAudio10StartSirenEv
-    .type _ZN16mmPlayerCarAudio10StartSirenEv, %function
-_ZN16mmPlayerCarAudio10StartSirenEv:
-    leaq .Lstub_name_156(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN16mmPlayerCarAudio10StartSirenEv, . - _ZN16mmPlayerCarAudio10StartSirenEv
-
-    // mmPlayerCarAudio::StopSiren()
-    .global _ZN16mmPlayerCarAudio9StopSirenEv
-    .type _ZN16mmPlayerCarAudio9StopSirenEv, %function
-_ZN16mmPlayerCarAudio9StopSirenEv:
-    leaq .Lstub_name_157(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN16mmPlayerCarAudio9StopSirenEv, . - _ZN16mmPlayerCarAudio9StopSirenEv
-
-    // mmCarModel::ApplyDamage(Vector3&, float)
-    .global _ZN10mmCarModel11ApplyDamageER7Vector3f
-    .type _ZN10mmCarModel11ApplyDamageER7Vector3f, %function
-_ZN10mmCarModel11ApplyDamageER7Vector3f:
-    leaq .Lstub_name_158(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10mmCarModel11ApplyDamageER7Vector3f, . - _ZN10mmCarModel11ApplyDamageER7Vector3f
-
-    // mmInput::DoingFF()
-    .global _ZN7mmInput7DoingFFEv
-    .type _ZN7mmInput7DoingFFEv, %function
-_ZN7mmInput7DoingFFEv:
-    leaq .Lstub_name_159(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmInput7DoingFFEv, . - _ZN7mmInput7DoingFFEv
-
-    // mmInput::FFSetValues(int, float, float)
-    .global _ZN7mmInput11FFSetValuesEiff
-    .type _ZN7mmInput11FFSetValuesEiff, %function
-_ZN7mmInput11FFSetValuesEiff:
-    leaq .Lstub_name_160(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmInput11FFSetValuesEiff, . - _ZN7mmInput11FFSetValuesEiff
-
-    // mmInput::FFPlay(int)
-    .global _ZN7mmInput6FFPlayEi
-    .type _ZN7mmInput6FFPlayEi, %function
-_ZN7mmInput6FFPlayEi:
-    leaq .Lstub_name_161(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmInput6FFPlayEi, . - _ZN7mmInput6FFPlayEi
-
-    // mmCullCity::IsPolyWater(mmPolygon*)
-    .global _ZN10mmCullCity11IsPolyWaterEP9mmPolygon
-    .type _ZN10mmCullCity11IsPolyWaterEP9mmPolygon, %function
-_ZN10mmCullCity11IsPolyWaterEP9mmPolygon:
-    leaq .Lstub_name_162(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10mmCullCity11IsPolyWaterEP9mmPolygon, . - _ZN10mmCullCity11IsPolyWaterEP9mmPolygon
-
-    // mmCarSim::PlayImpactAudio(short, mmIntersection*, Vector3*)
-    .global _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3
-    .type _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3, %function
-_ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3:
-    leaq .Lstub_name_163(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3, . - _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3
-
-    // mmSplash::Activate(float)
-    .global _ZN8mmSplash8ActivateEf
-    .type _ZN8mmSplash8ActivateEf, %function
-_ZN8mmSplash8ActivateEf:
-    leaq .Lstub_name_164(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmSplash8ActivateEf, . - _ZN8mmSplash8ActivateEf
-
-    // asLineSparks::RadialBlast(int, Vector3&, Vector3&)
-    .global _ZN12asLineSparks11RadialBlastEiR7Vector3S1_
-    .type _ZN12asLineSparks11RadialBlastEiR7Vector3S1_, %function
-_ZN12asLineSparks11RadialBlastEiR7Vector3S1_:
-    leaq .Lstub_name_165(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN12asLineSparks11RadialBlastEiR7Vector3S1_, . - _ZN12asLineSparks11RadialBlastEiR7Vector3S1_
-
-    // mmShardManager::EmitShards(Vector3, float, float)
-    .global _ZN14mmShardManager10EmitShardsE7Vector3ff
-    .type _ZN14mmShardManager10EmitShardsE7Vector3ff, %function
-_ZN14mmShardManager10EmitShardsE7Vector3ff:
-    leaq .Lstub_name_166(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN14mmShardManager10EmitShardsE7Vector3ff, . - _ZN14mmShardManager10EmitShardsE7Vector3ff
-
-    // mmCarModel::Impact(Vector3*)
-    .global _ZN10mmCarModel6ImpactEP7Vector3
-    .type _ZN10mmCarModel6ImpactEP7Vector3, %function
-_ZN10mmCarModel6ImpactEP7Vector3:
-    leaq .Lstub_name_167(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10mmCarModel6ImpactEP7Vector3, . - _ZN10mmCarModel6ImpactEP7Vector3
 
     // GetSparkLut(char const*)
     .global _Z11GetSparkLutPKc
     .type _Z11GetSparkLutPKc, %function
 _Z11GetSparkLutPKc:
-    leaq .Lstub_name_168(%rip), %rdi
+    leaq .Lstub_name_141(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z11GetSparkLutPKc, . - _Z11GetSparkLutPKc
 
@@ -10403,15 +10175,223 @@ _Z11GetSparkLutPKc:
     .global _ZN7mmStuck4InitEP8mmCarSim
     .type _ZN7mmStuck4InitEP8mmCarSim, %function
 _ZN7mmStuck4InitEP8mmCarSim:
-    leaq .Lstub_name_169(%rip), %rdi
+    leaq .Lstub_name_142(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmStuck4InitEP8mmCarSim, . - _ZN7mmStuck4InitEP8mmCarSim
+
+    // mmTrailer::Init(char const*, mmCarSim*, Vector3)
+    .global _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3
+    .type _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3, %function
+_ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3:
+    leaq .Lstub_name_143(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3, . - _ZN9mmTrailer4InitEPKcP8mmCarSim7Vector3
+
+    // Joint3Dof::InitJoint3Dof(asInertialCS*, Vector3 const&, asInertialCS*, Vector3 const&)
+    .global _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_
+    .type _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_, %function
+_ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_:
+    leaq .Lstub_name_144(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_, . - _ZN9Joint3Dof13InitJoint3DofEP12asInertialCSRK7Vector3S1_S4_
+
+    // mmTrailer::Activate()
+    .global _ZN9mmTrailer8ActivateEv
+    .type _ZN9mmTrailer8ActivateEv, %function
+_ZN9mmTrailer8ActivateEv:
+    leaq .Lstub_name_145(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9mmTrailer8ActivateEv, . - _ZN9mmTrailer8ActivateEv
+
+    // Joint3Dof::UnbreakJoint()
+    .global _ZN9Joint3Dof12UnbreakJointEv
+    .type _ZN9Joint3Dof12UnbreakJointEv, %function
+_ZN9Joint3Dof12UnbreakJointEv:
+    leaq .Lstub_name_146(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9Joint3Dof12UnbreakJointEv, . - _ZN9Joint3Dof12UnbreakJointEv
+
+    // DLPTemplate::Release()
+    .global _ZN11DLPTemplate7ReleaseEv
+    .type _ZN11DLPTemplate7ReleaseEv, %function
+_ZN11DLPTemplate7ReleaseEv:
+    leaq .Lstub_name_147(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11DLPTemplate7ReleaseEv, . - _ZN11DLPTemplate7ReleaseEv
+
+    // mmCarSim::Reset()
+    .global _ZN8mmCarSim5ResetEv
+    .type _ZN8mmCarSim5ResetEv, %function
+_ZN8mmCarSim5ResetEv:
+    leaq .Lstub_name_148(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmCarSim5ResetEv, . - _ZN8mmCarSim5ResetEv
+
+    // mmCarModel::Reset()
+    .global _ZN10mmCarModel5ResetEv
+    .type _ZN10mmCarModel5ResetEv, %function
+_ZN10mmCarModel5ResetEv:
+    leaq .Lstub_name_149(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10mmCarModel5ResetEv, . - _ZN10mmCarModel5ResetEv
+
+    // mmCarModel::ClearDamage(bool)
+    .global _ZN10mmCarModel11ClearDamageEb
+    .type _ZN10mmCarModel11ClearDamageEb, %function
+_ZN10mmCarModel11ClearDamageEb:
+    leaq .Lstub_name_150(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10mmCarModel11ClearDamageEb, . - _ZN10mmCarModel11ClearDamageEb
+
+    // mmSplash::Reset()
+    .global _ZN8mmSplash5ResetEv
+    .type _ZN8mmSplash5ResetEv, %function
+_ZN8mmSplash5ResetEv:
+    leaq .Lstub_name_151(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmSplash5ResetEv, . - _ZN8mmSplash5ResetEv
+
+    // mmTrailer::Reset()
+    .global _ZN9mmTrailer5ResetEv
+    .type _ZN9mmTrailer5ResetEv, %function
+_ZN9mmTrailer5ResetEv:
+    leaq .Lstub_name_152(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9mmTrailer5ResetEv, . - _ZN9mmTrailer5ResetEv
+
+    // Joint3Dof::Reset()
+    .global _ZN9Joint3Dof5ResetEv
+    .type _ZN9Joint3Dof5ResetEv, %function
+_ZN9Joint3Dof5ResetEv:
+    leaq .Lstub_name_153(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9Joint3Dof5ResetEv, . - _ZN9Joint3Dof5ResetEv
+
+    // mmSkidManager::Reset()
+    .global _ZN13mmSkidManager5ResetEv
+    .type _ZN13mmSkidManager5ResetEv, %function
+_ZN13mmSkidManager5ResetEv:
+    leaq .Lstub_name_154(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN13mmSkidManager5ResetEv, . - _ZN13mmSkidManager5ResetEv
+
+    // mmTrailer::SetHackedImpactParams()
+    .global _ZN9mmTrailer21SetHackedImpactParamsEv
+    .type _ZN9mmTrailer21SetHackedImpactParamsEv, %function
+_ZN9mmTrailer21SetHackedImpactParamsEv:
+    leaq .Lstub_name_155(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9mmTrailer21SetHackedImpactParamsEv, . - _ZN9mmTrailer21SetHackedImpactParamsEv
+
+    // mmCarSim::RemoveNetVehicleAudio()
+    .global _ZN8mmCarSim21RemoveNetVehicleAudioEv
+    .type _ZN8mmCarSim21RemoveNetVehicleAudioEv, %function
+_ZN8mmCarSim21RemoveNetVehicleAudioEv:
+    leaq .Lstub_name_156(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmCarSim21RemoveNetVehicleAudioEv, . - _ZN8mmCarSim21RemoveNetVehicleAudioEv
+
+    // mmPlayerCarAudio::StartSiren()
+    .global _ZN16mmPlayerCarAudio10StartSirenEv
+    .type _ZN16mmPlayerCarAudio10StartSirenEv, %function
+_ZN16mmPlayerCarAudio10StartSirenEv:
+    leaq .Lstub_name_157(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN16mmPlayerCarAudio10StartSirenEv, . - _ZN16mmPlayerCarAudio10StartSirenEv
+
+    // mmPlayerCarAudio::StopSiren()
+    .global _ZN16mmPlayerCarAudio9StopSirenEv
+    .type _ZN16mmPlayerCarAudio9StopSirenEv, %function
+_ZN16mmPlayerCarAudio9StopSirenEv:
+    leaq .Lstub_name_158(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN16mmPlayerCarAudio9StopSirenEv, . - _ZN16mmPlayerCarAudio9StopSirenEv
+
+    // mmCarModel::ApplyDamage(Vector3&, float)
+    .global _ZN10mmCarModel11ApplyDamageER7Vector3f
+    .type _ZN10mmCarModel11ApplyDamageER7Vector3f, %function
+_ZN10mmCarModel11ApplyDamageER7Vector3f:
+    leaq .Lstub_name_159(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10mmCarModel11ApplyDamageER7Vector3f, . - _ZN10mmCarModel11ApplyDamageER7Vector3f
+
+    // mmInput::DoingFF()
+    .global _ZN7mmInput7DoingFFEv
+    .type _ZN7mmInput7DoingFFEv, %function
+_ZN7mmInput7DoingFFEv:
+    leaq .Lstub_name_160(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmInput7DoingFFEv, . - _ZN7mmInput7DoingFFEv
+
+    // mmInput::FFSetValues(int, float, float)
+    .global _ZN7mmInput11FFSetValuesEiff
+    .type _ZN7mmInput11FFSetValuesEiff, %function
+_ZN7mmInput11FFSetValuesEiff:
+    leaq .Lstub_name_161(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmInput11FFSetValuesEiff, . - _ZN7mmInput11FFSetValuesEiff
+
+    // mmInput::FFPlay(int)
+    .global _ZN7mmInput6FFPlayEi
+    .type _ZN7mmInput6FFPlayEi, %function
+_ZN7mmInput6FFPlayEi:
+    leaq .Lstub_name_162(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmInput6FFPlayEi, . - _ZN7mmInput6FFPlayEi
+
+    // mmCullCity::IsPolyWater(mmPolygon*)
+    .global _ZN10mmCullCity11IsPolyWaterEP9mmPolygon
+    .type _ZN10mmCullCity11IsPolyWaterEP9mmPolygon, %function
+_ZN10mmCullCity11IsPolyWaterEP9mmPolygon:
+    leaq .Lstub_name_163(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10mmCullCity11IsPolyWaterEP9mmPolygon, . - _ZN10mmCullCity11IsPolyWaterEP9mmPolygon
+
+    // mmCarSim::PlayImpactAudio(short, mmIntersection*, Vector3*)
+    .global _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3
+    .type _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3, %function
+_ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3:
+    leaq .Lstub_name_164(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3, . - _ZN8mmCarSim15PlayImpactAudioEsP14mmIntersectionP7Vector3
+
+    // mmSplash::Activate(float)
+    .global _ZN8mmSplash8ActivateEf
+    .type _ZN8mmSplash8ActivateEf, %function
+_ZN8mmSplash8ActivateEf:
+    leaq .Lstub_name_165(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmSplash8ActivateEf, . - _ZN8mmSplash8ActivateEf
+
+    // asLineSparks::RadialBlast(int, Vector3&, Vector3&)
+    .global _ZN12asLineSparks11RadialBlastEiR7Vector3S1_
+    .type _ZN12asLineSparks11RadialBlastEiR7Vector3S1_, %function
+_ZN12asLineSparks11RadialBlastEiR7Vector3S1_:
+    leaq .Lstub_name_166(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN12asLineSparks11RadialBlastEiR7Vector3S1_, . - _ZN12asLineSparks11RadialBlastEiR7Vector3S1_
+
+    // mmShardManager::EmitShards(Vector3, float, float)
+    .global _ZN14mmShardManager10EmitShardsE7Vector3ff
+    .type _ZN14mmShardManager10EmitShardsE7Vector3ff, %function
+_ZN14mmShardManager10EmitShardsE7Vector3ff:
+    leaq .Lstub_name_167(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN14mmShardManager10EmitShardsE7Vector3ff, . - _ZN14mmShardManager10EmitShardsE7Vector3ff
+
+    // mmCarModel::Impact(Vector3*)
+    .global _ZN10mmCarModel6ImpactEP7Vector3
+    .type _ZN10mmCarModel6ImpactEP7Vector3, %function
+_ZN10mmCarModel6ImpactEP7Vector3:
+    leaq .Lstub_name_168(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10mmCarModel6ImpactEP7Vector3, . - _ZN10mmCarModel6ImpactEP7Vector3
 
     // mmShardManager::GetClass()
     .global _ZN14mmShardManager8GetClassEv
     .type _ZN14mmShardManager8GetClassEv, %function
 _ZN14mmShardManager8GetClassEv:
-    leaq .Lstub_name_170(%rip), %rdi
+    leaq .Lstub_name_169(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmShardManager8GetClassEv, . - _ZN14mmShardManager8GetClassEv
 
@@ -10419,7 +10399,7 @@ _ZN14mmShardManager8GetClassEv:
     .global _ZN7mmShard8GetClassEv
     .type _ZN7mmShard8GetClassEv, %function
 _ZN7mmShard8GetClassEv:
-    leaq .Lstub_name_171(%rip), %rdi
+    leaq .Lstub_name_170(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmShard8GetClassEv, . - _ZN7mmShard8GetClassEv
 
@@ -10427,7 +10407,7 @@ _ZN7mmShard8GetClassEv:
     .global _ZN13mmSkidManager8LayTrackEv
     .type _ZN13mmSkidManager8LayTrackEv, %function
 _ZN13mmSkidManager8LayTrackEv:
-    leaq .Lstub_name_172(%rip), %rdi
+    leaq .Lstub_name_171(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13mmSkidManager8LayTrackEv, . - _ZN13mmSkidManager8LayTrackEv
 
@@ -10435,7 +10415,7 @@ _ZN13mmSkidManager8LayTrackEv:
     .global _Z8SplashCBP8mmSplash
     .type _Z8SplashCBP8mmSplash, %function
 _Z8SplashCBP8mmSplash:
-    leaq .Lstub_name_173(%rip), %rdi
+    leaq .Lstub_name_172(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z8SplashCBP8mmSplash, . - _Z8SplashCBP8mmSplash
 
@@ -10443,7 +10423,7 @@ _Z8SplashCBP8mmSplash:
     .global _Z7StuckCBP7mmStuck
     .type _Z7StuckCBP7mmStuck, %function
 _Z7StuckCBP7mmStuck:
-    leaq .Lstub_name_174(%rip), %rdi
+    leaq .Lstub_name_173(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z7StuckCBP7mmStuck, . - _Z7StuckCBP7mmStuck
 
@@ -10451,7 +10431,7 @@ _Z7StuckCBP7mmStuck:
     .global _ZN14mmTransmission14SetCurrentGearEi
     .type _ZN14mmTransmission14SetCurrentGearEi, %function
 _ZN14mmTransmission14SetCurrentGearEi:
-    leaq .Lstub_name_175(%rip), %rdi
+    leaq .Lstub_name_174(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmTransmission14SetCurrentGearEi, . - _ZN14mmTransmission14SetCurrentGearEi
 
@@ -10459,7 +10439,7 @@ _ZN14mmTransmission14SetCurrentGearEi:
     .global _ZN7mmWheel16ComputeConstantsEv
     .type _ZN7mmWheel16ComputeConstantsEv, %function
 _ZN7mmWheel16ComputeConstantsEv:
-    leaq .Lstub_name_176(%rip), %rdi
+    leaq .Lstub_name_175(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmWheel16ComputeConstantsEv, . - _ZN7mmWheel16ComputeConstantsEv
 
@@ -10467,7 +10447,7 @@ _ZN7mmWheel16ComputeConstantsEv:
     .global _ZN5mmSky4InitEPKc
     .type _ZN5mmSky4InitEPKc, %function
 _ZN5mmSky4InitEPKc:
-    leaq .Lstub_name_177(%rip), %rdi
+    leaq .Lstub_name_176(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5mmSky4InitEPKc, . - _ZN5mmSky4InitEPKc
 
@@ -10475,7 +10455,7 @@ _ZN5mmSky4InitEPKc:
     .global _Z8fix_clipv
     .type _Z8fix_clipv, %function
 _Z8fix_clipv:
-    leaq .Lstub_name_178(%rip), %rdi
+    leaq .Lstub_name_177(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z8fix_clipv, . - _Z8fix_clipv
 
@@ -10483,7 +10463,7 @@ _Z8fix_clipv:
     .global _ZN11mmYInstanceC1Ev
     .type _ZN11mmYInstanceC1Ev, %function
 _ZN11mmYInstanceC1Ev:
-    leaq .Lstub_name_179(%rip), %rdi
+    leaq .Lstub_name_178(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmYInstanceC1Ev, . - _ZN11mmYInstanceC1Ev
 
@@ -10491,7 +10471,7 @@ _ZN11mmYInstanceC1Ev:
     .global _ZN10mmCullCity23InitTimeOfDayAndWeatherEv
     .type _ZN10mmCullCity23InitTimeOfDayAndWeatherEv, %function
 _ZN10mmCullCity23InitTimeOfDayAndWeatherEv:
-    leaq .Lstub_name_180(%rip), %rdi
+    leaq .Lstub_name_179(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCullCity23InitTimeOfDayAndWeatherEv, . - _ZN10mmCullCity23InitTimeOfDayAndWeatherEv
 
@@ -10499,7 +10479,7 @@ _ZN10mmCullCity23InitTimeOfDayAndWeatherEv:
     .global _ZN10mmCullCity16InitSnowTexturesEv
     .type _ZN10mmCullCity16InitSnowTexturesEv, %function
 _ZN10mmCullCity16InitSnowTexturesEv:
-    leaq .Lstub_name_181(%rip), %rdi
+    leaq .Lstub_name_180(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCullCity16InitSnowTexturesEv, . - _ZN10mmCullCity16InitSnowTexturesEv
 
@@ -10507,7 +10487,7 @@ _ZN10mmCullCity16InitSnowTexturesEv:
     .global _ZN15mmBangerManager4InitEi
     .type _ZN15mmBangerManager4InitEi, %function
 _ZN15mmBangerManager4InitEi:
-    leaq .Lstub_name_182(%rip), %rdi
+    leaq .Lstub_name_181(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmBangerManager4InitEi, . - _ZN15mmBangerManager4InitEi
 
@@ -10515,7 +10495,7 @@ _ZN15mmBangerManager4InitEi:
     .global _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f
     .type _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f, %function
 _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f:
-    leaq .Lstub_name_183(%rip), %rdi
+    leaq .Lstub_name_182(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f, . - _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f
 
@@ -10523,7 +10503,7 @@ _ZN10mmCullCity11AddInstanceEiPcS0_iP7Vector3S2_S2_f:
     .global _ZN10mmCullCity18UpdateSnowTexturesEv
     .type _ZN10mmCullCity18UpdateSnowTexturesEv, %function
 _ZN10mmCullCity18UpdateSnowTexturesEv:
-    leaq .Lstub_name_184(%rip), %rdi
+    leaq .Lstub_name_183(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCullCity18UpdateSnowTexturesEv, . - _ZN10mmCullCity18UpdateSnowTexturesEv
 
@@ -10531,7 +10511,7 @@ _ZN10mmCullCity18UpdateSnowTexturesEv:
     .global _Z14agiConeLighterPhPjS0_P10agiMeshSet
     .type _Z14agiConeLighterPhPjS0_P10agiMeshSet, %function
 _Z14agiConeLighterPhPjS0_P10agiMeshSet:
-    leaq .Lstub_name_185(%rip), %rdi
+    leaq .Lstub_name_184(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z14agiConeLighterPhPjS0_P10agiMeshSet, . - _Z14agiConeLighterPhPjS0_P10agiMeshSet
 
@@ -10539,7 +10519,7 @@ _Z14agiConeLighterPhPjS0_P10agiMeshSet:
     .global _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet
     .type _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet, %function
 _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet:
-    leaq .Lstub_name_186(%rip), %rdi
+    leaq .Lstub_name_185(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet, . - _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet
 
@@ -10547,7 +10527,7 @@ _Z21agiMeshLighterQuarterPhPjS0_P10agiMeshSet:
     .global _ZN19mmBangerDataManagerC1Ev
     .type _ZN19mmBangerDataManagerC1Ev, %function
 _ZN19mmBangerDataManagerC1Ev:
-    leaq .Lstub_name_187(%rip), %rdi
+    leaq .Lstub_name_186(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN19mmBangerDataManagerC1Ev, . - _ZN19mmBangerDataManagerC1Ev
 
@@ -10555,7 +10535,7 @@ _ZN19mmBangerDataManagerC1Ev:
     .global _ZN5mmSkyC1Ev
     .type _ZN5mmSkyC1Ev, %function
 _ZN5mmSkyC1Ev:
-    leaq .Lstub_name_188(%rip), %rdi
+    leaq .Lstub_name_187(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5mmSkyC1Ev, . - _ZN5mmSkyC1Ev
 
@@ -10563,23 +10543,15 @@ _ZN5mmSkyC1Ev:
     .global _ZN10mmInstance8ResetAllEv
     .type _ZN10mmInstance8ResetAllEv, %function
 _ZN10mmInstance8ResetAllEv:
-    leaq .Lstub_name_189(%rip), %rdi
+    leaq .Lstub_name_188(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmInstance8ResetAllEv, . - _ZN10mmInstance8ResetAllEv
-
-    // mmBoundTemplate::MakeBox(char*, char*, int, Vector3*, Vector3*)
-    .global _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_
-    .type _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_, %function
-_ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_:
-    leaq .Lstub_name_190(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_, . - _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_
 
     // agiTexSheet::Kill()
     .global _ZN11agiTexSheet4KillEv
     .type _ZN11agiTexSheet4KillEv, %function
 _ZN11agiTexSheet4KillEv:
-    leaq .Lstub_name_191(%rip), %rdi
+    leaq .Lstub_name_189(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11agiTexSheet4KillEv, . - _ZN11agiTexSheet4KillEv
 
@@ -10587,7 +10559,7 @@ _ZN11agiTexSheet4KillEv:
     .global _ZN5mmSkyD1Ev
     .type _ZN5mmSkyD1Ev, %function
 _ZN5mmSkyD1Ev:
-    leaq .Lstub_name_192(%rip), %rdi
+    leaq .Lstub_name_190(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5mmSkyD1Ev, . - _ZN5mmSkyD1Ev
 
@@ -10595,7 +10567,7 @@ _ZN5mmSkyD1Ev:
     .global _ZN19mmBangerDataManagerD1Ev
     .type _ZN19mmBangerDataManagerD1Ev, %function
 _ZN19mmBangerDataManagerD1Ev:
-    leaq .Lstub_name_193(%rip), %rdi
+    leaq .Lstub_name_191(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN19mmBangerDataManagerD1Ev, . - _ZN19mmBangerDataManagerD1Ev
 
@@ -10603,31 +10575,23 @@ _ZN19mmBangerDataManagerD1Ev:
     .global _ZN10mmTextNode7AddTextEPvP9LocStringiff
     .type _ZN10mmTextNode7AddTextEPvP9LocStringiff, %function
 _ZN10mmTextNode7AddTextEPvP9LocStringiff:
-    leaq .Lstub_name_194(%rip), %rdi
+    leaq .Lstub_name_192(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmTextNode7AddTextEPvP9LocStringiff, . - _ZN10mmTextNode7AddTextEPvP9LocStringiff
 
-    // mmMatrixInstance::GetClass()
-    .global _ZN16mmMatrixInstance8GetClassEv
-    .type _ZN16mmMatrixInstance8GetClassEv, %function
-_ZN16mmMatrixInstance8GetClassEv:
-    leaq .Lstub_name_195(%rip), %rdi
+    // mmCullCity::GetClass()
+    .global _ZN10mmCullCity8GetClassEv
+    .type _ZN10mmCullCity8GetClassEv, %function
+_ZN10mmCullCity8GetClassEv:
+    leaq .Lstub_name_193(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN16mmMatrixInstance8GetClassEv, . - _ZN16mmMatrixInstance8GetClassEv
-
-    // mmBuildingInstance::GetClass()
-    .global _ZN18mmBuildingInstance8GetClassEv
-    .type _ZN18mmBuildingInstance8GetClassEv, %function
-_ZN18mmBuildingInstance8GetClassEv:
-    leaq .Lstub_name_196(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN18mmBuildingInstance8GetClassEv, . - _ZN18mmBuildingInstance8GetClassEv
+    .size _ZN10mmCullCity8GetClassEv, . - _ZN10mmCullCity8GetClassEv
 
     // Matrix44::Matrix44(Matrix34 const&)
     .global _ZN8Matrix44C1ERK8Matrix34
     .type _ZN8Matrix44C1ERK8Matrix34, %function
 _ZN8Matrix44C1ERK8Matrix34:
-    leaq .Lstub_name_197(%rip), %rdi
+    leaq .Lstub_name_194(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8Matrix44C1ERK8Matrix34, . - _ZN8Matrix44C1ERK8Matrix34
 
@@ -10635,23 +10599,39 @@ _ZN8Matrix44C1ERK8Matrix34:
     .global _ZN8Matrix44C1ERKS_
     .type _ZN8Matrix44C1ERKS_, %function
 _ZN8Matrix44C1ERKS_:
-    leaq .Lstub_name_198(%rip), %rdi
+    leaq .Lstub_name_195(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8Matrix44C1ERKS_, . - _ZN8Matrix44C1ERKS_
 
-    // mmCullCity::GetClass()
-    .global _ZN10mmCullCity8GetClassEv
-    .type _ZN10mmCullCity8GetClassEv, %function
-_ZN10mmCullCity8GetClassEv:
-    leaq .Lstub_name_199(%rip), %rdi
+    // mmBoundTemplate::MakeBox(char*, char*, int, Vector3*, Vector3*)
+    .global _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_
+    .type _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_, %function
+_ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_:
+    leaq .Lstub_name_196(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN10mmCullCity8GetClassEv, . - _ZN10mmCullCity8GetClassEv
+    .size _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_, . - _ZN15mmBoundTemplate7MakeBoxEPcS0_iP7Vector3S2_
+
+    // mmMatrixInstance::GetClass()
+    .global _ZN16mmMatrixInstance8GetClassEv
+    .type _ZN16mmMatrixInstance8GetClassEv, %function
+_ZN16mmMatrixInstance8GetClassEv:
+    leaq .Lstub_name_197(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN16mmMatrixInstance8GetClassEv, . - _ZN16mmMatrixInstance8GetClassEv
+
+    // mmBuildingInstance::GetClass()
+    .global _ZN18mmBuildingInstance8GetClassEv
+    .type _ZN18mmBuildingInstance8GetClassEv, %function
+_ZN18mmBuildingInstance8GetClassEv:
+    leaq .Lstub_name_198(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN18mmBuildingInstance8GetClassEv, . - _ZN18mmBuildingInstance8GetClassEv
 
     // mmBuildingInstance::SizeOf()
     .global _ZN18mmBuildingInstance6SizeOfEv
     .type _ZN18mmBuildingInstance6SizeOfEv, %function
 _ZN18mmBuildingInstance6SizeOfEv:
-    leaq .Lstub_name_200(%rip), %rdi
+    leaq .Lstub_name_199(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18mmBuildingInstance6SizeOfEv, . - _ZN18mmBuildingInstance6SizeOfEv
 
@@ -10659,7 +10639,7 @@ _ZN18mmBuildingInstance6SizeOfEv:
     .global _ZN18mmBuildingInstance8GetScaleEv
     .type _ZN18mmBuildingInstance8GetScaleEv, %function
 _ZN18mmBuildingInstance8GetScaleEv:
-    leaq .Lstub_name_201(%rip), %rdi
+    leaq .Lstub_name_200(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18mmBuildingInstance8GetScaleEv, . - _ZN18mmBuildingInstance8GetScaleEv
 
@@ -10667,7 +10647,7 @@ _ZN18mmBuildingInstance8GetScaleEv:
     .global _ZN9mmPolygon11FullSegmentEP14mmIntersection
     .type _ZN9mmPolygon11FullSegmentEP14mmIntersection, %function
 _ZN9mmPolygon11FullSegmentEP14mmIntersection:
-    leaq .Lstub_name_202(%rip), %rdi
+    leaq .Lstub_name_201(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmPolygon11FullSegmentEP14mmIntersection, . - _ZN9mmPolygon11FullSegmentEP14mmIntersection
 
@@ -10675,7 +10655,7 @@ _ZN9mmPolygon11FullSegmentEP14mmIntersection:
     .global _ZN11asRenderWeb4CullEv
     .type _ZN11asRenderWeb4CullEv, %function
 _ZN11asRenderWeb4CullEv:
-    leaq .Lstub_name_203(%rip), %rdi
+    leaq .Lstub_name_202(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11asRenderWeb4CullEv, . - _ZN11asRenderWeb4CullEv
 
@@ -10683,7 +10663,7 @@ _ZN11asRenderWeb4CullEv:
     .global _ZN10AudManager19GetHiSampleSizeMaskEv
     .type _ZN10AudManager19GetHiSampleSizeMaskEv, %function
 _ZN10AudManager19GetHiSampleSizeMaskEv:
-    leaq .Lstub_name_204(%rip), %rdi
+    leaq .Lstub_name_203(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager19GetHiSampleSizeMaskEv, . - _ZN10AudManager19GetHiSampleSizeMaskEv
 
@@ -10691,7 +10671,7 @@ _ZN10AudManager19GetHiSampleSizeMaskEv:
     .global _ZN10AudManager12GetHiResMaskEv
     .type _ZN10AudManager12GetHiResMaskEv, %function
 _ZN10AudManager12GetHiResMaskEv:
-    leaq .Lstub_name_205(%rip), %rdi
+    leaq .Lstub_name_204(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager12GetHiResMaskEv, . - _ZN10AudManager12GetHiResMaskEv
 
@@ -10699,7 +10679,7 @@ _ZN10AudManager12GetHiResMaskEv:
     .global _ZN10AudManager15GetStereoOnMaskEv
     .type _ZN10AudManager15GetStereoOnMaskEv, %function
 _ZN10AudManager15GetStereoOnMaskEv:
-    leaq .Lstub_name_206(%rip), %rdi
+    leaq .Lstub_name_205(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager15GetStereoOnMaskEv, . - _ZN10AudManager15GetStereoOnMaskEv
 
@@ -10707,7 +10687,7 @@ _ZN10AudManager15GetStereoOnMaskEv:
     .global _ZN10AudManager19GetCommentaryOnMaskEv
     .type _ZN10AudManager19GetCommentaryOnMaskEv, %function
 _ZN10AudManager19GetCommentaryOnMaskEv:
-    leaq .Lstub_name_207(%rip), %rdi
+    leaq .Lstub_name_206(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager19GetCommentaryOnMaskEv, . - _ZN10AudManager19GetCommentaryOnMaskEv
 
@@ -10715,7 +10695,7 @@ _ZN10AudManager19GetCommentaryOnMaskEv:
     .global _ZN10AudManager16GetCDMusicOnMaskEv
     .type _ZN10AudManager16GetCDMusicOnMaskEv, %function
 _ZN10AudManager16GetCDMusicOnMaskEv:
-    leaq .Lstub_name_208(%rip), %rdi
+    leaq .Lstub_name_207(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager16GetCDMusicOnMaskEv, . - _ZN10AudManager16GetCDMusicOnMaskEv
 
@@ -10723,7 +10703,7 @@ _ZN10AudManager16GetCDMusicOnMaskEv:
     .global _ZN10AudManager16GetSoundFXOnMaskEv
     .type _ZN10AudManager16GetSoundFXOnMaskEv, %function
 _ZN10AudManager16GetSoundFXOnMaskEv:
-    leaq .Lstub_name_209(%rip), %rdi
+    leaq .Lstub_name_208(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager16GetSoundFXOnMaskEv, . - _ZN10AudManager16GetSoundFXOnMaskEv
 
@@ -10731,7 +10711,7 @@ _ZN10AudManager16GetSoundFXOnMaskEv:
     .global _ZN9mmVehInfo5PrintEv
     .type _ZN9mmVehInfo5PrintEv, %function
 _ZN9mmVehInfo5PrintEv:
-    leaq .Lstub_name_210(%rip), %rdi
+    leaq .Lstub_name_209(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmVehInfo5PrintEv, . - _ZN9mmVehInfo5PrintEv
 
@@ -10739,7 +10719,7 @@ _ZN9mmVehInfo5PrintEv:
     .global _ZN14mmTransmission10SetReverseEv
     .type _ZN14mmTransmission10SetReverseEv, %function
 _ZN14mmTransmission10SetReverseEv:
-    leaq .Lstub_name_211(%rip), %rdi
+    leaq .Lstub_name_210(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmTransmission10SetReverseEv, . - _ZN14mmTransmission10SetReverseEv
 
@@ -10747,7 +10727,7 @@ _ZN14mmTransmission10SetReverseEv:
     .global _ZN6aiPath5IndexER7Vector3
     .type _ZN6aiPath5IndexER7Vector3, %function
 _ZN6aiPath5IndexER7Vector3:
-    leaq .Lstub_name_212(%rip), %rdi
+    leaq .Lstub_name_211(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6aiPath5IndexER7Vector3, . - _ZN6aiPath5IndexER7Vector3
 
@@ -10755,7 +10735,7 @@ _ZN6aiPath5IndexER7Vector3:
     .global _ZN11aiGoalChase9CalcSpeedEf
     .type _ZN11aiGoalChase9CalcSpeedEf, %function
 _ZN11aiGoalChase9CalcSpeedEf:
-    leaq .Lstub_name_213(%rip), %rdi
+    leaq .Lstub_name_212(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11aiGoalChase9CalcSpeedEf, . - _ZN11aiGoalChase9CalcSpeedEf
 
@@ -10763,7 +10743,7 @@ _ZN11aiGoalChase9CalcSpeedEf:
     .global _ZN6aiPath12CenterLengthEii
     .type _ZN6aiPath12CenterLengthEii, %function
 _ZN6aiPath12CenterLengthEii:
-    leaq .Lstub_name_214(%rip), %rdi
+    leaq .Lstub_name_213(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6aiPath12CenterLengthEii, . - _ZN6aiPath12CenterLengthEii
 
@@ -10771,7 +10751,7 @@ _ZN6aiPath12CenterLengthEii:
     .global _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff
     .type _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff, %function
 _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff:
-    leaq .Lstub_name_215(%rip), %rdi
+    leaq .Lstub_name_214(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff, . - _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff
 
@@ -10779,7 +10759,7 @@ _ZN9aiRailSet19CalcCopRailPositionER7Vector3S1_ff:
     .global _ZN7aiStuck6UpdateEv
     .type _ZN7aiStuck6UpdateEv, %function
 _ZN7aiStuck6UpdateEv:
-    leaq .Lstub_name_216(%rip), %rdi
+    leaq .Lstub_name_215(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7aiStuck6UpdateEv, . - _ZN7aiStuck6UpdateEv
 
@@ -10787,7 +10767,7 @@ _ZN7aiStuck6UpdateEv:
     .global _ZN18aiGoalFollowWayPts9PlanRouteEv
     .type _ZN18aiGoalFollowWayPts9PlanRouteEv, %function
 _ZN18aiGoalFollowWayPts9PlanRouteEv:
-    leaq .Lstub_name_217(%rip), %rdi
+    leaq .Lstub_name_216(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts9PlanRouteEv, . - _ZN18aiGoalFollowWayPts9PlanRouteEv
 
@@ -10795,7 +10775,7 @@ _ZN18aiGoalFollowWayPts9PlanRouteEv:
     .global _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_
     .type _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_, %function
 _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_:
-    leaq .Lstub_name_218(%rip), %rdi
+    leaq .Lstub_name_217(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_, . - _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_
 
@@ -10803,7 +10783,7 @@ _ZN18aiGoalFollowWayPts19DetRdSegBetweenIntsEP14aiIntersectionS1_:
     .global _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss
     .type _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss, %function
 _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss:
-    leaq .Lstub_name_219(%rip), %rdi
+    leaq .Lstub_name_218(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss, . - _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss
 
@@ -10811,7 +10791,7 @@ _ZN5aiMap24DetermineOppMapComponentER8Matrix34P9aiRailSetPsS4_PfS5_S4_S5_fss:
     .global _ZN6aiPath22StopDestinationSourcesEb
     .type _ZN6aiPath22StopDestinationSourcesEb, %function
 _ZN6aiPath22StopDestinationSourcesEb:
-    leaq .Lstub_name_220(%rip), %rdi
+    leaq .Lstub_name_219(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6aiPath22StopDestinationSourcesEb, . - _ZN6aiPath22StopDestinationSourcesEb
 
@@ -10819,7 +10799,7 @@ _ZN6aiPath22StopDestinationSourcesEb:
     .global _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv
     .type _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv, %function
 _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv:
-    leaq .Lstub_name_221(%rip), %rdi
+    leaq .Lstub_name_220(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv, . - _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv
 
@@ -10827,7 +10807,7 @@ _ZN18aiGoalFollowWayPts23DetectOpponentCollisionEv:
     .global _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent
     .type _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent, %function
 _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent:
-    leaq .Lstub_name_222(%rip), %rdi
+    leaq .Lstub_name_221(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent, . - _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent
 
@@ -10835,7 +10815,7 @@ _ZN18aiGoalFollowWayPts22AvoidOpponentCollisionEP17aiVehicleOpponent:
     .global _ZN18aiGoalFollowWayPts15DetectCollisionEPi
     .type _ZN18aiGoalFollowWayPts15DetectCollisionEPi, %function
 _ZN18aiGoalFollowWayPts15DetectCollisionEPi:
-    leaq .Lstub_name_223(%rip), %rdi
+    leaq .Lstub_name_222(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts15DetectCollisionEPi, . - _ZN18aiGoalFollowWayPts15DetectCollisionEPi
 
@@ -10843,7 +10823,7 @@ _ZN18aiGoalFollowWayPts15DetectCollisionEPi:
     .global _ZN18aiGoalFollowWayPts14AvoidCollisionEi
     .type _ZN18aiGoalFollowWayPts14AvoidCollisionEi, %function
 _ZN18aiGoalFollowWayPts14AvoidCollisionEi:
-    leaq .Lstub_name_224(%rip), %rdi
+    leaq .Lstub_name_223(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts14AvoidCollisionEi, . - _ZN18aiGoalFollowWayPts14AvoidCollisionEi
 
@@ -10851,7 +10831,7 @@ _ZN18aiGoalFollowWayPts14AvoidCollisionEi:
     .global _ZN18aiGoalFollowWayPts16SolveTargetPointEv
     .type _ZN18aiGoalFollowWayPts16SolveTargetPointEv, %function
 _ZN18aiGoalFollowWayPts16SolveTargetPointEv:
-    leaq .Lstub_name_225(%rip), %rdi
+    leaq .Lstub_name_224(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts16SolveTargetPointEv, . - _ZN18aiGoalFollowWayPts16SolveTargetPointEv
 
@@ -10859,7 +10839,7 @@ _ZN18aiGoalFollowWayPts16SolveTargetPointEv:
     .global _ZN10aiGoalStop4InitEv
     .type _ZN10aiGoalStop4InitEv, %function
 _ZN10aiGoalStop4InitEv:
-    leaq .Lstub_name_226(%rip), %rdi
+    leaq .Lstub_name_225(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10aiGoalStop4InitEv, . - _ZN10aiGoalStop4InitEv
 
@@ -10867,7 +10847,7 @@ _ZN10aiGoalStop4InitEv:
     .global _ZN17aiVehicleOpponent4DumpEv
     .type _ZN17aiVehicleOpponent4DumpEv, %function
 _ZN17aiVehicleOpponent4DumpEv:
-    leaq .Lstub_name_227(%rip), %rdi
+    leaq .Lstub_name_226(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN17aiVehicleOpponent4DumpEv, . - _ZN17aiVehicleOpponent4DumpEv
 
@@ -10875,7 +10855,7 @@ _ZN17aiVehicleOpponent4DumpEv:
     .global _ZN15aiVehiclePolice4DumpEv
     .type _ZN15aiVehiclePolice4DumpEv, %function
 _ZN15aiVehiclePolice4DumpEv:
-    leaq .Lstub_name_228(%rip), %rdi
+    leaq .Lstub_name_227(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15aiVehiclePolice4DumpEv, . - _ZN15aiVehiclePolice4DumpEv
 
@@ -10883,7 +10863,7 @@ _ZN15aiVehiclePolice4DumpEv:
     .global _ZN16aiVehicleAmbient4DumpEv
     .type _ZN16aiVehicleAmbient4DumpEv, %function
 _ZN16aiVehicleAmbient4DumpEv:
-    leaq .Lstub_name_229(%rip), %rdi
+    leaq .Lstub_name_228(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN16aiVehicleAmbient4DumpEv, . - _ZN16aiVehicleAmbient4DumpEv
 
@@ -10891,7 +10871,7 @@ _ZN16aiVehicleAmbient4DumpEv:
     .global _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet
     .type _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet, %function
 _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet:
-    leaq .Lstub_name_230(%rip), %rdi
+    leaq .Lstub_name_229(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet, . - _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet
 
@@ -10899,7 +10879,7 @@ _ZN5aiMap34ChooseNextRightStraightFreewayLinkEP9aiRailSet:
     .global _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet
     .type _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet, %function
 _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet:
-    leaq .Lstub_name_231(%rip), %rdi
+    leaq .Lstub_name_230(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet, . - _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet
 
@@ -10907,7 +10887,7 @@ _ZN5aiMap26ChooseNextLeftStraightLinkEP9aiRailSet:
     .global _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet
     .type _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet, %function
 _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet:
-    leaq .Lstub_name_232(%rip), %rdi
+    leaq .Lstub_name_231(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet, . - _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet
 
@@ -10915,7 +10895,7 @@ _ZN5aiMap27ChooseNextRightStraightLinkEP9aiRailSet:
     .global _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet
     .type _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet, %function
 _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet:
-    leaq .Lstub_name_233(%rip), %rdi
+    leaq .Lstub_name_232(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet, . - _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet
 
@@ -10923,7 +10903,7 @@ _ZN5aiMap21ChooseNextFreewayLinkEP9aiRailSet:
     .global _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet
     .type _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet, %function
 _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet:
-    leaq .Lstub_name_234(%rip), %rdi
+    leaq .Lstub_name_233(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet, . - _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet
 
@@ -10931,7 +10911,7 @@ _ZN5aiMap22ChooseNextStraightLinkEP9aiRailSet:
     .global _ZN14aiIntersection4PathEi
     .type _ZN14aiIntersection4PathEi, %function
 _ZN14aiIntersection4PathEi:
-    leaq .Lstub_name_235(%rip), %rdi
+    leaq .Lstub_name_234(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14aiIntersection4PathEi, . - _ZN14aiIntersection4PathEi
 
@@ -10939,7 +10919,7 @@ _ZN14aiIntersection4PathEi:
     .global _Z5frandv
     .type _Z5frandv, %function
 _Z5frandv:
-    leaq .Lstub_name_236(%rip), %rdi
+    leaq .Lstub_name_235(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z5frandv, . - _Z5frandv
 
@@ -10947,7 +10927,7 @@ _Z5frandv:
     .global _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_
     .type _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_, %function
 _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_:
-    leaq .Lstub_name_237(%rip), %rdi
+    leaq .Lstub_name_236(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_, . - _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_
 
@@ -10955,7 +10935,7 @@ _ZN9aiRailSet13SolveTurnTypeEP6aiPathS1_:
     .global _ZN17aiVehicleInstance9GetEntityEv
     .type _ZN17aiVehicleInstance9GetEntityEv, %function
 _ZN17aiVehicleInstance9GetEntityEv:
-    leaq .Lstub_name_238(%rip), %rdi
+    leaq .Lstub_name_237(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN17aiVehicleInstance9GetEntityEv, . - _ZN17aiVehicleInstance9GetEntityEv
 
@@ -10963,7 +10943,7 @@ _ZN17aiVehicleInstance9GetEntityEv:
     .global _ZN13aiVehicleDataC1Ev
     .type _ZN13aiVehicleDataC1Ev, %function
 _ZN13aiVehicleDataC1Ev:
-    leaq .Lstub_name_239(%rip), %rdi
+    leaq .Lstub_name_238(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13aiVehicleDataC1Ev, . - _ZN13aiVehicleDataC1Ev
 
@@ -10971,7 +10951,7 @@ _ZN13aiVehicleDataC1Ev:
     .global _ZN15aiVehicleActiveC1Ev
     .type _ZN15aiVehicleActiveC1Ev, %function
 _ZN15aiVehicleActiveC1Ev:
-    leaq .Lstub_name_240(%rip), %rdi
+    leaq .Lstub_name_239(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15aiVehicleActiveC1Ev, . - _ZN15aiVehicleActiveC1Ev
 
@@ -10979,79 +10959,23 @@ _ZN15aiVehicleActiveC1Ev:
     .global _ZN15aiVehicleActiveD1Ev
     .type _ZN15aiVehicleActiveD1Ev, %function
 _ZN15aiVehicleActiveD1Ev:
-    leaq .Lstub_name_241(%rip), %rdi
+    leaq .Lstub_name_240(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15aiVehicleActiveD1Ev, . - _ZN15aiVehicleActiveD1Ev
-
-    // aiVehicleInstance::GetData()
-    .global _ZN17aiVehicleInstance7GetDataEv
-    .type _ZN17aiVehicleInstance7GetDataEv, %function
-_ZN17aiVehicleInstance7GetDataEv:
-    leaq .Lstub_name_242(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN17aiVehicleInstance7GetDataEv, . - _ZN17aiVehicleInstance7GetDataEv
-
-    // aiVehicleInstance::ToMatrix(Matrix34&)
-    .global _ZN17aiVehicleInstance8ToMatrixER8Matrix34
-    .type _ZN17aiVehicleInstance8ToMatrixER8Matrix34, %function
-_ZN17aiVehicleInstance8ToMatrixER8Matrix34:
-    leaq .Lstub_name_243(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN17aiVehicleInstance8ToMatrixER8Matrix34, . - _ZN17aiVehicleInstance8ToMatrixER8Matrix34
-
-    // asInertialCS::Update()
-    .global _ZN12asInertialCS6UpdateEv
-    .type _ZN12asInertialCS6UpdateEv, %function
-_ZN12asInertialCS6UpdateEv:
-    leaq .Lstub_name_244(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN12asInertialCS6UpdateEv, . - _ZN12asInertialCS6UpdateEv
-
-    // aiVehicleManager::Detach(aiVehicleActive*)
-    .global _ZN16aiVehicleManager6DetachEP15aiVehicleActive
-    .type _ZN16aiVehicleManager6DetachEP15aiVehicleActive, %function
-_ZN16aiVehicleManager6DetachEP15aiVehicleActive:
-    leaq .Lstub_name_245(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN16aiVehicleManager6DetachEP15aiVehicleActive, . - _ZN16aiVehicleManager6DetachEP15aiVehicleActive
-
-    // aiVehicleManager::Update()
-    .global _ZN16aiVehicleManager6UpdateEv
-    .type _ZN16aiVehicleManager6UpdateEv, %function
-_ZN16aiVehicleManager6UpdateEv:
-    leaq .Lstub_name_246(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN16aiVehicleManager6UpdateEv, . - _ZN16aiVehicleManager6UpdateEv
-
-    // aiVehicleManager::Reset()
-    .global _ZN16aiVehicleManager5ResetEv
-    .type _ZN16aiVehicleManager5ResetEv, %function
-_ZN16aiVehicleManager5ResetEv:
-    leaq .Lstub_name_247(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN16aiVehicleManager5ResetEv, . - _ZN16aiVehicleManager5ResetEv
 
     // mmCar::Init(char const*, int, int)
     .global _ZN5mmCar4InitEPKcii
     .type _ZN5mmCar4InitEPKcii, %function
 _ZN5mmCar4InitEPKcii:
-    leaq .Lstub_name_248(%rip), %rdi
+    leaq .Lstub_name_241(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5mmCar4InitEPKcii, . - _ZN5mmCar4InitEPKcii
-
-    // aiVehicleManager::Save()
-    .global _ZN16aiVehicleManager4SaveEv
-    .type _ZN16aiVehicleManager4SaveEv, %function
-_ZN16aiVehicleManager4SaveEv:
-    leaq .Lstub_name_249(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN16aiVehicleManager4SaveEv, . - _ZN16aiVehicleManager4SaveEv
 
     // aiVehicle::Init(int)
     .global _ZN9aiVehicle4InitEi
     .type _ZN9aiVehicle4InitEi, %function
 _ZN9aiVehicle4InitEi:
-    leaq .Lstub_name_250(%rip), %rdi
+    leaq .Lstub_name_242(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9aiVehicle4InitEi, . - _ZN9aiVehicle4InitEi
 
@@ -11059,7 +10983,7 @@ _ZN9aiVehicle4InitEi:
     .global _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf
     .type _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf, %function
 _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf:
-    leaq .Lstub_name_251(%rip), %rdi
+    leaq .Lstub_name_243(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf, . - _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf
 
@@ -11067,7 +10991,7 @@ _ZN18aiGoalFollowWayPtsC1EPcP9aiRailSetP17aiVehicleOpponentPbS5_S5_PKcf:
     .global _ZN18aiGoalFollowWayPtsD1Ev
     .type _ZN18aiGoalFollowWayPtsD1Ev, %function
 _ZN18aiGoalFollowWayPtsD1Ev:
-    leaq .Lstub_name_252(%rip), %rdi
+    leaq .Lstub_name_244(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPtsD1Ev, . - _ZN18aiGoalFollowWayPtsD1Ev
 
@@ -11075,7 +10999,7 @@ _ZN18aiGoalFollowWayPtsD1Ev:
     .global _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc
     .type _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc, %function
 _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc:
-    leaq .Lstub_name_253(%rip), %rdi
+    leaq .Lstub_name_245(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc, . - _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc
 
@@ -11083,7 +11007,7 @@ _ZN11DLPTemplate8BoundBoxER7Vector3S1_PKc:
     .global _ZN18aiGoalFollowWayPts4InitEv
     .type _ZN18aiGoalFollowWayPts4InitEv, %function
 _ZN18aiGoalFollowWayPts4InitEv:
-    leaq .Lstub_name_254(%rip), %rdi
+    leaq .Lstub_name_246(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN18aiGoalFollowWayPts4InitEv, . - _ZN18aiGoalFollowWayPts4InitEv
 
@@ -11091,7 +11015,7 @@ _ZN18aiGoalFollowWayPts4InitEv:
     .global _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents
     .type _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents, %function
 _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents:
-    leaq .Lstub_name_255(%rip), %rdi
+    leaq .Lstub_name_247(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents, . - _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents
 
@@ -11099,7 +11023,7 @@ _ZN14aiAudioManager13RemoveVehicleEP17aiVehicleOpponents:
     .global _ZN9aiVehicle5ResetEv
     .type _ZN9aiVehicle5ResetEv, %function
 _ZN9aiVehicle5ResetEv:
-    leaq .Lstub_name_256(%rip), %rdi
+    leaq .Lstub_name_248(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9aiVehicle5ResetEv, . - _ZN9aiVehicle5ResetEv
 
@@ -11107,7 +11031,7 @@ _ZN9aiVehicle5ResetEv:
     .global _ZN17aiVehicleOpponent13AddToAiAudMgrEv
     .type _ZN17aiVehicleOpponent13AddToAiAudMgrEv, %function
 _ZN17aiVehicleOpponent13AddToAiAudMgrEv:
-    leaq .Lstub_name_257(%rip), %rdi
+    leaq .Lstub_name_249(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN17aiVehicleOpponent13AddToAiAudMgrEv, . - _ZN17aiVehicleOpponent13AddToAiAudMgrEv
 
@@ -11115,7 +11039,7 @@ _ZN17aiVehicleOpponent13AddToAiAudMgrEv:
     .global _ZN9aiVehicle6UpdateEv
     .type _ZN9aiVehicle6UpdateEv, %function
 _ZN9aiVehicle6UpdateEv:
-    leaq .Lstub_name_258(%rip), %rdi
+    leaq .Lstub_name_250(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9aiVehicle6UpdateEv, . - _ZN9aiVehicle6UpdateEv
 
@@ -11123,31 +11047,55 @@ _ZN9aiVehicle6UpdateEv:
     .global _ZN15aiVehicleSpline6UpdateEv
     .type _ZN15aiVehicleSpline6UpdateEv, %function
 _ZN15aiVehicleSpline6UpdateEv:
-    leaq .Lstub_name_259(%rip), %rdi
+    leaq .Lstub_name_251(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15aiVehicleSpline6UpdateEv, . - _ZN15aiVehicleSpline6UpdateEv
+
+    // aiVehicleInstance::GetData()
+    .global _ZN17aiVehicleInstance7GetDataEv
+    .type _ZN17aiVehicleInstance7GetDataEv, %function
+_ZN17aiVehicleInstance7GetDataEv:
+    leaq .Lstub_name_252(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN17aiVehicleInstance7GetDataEv, . - _ZN17aiVehicleInstance7GetDataEv
 
     // aiVehicleSpline::Reset()
     .global _ZN15aiVehicleSpline5ResetEv
     .type _ZN15aiVehicleSpline5ResetEv, %function
 _ZN15aiVehicleSpline5ResetEv:
-    leaq .Lstub_name_260(%rip), %rdi
+    leaq .Lstub_name_253(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15aiVehicleSpline5ResetEv, . - _ZN15aiVehicleSpline5ResetEv
+
+    // aiVehicleInstance::ToMatrix(Matrix34&)
+    .global _ZN17aiVehicleInstance8ToMatrixER8Matrix34
+    .type _ZN17aiVehicleInstance8ToMatrixER8Matrix34, %function
+_ZN17aiVehicleInstance8ToMatrixER8Matrix34:
+    leaq .Lstub_name_254(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN17aiVehicleInstance8ToMatrixER8Matrix34, . - _ZN17aiVehicleInstance8ToMatrixER8Matrix34
 
     // aiVehicleSpline::Type()
     .global _ZN15aiVehicleSpline4TypeEv
     .type _ZN15aiVehicleSpline4TypeEv, %function
 _ZN15aiVehicleSpline4TypeEv:
-    leaq .Lstub_name_261(%rip), %rdi
+    leaq .Lstub_name_255(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15aiVehicleSpline4TypeEv, . - _ZN15aiVehicleSpline4TypeEv
+
+    // asInertialCS::Update()
+    .global _ZN12asInertialCS6UpdateEv
+    .type _ZN12asInertialCS6UpdateEv, %function
+_ZN12asInertialCS6UpdateEv:
+    leaq .Lstub_name_256(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN12asInertialCS6UpdateEv, . - _ZN12asInertialCS6UpdateEv
 
     // aiVehicleSpline::DrawId()
     .global _ZN15aiVehicleSpline6DrawIdEv
     .type _ZN15aiVehicleSpline6DrawIdEv, %function
 _ZN15aiVehicleSpline6DrawIdEv:
-    leaq .Lstub_name_262(%rip), %rdi
+    leaq .Lstub_name_257(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15aiVehicleSpline6DrawIdEv, . - _ZN15aiVehicleSpline6DrawIdEv
 
@@ -11155,15 +11103,47 @@ _ZN15aiVehicleSpline6DrawIdEv:
     .global _ZN15aiVehicleSpline8GetClassEv
     .type _ZN15aiVehicleSpline8GetClassEv, %function
 _ZN15aiVehicleSpline8GetClassEv:
-    leaq .Lstub_name_263(%rip), %rdi
+    leaq .Lstub_name_258(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15aiVehicleSpline8GetClassEv, . - _ZN15aiVehicleSpline8GetClassEv
+
+    // aiVehicleManager::Detach(aiVehicleActive*)
+    .global _ZN16aiVehicleManager6DetachEP15aiVehicleActive
+    .type _ZN16aiVehicleManager6DetachEP15aiVehicleActive, %function
+_ZN16aiVehicleManager6DetachEP15aiVehicleActive:
+    leaq .Lstub_name_259(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN16aiVehicleManager6DetachEP15aiVehicleActive, . - _ZN16aiVehicleManager6DetachEP15aiVehicleActive
+
+    // aiVehicleManager::Update()
+    .global _ZN16aiVehicleManager6UpdateEv
+    .type _ZN16aiVehicleManager6UpdateEv, %function
+_ZN16aiVehicleManager6UpdateEv:
+    leaq .Lstub_name_260(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN16aiVehicleManager6UpdateEv, . - _ZN16aiVehicleManager6UpdateEv
+
+    // aiVehicleManager::Reset()
+    .global _ZN16aiVehicleManager5ResetEv
+    .type _ZN16aiVehicleManager5ResetEv, %function
+_ZN16aiVehicleManager5ResetEv:
+    leaq .Lstub_name_261(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN16aiVehicleManager5ResetEv, . - _ZN16aiVehicleManager5ResetEv
+
+    // aiVehicleManager::Save()
+    .global _ZN16aiVehicleManager4SaveEv
+    .type _ZN16aiVehicleManager4SaveEv, %function
+_ZN16aiVehicleManager4SaveEv:
+    leaq .Lstub_name_262(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN16aiVehicleManager4SaveEv, . - _ZN16aiVehicleManager4SaveEv
 
     // BaseCamCS::GetClass()
     .global _ZN9BaseCamCS8GetClassEv
     .type _ZN9BaseCamCS8GetClassEv, %function
 _ZN9BaseCamCS8GetClassEv:
-    leaq .Lstub_name_264(%rip), %rdi
+    leaq .Lstub_name_263(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9BaseCamCS8GetClassEv, . - _ZN9BaseCamCS8GetClassEv
 
@@ -11171,7 +11151,7 @@ _ZN9BaseCamCS8GetClassEv:
     .global _ZN9BaseCamCS9AfterLoadEv
     .type _ZN9BaseCamCS9AfterLoadEv, %function
 _ZN9BaseCamCS9AfterLoadEv:
-    leaq .Lstub_name_265(%rip), %rdi
+    leaq .Lstub_name_264(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9BaseCamCS9AfterLoadEv, . - _ZN9BaseCamCS9AfterLoadEv
 
@@ -11179,7 +11159,7 @@ _ZN9BaseCamCS9AfterLoadEv:
     .global _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3
     .type _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3, %function
 _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3:
-    leaq .Lstub_name_266(%rip), %rdi
+    leaq .Lstub_name_265(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3, . - _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3
 
@@ -11187,7 +11167,7 @@ _ZN9BaseCamCS16ForceMatrixDeltaERK7Vector3:
     .global _ZN10mmCarModel8ActivateEv
     .type _ZN10mmCarModel8ActivateEv, %function
 _ZN10mmCarModel8ActivateEv:
-    leaq .Lstub_name_267(%rip), %rdi
+    leaq .Lstub_name_266(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCarModel8ActivateEv, . - _ZN10mmCarModel8ActivateEv
 
@@ -11195,7 +11175,7 @@ _ZN10mmCarModel8ActivateEv:
     .global _ZN8Matrix349PolarViewEffff
     .type _ZN8Matrix349PolarViewEffff, %function
 _ZN8Matrix349PolarViewEffff:
-    leaq .Lstub_name_268(%rip), %rdi
+    leaq .Lstub_name_267(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8Matrix349PolarViewEffff, . - _ZN8Matrix349PolarViewEffff
 
@@ -11203,7 +11183,7 @@ _ZN8Matrix349PolarViewEffff:
     .global _ZN6SplineC1Ev
     .type _ZN6SplineC1Ev, %function
 _ZN6SplineC1Ev:
-    leaq .Lstub_name_269(%rip), %rdi
+    leaq .Lstub_name_268(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6SplineC1Ev, . - _ZN6SplineC1Ev
 
@@ -11211,7 +11191,7 @@ _ZN6SplineC1Ev:
     .global _ZN7mmInput15DeviceConnectedEv
     .type _ZN7mmInput15DeviceConnectedEv, %function
 _ZN7mmInput15DeviceConnectedEv:
-    leaq .Lstub_name_270(%rip), %rdi
+    leaq .Lstub_name_269(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput15DeviceConnectedEv, . - _ZN7mmInput15DeviceConnectedEv
 
@@ -11219,7 +11199,7 @@ _ZN7mmInput15DeviceConnectedEv:
     .global _ZN7mmInput4InitEi
     .type _ZN7mmInput4InitEi, %function
 _ZN7mmInput4InitEi:
-    leaq .Lstub_name_271(%rip), %rdi
+    leaq .Lstub_name_270(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput4InitEi, . - _ZN7mmInput4InitEi
 
@@ -11227,7 +11207,7 @@ _ZN7mmInput4InitEi:
     .global _ZN7mmInput17JoystickHasCoolieEv
     .type _ZN7mmInput17JoystickHasCoolieEv, %function
 _ZN7mmInput17JoystickHasCoolieEv:
-    leaq .Lstub_name_272(%rip), %rdi
+    leaq .Lstub_name_271(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput17JoystickHasCoolieEv, . - _ZN7mmInput17JoystickHasCoolieEv
 
@@ -11235,7 +11215,7 @@ _ZN7mmInput17JoystickHasCoolieEv:
     .global _ZN7mmInput16ProcessJoyEventsEv
     .type _ZN7mmInput16ProcessJoyEventsEv, %function
 _ZN7mmInput16ProcessJoyEventsEv:
-    leaq .Lstub_name_273(%rip), %rdi
+    leaq .Lstub_name_272(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput16ProcessJoyEventsEv, . - _ZN7mmInput16ProcessJoyEventsEv
 
@@ -11243,7 +11223,7 @@ _ZN7mmInput16ProcessJoyEventsEv:
     .global _ZN7mmInput18ClearEventHitFlagsEv
     .type _ZN7mmInput18ClearEventHitFlagsEv, %function
 _ZN7mmInput18ClearEventHitFlagsEv:
-    leaq .Lstub_name_274(%rip), %rdi
+    leaq .Lstub_name_273(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput18ClearEventHitFlagsEv, . - _ZN7mmInput18ClearEventHitFlagsEv
 
@@ -11251,7 +11231,7 @@ _ZN7mmInput18ClearEventHitFlagsEv:
     .global _ZN8mmJoyManC1Ev
     .type _ZN8mmJoyManC1Ev, %function
 _ZN8mmJoyManC1Ev:
-    leaq .Lstub_name_275(%rip), %rdi
+    leaq .Lstub_name_274(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmJoyManC1Ev, . - _ZN8mmJoyManC1Ev
 
@@ -11259,7 +11239,7 @@ _ZN8mmJoyManC1Ev:
     .global _ZN7mmInput20RestoreDefaultConfigEi
     .type _ZN7mmInput20RestoreDefaultConfigEi, %function
 _ZN7mmInput20RestoreDefaultConfigEi:
-    leaq .Lstub_name_276(%rip), %rdi
+    leaq .Lstub_name_275(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput20RestoreDefaultConfigEi, . - _ZN7mmInput20RestoreDefaultConfigEi
 
@@ -11267,7 +11247,7 @@ _ZN7mmInput20RestoreDefaultConfigEi:
     .global _ZN7mmInput14GetThrottleValEv
     .type _ZN7mmInput14GetThrottleValEv, %function
 _ZN7mmInput14GetThrottleValEv:
-    leaq .Lstub_name_277(%rip), %rdi
+    leaq .Lstub_name_276(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput14GetThrottleValEv, . - _ZN7mmInput14GetThrottleValEv
 
@@ -11275,7 +11255,7 @@ _ZN7mmInput14GetThrottleValEv:
     .global _ZN7mmInput15PutEventInQueueEl
     .type _ZN7mmInput15PutEventInQueueEl, %function
 _ZN7mmInput15PutEventInQueueEl:
-    leaq .Lstub_name_278(%rip), %rdi
+    leaq .Lstub_name_277(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput15PutEventInQueueEl, . - _ZN7mmInput15PutEventInQueueEl
 
@@ -11283,7 +11263,7 @@ _ZN7mmInput15PutEventInQueueEl:
     .global _ZN7mmInput10PollStatesEv
     .type _ZN7mmInput10PollStatesEv, %function
 _ZN7mmInput10PollStatesEv:
-    leaq .Lstub_name_279(%rip), %rdi
+    leaq .Lstub_name_278(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput10PollStatesEv, . - _ZN7mmInput10PollStatesEv
 
@@ -11291,7 +11271,7 @@ _ZN7mmInput10PollStatesEv:
     .global _ZN8mmJoyMan6UpdateEv
     .type _ZN8mmJoyMan6UpdateEv, %function
 _ZN8mmJoyMan6UpdateEv:
-    leaq .Lstub_name_280(%rip), %rdi
+    leaq .Lstub_name_279(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmJoyMan6UpdateEv, . - _ZN8mmJoyMan6UpdateEv
 
@@ -11299,7 +11279,7 @@ _ZN8mmJoyMan6UpdateEv:
     .global _ZN8mmJoyMan14GenerateEventsEv
     .type _ZN8mmJoyMan14GenerateEventsEv, %function
 _ZN8mmJoyMan14GenerateEventsEv:
-    leaq .Lstub_name_281(%rip), %rdi
+    leaq .Lstub_name_280(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmJoyMan14GenerateEventsEv, . - _ZN8mmJoyMan14GenerateEventsEv
 
@@ -11307,7 +11287,7 @@ _ZN8mmJoyMan14GenerateEventsEv:
     .global _ZN7mmInput13ProcessStatesEv
     .type _ZN7mmInput13ProcessStatesEv, %function
 _ZN7mmInput13ProcessStatesEv:
-    leaq .Lstub_name_282(%rip), %rdi
+    leaq .Lstub_name_281(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput13ProcessStatesEv, . - _ZN7mmInput13ProcessStatesEv
 
@@ -11315,9 +11295,17 @@ _ZN7mmInput13ProcessStatesEv:
     .global _ZN7mmIODev6AssignEiii
     .type _ZN7mmIODev6AssignEiii, %function
 _ZN7mmIODev6AssignEiii:
-    leaq .Lstub_name_283(%rip), %rdi
+    leaq .Lstub_name_282(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmIODev6AssignEiii, . - _ZN7mmIODev6AssignEiii
+
+    // mmIODev::Init(int, long)
+    .global _ZN7mmIODev4InitEil
+    .type _ZN7mmIODev4InitEil, %function
+_ZN7mmIODev4InitEil:
+    leaq .Lstub_name_283(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmIODev4InitEil, . - _ZN7mmIODev4InitEil
 
     // AngelReadKeyString(unsigned int)
     .global _Z18AngelReadKeyStringj
@@ -11327,19 +11315,11 @@ _Z18AngelReadKeyStringj:
     jmp ArtsStubCalled
     .size _Z18AngelReadKeyStringj, . - _Z18AngelReadKeyStringj
 
-    // mmIODev::Init(int, long)
-    .global _ZN7mmIODev4InitEil
-    .type _ZN7mmIODev4InitEil, %function
-_ZN7mmIODev4InitEil:
-    leaq .Lstub_name_285(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmIODev4InitEil, . - _ZN7mmIODev4InitEil
-
     // PUMenuBase::~PUMenuBase()
     .global _ZN10PUMenuBaseD2Ev
     .type _ZN10PUMenuBaseD2Ev, %function
 _ZN10PUMenuBaseD2Ev:
-    leaq .Lstub_name_286(%rip), %rdi
+    leaq .Lstub_name_285(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10PUMenuBaseD2Ev, . - _ZN10PUMenuBaseD2Ev
 
@@ -11347,7 +11327,7 @@ _ZN10PUMenuBaseD2Ev:
     .global _ZN10PUMenuBase6UpdateEv
     .type _ZN10PUMenuBase6UpdateEv, %function
 _ZN10PUMenuBase6UpdateEv:
-    leaq .Lstub_name_287(%rip), %rdi
+    leaq .Lstub_name_286(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10PUMenuBase6UpdateEv, . - _ZN10PUMenuBase6UpdateEv
 
@@ -11355,7 +11335,7 @@ _ZN10PUMenuBase6UpdateEv:
     .global _ZN6UIMenu9PostSetupEv
     .type _ZN6UIMenu9PostSetupEv, %function
 _ZN6UIMenu9PostSetupEv:
-    leaq .Lstub_name_288(%rip), %rdi
+    leaq .Lstub_name_287(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu9PostSetupEv, . - _ZN6UIMenu9PostSetupEv
 
@@ -11363,7 +11343,7 @@ _ZN6UIMenu9PostSetupEv:
     .global _ZN6UIMenu6BackUpEv
     .type _ZN6UIMenu6BackUpEv, %function
 _ZN6UIMenu6BackUpEv:
-    leaq .Lstub_name_289(%rip), %rdi
+    leaq .Lstub_name_288(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu6BackUpEv, . - _ZN6UIMenu6BackUpEv
 
@@ -11371,7 +11351,7 @@ _ZN6UIMenu6BackUpEv:
     .global _ZN6UIMenu10CheckInputEv
     .type _ZN6UIMenu10CheckInputEv, %function
 _ZN6UIMenu10CheckInputEv:
-    leaq .Lstub_name_290(%rip), %rdi
+    leaq .Lstub_name_289(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu10CheckInputEv, . - _ZN6UIMenu10CheckInputEv
 
@@ -11379,7 +11359,7 @@ _ZN6UIMenu10CheckInputEv:
     .global _ZN14UITextDropdown12AssignStringE6string
     .type _ZN14UITextDropdown12AssignStringE6string, %function
 _ZN14UITextDropdown12AssignStringE6string:
-    leaq .Lstub_name_291(%rip), %rdi
+    leaq .Lstub_name_290(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14UITextDropdown12AssignStringE6string, . - _ZN14UITextDropdown12AssignStringE6string
 
@@ -11387,7 +11367,7 @@ _ZN14UITextDropdown12AssignStringE6string:
     .global _ZN14UITextDropdown8SetValueEi
     .type _ZN14UITextDropdown8SetValueEi, %function
 _ZN14UITextDropdown8SetValueEi:
-    leaq .Lstub_name_292(%rip), %rdi
+    leaq .Lstub_name_291(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14UITextDropdown8SetValueEi, . - _ZN14UITextDropdown8SetValueEi
 
@@ -11395,7 +11375,7 @@ _ZN14UITextDropdown8SetValueEi:
     .global _Z16SetTexQualStringv
     .type _Z16SetTexQualStringv, %function
 _Z16SetTexQualStringv:
-    leaq .Lstub_name_293(%rip), %rdi
+    leaq .Lstub_name_292(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z16SetTexQualStringv, . - _Z16SetTexQualStringv
 
@@ -11403,7 +11383,7 @@ _Z16SetTexQualStringv:
     .global _ZN6UIMenuC2Ei
     .type _ZN6UIMenuC2Ei, %function
 _ZN6UIMenuC2Ei:
-    leaq .Lstub_name_294(%rip), %rdi
+    leaq .Lstub_name_293(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenuC2Ei, . - _ZN6UIMenuC2Ei
 
@@ -11411,7 +11391,7 @@ _ZN6UIMenuC2Ei:
     .global _ZN6UIMenu10AssignNameEP9LocString
     .type _ZN6UIMenu10AssignNameEP9LocString, %function
 _ZN6UIMenu10AssignNameEP9LocString:
-    leaq .Lstub_name_295(%rip), %rdi
+    leaq .Lstub_name_294(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu10AssignNameEP9LocString, . - _ZN6UIMenu10AssignNameEP9LocString
 
@@ -11419,7 +11399,7 @@ _ZN6UIMenu10AssignNameEP9LocString:
     .global _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_
     .type _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_, %function
 _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_:
-    leaq .Lstub_name_296(%rip), %rdi
+    leaq .Lstub_name_295(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_, . - _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_
 
@@ -11427,7 +11407,7 @@ _ZN6UIMenu11AddBMButtonEiPKcffi8CallbackPiiiS2_:
     .global _ZN6UIMenu9SetBstateEi
     .type _ZN6UIMenu9SetBstateEi, %function
 _ZN6UIMenu9SetBstateEi:
-    leaq .Lstub_name_297(%rip), %rdi
+    leaq .Lstub_name_296(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu9SetBstateEi, . - _ZN6UIMenu9SetBstateEi
 
@@ -11435,7 +11415,7 @@ _ZN6UIMenu9SetBstateEi:
     .global _ZN6UIMenuD2Ev
     .type _ZN6UIMenuD2Ev, %function
 _ZN6UIMenuD2Ev:
-    leaq .Lstub_name_298(%rip), %rdi
+    leaq .Lstub_name_297(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenuD2Ev, . - _ZN6UIMenuD2Ev
 
@@ -11443,7 +11423,7 @@ _ZN6UIMenuD2Ev:
     .global _ZN6UIMenu6UpdateEv
     .type _ZN6UIMenu6UpdateEv, %function
 _ZN6UIMenu6UpdateEv:
-    leaq .Lstub_name_299(%rip), %rdi
+    leaq .Lstub_name_298(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu6UpdateEv, . - _ZN6UIMenu6UpdateEv
 
@@ -11451,7 +11431,7 @@ _ZN6UIMenu6UpdateEv:
     .global _ZN6UIMenu14SetFocusWidgetEi
     .type _ZN6UIMenu14SetFocusWidgetEi, %function
 _ZN6UIMenu14SetFocusWidgetEi:
-    leaq .Lstub_name_300(%rip), %rdi
+    leaq .Lstub_name_299(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu14SetFocusWidgetEi, . - _ZN6UIMenu14SetFocusWidgetEi
 
@@ -11459,7 +11439,7 @@ _ZN6UIMenu14SetFocusWidgetEi:
     .global _ZN6UIMenu10AddHotSpotEiPKcffff8Callback
     .type _ZN6UIMenu10AddHotSpotEiPKcffff8Callback, %function
 _ZN6UIMenu10AddHotSpotEiPKcffff8Callback:
-    leaq .Lstub_name_301(%rip), %rdi
+    leaq .Lstub_name_300(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu10AddHotSpotEiPKcffff8Callback, . - _ZN6UIMenu10AddHotSpotEiPKcffff8Callback
 
@@ -11467,7 +11447,7 @@ _ZN6UIMenu10AddHotSpotEiPKcffff8Callback:
     .global _ZN8uiNavBar10SetPrevPosEff
     .type _ZN8uiNavBar10SetPrevPosEff, %function
 _ZN8uiNavBar10SetPrevPosEff:
-    leaq .Lstub_name_302(%rip), %rdi
+    leaq .Lstub_name_301(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8uiNavBar10SetPrevPosEff, . - _ZN8uiNavBar10SetPrevPosEff
 
@@ -11475,7 +11455,7 @@ _ZN8uiNavBar10SetPrevPosEff:
     .global _ZN10PUMenuBase11CreateTitleEv
     .type _ZN10PUMenuBase11CreateTitleEv, %function
 _ZN10PUMenuBase11CreateTitleEv:
-    leaq .Lstub_name_303(%rip), %rdi
+    leaq .Lstub_name_302(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10PUMenuBase11CreateTitleEv, . - _ZN10PUMenuBase11CreateTitleEv
 
@@ -11483,7 +11463,7 @@ _ZN10PUMenuBase11CreateTitleEv:
     .global _ZN10PUMenuBase7AddExitEffff
     .type _ZN10PUMenuBase7AddExitEffff, %function
 _ZN10PUMenuBase7AddExitEffff:
-    leaq .Lstub_name_304(%rip), %rdi
+    leaq .Lstub_name_303(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10PUMenuBase7AddExitEffff, . - _ZN10PUMenuBase7AddExitEffff
 
@@ -11491,7 +11471,7 @@ _ZN10PUMenuBase7AddExitEffff:
     .global _ZN11MenuManager7GetFontEi
     .type _ZN11MenuManager7GetFontEi, %function
 _ZN11MenuManager7GetFontEi:
-    leaq .Lstub_name_305(%rip), %rdi
+    leaq .Lstub_name_304(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11MenuManager7GetFontEi, . - _ZN11MenuManager7GetFontEi
 
@@ -11499,7 +11479,7 @@ _ZN11MenuManager7GetFontEi:
     .global _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback
     .type _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback, %function
 _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback:
-    leaq .Lstub_name_306(%rip), %rdi
+    leaq .Lstub_name_305(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback, . - _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback
 
@@ -11507,7 +11487,7 @@ _ZN6UIMenu9AddButtonEiP9LocStringffffii8Callback:
     .global _ZN6UIMenu10FindWidgetEi
     .type _ZN6UIMenu10FindWidgetEi, %function
 _ZN6UIMenu10FindWidgetEi:
-    leaq .Lstub_name_307(%rip), %rdi
+    leaq .Lstub_name_306(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu10FindWidgetEi, . - _ZN6UIMenu10FindWidgetEi
 
@@ -11515,7 +11495,7 @@ _ZN6UIMenu10FindWidgetEi:
     .global _ZN8uiWidget10SetEnabledEb
     .type _ZN8uiWidget10SetEnabledEb, %function
 _ZN8uiWidget10SetEnabledEb:
-    leaq .Lstub_name_308(%rip), %rdi
+    leaq .Lstub_name_307(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8uiWidget10SetEnabledEb, . - _ZN8uiWidget10SetEnabledEb
 
@@ -11523,7 +11503,7 @@ _ZN8uiWidget10SetEnabledEb:
     .global _ZN10PUMenuBase17CreateDummyBitmapEv
     .type _ZN10PUMenuBase17CreateDummyBitmapEv, %function
 _ZN10PUMenuBase17CreateDummyBitmapEv:
-    leaq .Lstub_name_309(%rip), %rdi
+    leaq .Lstub_name_308(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10PUMenuBase17CreateDummyBitmapEv, . - _ZN10PUMenuBase17CreateDummyBitmapEv
 
@@ -11531,7 +11511,7 @@ _ZN10PUMenuBase17CreateDummyBitmapEv:
     .global _ZN9PUResults7Init320Ev
     .type _ZN9PUResults7Init320Ev, %function
 _ZN9PUResults7Init320Ev:
-    leaq .Lstub_name_310(%rip), %rdi
+    leaq .Lstub_name_309(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9PUResults7Init320Ev, . - _ZN9PUResults7Init320Ev
 
@@ -11539,7 +11519,7 @@ _ZN9PUResults7Init320Ev:
     .global _ZN9PUResults5ResetEv
     .type _ZN9PUResults5ResetEv, %function
 _ZN9PUResults5ResetEv:
-    leaq .Lstub_name_311(%rip), %rdi
+    leaq .Lstub_name_310(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9PUResults5ResetEv, . - _ZN9PUResults5ResetEv
 
@@ -11547,7 +11527,7 @@ _ZN9PUResults5ResetEv:
     .global _ZN6UIMenu8PreSetupEv
     .type _ZN6UIMenu8PreSetupEv, %function
 _ZN6UIMenu8PreSetupEv:
-    leaq .Lstub_name_312(%rip), %rdi
+    leaq .Lstub_name_311(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu8PreSetupEv, . - _ZN6UIMenu8PreSetupEv
 
@@ -11555,7 +11535,7 @@ _ZN6UIMenu8PreSetupEv:
     .global _ZN12RaceMenuBaseD2Ev
     .type _ZN12RaceMenuBaseD2Ev, %function
 _ZN12RaceMenuBaseD2Ev:
-    leaq .Lstub_name_313(%rip), %rdi
+    leaq .Lstub_name_312(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12RaceMenuBaseD2Ev, . - _ZN12RaceMenuBaseD2Ev
 
@@ -11563,55 +11543,15 @@ _ZN12RaceMenuBaseD2Ev:
     .global _ZN6UIMenu16AssignBackgroundEPKc
     .type _ZN6UIMenu16AssignBackgroundEPKc, %function
 _ZN6UIMenu16AssignBackgroundEPKc:
-    leaq .Lstub_name_314(%rip), %rdi
+    leaq .Lstub_name_313(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu16AssignBackgroundEPKc, . - _ZN6UIMenu16AssignBackgroundEPKc
-
-    // RadialGauge::Init(char const*, char const*, float*, float*, float)
-    .global _ZN11RadialGauge4InitEPKcS1_PfS2_f
-    .type _ZN11RadialGauge4InitEPKcS1_PfS2_f, %function
-_ZN11RadialGauge4InitEPKcS1_PfS2_f:
-    leaq .Lstub_name_315(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11RadialGauge4InitEPKcS1_PfS2_f, . - _ZN11RadialGauge4InitEPKcS1_PfS2_f
-
-    // mmTransmission::GetCurrentGear()
-    .global _ZN14mmTransmission14GetCurrentGearEv
-    .type _ZN14mmTransmission14GetCurrentGearEv, %function
-_ZN14mmTransmission14GetCurrentGearEv:
-    leaq .Lstub_name_316(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN14mmTransmission14GetCurrentGearEv, . - _ZN14mmTransmission14GetCurrentGearEv
-
-    // mmLinearGauge::mmLinearGauge()
-    .global _ZN13mmLinearGaugeC1Ev
-    .type _ZN13mmLinearGaugeC1Ev, %function
-_ZN13mmLinearGaugeC1Ev:
-    leaq .Lstub_name_317(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN13mmLinearGaugeC1Ev, . - _ZN13mmLinearGaugeC1Ev
-
-    // RadialGauge::RadialGauge()
-    .global _ZN11RadialGaugeC1Ev
-    .type _ZN11RadialGaugeC1Ev, %function
-_ZN11RadialGaugeC1Ev:
-    leaq .Lstub_name_318(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11RadialGaugeC1Ev, . - _ZN11RadialGaugeC1Ev
-
-    // asForm::asForm()
-    .global _ZN6asFormC1Ev
-    .type _ZN6asFormC1Ev, %function
-_ZN6asFormC1Ev:
-    leaq .Lstub_name_319(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6asFormC1Ev, . - _ZN6asFormC1Ev
 
     // mmMiscData::mmMiscData()
     .global _ZN10mmMiscDataC1Ev
     .type _ZN10mmMiscDataC1Ev, %function
 _ZN10mmMiscDataC1Ev:
-    leaq .Lstub_name_320(%rip), %rdi
+    leaq .Lstub_name_314(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmMiscDataC1Ev, . - _ZN10mmMiscDataC1Ev
 
@@ -11619,7 +11559,7 @@ _ZN10mmMiscDataC1Ev:
     .global _ZN14mmPlayerConfigC1Ev
     .type _ZN14mmPlayerConfigC1Ev, %function
 _ZN14mmPlayerConfigC1Ev:
-    leaq .Lstub_name_321(%rip), %rdi
+    leaq .Lstub_name_315(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmPlayerConfigC1Ev, . - _ZN14mmPlayerConfigC1Ev
 
@@ -11627,7 +11567,7 @@ _ZN14mmPlayerConfigC1Ev:
     .global _ZN14mmPlayerConfig11GetControlsEv
     .type _ZN14mmPlayerConfig11GetControlsEv, %function
 _ZN14mmPlayerConfig11GetControlsEv:
-    leaq .Lstub_name_322(%rip), %rdi
+    leaq .Lstub_name_316(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmPlayerConfig11GetControlsEv, . - _ZN14mmPlayerConfig11GetControlsEv
 
@@ -11635,7 +11575,7 @@ _ZN14mmPlayerConfig11GetControlsEv:
     .global _ZN14mmPlayerConfig8GetAudioEv
     .type _ZN14mmPlayerConfig8GetAudioEv, %function
 _ZN14mmPlayerConfig8GetAudioEv:
-    leaq .Lstub_name_323(%rip), %rdi
+    leaq .Lstub_name_317(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmPlayerConfig8GetAudioEv, . - _ZN14mmPlayerConfig8GetAudioEv
 
@@ -11643,7 +11583,7 @@ _ZN14mmPlayerConfig8GetAudioEv:
     .global _ZN14mmPlayerConfig11GetGraphicsEv
     .type _ZN14mmPlayerConfig11GetGraphicsEv, %function
 _ZN14mmPlayerConfig11GetGraphicsEv:
-    leaq .Lstub_name_324(%rip), %rdi
+    leaq .Lstub_name_318(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmPlayerConfig11GetGraphicsEv, . - _ZN14mmPlayerConfig11GetGraphicsEv
 
@@ -11651,7 +11591,7 @@ _ZN14mmPlayerConfig11GetGraphicsEv:
     .global _ZN8mmHudMap7SetModeEi
     .type _ZN8mmHudMap7SetModeEi, %function
 _ZN8mmHudMap7SetModeEi:
-    leaq .Lstub_name_325(%rip), %rdi
+    leaq .Lstub_name_319(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmHudMap7SetModeEi, . - _ZN8mmHudMap7SetModeEi
 
@@ -11659,7 +11599,7 @@ _ZN8mmHudMap7SetModeEi:
     .global _ZN14mmPlayerConfig15GetViewSettingsEv
     .type _ZN14mmPlayerConfig15GetViewSettingsEv, %function
 _ZN14mmPlayerConfig15GetViewSettingsEv:
-    leaq .Lstub_name_326(%rip), %rdi
+    leaq .Lstub_name_320(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmPlayerConfig15GetViewSettingsEv, . - _ZN14mmPlayerConfig15GetViewSettingsEv
 
@@ -11667,7 +11607,7 @@ _ZN14mmPlayerConfig15GetViewSettingsEv:
     .global _ZN12mmPlayerData11GetFileNameEv
     .type _ZN12mmPlayerData11GetFileNameEv, %function
 _ZN12mmPlayerData11GetFileNameEv:
-    leaq .Lstub_name_327(%rip), %rdi
+    leaq .Lstub_name_321(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmPlayerData11GetFileNameEv, . - _ZN12mmPlayerData11GetFileNameEv
 
@@ -11675,7 +11615,7 @@ _ZN12mmPlayerData11GetFileNameEv:
     .global _ZN14mmPlayerConfig4SaveEPcb
     .type _ZN14mmPlayerConfig4SaveEPcb, %function
 _ZN14mmPlayerConfig4SaveEPcb:
-    leaq .Lstub_name_328(%rip), %rdi
+    leaq .Lstub_name_322(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmPlayerConfig4SaveEPcb, . - _ZN14mmPlayerConfig4SaveEPcb
 
@@ -11683,7 +11623,7 @@ _ZN14mmPlayerConfig4SaveEPcb:
     .global _Z13DumpPositionsPKc
     .type _Z13DumpPositionsPKc, %function
 _Z13DumpPositionsPKc:
-    leaq .Lstub_name_329(%rip), %rdi
+    leaq .Lstub_name_323(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z13DumpPositionsPKc, . - _Z13DumpPositionsPKc
 
@@ -11691,7 +11631,7 @@ _Z13DumpPositionsPKc:
     .global _ZN5aiMap5CleanEv
     .type _ZN5aiMap5CleanEv, %function
 _ZN5aiMap5CleanEv:
-    leaq .Lstub_name_330(%rip), %rdi
+    leaq .Lstub_name_324(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5aiMap5CleanEv, . - _ZN5aiMap5CleanEv
 
@@ -11699,7 +11639,7 @@ _ZN5aiMap5CleanEv:
     .global _ZN9mmAnimMgrD1Ev
     .type _ZN9mmAnimMgrD1Ev, %function
 _ZN9mmAnimMgrD1Ev:
-    leaq .Lstub_name_331(%rip), %rdi
+    leaq .Lstub_name_325(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmAnimMgrD1Ev, . - _ZN9mmAnimMgrD1Ev
 
@@ -11707,7 +11647,7 @@ _ZN9mmAnimMgrD1Ev:
     .global _ZN12mmPhysicsMGR8ShutdownEv
     .type _ZN12mmPhysicsMGR8ShutdownEv, %function
 _ZN12mmPhysicsMGR8ShutdownEv:
-    leaq .Lstub_name_332(%rip), %rdi
+    leaq .Lstub_name_326(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmPhysicsMGR8ShutdownEv, . - _ZN12mmPhysicsMGR8ShutdownEv
 
@@ -11715,7 +11655,7 @@ _ZN12mmPhysicsMGR8ShutdownEv:
     .global _ZN14mmAmbientAudioD1Ev
     .type _ZN14mmAmbientAudioD1Ev, %function
 _ZN14mmAmbientAudioD1Ev:
-    leaq .Lstub_name_333(%rip), %rdi
+    leaq .Lstub_name_327(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmAmbientAudioD1Ev, . - _ZN14mmAmbientAudioD1Ev
 
@@ -11723,7 +11663,7 @@ _ZN14mmAmbientAudioD1Ev:
     .global _ZN14mmPlayerConfigD1Ev
     .type _ZN14mmPlayerConfigD1Ev, %function
 _ZN14mmPlayerConfigD1Ev:
-    leaq .Lstub_name_334(%rip), %rdi
+    leaq .Lstub_name_328(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmPlayerConfigD1Ev, . - _ZN14mmPlayerConfigD1Ev
 
@@ -11731,7 +11671,7 @@ _ZN14mmPlayerConfigD1Ev:
     .global _ZN10mmMiscDataD1Ev
     .type _ZN10mmMiscDataD1Ev, %function
 _ZN10mmMiscDataD1Ev:
-    leaq .Lstub_name_335(%rip), %rdi
+    leaq .Lstub_name_329(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmMiscDataD1Ev, . - _ZN10mmMiscDataD1Ev
 
@@ -11739,7 +11679,7 @@ _ZN10mmMiscDataD1Ev:
     .global _ZN8AudSoundD1Ev
     .type _ZN8AudSoundD1Ev, %function
 _ZN8AudSoundD1Ev:
-    leaq .Lstub_name_336(%rip), %rdi
+    leaq .Lstub_name_330(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8AudSoundD1Ev, . - _ZN8AudSoundD1Ev
 
@@ -11747,7 +11687,7 @@ _ZN8AudSoundD1Ev:
     .global _ZN7mmIconsD1Ev
     .type _ZN7mmIconsD1Ev, %function
 _ZN7mmIconsD1Ev:
-    leaq .Lstub_name_337(%rip), %rdi
+    leaq .Lstub_name_331(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmIconsD1Ev, . - _ZN7mmIconsD1Ev
 
@@ -11755,7 +11695,7 @@ _ZN7mmIconsD1Ev:
     .global _ZN7mmPopup11ProcessChatEv
     .type _ZN7mmPopup11ProcessChatEv, %function
 _ZN7mmPopup11ProcessChatEv:
-    leaq .Lstub_name_338(%rip), %rdi
+    leaq .Lstub_name_332(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmPopup11ProcessChatEv, . - _ZN7mmPopup11ProcessChatEv
 
@@ -11763,7 +11703,7 @@ _ZN7mmPopup11ProcessChatEv:
     .global _ZN7mmPopup13ProcessKeymapEi
     .type _ZN7mmPopup13ProcessKeymapEi, %function
 _ZN7mmPopup13ProcessKeymapEi:
-    leaq .Lstub_name_339(%rip), %rdi
+    leaq .Lstub_name_333(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmPopup13ProcessKeymapEi, . - _ZN7mmPopup13ProcessKeymapEi
 
@@ -11771,7 +11711,7 @@ _ZN7mmPopup13ProcessKeymapEi:
     .global _ZN7mmPopup10ShowRosterEv
     .type _ZN7mmPopup10ShowRosterEv, %function
 _ZN7mmPopup10ShowRosterEv:
-    leaq .Lstub_name_340(%rip), %rdi
+    leaq .Lstub_name_334(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmPopup10ShowRosterEv, . - _ZN7mmPopup10ShowRosterEv
 
@@ -11779,7 +11719,7 @@ _ZN7mmPopup10ShowRosterEv:
     .global _ZN17mmVoiceCommentary7StopNowEv
     .type _ZN17mmVoiceCommentary7StopNowEv, %function
 _ZN17mmVoiceCommentary7StopNowEv:
-    leaq .Lstub_name_341(%rip), %rdi
+    leaq .Lstub_name_335(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN17mmVoiceCommentary7StopNowEv, . - _ZN17mmVoiceCommentary7StopNowEv
 
@@ -11787,7 +11727,7 @@ _ZN17mmVoiceCommentary7StopNowEv:
     .global _ZN7mmPopup13ProcessEscapeEi
     .type _ZN7mmPopup13ProcessEscapeEi, %function
 _ZN7mmPopup13ProcessEscapeEi:
-    leaq .Lstub_name_342(%rip), %rdi
+    leaq .Lstub_name_336(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmPopup13ProcessEscapeEi, . - _ZN7mmPopup13ProcessEscapeEi
 
@@ -11795,7 +11735,7 @@ _ZN7mmPopup13ProcessEscapeEi:
     .global _ZN7mmInput8PopEventEPi
     .type _ZN7mmInput8PopEventEPi, %function
 _ZN7mmInput8PopEventEPi:
-    leaq .Lstub_name_343(%rip), %rdi
+    leaq .Lstub_name_337(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput8PopEventEPi, . - _ZN7mmInput8PopEventEPi
 
@@ -11803,7 +11743,7 @@ _ZN7mmInput8PopEventEPi:
     .global _ZN10mmCDPlayer8PlayStopEv
     .type _ZN10mmCDPlayer8PlayStopEv, %function
 _ZN10mmCDPlayer8PlayStopEv:
-    leaq .Lstub_name_344(%rip), %rdi
+    leaq .Lstub_name_338(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCDPlayer8PlayStopEv, . - _ZN10mmCDPlayer8PlayStopEv
 
@@ -11811,7 +11751,7 @@ _ZN10mmCDPlayer8PlayStopEv:
     .global _ZN8mmHudMap5CycleEv
     .type _ZN8mmHudMap5CycleEv, %function
 _ZN8mmHudMap5CycleEv:
-    leaq .Lstub_name_345(%rip), %rdi
+    leaq .Lstub_name_339(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmHudMap5CycleEv, . - _ZN8mmHudMap5CycleEv
 
@@ -11819,7 +11759,7 @@ _ZN8mmHudMap5CycleEv:
     .global _ZN8mmPlayer5IsPOVEv
     .type _ZN8mmPlayer5IsPOVEv, %function
 _ZN8mmPlayer5IsPOVEv:
-    leaq .Lstub_name_346(%rip), %rdi
+    leaq .Lstub_name_340(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmPlayer5IsPOVEv, . - _ZN8mmPlayer5IsPOVEv
 
@@ -11827,7 +11767,7 @@ _ZN8mmPlayer5IsPOVEv:
     .global _ZN8mmPlayer10SetWideFOVEb
     .type _ZN8mmPlayer10SetWideFOVEb, %function
 _ZN8mmPlayer10SetWideFOVEb:
-    leaq .Lstub_name_347(%rip), %rdi
+    leaq .Lstub_name_341(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmPlayer10SetWideFOVEb, . - _ZN8mmPlayer10SetWideFOVEb
 
@@ -11835,7 +11775,7 @@ _ZN8mmPlayer10SetWideFOVEb:
     .global _ZN14mmTransmission9DownshiftEv
     .type _ZN14mmTransmission9DownshiftEv, %function
 _ZN14mmTransmission9DownshiftEv:
-    leaq .Lstub_name_348(%rip), %rdi
+    leaq .Lstub_name_342(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmTransmission9DownshiftEv, . - _ZN14mmTransmission9DownshiftEv
 
@@ -11843,7 +11783,7 @@ _ZN14mmTransmission9DownshiftEv:
     .global _ZN8mmPlayer9ToggleCamEv
     .type _ZN8mmPlayer9ToggleCamEv, %function
 _ZN8mmPlayer9ToggleCamEv:
-    leaq .Lstub_name_349(%rip), %rdi
+    leaq .Lstub_name_343(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmPlayer9ToggleCamEv, . - _ZN8mmPlayer9ToggleCamEv
 
@@ -11851,7 +11791,7 @@ _ZN8mmPlayer9ToggleCamEv:
     .global _ZN10mmCDPlayer6ToggleEv
     .type _ZN10mmCDPlayer6ToggleEv, %function
 _ZN10mmCDPlayer6ToggleEv:
-    leaq .Lstub_name_350(%rip), %rdi
+    leaq .Lstub_name_344(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCDPlayer6ToggleEv, . - _ZN10mmCDPlayer6ToggleEv
 
@@ -11859,7 +11799,7 @@ _ZN10mmCDPlayer6ToggleEv:
     .global _ZN8mmHudMap16ToggleFullScreenEv
     .type _ZN8mmHudMap16ToggleFullScreenEv, %function
 _ZN8mmHudMap16ToggleFullScreenEv:
-    leaq .Lstub_name_351(%rip), %rdi
+    leaq .Lstub_name_345(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmHudMap16ToggleFullScreenEv, . - _ZN8mmHudMap16ToggleFullScreenEv
 
@@ -11867,7 +11807,7 @@ _ZN8mmHudMap16ToggleFullScreenEv:
     .global _ZN8mmPlayer18ToggleExternalViewEv
     .type _ZN8mmPlayer18ToggleExternalViewEv, %function
 _ZN8mmPlayer18ToggleExternalViewEv:
-    leaq .Lstub_name_352(%rip), %rdi
+    leaq .Lstub_name_346(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmPlayer18ToggleExternalViewEv, . - _ZN8mmPlayer18ToggleExternalViewEv
 
@@ -11875,7 +11815,7 @@ _ZN8mmPlayer18ToggleExternalViewEv:
     .global _ZN5mmHUD18ToggleExternalViewEv
     .type _ZN5mmHUD18ToggleExternalViewEv, %function
 _ZN5mmHUD18ToggleExternalViewEv:
-    leaq .Lstub_name_353(%rip), %rdi
+    leaq .Lstub_name_347(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5mmHUD18ToggleExternalViewEv, . - _ZN5mmHUD18ToggleExternalViewEv
 
@@ -11883,7 +11823,7 @@ _ZN5mmHUD18ToggleExternalViewEv:
     .global _ZN8mmHudMap12ToggleMapResEv
     .type _ZN8mmHudMap12ToggleMapResEv, %function
 _ZN8mmHudMap12ToggleMapResEv:
-    leaq .Lstub_name_354(%rip), %rdi
+    leaq .Lstub_name_348(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmHudMap12ToggleMapResEv, . - _ZN8mmHudMap12ToggleMapResEv
 
@@ -11891,7 +11831,7 @@ _ZN8mmHudMap12ToggleMapResEv:
     .global _ZN8mmPlayer13ToggleWideFOVEv
     .type _ZN8mmPlayer13ToggleWideFOVEv, %function
 _ZN8mmPlayer13ToggleWideFOVEv:
-    leaq .Lstub_name_355(%rip), %rdi
+    leaq .Lstub_name_349(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmPlayer13ToggleWideFOVEv, . - _ZN8mmPlayer13ToggleWideFOVEv
 
@@ -11899,7 +11839,7 @@ _ZN8mmPlayer13ToggleWideFOVEv:
     .global _ZN5mmHUD12IsDashActiveEv
     .type _ZN5mmHUD12IsDashActiveEv, %function
 _ZN5mmHUD12IsDashActiveEv:
-    leaq .Lstub_name_356(%rip), %rdi
+    leaq .Lstub_name_350(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5mmHUD12IsDashActiveEv, . - _ZN5mmHUD12IsDashActiveEv
 
@@ -11907,7 +11847,7 @@ _ZN5mmHUD12IsDashActiveEv:
     .global _ZN5mmHUD14DeactivateDashEv
     .type _ZN5mmHUD14DeactivateDashEv, %function
 _ZN5mmHUD14DeactivateDashEv:
-    leaq .Lstub_name_357(%rip), %rdi
+    leaq .Lstub_name_351(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5mmHUD14DeactivateDashEv, . - _ZN5mmHUD14DeactivateDashEv
 
@@ -11915,495 +11855,15 @@ _ZN5mmHUD14DeactivateDashEv:
     .global _ZN10mmCarModel10DeactivateEv
     .type _ZN10mmCarModel10DeactivateEv, %function
 _ZN10mmCarModel10DeactivateEv:
-    leaq .Lstub_name_358(%rip), %rdi
+    leaq .Lstub_name_352(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmCarModel10DeactivateEv, . - _ZN10mmCarModel10DeactivateEv
-
-    // mmHUD::ActivateDash()
-    .global _ZN5mmHUD12ActivateDashEv
-    .type _ZN5mmHUD12ActivateDashEv, %function
-_ZN5mmHUD12ActivateDashEv:
-    leaq .Lstub_name_359(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN5mmHUD12ActivateDashEv, . - _ZN5mmHUD12ActivateDashEv
-
-    // mmPlayer::ToggleDash()
-    .global _ZN8mmPlayer10ToggleDashEv
-    .type _ZN8mmPlayer10ToggleDashEv, %function
-_ZN8mmPlayer10ToggleDashEv:
-    leaq .Lstub_name_360(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmPlayer10ToggleDashEv, . - _ZN8mmPlayer10ToggleDashEv
-
-    // mmCDPlayer::PrevTrack()
-    .global _ZN10mmCDPlayer9PrevTrackEv
-    .type _ZN10mmCDPlayer9PrevTrackEv, %function
-_ZN10mmCDPlayer9PrevTrackEv:
-    leaq .Lstub_name_361(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10mmCDPlayer9PrevTrackEv, . - _ZN10mmCDPlayer9PrevTrackEv
-
-    // mmCDPlayer::NextTrack()
-    .global _ZN10mmCDPlayer9NextTrackEv
-    .type _ZN10mmCDPlayer9NextTrackEv, %function
-_ZN10mmCDPlayer9NextTrackEv:
-    leaq .Lstub_name_362(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10mmCDPlayer9NextTrackEv, . - _ZN10mmCDPlayer9NextTrackEv
-
-    // mmTransmission::SetDrive()
-    .global _ZN14mmTransmission8SetDriveEv
-    .type _ZN14mmTransmission8SetDriveEv, %function
-_ZN14mmTransmission8SetDriveEv:
-    leaq .Lstub_name_363(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN14mmTransmission8SetDriveEv, . - _ZN14mmTransmission8SetDriveEv
-
-    // mmTransmission::Automatic(int)
-    .global _ZN14mmTransmission9AutomaticEi
-    .type _ZN14mmTransmission9AutomaticEi, %function
-_ZN14mmTransmission9AutomaticEi:
-    leaq .Lstub_name_364(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN14mmTransmission9AutomaticEi, . - _ZN14mmTransmission9AutomaticEi
-
-    // mmTransmission::Upshift()
-    .global _ZN14mmTransmission7UpshiftEv
-    .type _ZN14mmTransmission7UpshiftEv, %function
-_ZN14mmTransmission7UpshiftEv:
-    leaq .Lstub_name_365(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN14mmTransmission7UpshiftEv, . - _ZN14mmTransmission7UpshiftEv
-
-    // mmInput::GetCamPan()
-    .global _ZN7mmInput9GetCamPanEv
-    .type _ZN7mmInput9GetCamPanEv, %function
-_ZN7mmInput9GetCamPanEv:
-    leaq .Lstub_name_366(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmInput9GetCamPanEv, . - _ZN7mmInput9GetCamPanEv
-
-    // mmCarSim::StopHorn()
-    .global _ZN8mmCarSim8StopHornEv
-    .type _ZN8mmCarSim8StopHornEv, %function
-_ZN8mmCarSim8StopHornEv:
-    leaq .Lstub_name_367(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmCarSim8StopHornEv, . - _ZN8mmCarSim8StopHornEv
-
-    // mmBangerData::LaunchInstance(float, Vector3*)
-    .global _ZN12mmBangerData14LaunchInstanceEfP7Vector3
-    .type _ZN12mmBangerData14LaunchInstanceEfP7Vector3, %function
-_ZN12mmBangerData14LaunchInstanceEfP7Vector3:
-    leaq .Lstub_name_368(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN12mmBangerData14LaunchInstanceEfP7Vector3, . - _ZN12mmBangerData14LaunchInstanceEfP7Vector3
-
-    // mmCarSim::PlayHorn()
-    .global _ZN8mmCarSim8PlayHornEv
-    .type _ZN8mmCarSim8PlayHornEv, %function
-_ZN8mmCarSim8PlayHornEv:
-    leaq .Lstub_name_369(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmCarSim8PlayHornEv, . - _ZN8mmCarSim8PlayHornEv
-
-    // mmPositions::mmPositions()
-    .global _ZN11mmPositionsC1Ev
-    .type _ZN11mmPositionsC1Ev, %function
-_ZN11mmPositionsC1Ev:
-    leaq .Lstub_name_370(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11mmPositionsC1Ev, . - _ZN11mmPositionsC1Ev
-
-    // mmPositions::Init(int)
-    .global _ZN11mmPositions4InitEi
-    .type _ZN11mmPositions4InitEi, %function
-_ZN11mmPositions4InitEi:
-    leaq .Lstub_name_371(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11mmPositions4InitEi, . - _ZN11mmPositions4InitEi
-
-    // mmGame::PlayerSetState()
-    .global _ZN6mmGame14PlayerSetStateEv
-    .type _ZN6mmGame14PlayerSetStateEv, %function
-_ZN6mmGame14PlayerSetStateEv:
-    leaq .Lstub_name_372(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6mmGame14PlayerSetStateEv, . - _ZN6mmGame14PlayerSetStateEv
-
-    // AudManager::SetBitDepthAndSampleRate(int, unsigned long)
-    .global _ZN10AudManager24SetBitDepthAndSampleRateEim
-    .type _ZN10AudManager24SetBitDepthAndSampleRateEim, %function
-_ZN10AudManager24SetBitDepthAndSampleRateEim:
-    leaq .Lstub_name_373(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10AudManager24SetBitDepthAndSampleRateEim, . - _ZN10AudManager24SetBitDepthAndSampleRateEim
-
-    // SetRainSurfaceAudioInfos()
-    .global _Z24SetRainSurfaceAudioInfosv
-    .type _Z24SetRainSurfaceAudioInfosv, %function
-_Z24SetRainSurfaceAudioInfosv:
-    leaq .Lstub_name_374(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _Z24SetRainSurfaceAudioInfosv, . - _Z24SetRainSurfaceAudioInfosv
-
-    // LoadPositions(char const*)
-    .global _Z13LoadPositionsPKc
-    .type _Z13LoadPositionsPKc, %function
-_Z13LoadPositionsPKc:
-    leaq .Lstub_name_375(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _Z13LoadPositionsPKc, . - _Z13LoadPositionsPKc
-
-    // mmPositions::Load(char const*)
-    .global _ZN11mmPositions4LoadEPKc
-    .type _ZN11mmPositions4LoadEPKc, %function
-_ZN11mmPositions4LoadEPKc:
-    leaq .Lstub_name_376(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11mmPositions4LoadEPKc, . - _ZN11mmPositions4LoadEPKc
-
-    // mmPositions::Register(Vector4&, int, int, int, int, char*)
-    .global _ZN11mmPositions8RegisterER7Vector4iiiiPc
-    .type _ZN11mmPositions8RegisterER7Vector4iiiiPc, %function
-_ZN11mmPositions8RegisterER7Vector4iiiiPc:
-    leaq .Lstub_name_377(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11mmPositions8RegisterER7Vector4iiiiPc, . - _ZN11mmPositions8RegisterER7Vector4iiiiPc
-
-    // SetSnowSurfaceAudioInfos()
-    .global _Z24SetSnowSurfaceAudioInfosv
-    .type _Z24SetSnowSurfaceAudioInfosv, %function
-_Z24SetSnowSurfaceAudioInfosv:
-    leaq .Lstub_name_378(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _Z24SetSnowSurfaceAudioInfosv, . - _Z24SetSnowSurfaceAudioInfosv
-
-    // SetClearSurfaceAudioInfos()
-    .global _Z25SetClearSurfaceAudioInfosv
-    .type _Z25SetClearSurfaceAudioInfosv, %function
-_Z25SetClearSurfaceAudioInfosv:
-    leaq .Lstub_name_379(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _Z25SetClearSurfaceAudioInfosv, . - _Z25SetClearSurfaceAudioInfosv
-
-    // mmVoiceCommentary::mmVoiceCommentary()
-    .global _ZN17mmVoiceCommentaryC1Ev
-    .type _ZN17mmVoiceCommentaryC1Ev, %function
-_ZN17mmVoiceCommentaryC1Ev:
-    leaq .Lstub_name_380(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN17mmVoiceCommentaryC1Ev, . - _ZN17mmVoiceCommentaryC1Ev
-
-    // mmVoiceCommentary::ValidateCity(char*)
-    .global _ZN17mmVoiceCommentary12ValidateCityEPc
-    .type _ZN17mmVoiceCommentary12ValidateCityEPc, %function
-_ZN17mmVoiceCommentary12ValidateCityEPc:
-    leaq .Lstub_name_381(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN17mmVoiceCommentary12ValidateCityEPc, . - _ZN17mmVoiceCommentary12ValidateCityEPc
-
-    // AudManager::SetVoiceCommentaryPtr(mmVoiceCommentary*)
-    .global _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary
-    .type _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary, %function
-_ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary:
-    leaq .Lstub_name_382(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary, . - _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary
-
-    // mmPhysicsMGR::Init(asInertialCS*, mmViewCS*)
-    .global _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS
-    .type _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS, %function
-_ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS:
-    leaq .Lstub_name_383(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS, . - _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS
-
-    // mmPlayer::Init(char*, char*, mmGame*)
-    .global _ZN8mmPlayer4InitEPcS0_P6mmGame
-    .type _ZN8mmPlayer4InitEPcS0_P6mmGame, %function
-_ZN8mmPlayer4InitEPcS0_P6mmGame:
-    leaq .Lstub_name_384(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmPlayer4InitEPcS0_P6mmGame, . - _ZN8mmPlayer4InitEPcS0_P6mmGame
-
-    // mmIcons::Init(Matrix34*, float, float)
-    .global _ZN7mmIcons4InitEP8Matrix34ff
-    .type _ZN7mmIcons4InitEP8Matrix34ff, %function
-_ZN7mmIcons4InitEP8Matrix34ff:
-    leaq .Lstub_name_385(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmIcons4InitEP8Matrix34ff, . - _ZN7mmIcons4InitEP8Matrix34ff
-
-    // AudManager::GetDSound3DMask()
-    .global _ZN10AudManager15GetDSound3DMaskEv
-    .type _ZN10AudManager15GetDSound3DMaskEv, %function
-_ZN10AudManager15GetDSound3DMaskEv:
-    leaq .Lstub_name_386(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10AudManager15GetDSound3DMaskEv, . - _ZN10AudManager15GetDSound3DMaskEv
-
-    // AudHead::AudHead(Matrix34*)
-    .global _ZN7AudHeadC1EP8Matrix34
-    .type _ZN7AudHeadC1EP8Matrix34, %function
-_ZN7AudHeadC1EP8Matrix34:
-    leaq .Lstub_name_387(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7AudHeadC1EP8Matrix34, . - _ZN7AudHeadC1EP8Matrix34
-
-    // AudHead::Init()
-    .global _ZN7AudHead4InitEv
-    .type _ZN7AudHead4InitEv, %function
-_ZN7AudHead4InitEv:
-    leaq .Lstub_name_388(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7AudHead4InitEv, . - _ZN7AudHead4InitEv
-
-    // AudHead::SetRolloff(float)
-    .global _ZN7AudHead10SetRolloffEf
-    .type _ZN7AudHead10SetRolloffEf, %function
-_ZN7AudHead10SetRolloffEf:
-    leaq .Lstub_name_389(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7AudHead10SetRolloffEf, . - _ZN7AudHead10SetRolloffEf
-
-    // AudHead::SetDoppler(float)
-    .global _ZN7AudHead10SetDopplerEf
-    .type _ZN7AudHead10SetDopplerEf, %function
-_ZN7AudHead10SetDopplerEf:
-    leaq .Lstub_name_390(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7AudHead10SetDopplerEf, . - _ZN7AudHead10SetDopplerEf
-
-    // aiMap::Init(char*, char*, char*, mmCar*)
-    .global _ZN5aiMap4InitEPcS0_S0_P5mmCar
-    .type _ZN5aiMap4InitEPcS0_S0_P5mmCar, %function
-_ZN5aiMap4InitEPcS0_S0_P5mmCar:
-    leaq .Lstub_name_391(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN5aiMap4InitEPcS0_S0_P5mmCar, . - _ZN5aiMap4InitEPcS0_S0_P5mmCar
-
-    // mmHudMap::RegisterOpponents(OppIconInfo*, int)
-    .global _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi
-    .type _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi, %function
-_ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi:
-    leaq .Lstub_name_392(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi, . - _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi
-
-    // mmIcons::RegisterOpponents(OppIconInfo*, int, void*)
-    .global _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv
-    .type _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv, %function
-_ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv:
-    leaq .Lstub_name_393(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv, . - _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv
-
-    // mmAnimMgr::Init(char*, mmInstance*, mmInstance**, int)
-    .global _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i
-    .type _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i, %function
-_ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i:
-    leaq .Lstub_name_394(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i, . - _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i
-
-    // mmAmbientAudio::mmAmbientAudio(mmPlayer*)
-    .global _ZN14mmAmbientAudioC1EP8mmPlayer
-    .type _ZN14mmAmbientAudioC1EP8mmPlayer, %function
-_ZN14mmAmbientAudioC1EP8mmPlayer:
-    leaq .Lstub_name_395(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN14mmAmbientAudioC1EP8mmPlayer, . - _ZN14mmAmbientAudioC1EP8mmPlayer
-
-    // asLamp::SetDistant()
-    .global _ZN6asLamp10SetDistantEv
-    .type _ZN6asLamp10SetDistantEv, %function
-_ZN6asLamp10SetDistantEv:
-    leaq .Lstub_name_396(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6asLamp10SetDistantEv, . - _ZN6asLamp10SetDistantEv
-
-    // mmPopup::mmPopup(mmGame*, float, float, float, float)
-    .global _ZN7mmPopupC1EP6mmGameffff
-    .type _ZN7mmPopupC1EP6mmGameffff, %function
-_ZN7mmPopupC1EP6mmGameffff:
-    leaq .Lstub_name_397(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmPopupC1EP6mmGameffff, . - _ZN7mmPopupC1EP6mmGameffff
-
-    // mmPopup::Reset()
-    .global _ZN7mmPopup5ResetEv
-    .type _ZN7mmPopup5ResetEv, %function
-_ZN7mmPopup5ResetEv:
-    leaq .Lstub_name_398(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmPopup5ResetEv, . - _ZN7mmPopup5ResetEv
-
-    // PUResults::AddTitle(LocString*, LocString*)
-    .global _ZN9PUResults8AddTitleEP9LocStringS1_
-    .type _ZN9PUResults8AddTitleEP9LocStringS1_, %function
-_ZN9PUResults8AddTitleEP9LocStringS1_:
-    leaq .Lstub_name_399(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9PUResults8AddTitleEP9LocStringS1_, . - _ZN9PUResults8AddTitleEP9LocStringS1_
-
-    // mmAnimMgr::AirlinerSwap()
-    .global _ZN9mmAnimMgr12AirlinerSwapEv
-    .type _ZN9mmAnimMgr12AirlinerSwapEv, %function
-_ZN9mmAnimMgr12AirlinerSwapEv:
-    leaq .Lstub_name_400(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9mmAnimMgr12AirlinerSwapEv, . - _ZN9mmAnimMgr12AirlinerSwapEv
-
-    // mmAnimMgr::UFOSwap()
-    .global _ZN9mmAnimMgr7UFOSwapEv
-    .type _ZN9mmAnimMgr7UFOSwapEv, %function
-_ZN9mmAnimMgr7UFOSwapEv:
-    leaq .Lstub_name_401(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9mmAnimMgr7UFOSwapEv, . - _ZN9mmAnimMgr7UFOSwapEv
-
-    // mmHUD::PostChatMessage(char const*)
-    .global _ZN5mmHUD15PostChatMessageEPKc
-    .type _ZN5mmHUD15PostChatMessageEPKc, %function
-_ZN5mmHUD15PostChatMessageEPKc:
-    leaq .Lstub_name_402(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN5mmHUD15PostChatMessageEPKc, . - _ZN5mmHUD15PostChatMessageEPKc
-
-    // AudManager::GetVoiceCommentaryPtr()
-    .global _ZN10AudManager21GetVoiceCommentaryPtrEv
-    .type _ZN10AudManager21GetVoiceCommentaryPtrEv, %function
-_ZN10AudManager21GetVoiceCommentaryPtrEv:
-    leaq .Lstub_name_403(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10AudManager21GetVoiceCommentaryPtrEv, . - _ZN10AudManager21GetVoiceCommentaryPtrEv
-
-    // mmVoiceCommentary::SetFrequency(float)
-    .global _ZN17mmVoiceCommentary12SetFrequencyEf
-    .type _ZN17mmVoiceCommentary12SetFrequencyEf, %function
-_ZN17mmVoiceCommentary12SetFrequencyEf:
-    leaq .Lstub_name_404(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN17mmVoiceCommentary12SetFrequencyEf, . - _ZN17mmVoiceCommentary12SetFrequencyEf
-
-    // mmGame::UpdateSteeringBrakes()
-    .global _ZN6mmGame20UpdateSteeringBrakesEv
-    .type _ZN6mmGame20UpdateSteeringBrakesEv, %function
-_ZN6mmGame20UpdateSteeringBrakesEv:
-    leaq .Lstub_name_405(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6mmGame20UpdateSteeringBrakesEv, . - _ZN6mmGame20UpdateSteeringBrakesEv
-
-    // mmAmbientAudio::Update()
-    .global _ZN14mmAmbientAudio6UpdateEv
-    .type _ZN14mmAmbientAudio6UpdateEv, %function
-_ZN14mmAmbientAudio6UpdateEv:
-    leaq .Lstub_name_406(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN14mmAmbientAudio6UpdateEv, . - _ZN14mmAmbientAudio6UpdateEv
-
-    // mmVoiceCommentary::Update()
-    .global _ZN17mmVoiceCommentary6UpdateEv
-    .type _ZN17mmVoiceCommentary6UpdateEv, %function
-_ZN17mmVoiceCommentary6UpdateEv:
-    leaq .Lstub_name_407(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN17mmVoiceCommentary6UpdateEv, . - _ZN17mmVoiceCommentary6UpdateEv
-
-    // mmHUD::SetMessage(LocString*, float, bool)
-    .global _ZN5mmHUD10SetMessageEP9LocStringfb
-    .type _ZN5mmHUD10SetMessageEP9LocStringfb, %function
-_ZN5mmHUD10SetMessageEP9LocStringfb:
-    leaq .Lstub_name_408(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN5mmHUD10SetMessageEP9LocStringfb, . - _ZN5mmHUD10SetMessageEP9LocStringfb
-
-    // TrackCamCS::~TrackCamCS()
-    .global _ZN10TrackCamCSD1Ev
-    .type _ZN10TrackCamCSD1Ev, %function
-_ZN10TrackCamCSD1Ev:
-    leaq .Lstub_name_409(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10TrackCamCSD1Ev, . - _ZN10TrackCamCSD1Ev
-
-    // mmHUD::~mmHUD()
-    .global _ZN5mmHUDD1Ev
-    .type _ZN5mmHUDD1Ev, %function
-_ZN5mmHUDD1Ev:
-    leaq .Lstub_name_410(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN5mmHUDD1Ev, . - _ZN5mmHUDD1Ev
-
-    // mmSkidManager::~mmSkidManager()
-    .global _ZN13mmSkidManagerD1Ev
-    .type _ZN13mmSkidManagerD1Ev, %function
-_ZN13mmSkidManagerD1Ev:
-    leaq .Lstub_name_411(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN13mmSkidManagerD1Ev, . - _ZN13mmSkidManagerD1Ev
-
-    // mmCarSim::~mmCarSim()
-    .global _ZN8mmCarSimD1Ev
-    .type _ZN8mmCarSimD1Ev, %function
-_ZN8mmCarSimD1Ev:
-    leaq .Lstub_name_412(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmCarSimD1Ev, . - _ZN8mmCarSimD1Ev
-
-    // mmGame::GetClass()
-    .global _ZN6mmGame8GetClassEv
-    .type _ZN6mmGame8GetClassEv, %function
-_ZN6mmGame8GetClassEv:
-    leaq .Lstub_name_413(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6mmGame8GetClassEv, . - _ZN6mmGame8GetClassEv
-
-    // asNetwork::Logout()
-    .global _ZN9asNetwork6LogoutEv
-    .type _ZN9asNetwork6LogoutEv, %function
-_ZN9asNetwork6LogoutEv:
-    leaq .Lstub_name_414(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9asNetwork6LogoutEv, . - _ZN9asNetwork6LogoutEv
-
-    // asNetwork::DestroyPlayer()
-    .global _ZN9asNetwork13DestroyPlayerEv
-    .type _ZN9asNetwork13DestroyPlayerEv, %function
-_ZN9asNetwork13DestroyPlayerEv:
-    leaq .Lstub_name_415(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9asNetwork13DestroyPlayerEv, . - _ZN9asNetwork13DestroyPlayerEv
-
-    // asNetwork::CloseSession()
-    .global _ZN9asNetwork12CloseSessionEv
-    .type _ZN9asNetwork12CloseSessionEv, %function
-_ZN9asNetwork12CloseSessionEv:
-    leaq .Lstub_name_416(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9asNetwork12CloseSessionEv, . - _ZN9asNetwork12CloseSessionEv
-
-    // asNetwork::Deallocate()
-    .global _ZN9asNetwork10DeallocateEv
-    .type _ZN9asNetwork10DeallocateEv, %function
-_ZN9asNetwork10DeallocateEv:
-    leaq .Lstub_name_417(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9asNetwork10DeallocateEv, . - _ZN9asNetwork10DeallocateEv
-
-    // Matrix34::Rotate(Vector3 const&, float)
-    .global _ZN8Matrix346RotateERK7Vector3f
-    .type _ZN8Matrix346RotateERK7Vector3f, %function
-_ZN8Matrix346RotateERK7Vector3f:
-    leaq .Lstub_name_418(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8Matrix346RotateERK7Vector3f, . - _ZN8Matrix346RotateERK7Vector3f
 
     // DebugLog(int, void*, int)
     .global _Z8DebugLogiPvi
     .type _Z8DebugLogiPvi, %function
 _Z8DebugLogiPvi:
-    leaq .Lstub_name_419(%rip), %rdi
+    leaq .Lstub_name_353(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z8DebugLogiPvi, . - _Z8DebugLogiPvi
 
@@ -12411,7 +11871,7 @@ _Z8DebugLogiPvi:
     .global _ZN7mmInput11GetSteeringEv
     .type _ZN7mmInput11GetSteeringEv, %function
 _ZN7mmInput11GetSteeringEv:
-    leaq .Lstub_name_420(%rip), %rdi
+    leaq .Lstub_name_354(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput11GetSteeringEv, . - _ZN7mmInput11GetSteeringEv
 
@@ -12419,7 +11879,7 @@ _ZN7mmInput11GetSteeringEv:
     .global _ZN7mmInput11GetThrottleEv
     .type _ZN7mmInput11GetThrottleEv, %function
 _ZN7mmInput11GetThrottleEv:
-    leaq .Lstub_name_421(%rip), %rdi
+    leaq .Lstub_name_355(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput11GetThrottleEv, . - _ZN7mmInput11GetThrottleEv
 
@@ -12427,7 +11887,7 @@ _ZN7mmInput11GetThrottleEv:
     .global _ZN11mmMultiRaceC1Ev
     .type _ZN11mmMultiRaceC1Ev, %function
 _ZN11mmMultiRaceC1Ev:
-    leaq .Lstub_name_422(%rip), %rdi
+    leaq .Lstub_name_356(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmMultiRaceC1Ev, . - _ZN11mmMultiRaceC1Ev
 
@@ -12435,7 +11895,7 @@ _ZN11mmMultiRaceC1Ev:
     .global _ZN11mmMultiRace4InitEv
     .type _ZN11mmMultiRace4InitEv, %function
 _ZN11mmMultiRace4InitEv:
-    leaq .Lstub_name_423(%rip), %rdi
+    leaq .Lstub_name_357(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmMultiRace4InitEv, . - _ZN11mmMultiRace4InitEv
 
@@ -12443,7 +11903,7 @@ _ZN11mmMultiRace4InitEv:
     .global _ZN10mmGameEditC1Ev
     .type _ZN10mmGameEditC1Ev, %function
 _ZN10mmGameEditC1Ev:
-    leaq .Lstub_name_424(%rip), %rdi
+    leaq .Lstub_name_358(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmGameEditC1Ev, . - _ZN10mmGameEditC1Ev
 
@@ -12451,7 +11911,7 @@ _ZN10mmGameEditC1Ev:
     .global _ZN10mmGameEdit4InitEv
     .type _ZN10mmGameEdit4InitEv, %function
 _ZN10mmGameEdit4InitEv:
-    leaq .Lstub_name_425(%rip), %rdi
+    leaq .Lstub_name_359(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmGameEdit4InitEv, . - _ZN10mmGameEdit4InitEv
 
@@ -12459,7 +11919,7 @@ _ZN10mmGameEdit4InitEv:
     .global _ZN12mmMultiBlitzC1Ev
     .type _ZN12mmMultiBlitzC1Ev, %function
 _ZN12mmMultiBlitzC1Ev:
-    leaq .Lstub_name_426(%rip), %rdi
+    leaq .Lstub_name_360(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmMultiBlitzC1Ev, . - _ZN12mmMultiBlitzC1Ev
 
@@ -12467,7 +11927,7 @@ _ZN12mmMultiBlitzC1Ev:
     .global _ZN12mmMultiBlitz4InitEv
     .type _ZN12mmMultiBlitz4InitEv, %function
 _ZN12mmMultiBlitz4InitEv:
-    leaq .Lstub_name_427(%rip), %rdi
+    leaq .Lstub_name_361(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmMultiBlitz4InitEv, . - _ZN12mmMultiBlitz4InitEv
 
@@ -12475,7 +11935,7 @@ _ZN12mmMultiBlitz4InitEv:
     .global _ZN9mmMultiCRC1Ev
     .type _ZN9mmMultiCRC1Ev, %function
 _ZN9mmMultiCRC1Ev:
-    leaq .Lstub_name_428(%rip), %rdi
+    leaq .Lstub_name_362(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCRC1Ev, . - _ZN9mmMultiCRC1Ev
 
@@ -12483,7 +11943,7 @@ _ZN9mmMultiCRC1Ev:
     .global _ZN9mmMultiCR4InitEv
     .type _ZN9mmMultiCR4InitEv, %function
 _ZN9mmMultiCR4InitEv:
-    leaq .Lstub_name_429(%rip), %rdi
+    leaq .Lstub_name_363(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCR4InitEv, . - _ZN9mmMultiCR4InitEv
 
@@ -12491,7 +11951,7 @@ _ZN9mmMultiCR4InitEv:
     .global _ZN13mmSingleBlitzC1Ev
     .type _ZN13mmSingleBlitzC1Ev, %function
 _ZN13mmSingleBlitzC1Ev:
-    leaq .Lstub_name_430(%rip), %rdi
+    leaq .Lstub_name_364(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13mmSingleBlitzC1Ev, . - _ZN13mmSingleBlitzC1Ev
 
@@ -12499,7 +11959,7 @@ _ZN13mmSingleBlitzC1Ev:
     .global _ZN13mmSingleBlitz4InitEv
     .type _ZN13mmSingleBlitz4InitEv, %function
 _ZN13mmSingleBlitz4InitEv:
-    leaq .Lstub_name_431(%rip), %rdi
+    leaq .Lstub_name_365(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13mmSingleBlitz4InitEv, . - _ZN13mmSingleBlitz4InitEv
 
@@ -12507,7 +11967,7 @@ _ZN13mmSingleBlitz4InitEv:
     .global _ZN14mmMultiCircuitC1Ev
     .type _ZN14mmMultiCircuitC1Ev, %function
 _ZN14mmMultiCircuitC1Ev:
-    leaq .Lstub_name_432(%rip), %rdi
+    leaq .Lstub_name_366(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmMultiCircuitC1Ev, . - _ZN14mmMultiCircuitC1Ev
 
@@ -12515,7 +11975,7 @@ _ZN14mmMultiCircuitC1Ev:
     .global _ZN14mmMultiCircuit4InitEv
     .type _ZN14mmMultiCircuit4InitEv, %function
 _ZN14mmMultiCircuit4InitEv:
-    leaq .Lstub_name_433(%rip), %rdi
+    leaq .Lstub_name_367(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmMultiCircuit4InitEv, . - _ZN14mmMultiCircuit4InitEv
 
@@ -12523,7 +11983,7 @@ _ZN14mmMultiCircuit4InitEv:
     .global _Z8randcallv
     .type _Z8randcallv, %function
 _Z8randcallv:
-    leaq .Lstub_name_434(%rip), %rdi
+    leaq .Lstub_name_368(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z8randcallv, . - _Z8randcallv
 
@@ -12531,7 +11991,7 @@ _Z8randcallv:
     .global _ZN6Card2DC1Ev
     .type _ZN6Card2DC1Ev, %function
 _ZN6Card2DC1Ev:
-    leaq .Lstub_name_435(%rip), %rdi
+    leaq .Lstub_name_369(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6Card2DC1Ev, . - _ZN6Card2DC1Ev
 
@@ -12539,55 +11999,15 @@ _ZN6Card2DC1Ev:
     .global _ZN6Card2D13SetDimensionsEffff
     .type _ZN6Card2D13SetDimensionsEffff, %function
 _ZN6Card2D13SetDimensionsEffff:
-    leaq .Lstub_name_436(%rip), %rdi
+    leaq .Lstub_name_370(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6Card2D13SetDimensionsEffff, . - _ZN6Card2D13SetDimensionsEffff
-
-    // mmGame::Reset()
-    .global _ZN6mmGame5ResetEv
-    .type _ZN6mmGame5ResetEv, %function
-_ZN6mmGame5ResetEv:
-    leaq .Lstub_name_437(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6mmGame5ResetEv, . - _ZN6mmGame5ResetEv
-
-    // mmGame::InitGameStrings()
-    .global _ZN6mmGame15InitGameStringsEv
-    .type _ZN6mmGame15InitGameStringsEv, %function
-_ZN6mmGame15InitGameStringsEv:
-    leaq .Lstub_name_438(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6mmGame15InitGameStringsEv, . - _ZN6mmGame15InitGameStringsEv
-
-    // mmGame::InitOtherPlayers()
-    .global _ZN6mmGame16InitOtherPlayersEv
-    .type _ZN6mmGame16InitOtherPlayersEv, %function
-_ZN6mmGame16InitOtherPlayersEv:
-    leaq .Lstub_name_439(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6mmGame16InitOtherPlayersEv, . - _ZN6mmGame16InitOtherPlayersEv
-
-    // mmGame::HitWaterHandler()
-    .global _ZN6mmGame15HitWaterHandlerEv
-    .type _ZN6mmGame15HitWaterHandlerEv, %function
-_ZN6mmGame15HitWaterHandlerEv:
-    leaq .Lstub_name_440(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6mmGame15HitWaterHandlerEv, . - _ZN6mmGame15HitWaterHandlerEv
-
-    // mmGame::DropThruCityHandler()
-    .global _ZN6mmGame19DropThruCityHandlerEv
-    .type _ZN6mmGame19DropThruCityHandlerEv, %function
-_ZN6mmGame19DropThruCityHandlerEv:
-    leaq .Lstub_name_441(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN6mmGame19DropThruCityHandlerEv, . - _ZN6mmGame19DropThruCityHandlerEv
 
     // mmMultiRace::~mmMultiRace()
     .global _ZN11mmMultiRaceD1Ev
     .type _ZN11mmMultiRaceD1Ev, %function
 _ZN11mmMultiRaceD1Ev:
-    leaq .Lstub_name_442(%rip), %rdi
+    leaq .Lstub_name_371(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmMultiRaceD1Ev, . - _ZN11mmMultiRaceD1Ev
 
@@ -12595,7 +12015,7 @@ _ZN11mmMultiRaceD1Ev:
     .global _ZN9mmMultiCRD1Ev
     .type _ZN9mmMultiCRD1Ev, %function
 _ZN9mmMultiCRD1Ev:
-    leaq .Lstub_name_443(%rip), %rdi
+    leaq .Lstub_name_372(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCRD1Ev, . - _ZN9mmMultiCRD1Ev
 
@@ -12603,7 +12023,7 @@ _ZN9mmMultiCRD1Ev:
     .global _ZN15mmSingleCircuitD1Ev
     .type _ZN15mmSingleCircuitD1Ev, %function
 _ZN15mmSingleCircuitD1Ev:
-    leaq .Lstub_name_444(%rip), %rdi
+    leaq .Lstub_name_373(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN15mmSingleCircuitD1Ev, . - _ZN15mmSingleCircuitD1Ev
 
@@ -12611,7 +12031,7 @@ _ZN15mmSingleCircuitD1Ev:
     .global _ZN13mmSingleBlitzD1Ev
     .type _ZN13mmSingleBlitzD1Ev, %function
 _ZN13mmSingleBlitzD1Ev:
-    leaq .Lstub_name_445(%rip), %rdi
+    leaq .Lstub_name_374(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13mmSingleBlitzD1Ev, . - _ZN13mmSingleBlitzD1Ev
 
@@ -12619,7 +12039,7 @@ _ZN13mmSingleBlitzD1Ev:
     .global _ZN10mmGameEditD1Ev
     .type _ZN10mmGameEditD1Ev, %function
 _ZN10mmGameEditD1Ev:
-    leaq .Lstub_name_446(%rip), %rdi
+    leaq .Lstub_name_375(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmGameEditD1Ev, . - _ZN10mmGameEditD1Ev
 
@@ -12627,7 +12047,7 @@ _ZN10mmGameEditD1Ev:
     .global _ZN14mmMultiCircuitD1Ev
     .type _ZN14mmMultiCircuitD1Ev, %function
 _ZN14mmMultiCircuitD1Ev:
-    leaq .Lstub_name_447(%rip), %rdi
+    leaq .Lstub_name_376(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN14mmMultiCircuitD1Ev, . - _ZN14mmMultiCircuitD1Ev
 
@@ -12635,15 +12055,231 @@ _ZN14mmMultiCircuitD1Ev:
     .global _ZN12mmMultiBlitzD1Ev
     .type _ZN12mmMultiBlitzD1Ev, %function
 _ZN12mmMultiBlitzD1Ev:
-    leaq .Lstub_name_448(%rip), %rdi
+    leaq .Lstub_name_377(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmMultiBlitzD1Ev, . - _ZN12mmMultiBlitzD1Ev
+
+    // DebugLogShutdown()
+    .global _Z16DebugLogShutdownv
+    .type _Z16DebugLogShutdownv, %function
+_Z16DebugLogShutdownv:
+    leaq .Lstub_name_378(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _Z16DebugLogShutdownv, . - _Z16DebugLogShutdownv
+
+    // mmGameManager::GetClass()
+    .global _ZN13mmGameManager8GetClassEv
+    .type _ZN13mmGameManager8GetClassEv, %function
+_ZN13mmGameManager8GetClassEv:
+    leaq .Lstub_name_379(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN13mmGameManager8GetClassEv, . - _ZN13mmGameManager8GetClassEv
+
+    // RadialGauge::Init(char const*, char const*, float*, float*, float)
+    .global _ZN11RadialGauge4InitEPKcS1_PfS2_f
+    .type _ZN11RadialGauge4InitEPKcS1_PfS2_f, %function
+_ZN11RadialGauge4InitEPKcS1_PfS2_f:
+    leaq .Lstub_name_380(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11RadialGauge4InitEPKcS1_PfS2_f, . - _ZN11RadialGauge4InitEPKcS1_PfS2_f
+
+    // mmHUD::ActivateDash()
+    .global _ZN5mmHUD12ActivateDashEv
+    .type _ZN5mmHUD12ActivateDashEv, %function
+_ZN5mmHUD12ActivateDashEv:
+    leaq .Lstub_name_381(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN5mmHUD12ActivateDashEv, . - _ZN5mmHUD12ActivateDashEv
+
+    // mmPlayer::ToggleDash()
+    .global _ZN8mmPlayer10ToggleDashEv
+    .type _ZN8mmPlayer10ToggleDashEv, %function
+_ZN8mmPlayer10ToggleDashEv:
+    leaq .Lstub_name_382(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmPlayer10ToggleDashEv, . - _ZN8mmPlayer10ToggleDashEv
+
+    // mmCDPlayer::PrevTrack()
+    .global _ZN10mmCDPlayer9PrevTrackEv
+    .type _ZN10mmCDPlayer9PrevTrackEv, %function
+_ZN10mmCDPlayer9PrevTrackEv:
+    leaq .Lstub_name_383(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10mmCDPlayer9PrevTrackEv, . - _ZN10mmCDPlayer9PrevTrackEv
+
+    // mmCDPlayer::NextTrack()
+    .global _ZN10mmCDPlayer9NextTrackEv
+    .type _ZN10mmCDPlayer9NextTrackEv, %function
+_ZN10mmCDPlayer9NextTrackEv:
+    leaq .Lstub_name_384(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10mmCDPlayer9NextTrackEv, . - _ZN10mmCDPlayer9NextTrackEv
+
+    // mmTransmission::SetDrive()
+    .global _ZN14mmTransmission8SetDriveEv
+    .type _ZN14mmTransmission8SetDriveEv, %function
+_ZN14mmTransmission8SetDriveEv:
+    leaq .Lstub_name_385(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN14mmTransmission8SetDriveEv, . - _ZN14mmTransmission8SetDriveEv
+
+    // mmTransmission::Automatic(int)
+    .global _ZN14mmTransmission9AutomaticEi
+    .type _ZN14mmTransmission9AutomaticEi, %function
+_ZN14mmTransmission9AutomaticEi:
+    leaq .Lstub_name_386(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN14mmTransmission9AutomaticEi, . - _ZN14mmTransmission9AutomaticEi
+
+    // asNetwork::Logout()
+    .global _ZN9asNetwork6LogoutEv
+    .type _ZN9asNetwork6LogoutEv, %function
+_ZN9asNetwork6LogoutEv:
+    leaq .Lstub_name_387(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9asNetwork6LogoutEv, . - _ZN9asNetwork6LogoutEv
+
+    // mmTransmission::Upshift()
+    .global _ZN14mmTransmission7UpshiftEv
+    .type _ZN14mmTransmission7UpshiftEv, %function
+_ZN14mmTransmission7UpshiftEv:
+    leaq .Lstub_name_388(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN14mmTransmission7UpshiftEv, . - _ZN14mmTransmission7UpshiftEv
+
+    // asNetwork::DestroyPlayer()
+    .global _ZN9asNetwork13DestroyPlayerEv
+    .type _ZN9asNetwork13DestroyPlayerEv, %function
+_ZN9asNetwork13DestroyPlayerEv:
+    leaq .Lstub_name_389(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9asNetwork13DestroyPlayerEv, . - _ZN9asNetwork13DestroyPlayerEv
+
+    // asNetwork::CloseSession()
+    .global _ZN9asNetwork12CloseSessionEv
+    .type _ZN9asNetwork12CloseSessionEv, %function
+_ZN9asNetwork12CloseSessionEv:
+    leaq .Lstub_name_390(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9asNetwork12CloseSessionEv, . - _ZN9asNetwork12CloseSessionEv
+
+    // asNetwork::Deallocate()
+    .global _ZN9asNetwork10DeallocateEv
+    .type _ZN9asNetwork10DeallocateEv, %function
+_ZN9asNetwork10DeallocateEv:
+    leaq .Lstub_name_391(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9asNetwork10DeallocateEv, . - _ZN9asNetwork10DeallocateEv
+
+    // mmInput::GetCamPan()
+    .global _ZN7mmInput9GetCamPanEv
+    .type _ZN7mmInput9GetCamPanEv, %function
+_ZN7mmInput9GetCamPanEv:
+    leaq .Lstub_name_392(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmInput9GetCamPanEv, . - _ZN7mmInput9GetCamPanEv
+
+    // mmCarSim::StopHorn()
+    .global _ZN8mmCarSim8StopHornEv
+    .type _ZN8mmCarSim8StopHornEv, %function
+_ZN8mmCarSim8StopHornEv:
+    leaq .Lstub_name_393(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmCarSim8StopHornEv, . - _ZN8mmCarSim8StopHornEv
+
+    // mmBangerData::LaunchInstance(float, Vector3*)
+    .global _ZN12mmBangerData14LaunchInstanceEfP7Vector3
+    .type _ZN12mmBangerData14LaunchInstanceEfP7Vector3, %function
+_ZN12mmBangerData14LaunchInstanceEfP7Vector3:
+    leaq .Lstub_name_394(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN12mmBangerData14LaunchInstanceEfP7Vector3, . - _ZN12mmBangerData14LaunchInstanceEfP7Vector3
+
+    // mmCarSim::PlayHorn()
+    .global _ZN8mmCarSim8PlayHornEv
+    .type _ZN8mmCarSim8PlayHornEv, %function
+_ZN8mmCarSim8PlayHornEv:
+    leaq .Lstub_name_395(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmCarSim8PlayHornEv, . - _ZN8mmCarSim8PlayHornEv
+
+    // mmPositions::mmPositions()
+    .global _ZN11mmPositionsC1Ev
+    .type _ZN11mmPositionsC1Ev, %function
+_ZN11mmPositionsC1Ev:
+    leaq .Lstub_name_396(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11mmPositionsC1Ev, . - _ZN11mmPositionsC1Ev
+
+    // mmPositions::Init(int)
+    .global _ZN11mmPositions4InitEi
+    .type _ZN11mmPositions4InitEi, %function
+_ZN11mmPositions4InitEi:
+    leaq .Lstub_name_397(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11mmPositions4InitEi, . - _ZN11mmPositions4InitEi
+
+    // Matrix34::Rotate(Vector3 const&, float)
+    .global _ZN8Matrix346RotateERK7Vector3f
+    .type _ZN8Matrix346RotateERK7Vector3f, %function
+_ZN8Matrix346RotateERK7Vector3f:
+    leaq .Lstub_name_398(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8Matrix346RotateERK7Vector3f, . - _ZN8Matrix346RotateERK7Vector3f
+
+    // mmGame::PlayerSetState()
+    .global _ZN6mmGame14PlayerSetStateEv
+    .type _ZN6mmGame14PlayerSetStateEv, %function
+_ZN6mmGame14PlayerSetStateEv:
+    leaq .Lstub_name_399(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN6mmGame14PlayerSetStateEv, . - _ZN6mmGame14PlayerSetStateEv
+
+    // AudManager::SetBitDepthAndSampleRate(int, unsigned long)
+    .global _ZN10AudManager24SetBitDepthAndSampleRateEim
+    .type _ZN10AudManager24SetBitDepthAndSampleRateEim, %function
+_ZN10AudManager24SetBitDepthAndSampleRateEim:
+    leaq .Lstub_name_400(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10AudManager24SetBitDepthAndSampleRateEim, . - _ZN10AudManager24SetBitDepthAndSampleRateEim
+
+    // SetRainSurfaceAudioInfos()
+    .global _Z24SetRainSurfaceAudioInfosv
+    .type _Z24SetRainSurfaceAudioInfosv, %function
+_Z24SetRainSurfaceAudioInfosv:
+    leaq .Lstub_name_401(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _Z24SetRainSurfaceAudioInfosv, . - _Z24SetRainSurfaceAudioInfosv
+
+    // LoadPositions(char const*)
+    .global _Z13LoadPositionsPKc
+    .type _Z13LoadPositionsPKc, %function
+_Z13LoadPositionsPKc:
+    leaq .Lstub_name_402(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _Z13LoadPositionsPKc, . - _Z13LoadPositionsPKc
+
+    // mmPositions::Load(char const*)
+    .global _ZN11mmPositions4LoadEPKc
+    .type _ZN11mmPositions4LoadEPKc, %function
+_ZN11mmPositions4LoadEPKc:
+    leaq .Lstub_name_403(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11mmPositions4LoadEPKc, . - _ZN11mmPositions4LoadEPKc
+
+    // mmPositions::Register(Vector4&, int, int, int, int, char*)
+    .global _ZN11mmPositions8RegisterER7Vector4iiiiPc
+    .type _ZN11mmPositions8RegisterER7Vector4iiiiPc, %function
+_ZN11mmPositions8RegisterER7Vector4iiiiPc:
+    leaq .Lstub_name_404(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11mmPositions8RegisterER7Vector4iiiiPc, . - _ZN11mmPositions8RegisterER7Vector4iiiiPc
 
     // mmRaceData::mmRaceData()
     .global _ZN10mmRaceDataC1Ev
     .type _ZN10mmRaceDataC1Ev, %function
 _ZN10mmRaceDataC1Ev:
-    leaq .Lstub_name_449(%rip), %rdi
+    leaq .Lstub_name_405(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmRaceDataC1Ev, . - _ZN10mmRaceDataC1Ev
 
@@ -12651,287 +12287,15 @@ _ZN10mmRaceDataC1Ev:
     .global _ZN10mmRaceData4LoadEPc
     .type _ZN10mmRaceData4LoadEPc, %function
 _ZN10mmRaceData4LoadEPc:
-    leaq .Lstub_name_450(%rip), %rdi
+    leaq .Lstub_name_406(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10mmRaceData4LoadEPc, . - _ZN10mmRaceData4LoadEPc
-
-    // DebugLogShutdown()
-    .global _Z16DebugLogShutdownv
-    .type _Z16DebugLogShutdownv, %function
-_Z16DebugLogShutdownv:
-    leaq .Lstub_name_451(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _Z16DebugLogShutdownv, . - _Z16DebugLogShutdownv
-
-    // asMeshSetForm::asMeshSetForm()
-    .global _ZN13asMeshSetFormC1Ev
-    .type _ZN13asMeshSetFormC1Ev, %function
-_ZN13asMeshSetFormC1Ev:
-    leaq .Lstub_name_452(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN13asMeshSetFormC1Ev, . - _ZN13asMeshSetFormC1Ev
-
-    // asMeshSetForm::SetZRead(int)
-    .global _ZN13asMeshSetForm8SetZReadEi
-    .type _ZN13asMeshSetForm8SetZReadEi, %function
-_ZN13asMeshSetForm8SetZReadEi:
-    leaq .Lstub_name_453(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN13asMeshSetForm8SetZReadEi, . - _ZN13asMeshSetForm8SetZReadEi
-
-    // asMeshSetForm::SetZWrite(int)
-    .global _ZN13asMeshSetForm9SetZWriteEi
-    .type _ZN13asMeshSetForm9SetZWriteEi, %function
-_ZN13asMeshSetForm9SetZWriteEi:
-    leaq .Lstub_name_454(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN13asMeshSetForm9SetZWriteEi, . - _ZN13asMeshSetForm9SetZWriteEi
-
-    // AudSound::Get2DFlags()
-    .global _ZN8AudSound10Get2DFlagsEv
-    .type _ZN8AudSound10Get2DFlagsEv, %function
-_ZN8AudSound10Get2DFlagsEv:
-    leaq .Lstub_name_455(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8AudSound10Get2DFlagsEv, . - _ZN8AudSound10Get2DFlagsEv
-
-    // AudSound::AudSound(unsigned long, int, short)
-    .global _ZN8AudSoundC1Emis
-    .type _ZN8AudSoundC1Emis, %function
-_ZN8AudSoundC1Emis:
-    leaq .Lstub_name_456(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8AudSoundC1Emis, . - _ZN8AudSoundC1Emis
-
-    // AudSound::Load(char*, int)
-    .global _ZN8AudSound4LoadEPci
-    .type _ZN8AudSound4LoadEPci, %function
-_ZN8AudSound4LoadEPci:
-    leaq .Lstub_name_457(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8AudSound4LoadEPci, . - _ZN8AudSound4LoadEPci
-
-    // AudSound::SetPriority(int)
-    .global _ZN8AudSound11SetPriorityEi
-    .type _ZN8AudSound11SetPriorityEi, %function
-_ZN8AudSound11SetPriorityEi:
-    leaq .Lstub_name_458(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8AudSound11SetPriorityEi, . - _ZN8AudSound11SetPriorityEi
-
-    // AudSound::SetVolume(float, int)
-    .global _ZN8AudSound9SetVolumeEfi
-    .type _ZN8AudSound9SetVolumeEfi, %function
-_ZN8AudSound9SetVolumeEfi:
-    leaq .Lstub_name_459(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8AudSound9SetVolumeEfi, . - _ZN8AudSound9SetVolumeEfi
-
-    // mmCDPlayer::Init(mmHUD*)
-    .global _ZN10mmCDPlayer4InitEP5mmHUD
-    .type _ZN10mmCDPlayer4InitEP5mmHUD, %function
-_ZN10mmCDPlayer4InitEP5mmHUD:
-    leaq .Lstub_name_460(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10mmCDPlayer4InitEP5mmHUD, . - _ZN10mmCDPlayer4InitEP5mmHUD
-
-    // mmArrow::Update()
-    .global _ZN7mmArrow6UpdateEv
-    .type _ZN7mmArrow6UpdateEv, %function
-_ZN7mmArrow6UpdateEv:
-    leaq .Lstub_name_461(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmArrow6UpdateEv, . - _ZN7mmArrow6UpdateEv
-
-    // asInertialCS::GetVelocity(Vector3 const*)
-    .global _ZN12asInertialCS11GetVelocityEPK7Vector3
-    .type _ZN12asInertialCS11GetVelocityEPK7Vector3, %function
-_ZN12asInertialCS11GetVelocityEPK7Vector3:
-    leaq .Lstub_name_462(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN12asInertialCS11GetVelocityEPK7Vector3, . - _ZN12asInertialCS11GetVelocityEPK7Vector3
-
-    // mmViewCS::Instance(asCamera*)
-    .global _ZN8mmViewCS8InstanceEP8asCamera
-    .type _ZN8mmViewCS8InstanceEP8asCamera, %function
-_ZN8mmViewCS8InstanceEP8asCamera:
-    leaq .Lstub_name_463(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmViewCS8InstanceEP8asCamera, . - _ZN8mmViewCS8InstanceEP8asCamera
-
-    // mmCarSim::AddPlayerSpecifics()
-    .global _ZN8mmCarSim18AddPlayerSpecificsEv
-    .type _ZN8mmCarSim18AddPlayerSpecificsEv, %function
-_ZN8mmCarSim18AddPlayerSpecificsEv:
-    leaq .Lstub_name_464(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmCarSim18AddPlayerSpecificsEv, . - _ZN8mmCarSim18AddPlayerSpecificsEv
-
-    // mmPlayer::GetClass()
-    .global _ZN8mmPlayer8GetClassEv
-    .type _ZN8mmPlayer8GetClassEv, %function
-_ZN8mmPlayer8GetClassEv:
-    leaq .Lstub_name_465(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmPlayer8GetClassEv, . - _ZN8mmPlayer8GetClassEv
-
-    // mmPlayer::Update()
-    .global _ZN8mmPlayer6UpdateEv
-    .type _ZN8mmPlayer6UpdateEv, %function
-_ZN8mmPlayer6UpdateEv:
-    leaq .Lstub_name_466(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmPlayer6UpdateEv, . - _ZN8mmPlayer6UpdateEv
-
-    // mmPlayer::Reset()
-    .global _ZN8mmPlayer5ResetEv
-    .type _ZN8mmPlayer5ResetEv, %function
-_ZN8mmPlayer5ResetEv:
-    leaq .Lstub_name_467(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmPlayer5ResetEv, . - _ZN8mmPlayer5ResetEv
-
-    // mmGameManager::GetClass()
-    .global _ZN13mmGameManager8GetClassEv
-    .type _ZN13mmGameManager8GetClassEv, %function
-_ZN13mmGameManager8GetClassEv:
-    leaq .Lstub_name_468(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN13mmGameManager8GetClassEv, . - _ZN13mmGameManager8GetClassEv
-
-    // PUControl::~PUControl()
-    .global _ZN9PUControlD1Ev
-    .type _ZN9PUControlD1Ev, %function
-_ZN9PUControlD1Ev:
-    leaq .Lstub_name_469(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN9PUControlD1Ev, . - _ZN9PUControlD1Ev
-
-    // MenuManager::Switch(int)
-    .global _ZN11MenuManager6SwitchEi
-    .type _ZN11MenuManager6SwitchEi, %function
-_ZN11MenuManager6SwitchEi:
-    leaq .Lstub_name_470(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11MenuManager6SwitchEi, . - _ZN11MenuManager6SwitchEi
-
-    // MenuManager::DisablePU()
-    .global _ZN11MenuManager9DisablePUEv
-    .type _ZN11MenuManager9DisablePUEv, %function
-_ZN11MenuManager9DisablePUEv:
-    leaq .Lstub_name_471(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11MenuManager9DisablePUEv, . - _ZN11MenuManager9DisablePUEv
-
-    // mmHUD::Enable()
-    .global _ZN5mmHUD6EnableEv
-    .type _ZN5mmHUD6EnableEv, %function
-_ZN5mmHUD6EnableEv:
-    leaq .Lstub_name_472(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN5mmHUD6EnableEv, . - _ZN5mmHUD6EnableEv
-
-    // mmHudMap::Activate()
-    .global _ZN8mmHudMap8ActivateEv
-    .type _ZN8mmHudMap8ActivateEv, %function
-_ZN8mmHudMap8ActivateEv:
-    leaq .Lstub_name_473(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap8ActivateEv, . - _ZN8mmHudMap8ActivateEv
-
-    // AudManager::PlayCDTrack(int, unsigned char, unsigned char, unsigned char, bool)
-    .global _ZN10AudManager11PlayCDTrackEihhhb
-    .type _ZN10AudManager11PlayCDTrackEihhhb, %function
-_ZN10AudManager11PlayCDTrackEihhhb:
-    leaq .Lstub_name_474(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10AudManager11PlayCDTrackEihhhb, . - _ZN10AudManager11PlayCDTrackEihhhb
-
-    // PUMenuBase::DisableExit()
-    .global _ZN10PUMenuBase11DisableExitEv
-    .type _ZN10PUMenuBase11DisableExitEv, %function
-_ZN10PUMenuBase11DisableExitEv:
-    leaq .Lstub_name_475(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN10PUMenuBase11DisableExitEv, . - _ZN10PUMenuBase11DisableExitEv
-
-    // mmPopup::Update()
-    .global _ZN7mmPopup6UpdateEv
-    .type _ZN7mmPopup6UpdateEv, %function
-_ZN7mmPopup6UpdateEv:
-    leaq .Lstub_name_476(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN7mmPopup6UpdateEv, . - _ZN7mmPopup6UpdateEv
-
-    // mmHudMap::DrawMisc()
-    .global _ZN8mmHudMap8DrawMiscEv
-    .type _ZN8mmHudMap8DrawMiscEv, %function
-_ZN8mmHudMap8DrawMiscEv:
-    leaq .Lstub_name_477(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap8DrawMiscEv, . - _ZN8mmHudMap8DrawMiscEv
-
-    // mmHudMap::DrawCops()
-    .global _ZN8mmHudMap8DrawCopsEv
-    .type _ZN8mmHudMap8DrawCopsEv, %function
-_ZN8mmHudMap8DrawCopsEv:
-    leaq .Lstub_name_478(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap8DrawCopsEv, . - _ZN8mmHudMap8DrawCopsEv
-
-    // mmHudMap::DrawOrientedBitmap(Matrix34*, agiBitmap*)
-    .global _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap
-    .type _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap, %function
-_ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap:
-    leaq .Lstub_name_479(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap, . - _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap
-
-    // mmHudMap::DrawWaypoints()
-    .global _ZN8mmHudMap13DrawWaypointsEv
-    .type _ZN8mmHudMap13DrawWaypointsEv, %function
-_ZN8mmHudMap13DrawWaypointsEv:
-    leaq .Lstub_name_480(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap13DrawWaypointsEv, . - _ZN8mmHudMap13DrawWaypointsEv
-
-    // mmHudMap::DrawCopsnRobbers()
-    .global _ZN8mmHudMap16DrawCopsnRobbersEv
-    .type _ZN8mmHudMap16DrawCopsnRobbersEv, %function
-_ZN8mmHudMap16DrawCopsnRobbersEv:
-    leaq .Lstub_name_481(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap16DrawCopsnRobbersEv, . - _ZN8mmHudMap16DrawCopsnRobbersEv
-
-    // mmHudMap::GetClass()
-    .global _ZN8mmHudMap8GetClassEv
-    .type _ZN8mmHudMap8GetClassEv, %function
-_ZN8mmHudMap8GetClassEv:
-    leaq .Lstub_name_482(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap8GetClassEv, . - _ZN8mmHudMap8GetClassEv
-
-    // mmHudMap::Update()
-    .global _ZN8mmHudMap6UpdateEv
-    .type _ZN8mmHudMap6UpdateEv, %function
-_ZN8mmHudMap6UpdateEv:
-    leaq .Lstub_name_483(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap6UpdateEv, . - _ZN8mmHudMap6UpdateEv
-
-    // mmHudMap::Reset()
-    .global _ZN8mmHudMap5ResetEv
-    .type _ZN8mmHudMap5ResetEv, %function
-_ZN8mmHudMap5ResetEv:
-    leaq .Lstub_name_484(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmHudMap5ResetEv, . - _ZN8mmHudMap5ResetEv
 
     // AudManager::Reset()
     .global _ZN10AudManager5ResetEv
     .type _ZN10AudManager5ResetEv, %function
 _ZN10AudManager5ResetEv:
-    leaq .Lstub_name_485(%rip), %rdi
+    leaq .Lstub_name_407(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager5ResetEv, . - _ZN10AudManager5ResetEv
 
@@ -12939,31 +12303,55 @@ _ZN10AudManager5ResetEv:
     .global _ZN10AudManager6StopCDEv
     .type _ZN10AudManager6StopCDEv, %function
 _ZN10AudManager6StopCDEv:
-    leaq .Lstub_name_486(%rip), %rdi
+    leaq .Lstub_name_408(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager6StopCDEv, . - _ZN10AudManager6StopCDEv
+
+    // mmTransmission::GetCurrentGear()
+    .global _ZN14mmTransmission14GetCurrentGearEv
+    .type _ZN14mmTransmission14GetCurrentGearEv, %function
+_ZN14mmTransmission14GetCurrentGearEv:
+    leaq .Lstub_name_409(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN14mmTransmission14GetCurrentGearEv, . - _ZN14mmTransmission14GetCurrentGearEv
+
+    // aiAudioManager::LoadCopVoice()
+    .global _ZN14aiAudioManager12LoadCopVoiceEv
+    .type _ZN14aiAudioManager12LoadCopVoiceEv, %function
+_ZN14aiAudioManager12LoadCopVoiceEv:
+    leaq .Lstub_name_410(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN14aiAudioManager12LoadCopVoiceEv, . - _ZN14aiAudioManager12LoadCopVoiceEv
 
     // mmInput::Reset()
     .global _ZN7mmInput5ResetEv
     .type _ZN7mmInput5ResetEv, %function
 _ZN7mmInput5ResetEv:
-    leaq .Lstub_name_487(%rip), %rdi
+    leaq .Lstub_name_411(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInput5ResetEv, . - _ZN7mmInput5ResetEv
 
-    // mmSingleCircuit::DisableRacers()
-    .global _ZN15mmSingleCircuit13DisableRacersEv
-    .type _ZN15mmSingleCircuit13DisableRacersEv, %function
-_ZN15mmSingleCircuit13DisableRacersEv:
-    leaq .Lstub_name_488(%rip), %rdi
+    // mmGameSingle::DisableRacers()
+    .global _ZN12mmGameSingle13DisableRacersEv
+    .type _ZN12mmGameSingle13DisableRacersEv, %function
+_ZN12mmGameSingle13DisableRacersEv:
+    leaq .Lstub_name_412(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN15mmSingleCircuit13DisableRacersEv, . - _ZN15mmSingleCircuit13DisableRacersEv
+    .size _ZN12mmGameSingle13DisableRacersEv, . - _ZN12mmGameSingle13DisableRacersEv
+
+    // mmGame::Reset()
+    .global _ZN6mmGame5ResetEv
+    .type _ZN6mmGame5ResetEv, %function
+_ZN6mmGame5ResetEv:
+    leaq .Lstub_name_413(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN6mmGame5ResetEv, . - _ZN6mmGame5ResetEv
 
     // mmPlayer::SetPreRaceCam()
     .global _ZN8mmPlayer13SetPreRaceCamEv
     .type _ZN8mmPlayer13SetPreRaceCamEv, %function
 _ZN8mmPlayer13SetPreRaceCamEv:
-    leaq .Lstub_name_489(%rip), %rdi
+    leaq .Lstub_name_414(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8mmPlayer13SetPreRaceCamEv, . - _ZN8mmPlayer13SetPreRaceCamEv
 
@@ -12971,7 +12359,7 @@ _ZN8mmPlayer13SetPreRaceCamEv:
     .global _ZN6mmGame10GetCDTrackEs
     .type _ZN6mmGame10GetCDTrackEs, %function
 _ZN6mmGame10GetCDTrackEs:
-    leaq .Lstub_name_490(%rip), %rdi
+    leaq .Lstub_name_415(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6mmGame10GetCDTrackEs, . - _ZN6mmGame10GetCDTrackEs
 
@@ -12979,7 +12367,7 @@ _ZN6mmGame10GetCDTrackEs:
     .global _ZN10AudManager11PlayCDTrackEib
     .type _ZN10AudManager11PlayCDTrackEib, %function
 _ZN10AudManager11PlayCDTrackEib:
-    leaq .Lstub_name_491(%rip), %rdi
+    leaq .Lstub_name_416(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager11PlayCDTrackEib, . - _ZN10AudManager11PlayCDTrackEib
 
@@ -12987,7 +12375,7 @@ _ZN10AudManager11PlayCDTrackEib:
     .global _ZN17mmVoiceCommentary11PlayPreRaceEv
     .type _ZN17mmVoiceCommentary11PlayPreRaceEv, %function
 _ZN17mmVoiceCommentary11PlayPreRaceEv:
-    leaq .Lstub_name_492(%rip), %rdi
+    leaq .Lstub_name_417(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN17mmVoiceCommentary11PlayPreRaceEv, . - _ZN17mmVoiceCommentary11PlayPreRaceEv
 
@@ -12995,31 +12383,15 @@ _ZN17mmVoiceCommentary11PlayPreRaceEv:
     .global _ZN5mmHUD10StopTimersEv
     .type _ZN5mmHUD10StopTimersEv, %function
 _ZN5mmHUD10StopTimersEv:
-    leaq .Lstub_name_493(%rip), %rdi
+    leaq .Lstub_name_418(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN5mmHUD10StopTimersEv, . - _ZN5mmHUD10StopTimersEv
-
-    // aiAudioManager::LoadCopVoice()
-    .global _ZN14aiAudioManager12LoadCopVoiceEv
-    .type _ZN14aiAudioManager12LoadCopVoiceEv, %function
-_ZN14aiAudioManager12LoadCopVoiceEv:
-    leaq .Lstub_name_494(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN14aiAudioManager12LoadCopVoiceEv, . - _ZN14aiAudioManager12LoadCopVoiceEv
-
-    // mmGameSingle::DisableRacers()
-    .global _ZN12mmGameSingle13DisableRacersEv
-    .type _ZN12mmGameSingle13DisableRacersEv, %function
-_ZN12mmGameSingle13DisableRacersEv:
-    leaq .Lstub_name_495(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN12mmGameSingle13DisableRacersEv, . - _ZN12mmGameSingle13DisableRacersEv
 
     // mmVoiceCommentary::PlayRoam()
     .global _ZN17mmVoiceCommentary8PlayRoamEv
     .type _ZN17mmVoiceCommentary8PlayRoamEv, %function
 _ZN17mmVoiceCommentary8PlayRoamEv:
-    leaq .Lstub_name_496(%rip), %rdi
+    leaq .Lstub_name_419(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN17mmVoiceCommentary8PlayRoamEv, . - _ZN17mmVoiceCommentary8PlayRoamEv
 
@@ -13027,7 +12399,7 @@ _ZN17mmVoiceCommentary8PlayRoamEv:
     .global _ZN11mmWaypointsD1Ev
     .type _ZN11mmWaypointsD1Ev, %function
 _ZN11mmWaypointsD1Ev:
-    leaq .Lstub_name_497(%rip), %rdi
+    leaq .Lstub_name_420(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmWaypointsD1Ev, . - _ZN11mmWaypointsD1Ev
 
@@ -13035,7 +12407,7 @@ _ZN11mmWaypointsD1Ev:
     .global _Z13agiBeginConesv
     .type _Z13agiBeginConesv, %function
 _Z13agiBeginConesv:
-    leaq .Lstub_name_498(%rip), %rdi
+    leaq .Lstub_name_421(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z13agiBeginConesv, . - _Z13agiBeginConesv
 
@@ -13043,15 +12415,23 @@ _Z13agiBeginConesv:
     .global _ZN12mmGameSingle8GetClassEv
     .type _ZN12mmGameSingle8GetClassEv, %function
 _ZN12mmGameSingle8GetClassEv:
-    leaq .Lstub_name_499(%rip), %rdi
+    leaq .Lstub_name_422(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmGameSingle8GetClassEv, . - _ZN12mmGameSingle8GetClassEv
+
+    // mmGame::InitGameStrings()
+    .global _ZN6mmGame15InitGameStringsEv
+    .type _ZN6mmGame15InitGameStringsEv, %function
+_ZN6mmGame15InitGameStringsEv:
+    leaq .Lstub_name_423(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN6mmGame15InitGameStringsEv, . - _ZN6mmGame15InitGameStringsEv
 
     // mmGameSingle::InitOtherPlayers()
     .global _ZN12mmGameSingle16InitOtherPlayersEv
     .type _ZN12mmGameSingle16InitOtherPlayersEv, %function
 _ZN12mmGameSingle16InitOtherPlayersEv:
-    leaq .Lstub_name_500(%rip), %rdi
+    leaq .Lstub_name_424(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmGameSingle16InitOtherPlayersEv, . - _ZN12mmGameSingle16InitOtherPlayersEv
 
@@ -13059,7 +12439,7 @@ _ZN12mmGameSingle16InitOtherPlayersEv:
     .global _ZN12mmGameSingle15InitGameObjectsEv
     .type _ZN12mmGameSingle15InitGameObjectsEv, %function
 _ZN12mmGameSingle15InitGameObjectsEv:
-    leaq .Lstub_name_501(%rip), %rdi
+    leaq .Lstub_name_425(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmGameSingle15InitGameObjectsEv, . - _ZN12mmGameSingle15InitGameObjectsEv
 
@@ -13067,7 +12447,7 @@ _ZN12mmGameSingle15InitGameObjectsEv:
     .global _ZN12mmGameSingle7InitHUDEv
     .type _ZN12mmGameSingle7InitHUDEv, %function
 _ZN12mmGameSingle7InitHUDEv:
-    leaq .Lstub_name_502(%rip), %rdi
+    leaq .Lstub_name_426(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmGameSingle7InitHUDEv, . - _ZN12mmGameSingle7InitHUDEv
 
@@ -13075,7 +12455,7 @@ _ZN12mmGameSingle7InitHUDEv:
     .global _ZN12mmGameSingle15UpdateGameInputEi
     .type _ZN12mmGameSingle15UpdateGameInputEi, %function
 _ZN12mmGameSingle15UpdateGameInputEi:
-    leaq .Lstub_name_503(%rip), %rdi
+    leaq .Lstub_name_427(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmGameSingle15UpdateGameInputEi, . - _ZN12mmGameSingle15UpdateGameInputEi
 
@@ -13083,7 +12463,7 @@ _ZN12mmGameSingle15UpdateGameInputEi:
     .global _ZN12mmGameSingle10UpdateGameEv
     .type _ZN12mmGameSingle10UpdateGameEv, %function
 _ZN12mmGameSingle10UpdateGameEv:
-    leaq .Lstub_name_504(%rip), %rdi
+    leaq .Lstub_name_428(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmGameSingle10UpdateGameEv, . - _ZN12mmGameSingle10UpdateGameEv
 
@@ -13091,7 +12471,7 @@ _ZN12mmGameSingle10UpdateGameEv:
     .global _ZN12mmGameSingle8NextRaceEv
     .type _ZN12mmGameSingle8NextRaceEv, %function
 _ZN12mmGameSingle8NextRaceEv:
-    leaq .Lstub_name_505(%rip), %rdi
+    leaq .Lstub_name_429(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmGameSingle8NextRaceEv, . - _ZN12mmGameSingle8NextRaceEv
 
@@ -13099,127 +12479,271 @@ _ZN12mmGameSingle8NextRaceEv:
     .global _ZN12mmGameSingle15HitWaterHandlerEv
     .type _ZN12mmGameSingle15HitWaterHandlerEv, %function
 _ZN12mmGameSingle15HitWaterHandlerEv:
-    leaq .Lstub_name_506(%rip), %rdi
+    leaq .Lstub_name_430(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmGameSingle15HitWaterHandlerEv, . - _ZN12mmGameSingle15HitWaterHandlerEv
+
+    // SetSnowSurfaceAudioInfos()
+    .global _Z24SetSnowSurfaceAudioInfosv
+    .type _Z24SetSnowSurfaceAudioInfosv, %function
+_Z24SetSnowSurfaceAudioInfosv:
+    leaq .Lstub_name_431(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _Z24SetSnowSurfaceAudioInfosv, . - _Z24SetSnowSurfaceAudioInfosv
+
+    // SetClearSurfaceAudioInfos()
+    .global _Z25SetClearSurfaceAudioInfosv
+    .type _Z25SetClearSurfaceAudioInfosv, %function
+_Z25SetClearSurfaceAudioInfosv:
+    leaq .Lstub_name_432(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _Z25SetClearSurfaceAudioInfosv, . - _Z25SetClearSurfaceAudioInfosv
+
+    // mmGame::DropThruCityHandler()
+    .global _ZN6mmGame19DropThruCityHandlerEv
+    .type _ZN6mmGame19DropThruCityHandlerEv, %function
+_ZN6mmGame19DropThruCityHandlerEv:
+    leaq .Lstub_name_433(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN6mmGame19DropThruCityHandlerEv, . - _ZN6mmGame19DropThruCityHandlerEv
 
     // mmGameSingle::GetWaypoints()
     .global _ZN12mmGameSingle12GetWaypointsEv
     .type _ZN12mmGameSingle12GetWaypointsEv, %function
 _ZN12mmGameSingle12GetWaypointsEv:
-    leaq .Lstub_name_507(%rip), %rdi
+    leaq .Lstub_name_434(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmGameSingle12GetWaypointsEv, . - _ZN12mmGameSingle12GetWaypointsEv
 
-    // asNetObject::asNetObject()
-    .global _ZN11asNetObjectC2Ev
-    .type _ZN11asNetObjectC2Ev, %function
-_ZN11asNetObjectC2Ev:
-    leaq .Lstub_name_508(%rip), %rdi
+    // mmLinearGauge::mmLinearGauge()
+    .global _ZN13mmLinearGaugeC1Ev
+    .type _ZN13mmLinearGaugeC1Ev, %function
+_ZN13mmLinearGaugeC1Ev:
+    leaq .Lstub_name_435(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN11asNetObjectC2Ev, . - _ZN11asNetObjectC2Ev
+    .size _ZN13mmLinearGaugeC1Ev, . - _ZN13mmLinearGaugeC1Ev
 
-    // mmMultiCR::FondleCarMass(mmCar*, float)
-    .global _ZN9mmMultiCR13FondleCarMassEP5mmCarf
-    .type _ZN9mmMultiCR13FondleCarMassEP5mmCarf, %function
-_ZN9mmMultiCR13FondleCarMassEP5mmCarf:
-    leaq .Lstub_name_509(%rip), %rdi
+    // mmVoiceCommentary::mmVoiceCommentary()
+    .global _ZN17mmVoiceCommentaryC1Ev
+    .type _ZN17mmVoiceCommentaryC1Ev, %function
+_ZN17mmVoiceCommentaryC1Ev:
+    leaq .Lstub_name_436(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN9mmMultiCR13FondleCarMassEP5mmCarf, . - _ZN9mmMultiCR13FondleCarMassEP5mmCarf
+    .size _ZN17mmVoiceCommentaryC1Ev, . - _ZN17mmVoiceCommentaryC1Ev
 
-    // mmCRHUD::ActivateRosterGold(unsigned long)
-    .global _ZN7mmCRHUD18ActivateRosterGoldEm
-    .type _ZN7mmCRHUD18ActivateRosterGoldEm, %function
-_ZN7mmCRHUD18ActivateRosterGoldEm:
-    leaq .Lstub_name_510(%rip), %rdi
+    // mmVoiceCommentary::ValidateCity(char*)
+    .global _ZN17mmVoiceCommentary12ValidateCityEPc
+    .type _ZN17mmVoiceCommentary12ValidateCityEPc, %function
+_ZN17mmVoiceCommentary12ValidateCityEPc:
+    leaq .Lstub_name_437(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN7mmCRHUD18ActivateRosterGoldEm, . - _ZN7mmCRHUD18ActivateRosterGoldEm
+    .size _ZN17mmVoiceCommentary12ValidateCityEPc, . - _ZN17mmVoiceCommentary12ValidateCityEPc
 
-    // mmPopup::ShowResults()
-    .global _ZN7mmPopup11ShowResultsEv
-    .type _ZN7mmPopup11ShowResultsEv, %function
-_ZN7mmPopup11ShowResultsEv:
-    leaq .Lstub_name_511(%rip), %rdi
+    // asMeshSetForm::asMeshSetForm()
+    .global _ZN13asMeshSetFormC1Ev
+    .type _ZN13asMeshSetFormC1Ev, %function
+_ZN13asMeshSetFormC1Ev:
+    leaq .Lstub_name_438(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN7mmPopup11ShowResultsEv, . - _ZN7mmPopup11ShowResultsEv
+    .size _ZN13asMeshSetFormC1Ev, . - _ZN13asMeshSetFormC1Ev
 
-    // mmPlayer::IsMaxDamaged()
-    .global _ZN8mmPlayer12IsMaxDamagedEv
-    .type _ZN8mmPlayer12IsMaxDamagedEv, %function
-_ZN8mmPlayer12IsMaxDamagedEv:
-    leaq .Lstub_name_512(%rip), %rdi
+    // AudManager::SetVoiceCommentaryPtr(mmVoiceCommentary*)
+    .global _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary
+    .type _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary, %function
+_ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary:
+    leaq .Lstub_name_439(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN8mmPlayer12IsMaxDamagedEv, . - _ZN8mmPlayer12IsMaxDamagedEv
+    .size _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary, . - _ZN10AudManager21SetVoiceCommentaryPtrEP17mmVoiceCommentary
 
-    // Matrix34::FromEulers(Vector3 const&)
-    .global _ZN8Matrix3410FromEulersERK7Vector3
-    .type _ZN8Matrix3410FromEulersERK7Vector3, %function
-_ZN8Matrix3410FromEulersERK7Vector3:
-    leaq .Lstub_name_513(%rip), %rdi
+    // RadialGauge::RadialGauge()
+    .global _ZN11RadialGaugeC1Ev
+    .type _ZN11RadialGaugeC1Ev, %function
+_ZN11RadialGaugeC1Ev:
+    leaq .Lstub_name_440(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN8Matrix3410FromEulersERK7Vector3, . - _ZN8Matrix3410FromEulersERK7Vector3
+    .size _ZN11RadialGaugeC1Ev, . - _ZN11RadialGaugeC1Ev
 
-    // mmCarSim::StartSiren()
-    .global _ZN8mmCarSim10StartSirenEv
-    .type _ZN8mmCarSim10StartSirenEv, %function
-_ZN8mmCarSim10StartSirenEv:
-    leaq .Lstub_name_514(%rip), %rdi
+    // mmPhysicsMGR::Init(asInertialCS*, mmViewCS*)
+    .global _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS
+    .type _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS, %function
+_ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS:
+    leaq .Lstub_name_441(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN8mmCarSim10StartSirenEv, . - _ZN8mmCarSim10StartSirenEv
+    .size _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS, . - _ZN12mmPhysicsMGR4InitEP12asInertialCSP8mmViewCS
 
-    // mmCarSim::StopSiren()
-    .global _ZN8mmCarSim9StopSirenEv
-    .type _ZN8mmCarSim9StopSirenEv, %function
-_ZN8mmCarSim9StopSirenEv:
-    leaq .Lstub_name_515(%rip), %rdi
+    // mmPlayer::Init(char*, char*, mmGame*)
+    .global _ZN8mmPlayer4InitEPcS0_P6mmGame
+    .type _ZN8mmPlayer4InitEPcS0_P6mmGame, %function
+_ZN8mmPlayer4InitEPcS0_P6mmGame:
+    leaq .Lstub_name_442(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN8mmCarSim9StopSirenEv, . - _ZN8mmCarSim9StopSirenEv
+    .size _ZN8mmPlayer4InitEPcS0_P6mmGame, . - _ZN8mmPlayer4InitEPcS0_P6mmGame
 
-    // Matrix34::Approach(Matrix34 const&, float, float, float)
-    .global _ZN8Matrix348ApproachERKS_fff
-    .type _ZN8Matrix348ApproachERKS_fff, %function
-_ZN8Matrix348ApproachERKS_fff:
-    leaq .Lstub_name_516(%rip), %rdi
+    // mmIcons::Init(Matrix34*, float, float)
+    .global _ZN7mmIcons4InitEP8Matrix34ff
+    .type _ZN7mmIcons4InitEP8Matrix34ff, %function
+_ZN7mmIcons4InitEP8Matrix34ff:
+    leaq .Lstub_name_443(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN8Matrix348ApproachERKS_fff, . - _ZN8Matrix348ApproachERKS_fff
+    .size _ZN7mmIcons4InitEP8Matrix34ff, . - _ZN7mmIcons4InitEP8Matrix34ff
 
-    // Matrix34::GetEulers() const
-    .global _ZNK8Matrix349GetEulersEv
-    .type _ZNK8Matrix349GetEulersEv, %function
-_ZNK8Matrix349GetEulersEv:
-    leaq .Lstub_name_517(%rip), %rdi
+    // AudManager::GetDSound3DMask()
+    .global _ZN10AudManager15GetDSound3DMaskEv
+    .type _ZN10AudManager15GetDSound3DMaskEv, %function
+_ZN10AudManager15GetDSound3DMaskEv:
+    leaq .Lstub_name_444(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZNK8Matrix349GetEulersEv, . - _ZNK8Matrix349GetEulersEv
+    .size _ZN10AudManager15GetDSound3DMaskEv, . - _ZN10AudManager15GetDSound3DMaskEv
 
-    // asNetwork::Send(unsigned long, void*, unsigned long, int)
-    .global _ZN9asNetwork4SendEmPvmi
-    .type _ZN9asNetwork4SendEmPvmi, %function
-_ZN9asNetwork4SendEmPvmi:
-    leaq .Lstub_name_518(%rip), %rdi
+    // AudHead::AudHead(Matrix34*)
+    .global _ZN7AudHeadC1EP8Matrix34
+    .type _ZN7AudHeadC1EP8Matrix34, %function
+_ZN7AudHeadC1EP8Matrix34:
+    leaq .Lstub_name_445(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN9asNetwork4SendEmPvmi, . - _ZN9asNetwork4SendEmPvmi
+    .size _ZN7AudHeadC1EP8Matrix34, . - _ZN7AudHeadC1EP8Matrix34
 
-    // asNetObject::Update()
-    .global _ZN11asNetObject6UpdateEv
-    .type _ZN11asNetObject6UpdateEv, %function
-_ZN11asNetObject6UpdateEv:
-    leaq .Lstub_name_519(%rip), %rdi
+    // asForm::asForm()
+    .global _ZN6asFormC1Ev
+    .type _ZN6asFormC1Ev, %function
+_ZN6asFormC1Ev:
+    leaq .Lstub_name_446(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN11asNetObject6UpdateEv, . - _ZN11asNetObject6UpdateEv
+    .size _ZN6asFormC1Ev, . - _ZN6asFormC1Ev
 
-    // asNetObject::PositionUpdate(Matrix34*, Vector3, float, float, float)
-    .global _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff
-    .type _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff, %function
-_ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff:
-    leaq .Lstub_name_520(%rip), %rdi
+    // AudHead::Init()
+    .global _ZN7AudHead4InitEv
+    .type _ZN7AudHead4InitEv, %function
+_ZN7AudHead4InitEv:
+    leaq .Lstub_name_447(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff, . - _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff
+    .size _ZN7AudHead4InitEv, . - _ZN7AudHead4InitEv
+
+    // asMeshSetForm::SetZRead(int)
+    .global _ZN13asMeshSetForm8SetZReadEi
+    .type _ZN13asMeshSetForm8SetZReadEi, %function
+_ZN13asMeshSetForm8SetZReadEi:
+    leaq .Lstub_name_448(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN13asMeshSetForm8SetZReadEi, . - _ZN13asMeshSetForm8SetZReadEi
+
+    // AudHead::SetRolloff(float)
+    .global _ZN7AudHead10SetRolloffEf
+    .type _ZN7AudHead10SetRolloffEf, %function
+_ZN7AudHead10SetRolloffEf:
+    leaq .Lstub_name_449(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7AudHead10SetRolloffEf, . - _ZN7AudHead10SetRolloffEf
+
+    // asMeshSetForm::SetZWrite(int)
+    .global _ZN13asMeshSetForm9SetZWriteEi
+    .type _ZN13asMeshSetForm9SetZWriteEi, %function
+_ZN13asMeshSetForm9SetZWriteEi:
+    leaq .Lstub_name_450(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN13asMeshSetForm9SetZWriteEi, . - _ZN13asMeshSetForm9SetZWriteEi
+
+    // mmHudMap::DrawMisc()
+    .global _ZN8mmHudMap8DrawMiscEv
+    .type _ZN8mmHudMap8DrawMiscEv, %function
+_ZN8mmHudMap8DrawMiscEv:
+    leaq .Lstub_name_451(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap8DrawMiscEv, . - _ZN8mmHudMap8DrawMiscEv
+
+    // mmHudMap::DrawCops()
+    .global _ZN8mmHudMap8DrawCopsEv
+    .type _ZN8mmHudMap8DrawCopsEv, %function
+_ZN8mmHudMap8DrawCopsEv:
+    leaq .Lstub_name_452(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap8DrawCopsEv, . - _ZN8mmHudMap8DrawCopsEv
+
+    // mmHudMap::DrawOrientedBitmap(Matrix34*, agiBitmap*)
+    .global _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap
+    .type _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap, %function
+_ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap:
+    leaq .Lstub_name_453(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap, . - _ZN8mmHudMap18DrawOrientedBitmapEP8Matrix34P9agiBitmap
+
+    // mmHudMap::DrawWaypoints()
+    .global _ZN8mmHudMap13DrawWaypointsEv
+    .type _ZN8mmHudMap13DrawWaypointsEv, %function
+_ZN8mmHudMap13DrawWaypointsEv:
+    leaq .Lstub_name_454(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap13DrawWaypointsEv, . - _ZN8mmHudMap13DrawWaypointsEv
+
+    // mmHudMap::DrawCopsnRobbers()
+    .global _ZN8mmHudMap16DrawCopsnRobbersEv
+    .type _ZN8mmHudMap16DrawCopsnRobbersEv, %function
+_ZN8mmHudMap16DrawCopsnRobbersEv:
+    leaq .Lstub_name_455(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap16DrawCopsnRobbersEv, . - _ZN8mmHudMap16DrawCopsnRobbersEv
+
+    // AudSound::Get2DFlags()
+    .global _ZN8AudSound10Get2DFlagsEv
+    .type _ZN8AudSound10Get2DFlagsEv, %function
+_ZN8AudSound10Get2DFlagsEv:
+    leaq .Lstub_name_456(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8AudSound10Get2DFlagsEv, . - _ZN8AudSound10Get2DFlagsEv
+
+    // AudSound::AudSound(unsigned long, int, short)
+    .global _ZN8AudSoundC1Emis
+    .type _ZN8AudSoundC1Emis, %function
+_ZN8AudSoundC1Emis:
+    leaq .Lstub_name_457(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8AudSoundC1Emis, . - _ZN8AudSoundC1Emis
+
+    // AudSound::Load(char*, int)
+    .global _ZN8AudSound4LoadEPci
+    .type _ZN8AudSound4LoadEPci, %function
+_ZN8AudSound4LoadEPci:
+    leaq .Lstub_name_458(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8AudSound4LoadEPci, . - _ZN8AudSound4LoadEPci
+
+    // AudSound::SetPriority(int)
+    .global _ZN8AudSound11SetPriorityEi
+    .type _ZN8AudSound11SetPriorityEi, %function
+_ZN8AudSound11SetPriorityEi:
+    leaq .Lstub_name_459(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8AudSound11SetPriorityEi, . - _ZN8AudSound11SetPriorityEi
+
+    // AudSound::SetVolume(float, int)
+    .global _ZN8AudSound9SetVolumeEfi
+    .type _ZN8AudSound9SetVolumeEfi, %function
+_ZN8AudSound9SetVolumeEfi:
+    leaq .Lstub_name_460(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8AudSound9SetVolumeEfi, . - _ZN8AudSound9SetVolumeEfi
+
+    // mmCDPlayer::Init(mmHUD*)
+    .global _ZN10mmCDPlayer4InitEP5mmHUD
+    .type _ZN10mmCDPlayer4InitEP5mmHUD, %function
+_ZN10mmCDPlayer4InitEP5mmHUD:
+    leaq .Lstub_name_461(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10mmCDPlayer4InitEP5mmHUD, . - _ZN10mmCDPlayer4InitEP5mmHUD
+
+    // mmArrow::Update()
+    .global _ZN7mmArrow6UpdateEv
+    .type _ZN7mmArrow6UpdateEv, %function
+_ZN7mmArrow6UpdateEv:
+    leaq .Lstub_name_462(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmArrow6UpdateEv, . - _ZN7mmArrow6UpdateEv
 
     // swSetInterlace(int)
     .global _Z14swSetInterlacei
     .type _Z14swSetInterlacei, %function
 _Z14swSetInterlacei:
-    leaq .Lstub_name_521(%rip), %rdi
+    leaq .Lstub_name_463(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z14swSetInterlacei, . - _Z14swSetInterlacei
 
@@ -13227,7 +12751,7 @@ _Z14swSetInterlacei:
     .global _ZN10AudManager15DeallocateUIADFEv
     .type _ZN10AudManager15DeallocateUIADFEv, %function
 _ZN10AudManager15DeallocateUIADFEv:
-    leaq .Lstub_name_522(%rip), %rdi
+    leaq .Lstub_name_464(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager15DeallocateUIADFEv, . - _ZN10AudManager15DeallocateUIADFEv
 
@@ -13235,7 +12759,7 @@ _ZN10AudManager15DeallocateUIADFEv:
     .global _ZN11MenuManagerD1Ev
     .type _ZN11MenuManagerD1Ev, %function
 _ZN11MenuManagerD1Ev:
-    leaq .Lstub_name_523(%rip), %rdi
+    leaq .Lstub_name_465(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11MenuManagerD1Ev, . - _ZN11MenuManagerD1Ev
 
@@ -13243,7 +12767,7 @@ _ZN11MenuManagerD1Ev:
     .global _ZN17mmPlayerDirectoryD1Ev
     .type _ZN17mmPlayerDirectoryD1Ev, %function
 _ZN17mmPlayerDirectoryD1Ev:
-    leaq .Lstub_name_524(%rip), %rdi
+    leaq .Lstub_name_466(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN17mmPlayerDirectoryD1Ev, . - _ZN17mmPlayerDirectoryD1Ev
 
@@ -13251,7 +12775,7 @@ _ZN17mmPlayerDirectoryD1Ev:
     .global _ZN9asNetwork15InitializeLobbyEib
     .type _ZN9asNetwork15InitializeLobbyEib, %function
 _ZN9asNetwork15InitializeLobbyEib:
-    leaq .Lstub_name_525(%rip), %rdi
+    leaq .Lstub_name_467(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9asNetwork15InitializeLobbyEib, . - _ZN9asNetwork15InitializeLobbyEib
 
@@ -13259,7 +12783,7 @@ _ZN9asNetwork15InitializeLobbyEib:
     .global _ZN9asNetwork16JoinLobbySessionEv
     .type _ZN9asNetwork16JoinLobbySessionEv, %function
 _ZN9asNetwork16JoinLobbySessionEv:
-    leaq .Lstub_name_526(%rip), %rdi
+    leaq .Lstub_name_468(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9asNetwork16JoinLobbySessionEv, . - _ZN9asNetwork16JoinLobbySessionEv
 
@@ -13267,7 +12791,7 @@ _ZN9asNetwork16JoinLobbySessionEv:
     .global _ZN12mmPlayerData14GetTotalPassedEv
     .type _ZN12mmPlayerData14GetTotalPassedEv, %function
 _ZN12mmPlayerData14GetTotalPassedEv:
-    leaq .Lstub_name_527(%rip), %rdi
+    leaq .Lstub_name_469(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmPlayerData14GetTotalPassedEv, . - _ZN12mmPlayerData14GetTotalPassedEv
 
@@ -13275,7 +12799,7 @@ _ZN12mmPlayerData14GetTotalPassedEv:
     .global _ZN12mmPlayerData14GetBlitzPassedEv
     .type _ZN12mmPlayerData14GetBlitzPassedEv, %function
 _ZN12mmPlayerData14GetBlitzPassedEv:
-    leaq .Lstub_name_528(%rip), %rdi
+    leaq .Lstub_name_470(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmPlayerData14GetBlitzPassedEv, . - _ZN12mmPlayerData14GetBlitzPassedEv
 
@@ -13283,7 +12807,7 @@ _ZN12mmPlayerData14GetBlitzPassedEv:
     .global _ZN12mmPlayerData16GetCircuitPassedEv
     .type _ZN12mmPlayerData16GetCircuitPassedEv, %function
 _ZN12mmPlayerData16GetCircuitPassedEv:
-    leaq .Lstub_name_529(%rip), %rdi
+    leaq .Lstub_name_471(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmPlayerData16GetCircuitPassedEv, . - _ZN12mmPlayerData16GetCircuitPassedEv
 
@@ -13291,7 +12815,7 @@ _ZN12mmPlayerData16GetCircuitPassedEv:
     .global _ZN12mmPlayerData19GetCheckpointPassedEv
     .type _ZN12mmPlayerData19GetCheckpointPassedEv, %function
 _ZN12mmPlayerData19GetCheckpointPassedEv:
-    leaq .Lstub_name_530(%rip), %rdi
+    leaq .Lstub_name_472(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmPlayerData19GetCheckpointPassedEv, . - _ZN12mmPlayerData19GetCheckpointPassedEv
 
@@ -13299,7 +12823,7 @@ _ZN12mmPlayerData19GetCheckpointPassedEv:
     .global _ZN12mmPlayerData13GetTotalScoreEv
     .type _ZN12mmPlayerData13GetTotalScoreEv, %function
 _ZN12mmPlayerData13GetTotalScoreEv:
-    leaq .Lstub_name_531(%rip), %rdi
+    leaq .Lstub_name_473(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN12mmPlayerData13GetTotalScoreEv, . - _ZN12mmPlayerData13GetTotalScoreEv
 
@@ -13307,7 +12831,7 @@ _ZN12mmPlayerData13GetTotalScoreEv:
     .global _ZN6UIMenu18SetNavigationOrderEPKPKcm
     .type _ZN6UIMenu18SetNavigationOrderEPKPKcm, %function
 _ZN6UIMenu18SetNavigationOrderEPKPKcm:
-    leaq .Lstub_name_532(%rip), %rdi
+    leaq .Lstub_name_474(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN6UIMenu18SetNavigationOrderEPKPKcm, . - _ZN6UIMenu18SetNavigationOrderEPKPKcm
 
@@ -13315,7 +12839,7 @@ _ZN6UIMenu18SetNavigationOrderEPKPKcm:
     .global _ZN11mmInterface15MessageCallbackEPvS0_
     .type _ZN11mmInterface15MessageCallbackEPvS0_, %function
 _ZN11mmInterface15MessageCallbackEPvS0_:
-    leaq .Lstub_name_533(%rip), %rdi
+    leaq .Lstub_name_475(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmInterface15MessageCallbackEPvS0_, . - _ZN11mmInterface15MessageCallbackEPvS0_
 
@@ -13323,71 +12847,55 @@ _ZN11mmInterface15MessageCallbackEPvS0_:
     .global _ZN11mmInterface16MessageCallback2EPvS0_
     .type _ZN11mmInterface16MessageCallback2EPvS0_, %function
 _ZN11mmInterface16MessageCallback2EPvS0_:
-    leaq .Lstub_name_534(%rip), %rdi
+    leaq .Lstub_name_476(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmInterface16MessageCallback2EPvS0_, . - _ZN11mmInterface16MessageCallback2EPvS0_
 
-    // mmVoiceCommentary::PlayTimePenalty()
-    .global _ZN17mmVoiceCommentary15PlayTimePenaltyEv
-    .type _ZN17mmVoiceCommentary15PlayTimePenaltyEv, %function
-_ZN17mmVoiceCommentary15PlayTimePenaltyEv:
-    leaq .Lstub_name_535(%rip), %rdi
+    // asNetObject::asNetObject()
+    .global _ZN11asNetObjectC2Ev
+    .type _ZN11asNetObjectC2Ev, %function
+_ZN11asNetObjectC2Ev:
+    leaq .Lstub_name_477(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN17mmVoiceCommentary15PlayTimePenaltyEv, . - _ZN17mmVoiceCommentary15PlayTimePenaltyEv
+    .size _ZN11asNetObjectC2Ev, . - _ZN11asNetObjectC2Ev
 
-    // mmMultiCR::DropGold(Vector3, int)
-    .global _ZN9mmMultiCR8DropGoldE7Vector3i
-    .type _ZN9mmMultiCR8DropGoldE7Vector3i, %function
-_ZN9mmMultiCR8DropGoldE7Vector3i:
-    leaq .Lstub_name_536(%rip), %rdi
+    // Matrix34::FromEulers(Vector3 const&)
+    .global _ZN8Matrix3410FromEulersERK7Vector3
+    .type _ZN8Matrix3410FromEulersERK7Vector3, %function
+_ZN8Matrix3410FromEulersERK7Vector3:
+    leaq .Lstub_name_478(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN9mmMultiCR8DropGoldE7Vector3i, . - _ZN9mmMultiCR8DropGoldE7Vector3i
+    .size _ZN8Matrix3410FromEulersERK7Vector3, . - _ZN8Matrix3410FromEulersERK7Vector3
 
-    // mmVoiceCommentary::PlayCR(short, short)
-    .global _ZN17mmVoiceCommentary6PlayCREss
-    .type _ZN17mmVoiceCommentary6PlayCREss, %function
-_ZN17mmVoiceCommentary6PlayCREss:
-    leaq .Lstub_name_537(%rip), %rdi
+    // mmCarSim::StartSiren()
+    .global _ZN8mmCarSim10StartSirenEv
+    .type _ZN8mmCarSim10StartSirenEv, %function
+_ZN8mmCarSim10StartSirenEv:
+    leaq .Lstub_name_479(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN17mmVoiceCommentary6PlayCREss, . - _ZN17mmVoiceCommentary6PlayCREss
+    .size _ZN8mmCarSim10StartSirenEv, . - _ZN8mmCarSim10StartSirenEv
 
-    // mmPlayer::EnableRegen(int)
-    .global _ZN8mmPlayer11EnableRegenEi
-    .type _ZN8mmPlayer11EnableRegenEi, %function
-_ZN8mmPlayer11EnableRegenEi:
-    leaq .Lstub_name_538(%rip), %rdi
+    // mmCarSim::StopSiren()
+    .global _ZN8mmCarSim9StopSirenEv
+    .type _ZN8mmCarSim9StopSirenEv, %function
+_ZN8mmCarSim9StopSirenEv:
+    leaq .Lstub_name_480(%rip), %rdi
     jmp ArtsStubCalled
-    .size _ZN8mmPlayer11EnableRegenEi, . - _ZN8mmPlayer11EnableRegenEi
-
-    // mmPlayer::ResetDamage()
-    .global _ZN8mmPlayer11ResetDamageEv
-    .type _ZN8mmPlayer11ResetDamageEv, %function
-_ZN8mmPlayer11ResetDamageEv:
-    leaq .Lstub_name_539(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN8mmPlayer11ResetDamageEv, . - _ZN8mmPlayer11ResetDamageEv
+    .size _ZN8mmCarSim9StopSirenEv, . - _ZN8mmCarSim9StopSirenEv
 
     // mmInterface::GetClass()
     .global _ZN11mmInterface8GetClassEv
     .type _ZN11mmInterface8GetClassEv, %function
 _ZN11mmInterface8GetClassEv:
-    leaq .Lstub_name_540(%rip), %rdi
+    leaq .Lstub_name_481(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmInterface8GetClassEv, . - _ZN11mmInterface8GetClassEv
-
-    // mmGameMulti::SendMsg(int)
-    .global _ZN11mmGameMulti7SendMsgEi
-    .type _ZN11mmGameMulti7SendMsgEi, %function
-_ZN11mmGameMulti7SendMsgEi:
-    leaq .Lstub_name_541(%rip), %rdi
-    jmp ArtsStubCalled
-    .size _ZN11mmGameMulti7SendMsgEi, . - _ZN11mmGameMulti7SendMsgEi
 
     // mmInterface::Update()
     .global _ZN11mmInterface6UpdateEv
     .type _ZN11mmInterface6UpdateEv, %function
 _ZN11mmInterface6UpdateEv:
-    leaq .Lstub_name_542(%rip), %rdi
+    leaq .Lstub_name_482(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmInterface6UpdateEv, . - _ZN11mmInterface6UpdateEv
 
@@ -13395,15 +12903,431 @@ _ZN11mmInterface6UpdateEv:
     .global _ZN11mmInterface5ResetEv
     .type _ZN11mmInterface5ResetEv, %function
 _ZN11mmInterface5ResetEv:
-    leaq .Lstub_name_543(%rip), %rdi
+    leaq .Lstub_name_483(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmInterface5ResetEv, . - _ZN11mmInterface5ResetEv
+
+    // asInertialCS::GetVelocity(Vector3 const*)
+    .global _ZN12asInertialCS11GetVelocityEPK7Vector3
+    .type _ZN12asInertialCS11GetVelocityEPK7Vector3, %function
+_ZN12asInertialCS11GetVelocityEPK7Vector3:
+    leaq .Lstub_name_484(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN12asInertialCS11GetVelocityEPK7Vector3, . - _ZN12asInertialCS11GetVelocityEPK7Vector3
+
+    // mmViewCS::Instance(asCamera*)
+    .global _ZN8mmViewCS8InstanceEP8asCamera
+    .type _ZN8mmViewCS8InstanceEP8asCamera, %function
+_ZN8mmViewCS8InstanceEP8asCamera:
+    leaq .Lstub_name_485(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmViewCS8InstanceEP8asCamera, . - _ZN8mmViewCS8InstanceEP8asCamera
+
+    // mmCarSim::AddPlayerSpecifics()
+    .global _ZN8mmCarSim18AddPlayerSpecificsEv
+    .type _ZN8mmCarSim18AddPlayerSpecificsEv, %function
+_ZN8mmCarSim18AddPlayerSpecificsEv:
+    leaq .Lstub_name_486(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmCarSim18AddPlayerSpecificsEv, . - _ZN8mmCarSim18AddPlayerSpecificsEv
+
+    // mmPlayer::GetClass()
+    .global _ZN8mmPlayer8GetClassEv
+    .type _ZN8mmPlayer8GetClassEv, %function
+_ZN8mmPlayer8GetClassEv:
+    leaq .Lstub_name_487(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmPlayer8GetClassEv, . - _ZN8mmPlayer8GetClassEv
+
+    // AudHead::SetDoppler(float)
+    .global _ZN7AudHead10SetDopplerEf
+    .type _ZN7AudHead10SetDopplerEf, %function
+_ZN7AudHead10SetDopplerEf:
+    leaq .Lstub_name_488(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7AudHead10SetDopplerEf, . - _ZN7AudHead10SetDopplerEf
+
+    // aiMap::Init(char*, char*, char*, mmCar*)
+    .global _ZN5aiMap4InitEPcS0_S0_P5mmCar
+    .type _ZN5aiMap4InitEPcS0_S0_P5mmCar, %function
+_ZN5aiMap4InitEPcS0_S0_P5mmCar:
+    leaq .Lstub_name_489(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN5aiMap4InitEPcS0_S0_P5mmCar, . - _ZN5aiMap4InitEPcS0_S0_P5mmCar
+
+    // mmHudMap::RegisterOpponents(OppIconInfo*, int)
+    .global _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi
+    .type _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi, %function
+_ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi:
+    leaq .Lstub_name_490(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi, . - _ZN8mmHudMap17RegisterOpponentsEP11OppIconInfoi
+
+    // mmIcons::RegisterOpponents(OppIconInfo*, int, void*)
+    .global _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv
+    .type _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv, %function
+_ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv:
+    leaq .Lstub_name_491(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv, . - _ZN7mmIcons17RegisterOpponentsEP11OppIconInfoiPv
+
+    // mmAnimMgr::Init(char*, mmInstance*, mmInstance**, int)
+    .global _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i
+    .type _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i, %function
+_ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i:
+    leaq .Lstub_name_492(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i, . - _ZN9mmAnimMgr4InitEPcP10mmInstancePS2_i
+
+    // mmAmbientAudio::mmAmbientAudio(mmPlayer*)
+    .global _ZN14mmAmbientAudioC1EP8mmPlayer
+    .type _ZN14mmAmbientAudioC1EP8mmPlayer, %function
+_ZN14mmAmbientAudioC1EP8mmPlayer:
+    leaq .Lstub_name_493(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN14mmAmbientAudioC1EP8mmPlayer, . - _ZN14mmAmbientAudioC1EP8mmPlayer
+
+    // asLamp::SetDistant()
+    .global _ZN6asLamp10SetDistantEv
+    .type _ZN6asLamp10SetDistantEv, %function
+_ZN6asLamp10SetDistantEv:
+    leaq .Lstub_name_494(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN6asLamp10SetDistantEv, . - _ZN6asLamp10SetDistantEv
+
+    // mmPopup::mmPopup(mmGame*, float, float, float, float)
+    .global _ZN7mmPopupC1EP6mmGameffff
+    .type _ZN7mmPopupC1EP6mmGameffff, %function
+_ZN7mmPopupC1EP6mmGameffff:
+    leaq .Lstub_name_495(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmPopupC1EP6mmGameffff, . - _ZN7mmPopupC1EP6mmGameffff
+
+    // mmPopup::Reset()
+    .global _ZN7mmPopup5ResetEv
+    .type _ZN7mmPopup5ResetEv, %function
+_ZN7mmPopup5ResetEv:
+    leaq .Lstub_name_496(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmPopup5ResetEv, . - _ZN7mmPopup5ResetEv
+
+    // PUResults::AddTitle(LocString*, LocString*)
+    .global _ZN9PUResults8AddTitleEP9LocStringS1_
+    .type _ZN9PUResults8AddTitleEP9LocStringS1_, %function
+_ZN9PUResults8AddTitleEP9LocStringS1_:
+    leaq .Lstub_name_497(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9PUResults8AddTitleEP9LocStringS1_, . - _ZN9PUResults8AddTitleEP9LocStringS1_
+
+    // mmHudMap::GetClass()
+    .global _ZN8mmHudMap8GetClassEv
+    .type _ZN8mmHudMap8GetClassEv, %function
+_ZN8mmHudMap8GetClassEv:
+    leaq .Lstub_name_498(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap8GetClassEv, . - _ZN8mmHudMap8GetClassEv
+
+    // mmHudMap::Update()
+    .global _ZN8mmHudMap6UpdateEv
+    .type _ZN8mmHudMap6UpdateEv, %function
+_ZN8mmHudMap6UpdateEv:
+    leaq .Lstub_name_499(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap6UpdateEv, . - _ZN8mmHudMap6UpdateEv
+
+    // mmHudMap::Reset()
+    .global _ZN8mmHudMap5ResetEv
+    .type _ZN8mmHudMap5ResetEv, %function
+_ZN8mmHudMap5ResetEv:
+    leaq .Lstub_name_500(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap5ResetEv, . - _ZN8mmHudMap5ResetEv
+
+    // Matrix34::Approach(Matrix34 const&, float, float, float)
+    .global _ZN8Matrix348ApproachERKS_fff
+    .type _ZN8Matrix348ApproachERKS_fff, %function
+_ZN8Matrix348ApproachERKS_fff:
+    leaq .Lstub_name_501(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8Matrix348ApproachERKS_fff, . - _ZN8Matrix348ApproachERKS_fff
+
+    // mmMultiCR::FondleCarMass(mmCar*, float)
+    .global _ZN9mmMultiCR13FondleCarMassEP5mmCarf
+    .type _ZN9mmMultiCR13FondleCarMassEP5mmCarf, %function
+_ZN9mmMultiCR13FondleCarMassEP5mmCarf:
+    leaq .Lstub_name_502(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9mmMultiCR13FondleCarMassEP5mmCarf, . - _ZN9mmMultiCR13FondleCarMassEP5mmCarf
+
+    // mmCRHUD::ActivateRosterGold(unsigned long)
+    .global _ZN7mmCRHUD18ActivateRosterGoldEm
+    .type _ZN7mmCRHUD18ActivateRosterGoldEm, %function
+_ZN7mmCRHUD18ActivateRosterGoldEm:
+    leaq .Lstub_name_503(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmCRHUD18ActivateRosterGoldEm, . - _ZN7mmCRHUD18ActivateRosterGoldEm
+
+    // Matrix34::GetEulers() const
+    .global _ZNK8Matrix349GetEulersEv
+    .type _ZNK8Matrix349GetEulersEv, %function
+_ZNK8Matrix349GetEulersEv:
+    leaq .Lstub_name_504(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZNK8Matrix349GetEulersEv, . - _ZNK8Matrix349GetEulersEv
+
+    // mmAnimMgr::AirlinerSwap()
+    .global _ZN9mmAnimMgr12AirlinerSwapEv
+    .type _ZN9mmAnimMgr12AirlinerSwapEv, %function
+_ZN9mmAnimMgr12AirlinerSwapEv:
+    leaq .Lstub_name_505(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9mmAnimMgr12AirlinerSwapEv, . - _ZN9mmAnimMgr12AirlinerSwapEv
+
+    // mmAnimMgr::UFOSwap()
+    .global _ZN9mmAnimMgr7UFOSwapEv
+    .type _ZN9mmAnimMgr7UFOSwapEv, %function
+_ZN9mmAnimMgr7UFOSwapEv:
+    leaq .Lstub_name_506(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9mmAnimMgr7UFOSwapEv, . - _ZN9mmAnimMgr7UFOSwapEv
+
+    // asNetwork::Send(unsigned long, void*, unsigned long, int)
+    .global _ZN9asNetwork4SendEmPvmi
+    .type _ZN9asNetwork4SendEmPvmi, %function
+_ZN9asNetwork4SendEmPvmi:
+    leaq .Lstub_name_507(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9asNetwork4SendEmPvmi, . - _ZN9asNetwork4SendEmPvmi
+
+    // asNetObject::Update()
+    .global _ZN11asNetObject6UpdateEv
+    .type _ZN11asNetObject6UpdateEv, %function
+_ZN11asNetObject6UpdateEv:
+    leaq .Lstub_name_508(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11asNetObject6UpdateEv, . - _ZN11asNetObject6UpdateEv
+
+    // asNetObject::PositionUpdate(Matrix34*, Vector3, float, float, float)
+    .global _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff
+    .type _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff, %function
+_ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff:
+    leaq .Lstub_name_509(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff, . - _ZN11asNetObject14PositionUpdateEP8Matrix347Vector3fff
+
+    // PUControl::~PUControl()
+    .global _ZN9PUControlD1Ev
+    .type _ZN9PUControlD1Ev, %function
+_ZN9PUControlD1Ev:
+    leaq .Lstub_name_510(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9PUControlD1Ev, . - _ZN9PUControlD1Ev
+
+    // mmPlayer::Update()
+    .global _ZN8mmPlayer6UpdateEv
+    .type _ZN8mmPlayer6UpdateEv, %function
+_ZN8mmPlayer6UpdateEv:
+    leaq .Lstub_name_511(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmPlayer6UpdateEv, . - _ZN8mmPlayer6UpdateEv
+
+    // mmPlayer::Reset()
+    .global _ZN8mmPlayer5ResetEv
+    .type _ZN8mmPlayer5ResetEv, %function
+_ZN8mmPlayer5ResetEv:
+    leaq .Lstub_name_512(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmPlayer5ResetEv, . - _ZN8mmPlayer5ResetEv
+
+    // mmHUD::PostChatMessage(char const*)
+    .global _ZN5mmHUD15PostChatMessageEPKc
+    .type _ZN5mmHUD15PostChatMessageEPKc, %function
+_ZN5mmHUD15PostChatMessageEPKc:
+    leaq .Lstub_name_513(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN5mmHUD15PostChatMessageEPKc, . - _ZN5mmHUD15PostChatMessageEPKc
+
+    // mmPopup::ShowResults()
+    .global _ZN7mmPopup11ShowResultsEv
+    .type _ZN7mmPopup11ShowResultsEv, %function
+_ZN7mmPopup11ShowResultsEv:
+    leaq .Lstub_name_514(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmPopup11ShowResultsEv, . - _ZN7mmPopup11ShowResultsEv
+
+    // MenuManager::Switch(int)
+    .global _ZN11MenuManager6SwitchEi
+    .type _ZN11MenuManager6SwitchEi, %function
+_ZN11MenuManager6SwitchEi:
+    leaq .Lstub_name_515(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11MenuManager6SwitchEi, . - _ZN11MenuManager6SwitchEi
+
+    // MenuManager::DisablePU()
+    .global _ZN11MenuManager9DisablePUEv
+    .type _ZN11MenuManager9DisablePUEv, %function
+_ZN11MenuManager9DisablePUEv:
+    leaq .Lstub_name_516(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11MenuManager9DisablePUEv, . - _ZN11MenuManager9DisablePUEv
+
+    // mmHUD::Enable()
+    .global _ZN5mmHUD6EnableEv
+    .type _ZN5mmHUD6EnableEv, %function
+_ZN5mmHUD6EnableEv:
+    leaq .Lstub_name_517(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN5mmHUD6EnableEv, . - _ZN5mmHUD6EnableEv
+
+    // AudManager::GetVoiceCommentaryPtr()
+    .global _ZN10AudManager21GetVoiceCommentaryPtrEv
+    .type _ZN10AudManager21GetVoiceCommentaryPtrEv, %function
+_ZN10AudManager21GetVoiceCommentaryPtrEv:
+    leaq .Lstub_name_518(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10AudManager21GetVoiceCommentaryPtrEv, . - _ZN10AudManager21GetVoiceCommentaryPtrEv
+
+    // mmVoiceCommentary::SetFrequency(float)
+    .global _ZN17mmVoiceCommentary12SetFrequencyEf
+    .type _ZN17mmVoiceCommentary12SetFrequencyEf, %function
+_ZN17mmVoiceCommentary12SetFrequencyEf:
+    leaq .Lstub_name_519(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN17mmVoiceCommentary12SetFrequencyEf, . - _ZN17mmVoiceCommentary12SetFrequencyEf
+
+    // mmGame::UpdateSteeringBrakes()
+    .global _ZN6mmGame20UpdateSteeringBrakesEv
+    .type _ZN6mmGame20UpdateSteeringBrakesEv, %function
+_ZN6mmGame20UpdateSteeringBrakesEv:
+    leaq .Lstub_name_520(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN6mmGame20UpdateSteeringBrakesEv, . - _ZN6mmGame20UpdateSteeringBrakesEv
+
+    // mmAmbientAudio::Update()
+    .global _ZN14mmAmbientAudio6UpdateEv
+    .type _ZN14mmAmbientAudio6UpdateEv, %function
+_ZN14mmAmbientAudio6UpdateEv:
+    leaq .Lstub_name_521(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN14mmAmbientAudio6UpdateEv, . - _ZN14mmAmbientAudio6UpdateEv
+
+    // mmVoiceCommentary::Update()
+    .global _ZN17mmVoiceCommentary6UpdateEv
+    .type _ZN17mmVoiceCommentary6UpdateEv, %function
+_ZN17mmVoiceCommentary6UpdateEv:
+    leaq .Lstub_name_522(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN17mmVoiceCommentary6UpdateEv, . - _ZN17mmVoiceCommentary6UpdateEv
+
+    // mmHUD::SetMessage(LocString*, float, bool)
+    .global _ZN5mmHUD10SetMessageEP9LocStringfb
+    .type _ZN5mmHUD10SetMessageEP9LocStringfb, %function
+_ZN5mmHUD10SetMessageEP9LocStringfb:
+    leaq .Lstub_name_523(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN5mmHUD10SetMessageEP9LocStringfb, . - _ZN5mmHUD10SetMessageEP9LocStringfb
+
+    // mmHudMap::Activate()
+    .global _ZN8mmHudMap8ActivateEv
+    .type _ZN8mmHudMap8ActivateEv, %function
+_ZN8mmHudMap8ActivateEv:
+    leaq .Lstub_name_524(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmHudMap8ActivateEv, . - _ZN8mmHudMap8ActivateEv
+
+    // AudManager::PlayCDTrack(int, unsigned char, unsigned char, unsigned char, bool)
+    .global _ZN10AudManager11PlayCDTrackEihhhb
+    .type _ZN10AudManager11PlayCDTrackEihhhb, %function
+_ZN10AudManager11PlayCDTrackEihhhb:
+    leaq .Lstub_name_525(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10AudManager11PlayCDTrackEihhhb, . - _ZN10AudManager11PlayCDTrackEihhhb
+
+    // PUMenuBase::DisableExit()
+    .global _ZN10PUMenuBase11DisableExitEv
+    .type _ZN10PUMenuBase11DisableExitEv, %function
+_ZN10PUMenuBase11DisableExitEv:
+    leaq .Lstub_name_526(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10PUMenuBase11DisableExitEv, . - _ZN10PUMenuBase11DisableExitEv
+
+    // mmPopup::Update()
+    .global _ZN7mmPopup6UpdateEv
+    .type _ZN7mmPopup6UpdateEv, %function
+_ZN7mmPopup6UpdateEv:
+    leaq .Lstub_name_527(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN7mmPopup6UpdateEv, . - _ZN7mmPopup6UpdateEv
+
+    // mmSingleCircuit::DisableRacers()
+    .global _ZN15mmSingleCircuit13DisableRacersEv
+    .type _ZN15mmSingleCircuit13DisableRacersEv, %function
+_ZN15mmSingleCircuit13DisableRacersEv:
+    leaq .Lstub_name_528(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN15mmSingleCircuit13DisableRacersEv, . - _ZN15mmSingleCircuit13DisableRacersEv
+
+    // mmPlayer::IsMaxDamaged()
+    .global _ZN8mmPlayer12IsMaxDamagedEv
+    .type _ZN8mmPlayer12IsMaxDamagedEv, %function
+_ZN8mmPlayer12IsMaxDamagedEv:
+    leaq .Lstub_name_529(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmPlayer12IsMaxDamagedEv, . - _ZN8mmPlayer12IsMaxDamagedEv
+
+    // mmVoiceCommentary::PlayTimePenalty()
+    .global _ZN17mmVoiceCommentary15PlayTimePenaltyEv
+    .type _ZN17mmVoiceCommentary15PlayTimePenaltyEv, %function
+_ZN17mmVoiceCommentary15PlayTimePenaltyEv:
+    leaq .Lstub_name_530(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN17mmVoiceCommentary15PlayTimePenaltyEv, . - _ZN17mmVoiceCommentary15PlayTimePenaltyEv
+
+    // mmMultiCR::DropGold(Vector3, int)
+    .global _ZN9mmMultiCR8DropGoldE7Vector3i
+    .type _ZN9mmMultiCR8DropGoldE7Vector3i, %function
+_ZN9mmMultiCR8DropGoldE7Vector3i:
+    leaq .Lstub_name_531(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN9mmMultiCR8DropGoldE7Vector3i, . - _ZN9mmMultiCR8DropGoldE7Vector3i
+
+    // mmVoiceCommentary::PlayCR(short, short)
+    .global _ZN17mmVoiceCommentary6PlayCREss
+    .type _ZN17mmVoiceCommentary6PlayCREss, %function
+_ZN17mmVoiceCommentary6PlayCREss:
+    leaq .Lstub_name_532(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN17mmVoiceCommentary6PlayCREss, . - _ZN17mmVoiceCommentary6PlayCREss
+
+    // mmPlayer::EnableRegen(int)
+    .global _ZN8mmPlayer11EnableRegenEi
+    .type _ZN8mmPlayer11EnableRegenEi, %function
+_ZN8mmPlayer11EnableRegenEi:
+    leaq .Lstub_name_533(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmPlayer11EnableRegenEi, . - _ZN8mmPlayer11EnableRegenEi
+
+    // mmPlayer::ResetDamage()
+    .global _ZN8mmPlayer11ResetDamageEv
+    .type _ZN8mmPlayer11ResetDamageEv, %function
+_ZN8mmPlayer11ResetDamageEv:
+    leaq .Lstub_name_534(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmPlayer11ResetDamageEv, . - _ZN8mmPlayer11ResetDamageEv
+
+    // mmGameMulti::SendMsg(int)
+    .global _ZN11mmGameMulti7SendMsgEi
+    .type _ZN11mmGameMulti7SendMsgEi, %function
+_ZN11mmGameMulti7SendMsgEi:
+    leaq .Lstub_name_535(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN11mmGameMulti7SendMsgEi, . - _ZN11mmGameMulti7SendMsgEi
 
     // AudSound::PlayOnce(float, float)
     .global _ZN8AudSound8PlayOnceEff
     .type _ZN8AudSound8PlayOnceEff, %function
 _ZN8AudSound8PlayOnceEff:
-    leaq .Lstub_name_544(%rip), %rdi
+    leaq .Lstub_name_536(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN8AudSound8PlayOnceEff, . - _ZN8AudSound8PlayOnceEff
 
@@ -13411,7 +13335,7 @@ _ZN8AudSound8PlayOnceEff:
     .global _ZN17mmVoiceCommentary13PlayCRPreRaceEv
     .type _ZN17mmVoiceCommentary13PlayCRPreRaceEv, %function
 _ZN17mmVoiceCommentary13PlayCRPreRaceEv:
-    leaq .Lstub_name_545(%rip), %rdi
+    leaq .Lstub_name_537(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN17mmVoiceCommentary13PlayCRPreRaceEv, . - _ZN17mmVoiceCommentary13PlayCRPreRaceEv
 
@@ -13419,7 +13343,7 @@ _ZN17mmVoiceCommentary13PlayCRPreRaceEv:
     .global _ZN11mmGameMulti12EnableRacersEv
     .type _ZN11mmGameMulti12EnableRacersEv, %function
 _ZN11mmGameMulti12EnableRacersEv:
-    leaq .Lstub_name_546(%rip), %rdi
+    leaq .Lstub_name_538(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmGameMulti12EnableRacersEv, . - _ZN11mmGameMulti12EnableRacersEv
 
@@ -13427,7 +13351,7 @@ _ZN11mmGameMulti12EnableRacersEv:
     .global _ZN9mmMultiCR9UpdateHUDEv
     .type _ZN9mmMultiCR9UpdateHUDEv, %function
 _ZN9mmMultiCR9UpdateHUDEv:
-    leaq .Lstub_name_547(%rip), %rdi
+    leaq .Lstub_name_539(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCR9UpdateHUDEv, . - _ZN9mmMultiCR9UpdateHUDEv
 
@@ -13435,7 +13359,7 @@ _ZN9mmMultiCR9UpdateHUDEv:
     .global _ZN9mmMultiCR11UpdateLimitEv
     .type _ZN9mmMultiCR11UpdateLimitEv, %function
 _ZN9mmMultiCR11UpdateLimitEv:
-    leaq .Lstub_name_548(%rip), %rdi
+    leaq .Lstub_name_540(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCR11UpdateLimitEv, . - _ZN9mmMultiCR11UpdateLimitEv
 
@@ -13443,7 +13367,7 @@ _ZN9mmMultiCR11UpdateLimitEv:
     .global _ZN9mmMultiCR17UpdateTimeWarningEv
     .type _ZN9mmMultiCR17UpdateTimeWarningEv, %function
 _ZN9mmMultiCR17UpdateTimeWarningEv:
-    leaq .Lstub_name_549(%rip), %rdi
+    leaq .Lstub_name_541(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCR17UpdateTimeWarningEv, . - _ZN9mmMultiCR17UpdateTimeWarningEv
 
@@ -13451,7 +13375,7 @@ _ZN9mmMultiCR17UpdateTimeWarningEv:
     .global _ZN9mmMultiCR10UpdateGoldEv
     .type _ZN9mmMultiCR10UpdateGoldEv, %function
 _ZN9mmMultiCR10UpdateGoldEv:
-    leaq .Lstub_name_550(%rip), %rdi
+    leaq .Lstub_name_542(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCR10UpdateGoldEv, . - _ZN9mmMultiCR10UpdateGoldEv
 
@@ -13459,7 +13383,7 @@ _ZN9mmMultiCR10UpdateGoldEv:
     .global _ZN9mmMultiCR13UpdateHideoutEv
     .type _ZN9mmMultiCR13UpdateHideoutEv, %function
 _ZN9mmMultiCR13UpdateHideoutEv:
-    leaq .Lstub_name_551(%rip), %rdi
+    leaq .Lstub_name_543(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCR13UpdateHideoutEv, . - _ZN9mmMultiCR13UpdateHideoutEv
 
@@ -13467,7 +13391,7 @@ _ZN9mmMultiCR13UpdateHideoutEv:
     .global _ZN9mmMultiCR10UpdateBankEv
     .type _ZN9mmMultiCR10UpdateBankEv, %function
 _ZN9mmMultiCR10UpdateBankEv:
-    leaq .Lstub_name_552(%rip), %rdi
+    leaq .Lstub_name_544(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCR10UpdateBankEv, . - _ZN9mmMultiCR10UpdateBankEv
 
@@ -13475,7 +13399,7 @@ _ZN9mmMultiCR10UpdateBankEv:
     .global _ZN11mmGameMulti10UpdateGameEv
     .type _ZN11mmGameMulti10UpdateGameEv, %function
 _ZN11mmGameMulti10UpdateGameEv:
-    leaq .Lstub_name_553(%rip), %rdi
+    leaq .Lstub_name_545(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmGameMulti10UpdateGameEv, . - _ZN11mmGameMulti10UpdateGameEv
 
@@ -13483,15 +13407,71 @@ _ZN11mmGameMulti10UpdateGameEv:
     .global _ZN9mmMultiCR11FillResultsEv
     .type _ZN9mmMultiCR11FillResultsEv, %function
 _ZN9mmMultiCR11FillResultsEv:
-    leaq .Lstub_name_554(%rip), %rdi
+    leaq .Lstub_name_546(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN9mmMultiCR11FillResultsEv, . - _ZN9mmMultiCR11FillResultsEv
+
+    // TrackCamCS::~TrackCamCS()
+    .global _ZN10TrackCamCSD1Ev
+    .type _ZN10TrackCamCSD1Ev, %function
+_ZN10TrackCamCSD1Ev:
+    leaq .Lstub_name_547(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN10TrackCamCSD1Ev, . - _ZN10TrackCamCSD1Ev
+
+    // mmHUD::~mmHUD()
+    .global _ZN5mmHUDD1Ev
+    .type _ZN5mmHUDD1Ev, %function
+_ZN5mmHUDD1Ev:
+    leaq .Lstub_name_548(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN5mmHUDD1Ev, . - _ZN5mmHUDD1Ev
+
+    // mmSkidManager::~mmSkidManager()
+    .global _ZN13mmSkidManagerD1Ev
+    .type _ZN13mmSkidManagerD1Ev, %function
+_ZN13mmSkidManagerD1Ev:
+    leaq .Lstub_name_549(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN13mmSkidManagerD1Ev, . - _ZN13mmSkidManagerD1Ev
+
+    // mmCarSim::~mmCarSim()
+    .global _ZN8mmCarSimD1Ev
+    .type _ZN8mmCarSimD1Ev, %function
+_ZN8mmCarSimD1Ev:
+    leaq .Lstub_name_550(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN8mmCarSimD1Ev, . - _ZN8mmCarSimD1Ev
+
+    // mmGame::GetClass()
+    .global _ZN6mmGame8GetClassEv
+    .type _ZN6mmGame8GetClassEv, %function
+_ZN6mmGame8GetClassEv:
+    leaq .Lstub_name_551(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN6mmGame8GetClassEv, . - _ZN6mmGame8GetClassEv
+
+    // mmGame::InitOtherPlayers()
+    .global _ZN6mmGame16InitOtherPlayersEv
+    .type _ZN6mmGame16InitOtherPlayersEv, %function
+_ZN6mmGame16InitOtherPlayersEv:
+    leaq .Lstub_name_552(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN6mmGame16InitOtherPlayersEv, . - _ZN6mmGame16InitOtherPlayersEv
+
+    // mmGame::HitWaterHandler()
+    .global _ZN6mmGame15HitWaterHandlerEv
+    .type _ZN6mmGame15HitWaterHandlerEv, %function
+_ZN6mmGame15HitWaterHandlerEv:
+    leaq .Lstub_name_553(%rip), %rdi
+    jmp ArtsStubCalled
+    .size _ZN6mmGame15HitWaterHandlerEv, . - _ZN6mmGame15HitWaterHandlerEv
 
     // sdlCreatePipeline(int, char**)
     .global _Z17sdlCreatePipelineiPPc
     .type _Z17sdlCreatePipelineiPPc, %function
 _Z17sdlCreatePipelineiPPc:
-    leaq .Lstub_name_555(%rip), %rdi
+    leaq .Lstub_name_554(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z17sdlCreatePipelineiPPc, . - _Z17sdlCreatePipelineiPPc
 
@@ -13499,7 +13479,7 @@ _Z17sdlCreatePipelineiPPc:
     .global _Z14GameStaticInitv
     .type _Z14GameStaticInitv, %function
 _Z14GameStaticInitv:
-    leaq .Lstub_name_556(%rip), %rdi
+    leaq .Lstub_name_555(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z14GameStaticInitv, . - _Z14GameStaticInitv
 
@@ -13507,7 +13487,7 @@ _Z14GameStaticInitv:
     .global _ZN10AudManager7DisableEss
     .type _ZN10AudManager7DisableEss, %function
 _ZN10AudManager7DisableEss:
-    leaq .Lstub_name_557(%rip), %rdi
+    leaq .Lstub_name_556(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager7DisableEss, . - _ZN10AudManager7DisableEss
 
@@ -13515,7 +13495,7 @@ _ZN10AudManager7DisableEss:
     .global _ZN11mmInterfaceC1Ev
     .type _ZN11mmInterfaceC1Ev, %function
 _ZN11mmInterfaceC1Ev:
-    leaq .Lstub_name_558(%rip), %rdi
+    leaq .Lstub_name_557(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmInterfaceC1Ev, . - _ZN11mmInterfaceC1Ev
 
@@ -13523,7 +13503,7 @@ _ZN11mmInterfaceC1Ev:
     .global _ZN11mmInterface8ShowMainEi
     .type _ZN11mmInterface8ShowMainEi, %function
 _ZN11mmInterface8ShowMainEi:
-    leaq .Lstub_name_559(%rip), %rdi
+    leaq .Lstub_name_558(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN11mmInterface8ShowMainEi, . - _ZN11mmInterface8ShowMainEi
 
@@ -13531,7 +13511,7 @@ _ZN11mmInterface8ShowMainEi:
     .global _ZN10AudManager16AssignWaveVolumeEf
     .type _ZN10AudManager16AssignWaveVolumeEf, %function
 _ZN10AudManager16AssignWaveVolumeEf:
-    leaq .Lstub_name_560(%rip), %rdi
+    leaq .Lstub_name_559(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager16AssignWaveVolumeEf, . - _ZN10AudManager16AssignWaveVolumeEf
 
@@ -13539,7 +13519,7 @@ _ZN10AudManager16AssignWaveVolumeEf:
     .global _ZN10AudManager14AssignCDVolumeEf
     .type _ZN10AudManager14AssignCDVolumeEf, %function
 _ZN10AudManager14AssignCDVolumeEf:
-    leaq .Lstub_name_561(%rip), %rdi
+    leaq .Lstub_name_560(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManager14AssignCDVolumeEf, . - _ZN10AudManager14AssignCDVolumeEf
 
@@ -13547,7 +13527,7 @@ _ZN10AudManager14AssignCDVolumeEf:
     .global _ZN13mmGameManager10LoadReplayEPKc
     .type _ZN13mmGameManager10LoadReplayEPKc, %function
 _ZN13mmGameManager10LoadReplayEPKc:
-    leaq .Lstub_name_562(%rip), %rdi
+    leaq .Lstub_name_561(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN13mmGameManager10LoadReplayEPKc, . - _ZN13mmGameManager10LoadReplayEPKc
 
@@ -13555,7 +13535,7 @@ _ZN13mmGameManager10LoadReplayEPKc:
     .global _ZN7mmInputD1Ev
     .type _ZN7mmInputD1Ev, %function
 _ZN7mmInputD1Ev:
-    leaq .Lstub_name_563(%rip), %rdi
+    leaq .Lstub_name_562(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN7mmInputD1Ev, . - _ZN7mmInputD1Ev
 
@@ -13563,7 +13543,7 @@ _ZN7mmInputD1Ev:
     .global _ZN10AudManagerD1Ev
     .type _ZN10AudManagerD1Ev, %function
 _ZN10AudManagerD1Ev:
-    leaq .Lstub_name_564(%rip), %rdi
+    leaq .Lstub_name_563(%rip), %rdi
     jmp ArtsStubCalled
     .size _ZN10AudManagerD1Ev, . - _ZN10AudManagerD1Ev
 
@@ -13571,7 +13551,7 @@ _ZN10AudManagerD1Ev:
     .global _Z31dummy_symbol_agisw_swemitrunallv
     .type _Z31dummy_symbol_agisw_swemitrunallv, %function
 _Z31dummy_symbol_agisw_swemitrunallv:
-    leaq .Lstub_name_565(%rip), %rdi
+    leaq .Lstub_name_564(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z31dummy_symbol_agisw_swemitrunallv, . - _Z31dummy_symbol_agisw_swemitrunallv
 
@@ -13579,7 +13559,7 @@ _Z31dummy_symbol_agisw_swemitrunallv:
     .global _Z25dummy_symbol_agisw_swrendv
     .type _Z25dummy_symbol_agisw_swrendv, %function
 _Z25dummy_symbol_agisw_swrendv:
-    leaq .Lstub_name_566(%rip), %rdi
+    leaq .Lstub_name_565(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z25dummy_symbol_agisw_swrendv, . - _Z25dummy_symbol_agisw_swrendv
 
@@ -13587,7 +13567,7 @@ _Z25dummy_symbol_agisw_swrendv:
     .global _Z25dummy_symbol_agisw_swrsysv
     .type _Z25dummy_symbol_agisw_swrsysv, %function
 _Z25dummy_symbol_agisw_swrsysv:
-    leaq .Lstub_name_567(%rip), %rdi
+    leaq .Lstub_name_566(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z25dummy_symbol_agisw_swrsysv, . - _Z25dummy_symbol_agisw_swrsysv
 
@@ -13595,7 +13575,7 @@ _Z25dummy_symbol_agisw_swrsysv:
     .global _Z27dummy_symbol_agisw_swtexdefv
     .type _Z27dummy_symbol_agisw_swtexdefv, %function
 _Z27dummy_symbol_agisw_swtexdefv:
-    leaq .Lstub_name_568(%rip), %rdi
+    leaq .Lstub_name_567(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z27dummy_symbol_agisw_swtexdefv, . - _Z27dummy_symbol_agisw_swtexdefv
 
@@ -13603,7 +13583,7 @@ _Z27dummy_symbol_agisw_swtexdefv:
     .global _Z22dummy_symbol_data7_ipcv
     .type _Z22dummy_symbol_data7_ipcv, %function
 _Z22dummy_symbol_data7_ipcv:
-    leaq .Lstub_name_569(%rip), %rdi
+    leaq .Lstub_name_568(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z22dummy_symbol_data7_ipcv, . - _Z22dummy_symbol_data7_ipcv
 
@@ -13611,7 +13591,7 @@ _Z22dummy_symbol_data7_ipcv:
     .global _Z25dummy_symbol_memory_stackv
     .type _Z25dummy_symbol_memory_stackv, %function
 _Z25dummy_symbol_memory_stackv:
-    leaq .Lstub_name_570(%rip), %rdi
+    leaq .Lstub_name_569(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z25dummy_symbol_memory_stackv, . - _Z25dummy_symbol_memory_stackv
 
@@ -13619,7 +13599,7 @@ _Z25dummy_symbol_memory_stackv:
     .global _Z30dummy_symbol_mmaudio_audstreamv
     .type _Z30dummy_symbol_mmaudio_audstreamv, %function
 _Z30dummy_symbol_mmaudio_audstreamv:
-    leaq .Lstub_name_571(%rip), %rdi
+    leaq .Lstub_name_570(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmaudio_audstreamv, . - _Z30dummy_symbol_mmaudio_audstreamv
 
@@ -13627,7 +13607,7 @@ _Z30dummy_symbol_mmaudio_audstreamv:
     .global _Z23dummy_symbol_mmaudio_cdv
     .type _Z23dummy_symbol_mmaudio_cdv, %function
 _Z23dummy_symbol_mmaudio_cdv:
-    leaq .Lstub_name_572(%rip), %rdi
+    leaq .Lstub_name_571(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z23dummy_symbol_mmaudio_cdv, . - _Z23dummy_symbol_mmaudio_cdv
 
@@ -13635,7 +13615,7 @@ _Z23dummy_symbol_mmaudio_cdv:
     .global _Z28dummy_symbol_mmaudio_crevbufv
     .type _Z28dummy_symbol_mmaudio_crevbufv, %function
 _Z28dummy_symbol_mmaudio_crevbufv:
-    leaq .Lstub_name_573(%rip), %rdi
+    leaq .Lstub_name_572(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmaudio_crevbufv, . - _Z28dummy_symbol_mmaudio_crevbufv
 
@@ -13643,7 +13623,7 @@ _Z28dummy_symbol_mmaudio_crevbufv:
     .global _Z28dummy_symbol_mmaudio_creverbv
     .type _Z28dummy_symbol_mmaudio_creverbv, %function
 _Z28dummy_symbol_mmaudio_creverbv:
-    leaq .Lstub_name_574(%rip), %rdi
+    leaq .Lstub_name_573(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmaudio_creverbv, . - _Z28dummy_symbol_mmaudio_creverbv
 
@@ -13651,7 +13631,7 @@ _Z28dummy_symbol_mmaudio_creverbv:
     .global _Z29dummy_symbol_mmaudio_dsglobalv
     .type _Z29dummy_symbol_mmaudio_dsglobalv, %function
 _Z29dummy_symbol_mmaudio_dsglobalv:
-    leaq .Lstub_name_575(%rip), %rdi
+    leaq .Lstub_name_574(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z29dummy_symbol_mmaudio_dsglobalv, . - _Z29dummy_symbol_mmaudio_dsglobalv
 
@@ -13659,7 +13639,7 @@ _Z29dummy_symbol_mmaudio_dsglobalv:
     .global _Z34dummy_symbol_mmaudio_dupbufcreatorv
     .type _Z34dummy_symbol_mmaudio_dupbufcreatorv, %function
 _Z34dummy_symbol_mmaudio_dupbufcreatorv:
-    leaq .Lstub_name_576(%rip), %rdi
+    leaq .Lstub_name_575(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z34dummy_symbol_mmaudio_dupbufcreatorv, . - _Z34dummy_symbol_mmaudio_dupbufcreatorv
 
@@ -13667,7 +13647,7 @@ _Z34dummy_symbol_mmaudio_dupbufcreatorv:
     .global _Z28dummy_symbol_mmaudio_eaxguidv
     .type _Z28dummy_symbol_mmaudio_eaxguidv, %function
 _Z28dummy_symbol_mmaudio_eaxguidv:
-    leaq .Lstub_name_577(%rip), %rdi
+    leaq .Lstub_name_576(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmaudio_eaxguidv, . - _Z28dummy_symbol_mmaudio_eaxguidv
 
@@ -13675,7 +13655,7 @@ _Z28dummy_symbol_mmaudio_eaxguidv:
     .global _Z25dummy_symbol_mmaudio_headv
     .type _Z25dummy_symbol_mmaudio_headv, %function
 _Z25dummy_symbol_mmaudio_headv:
-    leaq .Lstub_name_578(%rip), %rdi
+    leaq .Lstub_name_577(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z25dummy_symbol_mmaudio_headv, . - _Z25dummy_symbol_mmaudio_headv
 
@@ -13683,7 +13663,7 @@ _Z25dummy_symbol_mmaudio_headv:
     .global _Z28dummy_symbol_mmaudio_managerv
     .type _Z28dummy_symbol_mmaudio_managerv, %function
 _Z28dummy_symbol_mmaudio_managerv:
-    leaq .Lstub_name_579(%rip), %rdi
+    leaq .Lstub_name_578(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmaudio_managerv, . - _Z28dummy_symbol_mmaudio_managerv
 
@@ -13691,7 +13671,7 @@ _Z28dummy_symbol_mmaudio_managerv:
     .global _Z26dummy_symbol_mmaudio_mixerv
     .type _Z26dummy_symbol_mmaudio_mixerv, %function
 _Z26dummy_symbol_mmaudio_mixerv:
-    leaq .Lstub_name_580(%rip), %rdi
+    leaq .Lstub_name_579(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z26dummy_symbol_mmaudio_mixerv, . - _Z26dummy_symbol_mmaudio_mixerv
 
@@ -13699,7 +13679,7 @@ _Z26dummy_symbol_mmaudio_mixerv:
     .global _Z38dummy_symbol_mmaudio_mmvoicecommentaryv
     .type _Z38dummy_symbol_mmaudio_mmvoicecommentaryv, %function
 _Z38dummy_symbol_mmaudio_mmvoicecommentaryv:
-    leaq .Lstub_name_581(%rip), %rdi
+    leaq .Lstub_name_580(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z38dummy_symbol_mmaudio_mmvoicecommentaryv, . - _Z38dummy_symbol_mmaudio_mmvoicecommentaryv
 
@@ -13707,7 +13687,7 @@ _Z38dummy_symbol_mmaudio_mmvoicecommentaryv:
     .global _Z26dummy_symbol_mmaudio_soundv
     .type _Z26dummy_symbol_mmaudio_soundv, %function
 _Z26dummy_symbol_mmaudio_soundv:
-    leaq .Lstub_name_582(%rip), %rdi
+    leaq .Lstub_name_581(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z26dummy_symbol_mmaudio_soundv, . - _Z26dummy_symbol_mmaudio_soundv
 
@@ -13715,7 +13695,7 @@ _Z26dummy_symbol_mmaudio_soundv:
     .global _Z29dummy_symbol_mmaudio_soundobjv
     .type _Z29dummy_symbol_mmaudio_soundobjv, %function
 _Z29dummy_symbol_mmaudio_soundobjv:
-    leaq .Lstub_name_583(%rip), %rdi
+    leaq .Lstub_name_582(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z29dummy_symbol_mmaudio_soundobjv, . - _Z29dummy_symbol_mmaudio_soundobjv
 
@@ -13723,7 +13703,7 @@ _Z29dummy_symbol_mmaudio_soundobjv:
     .global _Z30dummy_symbol_mmaudio_streamobjv
     .type _Z30dummy_symbol_mmaudio_streamobjv, %function
 _Z30dummy_symbol_mmaudio_streamobjv:
-    leaq .Lstub_name_584(%rip), %rdi
+    leaq .Lstub_name_583(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmaudio_streamobjv, . - _Z30dummy_symbol_mmaudio_streamobjv
 
@@ -13731,7 +13711,7 @@ _Z30dummy_symbol_mmaudio_streamobjv:
     .global _Z28dummy_symbol_mminput_collidev
     .type _Z28dummy_symbol_mminput_collidev, %function
 _Z28dummy_symbol_mminput_collidev:
-    leaq .Lstub_name_585(%rip), %rdi
+    leaq .Lstub_name_584(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mminput_collidev, . - _Z28dummy_symbol_mminput_collidev
 
@@ -13739,7 +13719,7 @@ _Z28dummy_symbol_mminput_collidev:
     .global _Z27dummy_symbol_mminput_effectv
     .type _Z27dummy_symbol_mminput_effectv, %function
 _Z27dummy_symbol_mminput_effectv:
-    leaq .Lstub_name_586(%rip), %rdi
+    leaq .Lstub_name_585(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z27dummy_symbol_mminput_effectv, . - _Z27dummy_symbol_mminput_effectv
 
@@ -13747,7 +13727,7 @@ _Z27dummy_symbol_mminput_effectv:
     .global _Z29dummy_symbol_mminput_frictionv
     .type _Z29dummy_symbol_mminput_frictionv, %function
 _Z29dummy_symbol_mminput_frictionv:
-    leaq .Lstub_name_587(%rip), %rdi
+    leaq .Lstub_name_586(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z29dummy_symbol_mminput_frictionv, . - _Z29dummy_symbol_mminput_frictionv
 
@@ -13755,7 +13735,7 @@ _Z29dummy_symbol_mminput_frictionv:
     .global _Z27dummy_symbol_mminput_joymanv
     .type _Z27dummy_symbol_mminput_joymanv, %function
 _Z27dummy_symbol_mminput_joymanv:
-    leaq .Lstub_name_588(%rip), %rdi
+    leaq .Lstub_name_587(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z27dummy_symbol_mminput_joymanv, . - _Z27dummy_symbol_mminput_joymanv
 
@@ -13763,7 +13743,7 @@ _Z27dummy_symbol_mminput_joymanv:
     .global _Z29dummy_symbol_mminput_joystickv
     .type _Z29dummy_symbol_mminput_joystickv, %function
 _Z29dummy_symbol_mminput_joystickv:
-    leaq .Lstub_name_589(%rip), %rdi
+    leaq .Lstub_name_588(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z29dummy_symbol_mminput_joystickv, . - _Z29dummy_symbol_mminput_joystickv
 
@@ -13771,7 +13751,7 @@ _Z29dummy_symbol_mminput_joystickv:
     .global _Z25dummy_symbol_mminput_roadv
     .type _Z25dummy_symbol_mminput_roadv, %function
 _Z25dummy_symbol_mminput_roadv:
-    leaq .Lstub_name_590(%rip), %rdi
+    leaq .Lstub_name_589(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z25dummy_symbol_mminput_roadv, . - _Z25dummy_symbol_mminput_roadv
 
@@ -13779,7 +13759,7 @@ _Z25dummy_symbol_mminput_roadv:
     .global _Z27dummy_symbol_mminput_springv
     .type _Z27dummy_symbol_mminput_springv, %function
 _Z27dummy_symbol_mminput_springv:
-    leaq .Lstub_name_591(%rip), %rdi
+    leaq .Lstub_name_590(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z27dummy_symbol_mminput_springv, . - _Z27dummy_symbol_mminput_springv
 
@@ -13787,7 +13767,7 @@ _Z27dummy_symbol_mminput_springv:
     .global _Z32dummy_symbol_mmnetwork_netobjectv
     .type _Z32dummy_symbol_mmnetwork_netobjectv, %function
 _Z32dummy_symbol_mmnetwork_netobjectv:
-    leaq .Lstub_name_592(%rip), %rdi
+    leaq .Lstub_name_591(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z32dummy_symbol_mmnetwork_netobjectv, . - _Z32dummy_symbol_mmnetwork_netobjectv
 
@@ -13795,7 +13775,7 @@ _Z32dummy_symbol_mmnetwork_netobjectv:
     .global _Z30dummy_symbol_mmnetwork_networkv
     .type _Z30dummy_symbol_mmnetwork_networkv, %function
 _Z30dummy_symbol_mmnetwork_networkv:
-    leaq .Lstub_name_593(%rip), %rdi
+    leaq .Lstub_name_592(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmnetwork_networkv, . - _Z30dummy_symbol_mmnetwork_networkv
 
@@ -13803,7 +13783,7 @@ _Z30dummy_symbol_mmnetwork_networkv:
     .global _Z31dummy_symbol_mmwidget_bm_buttonv
     .type _Z31dummy_symbol_mmwidget_bm_buttonv, %function
 _Z31dummy_symbol_mmwidget_bm_buttonv:
-    leaq .Lstub_name_594(%rip), %rdi
+    leaq .Lstub_name_593(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z31dummy_symbol_mmwidget_bm_buttonv, . - _Z31dummy_symbol_mmwidget_bm_buttonv
 
@@ -13811,7 +13791,7 @@ _Z31dummy_symbol_mmwidget_bm_buttonv:
     .global _Z30dummy_symbol_mmwidget_bm_labelv
     .type _Z30dummy_symbol_mmwidget_bm_labelv, %function
 _Z30dummy_symbol_mmwidget_bm_labelv:
-    leaq .Lstub_name_595(%rip), %rdi
+    leaq .Lstub_name_594(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_bm_labelv, . - _Z30dummy_symbol_mmwidget_bm_labelv
 
@@ -13819,7 +13799,7 @@ _Z30dummy_symbol_mmwidget_bm_labelv:
     .global _Z28dummy_symbol_mmwidget_buttonv
     .type _Z28dummy_symbol_mmwidget_buttonv, %function
 _Z28dummy_symbol_mmwidget_buttonv:
-    leaq .Lstub_name_596(%rip), %rdi
+    leaq .Lstub_name_595(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_buttonv, . - _Z28dummy_symbol_mmwidget_buttonv
 
@@ -13827,7 +13807,7 @@ _Z28dummy_symbol_mmwidget_buttonv:
     .global _Z30dummy_symbol_mmwidget_compbasev
     .type _Z30dummy_symbol_mmwidget_compbasev, %function
 _Z30dummy_symbol_mmwidget_compbasev:
-    leaq .Lstub_name_597(%rip), %rdi
+    leaq .Lstub_name_596(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_compbasev, . - _Z30dummy_symbol_mmwidget_compbasev
 
@@ -13835,7 +13815,7 @@ _Z30dummy_symbol_mmwidget_compbasev:
     .global _Z28dummy_symbol_mmwidget_compcrv
     .type _Z28dummy_symbol_mmwidget_compcrv, %function
 _Z28dummy_symbol_mmwidget_compcrv:
-    leaq .Lstub_name_598(%rip), %rdi
+    leaq .Lstub_name_597(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_compcrv, . - _Z28dummy_symbol_mmwidget_compcrv
 
@@ -13843,7 +13823,7 @@ _Z28dummy_symbol_mmwidget_compcrv:
     .global _Z30dummy_symbol_mmwidget_compdrecv
     .type _Z30dummy_symbol_mmwidget_compdrecv, %function
 _Z30dummy_symbol_mmwidget_compdrecv:
-    leaq .Lstub_name_599(%rip), %rdi
+    leaq .Lstub_name_598(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_compdrecv, . - _Z30dummy_symbol_mmwidget_compdrecv
 
@@ -13851,7 +13831,7 @@ _Z30dummy_symbol_mmwidget_compdrecv:
     .global _Z32dummy_symbol_mmwidget_comprosterv
     .type _Z32dummy_symbol_mmwidget_comprosterv, %function
 _Z32dummy_symbol_mmwidget_comprosterv:
-    leaq .Lstub_name_600(%rip), %rdi
+    leaq .Lstub_name_599(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_comprosterv, . - _Z32dummy_symbol_mmwidget_comprosterv
 
@@ -13859,7 +13839,7 @@ _Z32dummy_symbol_mmwidget_comprosterv:
     .global _Z30dummy_symbol_mmwidget_comprrecv
     .type _Z30dummy_symbol_mmwidget_comprrecv, %function
 _Z30dummy_symbol_mmwidget_comprrecv:
-    leaq .Lstub_name_601(%rip), %rdi
+    leaq .Lstub_name_600(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_comprrecv, . - _Z30dummy_symbol_mmwidget_comprrecv
 
@@ -13867,7 +13847,7 @@ _Z30dummy_symbol_mmwidget_comprrecv:
     .global _Z32dummy_symbol_mmwidget_compscrollv
     .type _Z32dummy_symbol_mmwidget_compscrollv, %function
 _Z32dummy_symbol_mmwidget_compscrollv:
-    leaq .Lstub_name_602(%rip), %rdi
+    leaq .Lstub_name_601(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_compscrollv, . - _Z32dummy_symbol_mmwidget_compscrollv
 
@@ -13875,7 +13855,7 @@ _Z32dummy_symbol_mmwidget_compscrollv:
     .global _Z35dummy_symbol_mmwidget_controlwidgetv
     .type _Z35dummy_symbol_mmwidget_controlwidgetv, %function
 _Z35dummy_symbol_mmwidget_controlwidgetv:
-    leaq .Lstub_name_603(%rip), %rdi
+    leaq .Lstub_name_602(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z35dummy_symbol_mmwidget_controlwidgetv, . - _Z35dummy_symbol_mmwidget_controlwidgetv
 
@@ -13883,7 +13863,7 @@ _Z35dummy_symbol_mmwidget_controlwidgetv:
     .global _Z29dummy_symbol_mmwidget_cwarrayv
     .type _Z29dummy_symbol_mmwidget_cwarrayv, %function
 _Z29dummy_symbol_mmwidget_cwarrayv:
-    leaq .Lstub_name_604(%rip), %rdi
+    leaq .Lstub_name_603(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_cwarrayv, . - _Z29dummy_symbol_mmwidget_cwarrayv
 
@@ -13891,7 +13871,7 @@ _Z29dummy_symbol_mmwidget_cwarrayv:
     .global _Z30dummy_symbol_mmwidget_dropdownv
     .type _Z30dummy_symbol_mmwidget_dropdownv, %function
 _Z30dummy_symbol_mmwidget_dropdownv:
-    leaq .Lstub_name_605(%rip), %rdi
+    leaq .Lstub_name_604(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_dropdownv, . - _Z30dummy_symbol_mmwidget_dropdownv
 
@@ -13899,7 +13879,7 @@ _Z30dummy_symbol_mmwidget_dropdownv:
     .global _Z26dummy_symbol_mmwidget_iconv
     .type _Z26dummy_symbol_mmwidget_iconv, %function
 _Z26dummy_symbol_mmwidget_iconv:
-    leaq .Lstub_name_606(%rip), %rdi
+    leaq .Lstub_name_605(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z26dummy_symbol_mmwidget_iconv, . - _Z26dummy_symbol_mmwidget_iconv
 
@@ -13907,7 +13887,7 @@ _Z26dummy_symbol_mmwidget_iconv:
     .global _Z32dummy_symbol_mmwidget_iconwidgetv
     .type _Z32dummy_symbol_mmwidget_iconwidgetv, %function
 _Z32dummy_symbol_mmwidget_iconwidgetv:
-    leaq .Lstub_name_607(%rip), %rdi
+    leaq .Lstub_name_606(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_iconwidgetv, . - _Z32dummy_symbol_mmwidget_iconwidgetv
 
@@ -13915,7 +13895,7 @@ _Z32dummy_symbol_mmwidget_iconwidgetv:
     .global _Z27dummy_symbol_mmwidget_labelv
     .type _Z27dummy_symbol_mmwidget_labelv, %function
 _Z27dummy_symbol_mmwidget_labelv:
-    leaq .Lstub_name_608(%rip), %rdi
+    leaq .Lstub_name_607(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z27dummy_symbol_mmwidget_labelv, . - _Z27dummy_symbol_mmwidget_labelv
 
@@ -13923,7 +13903,7 @@ _Z27dummy_symbol_mmwidget_labelv:
     .global _Z29dummy_symbol_mmwidget_managerv
     .type _Z29dummy_symbol_mmwidget_managerv, %function
 _Z29dummy_symbol_mmwidget_managerv:
-    leaq .Lstub_name_609(%rip), %rdi
+    leaq .Lstub_name_608(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_managerv, . - _Z29dummy_symbol_mmwidget_managerv
 
@@ -13931,7 +13911,7 @@ _Z29dummy_symbol_mmwidget_managerv:
     .global _Z26dummy_symbol_mmwidget_menuv
     .type _Z26dummy_symbol_mmwidget_menuv, %function
 _Z26dummy_symbol_mmwidget_menuv:
-    leaq .Lstub_name_610(%rip), %rdi
+    leaq .Lstub_name_609(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z26dummy_symbol_mmwidget_menuv, . - _Z26dummy_symbol_mmwidget_menuv
 
@@ -13939,7 +13919,7 @@ _Z26dummy_symbol_mmwidget_menuv:
     .global _Z31dummy_symbol_mmwidget_mexbuttonv
     .type _Z31dummy_symbol_mmwidget_mexbuttonv, %function
 _Z31dummy_symbol_mmwidget_mexbuttonv:
-    leaq .Lstub_name_611(%rip), %rdi
+    leaq .Lstub_name_610(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z31dummy_symbol_mmwidget_mexbuttonv, . - _Z31dummy_symbol_mmwidget_mexbuttonv
 
@@ -13947,7 +13927,7 @@ _Z31dummy_symbol_mmwidget_mexbuttonv:
     .global _Z28dummy_symbol_mmwidget_mstorev
     .type _Z28dummy_symbol_mmwidget_mstorev, %function
 _Z28dummy_symbol_mmwidget_mstorev:
-    leaq .Lstub_name_612(%rip), %rdi
+    leaq .Lstub_name_611(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_mstorev, . - _Z28dummy_symbol_mmwidget_mstorev
 
@@ -13955,7 +13935,7 @@ _Z28dummy_symbol_mmwidget_mstorev:
     .global _Z28dummy_symbol_mmwidget_navbarv
     .type _Z28dummy_symbol_mmwidget_navbarv, %function
 _Z28dummy_symbol_mmwidget_navbarv:
-    leaq .Lstub_name_613(%rip), %rdi
+    leaq .Lstub_name_612(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_navbarv, . - _Z28dummy_symbol_mmwidget_navbarv
 
@@ -13963,7 +13943,7 @@ _Z28dummy_symbol_mmwidget_navbarv:
     .global _Z29dummy_symbol_mmwidget_pointerv
     .type _Z29dummy_symbol_mmwidget_pointerv, %function
 _Z29dummy_symbol_mmwidget_pointerv:
-    leaq .Lstub_name_614(%rip), %rdi
+    leaq .Lstub_name_613(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_pointerv, . - _Z29dummy_symbol_mmwidget_pointerv
 
@@ -13971,7 +13951,7 @@ _Z29dummy_symbol_mmwidget_pointerv:
     .global _Z28dummy_symbol_mmwidget_sliderv
     .type _Z28dummy_symbol_mmwidget_sliderv, %function
 _Z28dummy_symbol_mmwidget_sliderv:
-    leaq .Lstub_name_615(%rip), %rdi
+    leaq .Lstub_name_614(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_sliderv, . - _Z28dummy_symbol_mmwidget_sliderv
 
@@ -13979,7 +13959,7 @@ _Z28dummy_symbol_mmwidget_sliderv:
     .global _Z31dummy_symbol_mmwidget_sliderbarv
     .type _Z31dummy_symbol_mmwidget_sliderbarv, %function
 _Z31dummy_symbol_mmwidget_sliderbarv:
-    leaq .Lstub_name_616(%rip), %rdi
+    leaq .Lstub_name_615(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z31dummy_symbol_mmwidget_sliderbarv, . - _Z31dummy_symbol_mmwidget_sliderbarv
 
@@ -13987,7 +13967,7 @@ _Z31dummy_symbol_mmwidget_sliderbarv:
     .global _Z30dummy_symbol_mmwidget_tdwidgetv
     .type _Z30dummy_symbol_mmwidget_tdwidgetv, %function
 _Z30dummy_symbol_mmwidget_tdwidgetv:
-    leaq .Lstub_name_617(%rip), %rdi
+    leaq .Lstub_name_616(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_tdwidgetv, . - _Z30dummy_symbol_mmwidget_tdwidgetv
 
@@ -13995,7 +13975,7 @@ _Z30dummy_symbol_mmwidget_tdwidgetv:
     .global _Z30dummy_symbol_mmwidget_textdropv
     .type _Z30dummy_symbol_mmwidget_textdropv, %function
 _Z30dummy_symbol_mmwidget_textdropv:
-    leaq .Lstub_name_618(%rip), %rdi
+    leaq .Lstub_name_617(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_textdropv, . - _Z30dummy_symbol_mmwidget_textdropv
 
@@ -14003,7 +13983,7 @@ _Z30dummy_symbol_mmwidget_textdropv:
     .global _Z31dummy_symbol_mmwidget_textfieldv
     .type _Z31dummy_symbol_mmwidget_textfieldv, %function
 _Z31dummy_symbol_mmwidget_textfieldv:
-    leaq .Lstub_name_619(%rip), %rdi
+    leaq .Lstub_name_618(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z31dummy_symbol_mmwidget_textfieldv, . - _Z31dummy_symbol_mmwidget_textfieldv
 
@@ -14011,7 +13991,7 @@ _Z31dummy_symbol_mmwidget_textfieldv:
     .global _Z32dummy_symbol_mmwidget_textrollerv
     .type _Z32dummy_symbol_mmwidget_textrollerv, %function
 _Z32dummy_symbol_mmwidget_textrollerv:
-    leaq .Lstub_name_620(%rip), %rdi
+    leaq .Lstub_name_619(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_textrollerv, . - _Z32dummy_symbol_mmwidget_textrollerv
 
@@ -14019,7 +13999,7 @@ _Z32dummy_symbol_mmwidget_textrollerv:
     .global _Z33dummy_symbol_mmwidget_textroller2v
     .type _Z33dummy_symbol_mmwidget_textroller2v, %function
 _Z33dummy_symbol_mmwidget_textroller2v:
-    leaq .Lstub_name_621(%rip), %rdi
+    leaq .Lstub_name_620(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z33dummy_symbol_mmwidget_textroller2v, . - _Z33dummy_symbol_mmwidget_textroller2v
 
@@ -14027,7 +14007,7 @@ _Z33dummy_symbol_mmwidget_textroller2v:
     .global _Z28dummy_symbol_mmwidget_togglev
     .type _Z28dummy_symbol_mmwidget_togglev, %function
 _Z28dummy_symbol_mmwidget_togglev:
-    leaq .Lstub_name_622(%rip), %rdi
+    leaq .Lstub_name_621(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_togglev, . - _Z28dummy_symbol_mmwidget_togglev
 
@@ -14035,7 +14015,7 @@ _Z28dummy_symbol_mmwidget_togglev:
     .global _Z29dummy_symbol_mmwidget_toggle2v
     .type _Z29dummy_symbol_mmwidget_toggle2v, %function
 _Z29dummy_symbol_mmwidget_toggle2v:
-    leaq .Lstub_name_623(%rip), %rdi
+    leaq .Lstub_name_622(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_toggle2v, . - _Z29dummy_symbol_mmwidget_toggle2v
 
@@ -14043,7 +14023,7 @@ _Z29dummy_symbol_mmwidget_toggle2v:
     .global _Z34dummy_symbol_mmwidget_togglebuttonv
     .type _Z34dummy_symbol_mmwidget_togglebuttonv, %function
 _Z34dummy_symbol_mmwidget_togglebuttonv:
-    leaq .Lstub_name_624(%rip), %rdi
+    leaq .Lstub_name_623(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z34dummy_symbol_mmwidget_togglebuttonv, . - _Z34dummy_symbol_mmwidget_togglebuttonv
 
@@ -14051,7 +14031,7 @@ _Z34dummy_symbol_mmwidget_togglebuttonv:
     .global _Z35dummy_symbol_mmwidget_togglebutton2v
     .type _Z35dummy_symbol_mmwidget_togglebutton2v, %function
 _Z35dummy_symbol_mmwidget_togglebutton2v:
-    leaq .Lstub_name_625(%rip), %rdi
+    leaq .Lstub_name_624(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z35dummy_symbol_mmwidget_togglebutton2v, . - _Z35dummy_symbol_mmwidget_togglebutton2v
 
@@ -14059,7 +14039,7 @@ _Z35dummy_symbol_mmwidget_togglebutton2v:
     .global _Z29dummy_symbol_mmwidget_tscrollv
     .type _Z29dummy_symbol_mmwidget_tscrollv, %function
 _Z29dummy_symbol_mmwidget_tscrollv:
-    leaq .Lstub_name_626(%rip), %rdi
+    leaq .Lstub_name_625(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z29dummy_symbol_mmwidget_tscrollv, . - _Z29dummy_symbol_mmwidget_tscrollv
 
@@ -14067,7 +14047,7 @@ _Z29dummy_symbol_mmwidget_tscrollv:
     .global _Z26dummy_symbol_mmwidget_ttipv
     .type _Z26dummy_symbol_mmwidget_ttipv, %function
 _Z26dummy_symbol_mmwidget_ttipv:
-    leaq .Lstub_name_627(%rip), %rdi
+    leaq .Lstub_name_626(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z26dummy_symbol_mmwidget_ttipv, . - _Z26dummy_symbol_mmwidget_ttipv
 
@@ -14075,7 +14055,7 @@ _Z26dummy_symbol_mmwidget_ttipv:
     .global _Z32dummy_symbol_mmwidget_vscrollbarv
     .type _Z32dummy_symbol_mmwidget_vscrollbarv, %function
 _Z32dummy_symbol_mmwidget_vscrollbarv:
-    leaq .Lstub_name_628(%rip), %rdi
+    leaq .Lstub_name_627(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z32dummy_symbol_mmwidget_vscrollbarv, . - _Z32dummy_symbol_mmwidget_vscrollbarv
 
@@ -14083,7 +14063,7 @@ _Z32dummy_symbol_mmwidget_vscrollbarv:
     .global _Z30dummy_symbol_mmwidget_vswidgetv
     .type _Z30dummy_symbol_mmwidget_vswidgetv, %function
 _Z30dummy_symbol_mmwidget_vswidgetv:
-    leaq .Lstub_name_629(%rip), %rdi
+    leaq .Lstub_name_628(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z30dummy_symbol_mmwidget_vswidgetv, . - _Z30dummy_symbol_mmwidget_vswidgetv
 
@@ -14091,7 +14071,7 @@ _Z30dummy_symbol_mmwidget_vswidgetv:
     .global _Z28dummy_symbol_mmwidget_widgetv
     .type _Z28dummy_symbol_mmwidget_widgetv, %function
 _Z28dummy_symbol_mmwidget_widgetv:
-    leaq .Lstub_name_630(%rip), %rdi
+    leaq .Lstub_name_629(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_widgetv, . - _Z28dummy_symbol_mmwidget_widgetv
 
@@ -14099,7 +14079,7 @@ _Z28dummy_symbol_mmwidget_widgetv:
     .global _Z28dummy_symbol_mmwidget_wstorev
     .type _Z28dummy_symbol_mmwidget_wstorev, %function
 _Z28dummy_symbol_mmwidget_wstorev:
-    leaq .Lstub_name_631(%rip), %rdi
+    leaq .Lstub_name_630(%rip), %rdi
     jmp ArtsStubCalled
     .size _Z28dummy_symbol_mmwidget_wstorev, . - _Z28dummy_symbol_mmwidget_wstorev
 
@@ -14271,16 +14251,16 @@ _Z28dummy_symbol_mmwidget_wstorev:
     .asciz "GetBoundInfo(int, Vector3*, Vector3*, Vector3*, Vector3*, float*)"
 
 .Lstub_name_55:
-    .asciz "ipcYield()"
-
-.Lstub_name_56:
     .asciz "swPoly(agiScreenVtx*, int)"
 
-.Lstub_name_57:
+.Lstub_name_56:
     .asciz "swTri(agiScreenVtx*, agiScreenVtx*, agiScreenVtx*)"
 
-.Lstub_name_58:
+.Lstub_name_57:
     .asciz "swQuad(agiScreenVtx*, agiScreenVtx*, agiScreenVtx*, agiScreenVtx*)"
+
+.Lstub_name_58:
+    .asciz "ipcYield()"
 
 .Lstub_name_59:
     .asciz "agiMeshSet::FirstPass_HW_UV_CPV_noDYNTEX(unsigned int*, Vector2*, unsigned int)"
@@ -14364,1641 +14344,1638 @@ _Z28dummy_symbol_mmwidget_wstorev:
     .asciz "mmEdgeBodyIsect::mmEdgeBodyIsect()"
 
 .Lstub_name_86:
-    .asciz "mmBoundTemplate::ValidatePtr(char*)"
-
-.Lstub_name_87:
-    .asciz "mmBoundTemplate::QuickSphereBox(mmIntersection*)"
-
-.Lstub_name_88:
     .asciz "mmPhysicsMGR::Cull()"
 
-.Lstub_name_89:
-    .asciz "mmBoundTemplate::SphereTable(mmIntersection*)"
-
-.Lstub_name_90:
+.Lstub_name_87:
     .asciz "mmPhysicsMGR::Update()"
 
-.Lstub_name_91:
-    .asciz "mmBoundTemplate::QuickLineBox(mmIntersection*)"
-
-.Lstub_name_92:
+.Lstub_name_88:
     .asciz "mmPhysicsMGR::UpdatePaused()"
 
-.Lstub_name_93:
+.Lstub_name_89:
+    .asciz "mmBoundTemplate::ValidatePtr(char*)"
+
+.Lstub_name_90:
+    .asciz "mmBoundTemplate::QuickSphereBox(mmIntersection*)"
+
+.Lstub_name_91:
+    .asciz "mmBoundTemplate::SphereTable(mmIntersection*)"
+
+.Lstub_name_92:
     .asciz "mmBoundTemplate::LineTable(mmIntersection*)"
 
-.Lstub_name_94:
+.Lstub_name_93:
     .asciz "mmBoundTemplate::SphereSphere(mmIntersection*)"
 
-.Lstub_name_95:
+.Lstub_name_94:
     .asciz "mmBoundTemplate::SphereGeometry(mmIntersection*)"
 
-.Lstub_name_96:
+.Lstub_name_95:
     .asciz "mmBoundTemplate::QuickLineSphere(mmIntersection*)"
 
-.Lstub_name_97:
+.Lstub_name_96:
     .asciz "mmBoundTemplate::LineGeometry(mmIntersection*)"
 
-.Lstub_name_98:
-    .asciz "mmIntersection::Reset()"
-
-.Lstub_name_99:
+.Lstub_name_97:
     .asciz "mmPolygon::mmPolygon()"
 
-.Lstub_name_100:
+.Lstub_name_98:
     .asciz "mmBoundTemplate::DoPageIn()"
 
-.Lstub_name_101:
+.Lstub_name_99:
+    .asciz "mmIntersection::Reset()"
+
+.Lstub_name_100:
     .asciz "mmPolygon::PlotTriangle(int, int, int, mmBoundTemplate*, int)"
 
-.Lstub_name_102:
+.Lstub_name_101:
     .asciz "mmBoundTemplate::AddIndex(int, int, int)"
 
-.Lstub_name_103:
+.Lstub_name_102:
     .asciz "mmDofBangerInstance::ToMatrix(Matrix34&)"
 
-.Lstub_name_104:
+.Lstub_name_103:
     .asciz "mmInstance::GetClass()"
 
-.Lstub_name_105:
+.Lstub_name_104:
     .asciz "mmDofBangerInstance::FromMatrix(Matrix34 const&)"
 
-.Lstub_name_106:
+.Lstub_name_105:
     .asciz "mmDofBangerInstance::GetPos()"
 
-.Lstub_name_107:
+.Lstub_name_106:
     .asciz "mmBangerInstance::DrawShadow()"
 
-.Lstub_name_108:
+.Lstub_name_107:
     .asciz "mmBangerInstance::DrawGlow()"
 
-.Lstub_name_109:
+.Lstub_name_108:
     .asciz "mmDofBangerInstance::SizeOf()"
 
-.Lstub_name_110:
+.Lstub_name_109:
     .asciz "mmUnhitBangerInstance::Reset()"
 
-.Lstub_name_111:
+.Lstub_name_110:
     .asciz "mmBangerInstance::ComputeLod(float, float)"
 
-.Lstub_name_112:
+.Lstub_name_111:
     .asciz "mmBridgeSet::ReadEntry(Stream*, int)"
 
-.Lstub_name_113:
+.Lstub_name_112:
     .asciz "mmAnimTrigger::Init(Vector3*, float*)"
 
-.Lstub_name_114:
+.Lstub_name_113:
     .asciz "AudSound::IsPlaying(int)"
 
-.Lstub_name_115:
+.Lstub_name_114:
     .asciz "AudSound::Stop()"
 
-.Lstub_name_116:
+.Lstub_name_115:
     .asciz "mmBridgeSet::mmBridgeSet()"
 
-.Lstub_name_117:
+.Lstub_name_116:
     .asciz "mmBridgeAudMgr::mmBridgeAudMgr()"
 
-.Lstub_name_118:
+.Lstub_name_117:
     .asciz "mmCullCity::GetRoomFlags(short)"
 
-.Lstub_name_119:
+.Lstub_name_118:
     .asciz "mmBangerDataManager::AddBangerDataEntry(char const*, char const*)"
 
-.Lstub_name_120:
+.Lstub_name_119:
     .asciz "mmUnhitBangerInstance::InitBreakables(char const*, char const*, mmBangerData*)"
 
-.Lstub_name_121:
+.Lstub_name_120:
     .asciz "asInertialCS::ApplyImpulse(Vector3 const&, Vector3 const&)"
 
-.Lstub_name_122:
+.Lstub_name_121:
     .asciz "mmBangerInstance::Draw(int)"
 
-.Lstub_name_123:
+.Lstub_name_122:
     .asciz "mmHitBangerInstance::Draw(int)"
 
-.Lstub_name_124:
+.Lstub_name_123:
     .asciz "mmTextNode::Update()"
 
-.Lstub_name_125:
+.Lstub_name_124:
     .asciz "agiMeshCardInfo::Init(int, agiMeshCardVertex*, int, int, int)"
 
-.Lstub_name_126:
+.Lstub_name_125:
     .asciz "asBirthRule::InitSpark(asSparkInfo*, asSparkPos*)"
 
-.Lstub_name_127:
+.Lstub_name_126:
     .asciz "agiMeshSet::InitCards(agiMeshCardInfo&)"
 
-.Lstub_name_128:
+.Lstub_name_127:
     .asciz "mmDamage::mmDamage()"
 
-.Lstub_name_129:
+.Lstub_name_128:
     .asciz "mmDamage::~mmDamage()"
 
-.Lstub_name_130:
+.Lstub_name_129:
     .asciz "mmVehicleForm::Cull()"
 
-.Lstub_name_131:
+.Lstub_name_130:
     .asciz "GetDLPTemplate(char*)"
 
-.Lstub_name_132:
+.Lstub_name_131:
     .asciz "Matrix34::RotateAbs(Vector3 const&, float)"
 
-.Lstub_name_133:
+.Lstub_name_132:
     .asciz "mmSkidManager::mmSkidManager()"
 
-.Lstub_name_134:
+.Lstub_name_133:
     .asciz "mmTrailer::PostUpdate()"
 
-.Lstub_name_135:
+.Lstub_name_134:
     .asciz "mmShardManager::Update()"
 
-.Lstub_name_136:
+.Lstub_name_135:
     .asciz "mmCarSim::ReInit(char const*)"
 
-.Lstub_name_137:
+.Lstub_name_136:
     .asciz "mmCarModel::Init(char const*, mmCar*, int)"
 
-.Lstub_name_138:
+.Lstub_name_137:
     .asciz "mmSkidManager::ReInit(mmWheel*)"
 
-.Lstub_name_139:
+.Lstub_name_138:
     .asciz "mmTrailer::Deactivate()"
 
-.Lstub_name_140:
+.Lstub_name_139:
     .asciz "Joint3Dof::BreakJoint()"
 
-.Lstub_name_141:
+.Lstub_name_140:
     .asciz "DLPTemplate::GetCentroid(Vector3&, char const*)"
 
-.Lstub_name_142:
-    .asciz "mmTrailer::Init(char const*, mmCarSim*, Vector3)"
-
-.Lstub_name_143:
-    .asciz "Joint3Dof::InitJoint3Dof(asInertialCS*, Vector3 const&, asInertialCS*, Vector3 const&)"
-
-.Lstub_name_144:
-    .asciz "mmTrailer::Activate()"
-
-.Lstub_name_145:
-    .asciz "Joint3Dof::UnbreakJoint()"
-
-.Lstub_name_146:
-    .asciz "DLPTemplate::Release()"
-
-.Lstub_name_147:
-    .asciz "mmCarSim::Reset()"
-
-.Lstub_name_148:
-    .asciz "mmCarModel::Reset()"
-
-.Lstub_name_149:
-    .asciz "mmCarModel::ClearDamage(bool)"
-
-.Lstub_name_150:
-    .asciz "mmSplash::Reset()"
-
-.Lstub_name_151:
-    .asciz "mmTrailer::Reset()"
-
-.Lstub_name_152:
-    .asciz "Joint3Dof::Reset()"
-
-.Lstub_name_153:
-    .asciz "mmSkidManager::Reset()"
-
-.Lstub_name_154:
-    .asciz "mmTrailer::SetHackedImpactParams()"
-
-.Lstub_name_155:
-    .asciz "mmCarSim::RemoveNetVehicleAudio()"
-
-.Lstub_name_156:
-    .asciz "mmPlayerCarAudio::StartSiren()"
-
-.Lstub_name_157:
-    .asciz "mmPlayerCarAudio::StopSiren()"
-
-.Lstub_name_158:
-    .asciz "mmCarModel::ApplyDamage(Vector3&, float)"
-
-.Lstub_name_159:
-    .asciz "mmInput::DoingFF()"
-
-.Lstub_name_160:
-    .asciz "mmInput::FFSetValues(int, float, float)"
-
-.Lstub_name_161:
-    .asciz "mmInput::FFPlay(int)"
-
-.Lstub_name_162:
-    .asciz "mmCullCity::IsPolyWater(mmPolygon*)"
-
-.Lstub_name_163:
-    .asciz "mmCarSim::PlayImpactAudio(short, mmIntersection*, Vector3*)"
-
-.Lstub_name_164:
-    .asciz "mmSplash::Activate(float)"
-
-.Lstub_name_165:
-    .asciz "asLineSparks::RadialBlast(int, Vector3&, Vector3&)"
-
-.Lstub_name_166:
-    .asciz "mmShardManager::EmitShards(Vector3, float, float)"
-
-.Lstub_name_167:
-    .asciz "mmCarModel::Impact(Vector3*)"
-
-.Lstub_name_168:
+.Lstub_name_141:
     .asciz "GetSparkLut(char const*)"
 
-.Lstub_name_169:
+.Lstub_name_142:
     .asciz "mmStuck::Init(mmCarSim*)"
 
-.Lstub_name_170:
+.Lstub_name_143:
+    .asciz "mmTrailer::Init(char const*, mmCarSim*, Vector3)"
+
+.Lstub_name_144:
+    .asciz "Joint3Dof::InitJoint3Dof(asInertialCS*, Vector3 const&, asInertialCS*, Vector3 const&)"
+
+.Lstub_name_145:
+    .asciz "mmTrailer::Activate()"
+
+.Lstub_name_146:
+    .asciz "Joint3Dof::UnbreakJoint()"
+
+.Lstub_name_147:
+    .asciz "DLPTemplate::Release()"
+
+.Lstub_name_148:
+    .asciz "mmCarSim::Reset()"
+
+.Lstub_name_149:
+    .asciz "mmCarModel::Reset()"
+
+.Lstub_name_150:
+    .asciz "mmCarModel::ClearDamage(bool)"
+
+.Lstub_name_151:
+    .asciz "mmSplash::Reset()"
+
+.Lstub_name_152:
+    .asciz "mmTrailer::Reset()"
+
+.Lstub_name_153:
+    .asciz "Joint3Dof::Reset()"
+
+.Lstub_name_154:
+    .asciz "mmSkidManager::Reset()"
+
+.Lstub_name_155:
+    .asciz "mmTrailer::SetHackedImpactParams()"
+
+.Lstub_name_156:
+    .asciz "mmCarSim::RemoveNetVehicleAudio()"
+
+.Lstub_name_157:
+    .asciz "mmPlayerCarAudio::StartSiren()"
+
+.Lstub_name_158:
+    .asciz "mmPlayerCarAudio::StopSiren()"
+
+.Lstub_name_159:
+    .asciz "mmCarModel::ApplyDamage(Vector3&, float)"
+
+.Lstub_name_160:
+    .asciz "mmInput::DoingFF()"
+
+.Lstub_name_161:
+    .asciz "mmInput::FFSetValues(int, float, float)"
+
+.Lstub_name_162:
+    .asciz "mmInput::FFPlay(int)"
+
+.Lstub_name_163:
+    .asciz "mmCullCity::IsPolyWater(mmPolygon*)"
+
+.Lstub_name_164:
+    .asciz "mmCarSim::PlayImpactAudio(short, mmIntersection*, Vector3*)"
+
+.Lstub_name_165:
+    .asciz "mmSplash::Activate(float)"
+
+.Lstub_name_166:
+    .asciz "asLineSparks::RadialBlast(int, Vector3&, Vector3&)"
+
+.Lstub_name_167:
+    .asciz "mmShardManager::EmitShards(Vector3, float, float)"
+
+.Lstub_name_168:
+    .asciz "mmCarModel::Impact(Vector3*)"
+
+.Lstub_name_169:
     .asciz "mmShardManager::GetClass()"
 
-.Lstub_name_171:
+.Lstub_name_170:
     .asciz "mmShard::GetClass()"
 
-.Lstub_name_172:
+.Lstub_name_171:
     .asciz "mmSkidManager::LayTrack()"
 
-.Lstub_name_173:
+.Lstub_name_172:
     .asciz "SplashCB(mmSplash*)"
 
-.Lstub_name_174:
+.Lstub_name_173:
     .asciz "StuckCB(mmStuck*)"
 
-.Lstub_name_175:
+.Lstub_name_174:
     .asciz "mmTransmission::SetCurrentGear(int)"
 
-.Lstub_name_176:
+.Lstub_name_175:
     .asciz "mmWheel::ComputeConstants()"
 
-.Lstub_name_177:
+.Lstub_name_176:
     .asciz "mmSky::Init(char const*)"
 
-.Lstub_name_178:
+.Lstub_name_177:
     .asciz "fix_clip()"
 
-.Lstub_name_179:
+.Lstub_name_178:
     .asciz "mmYInstance::mmYInstance()"
 
-.Lstub_name_180:
+.Lstub_name_179:
     .asciz "mmCullCity::InitTimeOfDayAndWeather()"
 
-.Lstub_name_181:
+.Lstub_name_180:
     .asciz "mmCullCity::InitSnowTextures()"
 
-.Lstub_name_182:
+.Lstub_name_181:
     .asciz "mmBangerManager::Init(int)"
 
-.Lstub_name_183:
+.Lstub_name_182:
     .asciz "mmCullCity::AddInstance(int, char*, char*, int, Vector3*, Vector3*, Vector3*, float)"
 
-.Lstub_name_184:
+.Lstub_name_183:
     .asciz "mmCullCity::UpdateSnowTextures()"
 
-.Lstub_name_185:
+.Lstub_name_184:
     .asciz "agiConeLighter(unsigned char*, unsigned int*, unsigned int*, agiMeshSet*)"
 
-.Lstub_name_186:
+.Lstub_name_185:
     .asciz "agiMeshLighterQuarter(unsigned char*, unsigned int*, unsigned int*, agiMeshSet*)"
 
-.Lstub_name_187:
+.Lstub_name_186:
     .asciz "mmBangerDataManager::mmBangerDataManager()"
 
-.Lstub_name_188:
+.Lstub_name_187:
     .asciz "mmSky::mmSky()"
 
-.Lstub_name_189:
+.Lstub_name_188:
     .asciz "mmInstance::ResetAll()"
 
-.Lstub_name_190:
-    .asciz "mmBoundTemplate::MakeBox(char*, char*, int, Vector3*, Vector3*)"
-
-.Lstub_name_191:
+.Lstub_name_189:
     .asciz "agiTexSheet::Kill()"
 
-.Lstub_name_192:
+.Lstub_name_190:
     .asciz "mmSky::~mmSky()"
 
-.Lstub_name_193:
+.Lstub_name_191:
     .asciz "mmBangerDataManager::~mmBangerDataManager()"
 
-.Lstub_name_194:
+.Lstub_name_192:
     .asciz "mmTextNode::AddText(void*, LocString*, int, float, float)"
 
-.Lstub_name_195:
-    .asciz "mmMatrixInstance::GetClass()"
-
-.Lstub_name_196:
-    .asciz "mmBuildingInstance::GetClass()"
-
-.Lstub_name_197:
-    .asciz "Matrix44::Matrix44(Matrix34 const&)"
-
-.Lstub_name_198:
-    .asciz "Matrix44::Matrix44(Matrix44 const&)"
-
-.Lstub_name_199:
+.Lstub_name_193:
     .asciz "mmCullCity::GetClass()"
 
-.Lstub_name_200:
+.Lstub_name_194:
+    .asciz "Matrix44::Matrix44(Matrix34 const&)"
+
+.Lstub_name_195:
+    .asciz "Matrix44::Matrix44(Matrix44 const&)"
+
+.Lstub_name_196:
+    .asciz "mmBoundTemplate::MakeBox(char*, char*, int, Vector3*, Vector3*)"
+
+.Lstub_name_197:
+    .asciz "mmMatrixInstance::GetClass()"
+
+.Lstub_name_198:
+    .asciz "mmBuildingInstance::GetClass()"
+
+.Lstub_name_199:
     .asciz "mmBuildingInstance::SizeOf()"
 
-.Lstub_name_201:
+.Lstub_name_200:
     .asciz "mmBuildingInstance::GetScale()"
 
-.Lstub_name_202:
+.Lstub_name_201:
     .asciz "mmPolygon::FullSegment(mmIntersection*)"
 
-.Lstub_name_203:
+.Lstub_name_202:
     .asciz "asRenderWeb::Cull()"
 
-.Lstub_name_204:
+.Lstub_name_203:
     .asciz "AudManager::GetHiSampleSizeMask()"
 
-.Lstub_name_205:
+.Lstub_name_204:
     .asciz "AudManager::GetHiResMask()"
 
-.Lstub_name_206:
+.Lstub_name_205:
     .asciz "AudManager::GetStereoOnMask()"
 
-.Lstub_name_207:
+.Lstub_name_206:
     .asciz "AudManager::GetCommentaryOnMask()"
 
-.Lstub_name_208:
+.Lstub_name_207:
     .asciz "AudManager::GetCDMusicOnMask()"
 
-.Lstub_name_209:
+.Lstub_name_208:
     .asciz "AudManager::GetSoundFXOnMask()"
 
-.Lstub_name_210:
+.Lstub_name_209:
     .asciz "mmVehInfo::Print()"
 
-.Lstub_name_211:
+.Lstub_name_210:
     .asciz "mmTransmission::SetReverse()"
 
-.Lstub_name_212:
+.Lstub_name_211:
     .asciz "aiPath::Index(Vector3&)"
 
-.Lstub_name_213:
+.Lstub_name_212:
     .asciz "aiGoalChase::CalcSpeed(float)"
 
-.Lstub_name_214:
+.Lstub_name_213:
     .asciz "aiPath::CenterLength(int, int)"
 
-.Lstub_name_215:
+.Lstub_name_214:
     .asciz "aiRailSet::CalcCopRailPosition(Vector3&, Vector3&, float, float)"
 
-.Lstub_name_216:
+.Lstub_name_215:
     .asciz "aiStuck::Update()"
 
-.Lstub_name_217:
+.Lstub_name_216:
     .asciz "aiGoalFollowWayPts::PlanRoute()"
 
-.Lstub_name_218:
+.Lstub_name_217:
     .asciz "aiGoalFollowWayPts::DetRdSegBetweenInts(aiIntersection*, aiIntersection*)"
 
-.Lstub_name_219:
+.Lstub_name_218:
     .asciz "aiMap::DetermineOppMapComponent(Matrix34&, aiRailSet*, short*, short*, float*, float*, short*, float*, float, short, short)"
 
-.Lstub_name_220:
+.Lstub_name_219:
     .asciz "aiPath::StopDestinationSources(bool)"
 
-.Lstub_name_221:
+.Lstub_name_220:
     .asciz "aiGoalFollowWayPts::DetectOpponentCollision()"
 
-.Lstub_name_222:
+.Lstub_name_221:
     .asciz "aiGoalFollowWayPts::AvoidOpponentCollision(aiVehicleOpponent*)"
 
-.Lstub_name_223:
+.Lstub_name_222:
     .asciz "aiGoalFollowWayPts::DetectCollision(int*)"
 
-.Lstub_name_224:
+.Lstub_name_223:
     .asciz "aiGoalFollowWayPts::AvoidCollision(int)"
 
-.Lstub_name_225:
+.Lstub_name_224:
     .asciz "aiGoalFollowWayPts::SolveTargetPoint()"
 
-.Lstub_name_226:
+.Lstub_name_225:
     .asciz "aiGoalStop::Init()"
 
-.Lstub_name_227:
+.Lstub_name_226:
     .asciz "aiVehicleOpponent::Dump()"
 
-.Lstub_name_228:
+.Lstub_name_227:
     .asciz "aiVehiclePolice::Dump()"
 
-.Lstub_name_229:
+.Lstub_name_228:
     .asciz "aiVehicleAmbient::Dump()"
 
-.Lstub_name_230:
+.Lstub_name_229:
     .asciz "aiMap::ChooseNextRightStraightFreewayLink(aiRailSet*)"
 
-.Lstub_name_231:
+.Lstub_name_230:
     .asciz "aiMap::ChooseNextLeftStraightLink(aiRailSet*)"
 
-.Lstub_name_232:
+.Lstub_name_231:
     .asciz "aiMap::ChooseNextRightStraightLink(aiRailSet*)"
 
-.Lstub_name_233:
+.Lstub_name_232:
     .asciz "aiMap::ChooseNextFreewayLink(aiRailSet*)"
 
-.Lstub_name_234:
+.Lstub_name_233:
     .asciz "aiMap::ChooseNextStraightLink(aiRailSet*)"
 
-.Lstub_name_235:
+.Lstub_name_234:
     .asciz "aiIntersection::Path(int)"
 
-.Lstub_name_236:
+.Lstub_name_235:
     .asciz "frand()"
 
-.Lstub_name_237:
+.Lstub_name_236:
     .asciz "aiRailSet::SolveTurnType(aiPath*, aiPath*)"
 
-.Lstub_name_238:
+.Lstub_name_237:
     .asciz "aiVehicleInstance::GetEntity()"
 
-.Lstub_name_239:
+.Lstub_name_238:
     .asciz "aiVehicleData::aiVehicleData()"
 
-.Lstub_name_240:
+.Lstub_name_239:
     .asciz "aiVehicleActive::aiVehicleActive()"
 
-.Lstub_name_241:
+.Lstub_name_240:
     .asciz "aiVehicleActive::~aiVehicleActive()"
 
-.Lstub_name_242:
-    .asciz "aiVehicleInstance::GetData()"
-
-.Lstub_name_243:
-    .asciz "aiVehicleInstance::ToMatrix(Matrix34&)"
-
-.Lstub_name_244:
-    .asciz "asInertialCS::Update()"
-
-.Lstub_name_245:
-    .asciz "aiVehicleManager::Detach(aiVehicleActive*)"
-
-.Lstub_name_246:
-    .asciz "aiVehicleManager::Update()"
-
-.Lstub_name_247:
-    .asciz "aiVehicleManager::Reset()"
-
-.Lstub_name_248:
+.Lstub_name_241:
     .asciz "mmCar::Init(char const*, int, int)"
 
-.Lstub_name_249:
-    .asciz "aiVehicleManager::Save()"
-
-.Lstub_name_250:
+.Lstub_name_242:
     .asciz "aiVehicle::Init(int)"
 
-.Lstub_name_251:
+.Lstub_name_243:
     .asciz "aiGoalFollowWayPts::aiGoalFollowWayPts(char*, aiRailSet*, aiVehicleOpponent*, bool*, bool*, bool*, char const*, float)"
 
-.Lstub_name_252:
+.Lstub_name_244:
     .asciz "aiGoalFollowWayPts::~aiGoalFollowWayPts()"
 
-.Lstub_name_253:
+.Lstub_name_245:
     .asciz "DLPTemplate::BoundBox(Vector3&, Vector3&, char const*)"
 
-.Lstub_name_254:
+.Lstub_name_246:
     .asciz "aiGoalFollowWayPts::Init()"
 
-.Lstub_name_255:
+.Lstub_name_247:
     .asciz "aiAudioManager::RemoveVehicle(aiVehicleOpponent*, short)"
 
-.Lstub_name_256:
+.Lstub_name_248:
     .asciz "aiVehicle::Reset()"
 
-.Lstub_name_257:
+.Lstub_name_249:
     .asciz "aiVehicleOpponent::AddToAiAudMgr()"
 
-.Lstub_name_258:
+.Lstub_name_250:
     .asciz "aiVehicle::Update()"
 
-.Lstub_name_259:
+.Lstub_name_251:
     .asciz "aiVehicleSpline::Update()"
 
-.Lstub_name_260:
+.Lstub_name_252:
+    .asciz "aiVehicleInstance::GetData()"
+
+.Lstub_name_253:
     .asciz "aiVehicleSpline::Reset()"
 
-.Lstub_name_261:
+.Lstub_name_254:
+    .asciz "aiVehicleInstance::ToMatrix(Matrix34&)"
+
+.Lstub_name_255:
     .asciz "aiVehicleSpline::Type()"
 
-.Lstub_name_262:
+.Lstub_name_256:
+    .asciz "asInertialCS::Update()"
+
+.Lstub_name_257:
     .asciz "aiVehicleSpline::DrawId()"
 
-.Lstub_name_263:
+.Lstub_name_258:
     .asciz "aiVehicleSpline::GetClass()"
 
-.Lstub_name_264:
+.Lstub_name_259:
+    .asciz "aiVehicleManager::Detach(aiVehicleActive*)"
+
+.Lstub_name_260:
+    .asciz "aiVehicleManager::Update()"
+
+.Lstub_name_261:
+    .asciz "aiVehicleManager::Reset()"
+
+.Lstub_name_262:
+    .asciz "aiVehicleManager::Save()"
+
+.Lstub_name_263:
     .asciz "BaseCamCS::GetClass()"
 
-.Lstub_name_265:
+.Lstub_name_264:
     .asciz "BaseCamCS::AfterLoad()"
 
-.Lstub_name_266:
+.Lstub_name_265:
     .asciz "BaseCamCS::ForceMatrixDelta(Vector3 const&)"
 
-.Lstub_name_267:
+.Lstub_name_266:
     .asciz "mmCarModel::Activate()"
 
-.Lstub_name_268:
+.Lstub_name_267:
     .asciz "Matrix34::PolarView(float, float, float, float)"
 
-.Lstub_name_269:
+.Lstub_name_268:
     .asciz "Spline::Spline()"
 
-.Lstub_name_270:
+.Lstub_name_269:
     .asciz "mmInput::DeviceConnected()"
 
-.Lstub_name_271:
+.Lstub_name_270:
     .asciz "mmInput::Init(int)"
 
-.Lstub_name_272:
+.Lstub_name_271:
     .asciz "mmInput::JoystickHasCoolie()"
 
-.Lstub_name_273:
+.Lstub_name_272:
     .asciz "mmInput::ProcessJoyEvents()"
 
-.Lstub_name_274:
+.Lstub_name_273:
     .asciz "mmInput::ClearEventHitFlags()"
 
-.Lstub_name_275:
+.Lstub_name_274:
     .asciz "mmJoyMan::mmJoyMan()"
 
-.Lstub_name_276:
+.Lstub_name_275:
     .asciz "mmInput::RestoreDefaultConfig(int)"
 
-.Lstub_name_277:
+.Lstub_name_276:
     .asciz "mmInput::GetThrottleVal()"
 
-.Lstub_name_278:
+.Lstub_name_277:
     .asciz "mmInput::PutEventInQueue(long)"
 
-.Lstub_name_279:
+.Lstub_name_278:
     .asciz "mmInput::PollStates()"
 
-.Lstub_name_280:
+.Lstub_name_279:
     .asciz "mmJoyMan::Update()"
 
-.Lstub_name_281:
+.Lstub_name_280:
     .asciz "mmJoyMan::GenerateEvents()"
 
-.Lstub_name_282:
+.Lstub_name_281:
     .asciz "mmInput::ProcessStates()"
 
-.Lstub_name_283:
+.Lstub_name_282:
     .asciz "mmIODev::Assign(int, int, int)"
+
+.Lstub_name_283:
+    .asciz "mmIODev::Init(int, long)"
 
 .Lstub_name_284:
     .asciz "AngelReadKeyString(unsigned int)"
 
 .Lstub_name_285:
-    .asciz "mmIODev::Init(int, long)"
-
-.Lstub_name_286:
     .asciz "PUMenuBase::~PUMenuBase()"
 
-.Lstub_name_287:
+.Lstub_name_286:
     .asciz "PUMenuBase::Update()"
 
-.Lstub_name_288:
+.Lstub_name_287:
     .asciz "UIMenu::PostSetup()"
 
-.Lstub_name_289:
+.Lstub_name_288:
     .asciz "UIMenu::BackUp()"
 
-.Lstub_name_290:
+.Lstub_name_289:
     .asciz "UIMenu::CheckInput()"
 
-.Lstub_name_291:
+.Lstub_name_290:
     .asciz "UITextDropdown::AssignString(string)"
 
-.Lstub_name_292:
+.Lstub_name_291:
     .asciz "UITextDropdown::SetValue(int)"
 
-.Lstub_name_293:
+.Lstub_name_292:
     .asciz "SetTexQualString()"
 
-.Lstub_name_294:
+.Lstub_name_293:
     .asciz "UIMenu::UIMenu(int)"
 
-.Lstub_name_295:
+.Lstub_name_294:
     .asciz "UIMenu::AssignName(LocString*)"
 
-.Lstub_name_296:
+.Lstub_name_295:
     .asciz "UIMenu::AddBMButton(int, char const*, float, float, int, Callback, int*, int, int, Callback)"
 
-.Lstub_name_297:
+.Lstub_name_296:
     .asciz "UIMenu::SetBstate(int)"
 
-.Lstub_name_298:
+.Lstub_name_297:
     .asciz "UIMenu::~UIMenu()"
 
-.Lstub_name_299:
+.Lstub_name_298:
     .asciz "UIMenu::Update()"
 
-.Lstub_name_300:
+.Lstub_name_299:
     .asciz "UIMenu::SetFocusWidget(int)"
 
-.Lstub_name_301:
+.Lstub_name_300:
     .asciz "UIMenu::AddHotSpot(int, char const*, float, float, float, float, Callback)"
 
-.Lstub_name_302:
+.Lstub_name_301:
     .asciz "uiNavBar::SetPrevPos(float, float)"
 
-.Lstub_name_303:
+.Lstub_name_302:
     .asciz "PUMenuBase::CreateTitle()"
 
-.Lstub_name_304:
+.Lstub_name_303:
     .asciz "PUMenuBase::AddExit(float, float, float, float)"
 
-.Lstub_name_305:
+.Lstub_name_304:
     .asciz "MenuManager::GetFont(int)"
 
-.Lstub_name_306:
+.Lstub_name_305:
     .asciz "UIMenu::AddButton(int, LocString*, float, float, float, float, int, int, Callback)"
 
-.Lstub_name_307:
+.Lstub_name_306:
     .asciz "UIMenu::FindWidget(int)"
 
-.Lstub_name_308:
+.Lstub_name_307:
     .asciz "uiWidget::SetEnabled(bool)"
 
-.Lstub_name_309:
+.Lstub_name_308:
     .asciz "PUMenuBase::CreateDummyBitmap()"
 
-.Lstub_name_310:
+.Lstub_name_309:
     .asciz "PUResults::Init320()"
 
-.Lstub_name_311:
+.Lstub_name_310:
     .asciz "PUResults::Reset()"
 
-.Lstub_name_312:
+.Lstub_name_311:
     .asciz "UIMenu::PreSetup()"
 
-.Lstub_name_313:
+.Lstub_name_312:
     .asciz "RaceMenuBase::~RaceMenuBase()"
 
-.Lstub_name_314:
+.Lstub_name_313:
     .asciz "UIMenu::AssignBackground(char const*)"
 
-.Lstub_name_315:
-    .asciz "RadialGauge::Init(char const*, char const*, float*, float*, float)"
-
-.Lstub_name_316:
-    .asciz "mmTransmission::GetCurrentGear()"
-
-.Lstub_name_317:
-    .asciz "mmLinearGauge::mmLinearGauge()"
-
-.Lstub_name_318:
-    .asciz "RadialGauge::RadialGauge()"
-
-.Lstub_name_319:
-    .asciz "asForm::asForm()"
-
-.Lstub_name_320:
+.Lstub_name_314:
     .asciz "mmMiscData::mmMiscData()"
 
-.Lstub_name_321:
+.Lstub_name_315:
     .asciz "mmPlayerConfig::mmPlayerConfig()"
 
-.Lstub_name_322:
+.Lstub_name_316:
     .asciz "mmPlayerConfig::GetControls()"
 
-.Lstub_name_323:
+.Lstub_name_317:
     .asciz "mmPlayerConfig::GetAudio()"
 
-.Lstub_name_324:
+.Lstub_name_318:
     .asciz "mmPlayerConfig::GetGraphics()"
 
-.Lstub_name_325:
+.Lstub_name_319:
     .asciz "mmHudMap::SetMode(int)"
 
-.Lstub_name_326:
+.Lstub_name_320:
     .asciz "mmPlayerConfig::GetViewSettings()"
 
-.Lstub_name_327:
+.Lstub_name_321:
     .asciz "mmPlayerData::GetFileName()"
 
-.Lstub_name_328:
+.Lstub_name_322:
     .asciz "mmPlayerConfig::Save(char*, bool)"
 
-.Lstub_name_329:
+.Lstub_name_323:
     .asciz "DumpPositions(char const*)"
 
-.Lstub_name_330:
+.Lstub_name_324:
     .asciz "aiMap::Clean()"
 
-.Lstub_name_331:
+.Lstub_name_325:
     .asciz "mmAnimMgr::~mmAnimMgr()"
 
-.Lstub_name_332:
+.Lstub_name_326:
     .asciz "mmPhysicsMGR::Shutdown()"
 
-.Lstub_name_333:
+.Lstub_name_327:
     .asciz "mmAmbientAudio::~mmAmbientAudio()"
 
-.Lstub_name_334:
+.Lstub_name_328:
     .asciz "mmPlayerConfig::~mmPlayerConfig()"
 
-.Lstub_name_335:
+.Lstub_name_329:
     .asciz "mmMiscData::~mmMiscData()"
 
-.Lstub_name_336:
+.Lstub_name_330:
     .asciz "AudSound::~AudSound()"
 
-.Lstub_name_337:
+.Lstub_name_331:
     .asciz "mmIcons::~mmIcons()"
 
-.Lstub_name_338:
+.Lstub_name_332:
     .asciz "mmPopup::ProcessChat()"
 
-.Lstub_name_339:
+.Lstub_name_333:
     .asciz "mmPopup::ProcessKeymap(int)"
 
-.Lstub_name_340:
+.Lstub_name_334:
     .asciz "mmPopup::ShowRoster()"
 
-.Lstub_name_341:
+.Lstub_name_335:
     .asciz "mmVoiceCommentary::StopNow()"
 
-.Lstub_name_342:
+.Lstub_name_336:
     .asciz "mmPopup::ProcessEscape(int)"
 
-.Lstub_name_343:
+.Lstub_name_337:
     .asciz "mmInput::PopEvent(int*)"
 
-.Lstub_name_344:
+.Lstub_name_338:
     .asciz "mmCDPlayer::PlayStop()"
 
-.Lstub_name_345:
+.Lstub_name_339:
     .asciz "mmHudMap::Cycle()"
 
-.Lstub_name_346:
+.Lstub_name_340:
     .asciz "mmPlayer::IsPOV()"
 
-.Lstub_name_347:
+.Lstub_name_341:
     .asciz "mmPlayer::SetWideFOV(bool)"
 
-.Lstub_name_348:
+.Lstub_name_342:
     .asciz "mmTransmission::Downshift()"
 
-.Lstub_name_349:
+.Lstub_name_343:
     .asciz "mmPlayer::ToggleCam()"
 
-.Lstub_name_350:
+.Lstub_name_344:
     .asciz "mmCDPlayer::Toggle()"
 
-.Lstub_name_351:
+.Lstub_name_345:
     .asciz "mmHudMap::ToggleFullScreen()"
 
-.Lstub_name_352:
+.Lstub_name_346:
     .asciz "mmPlayer::ToggleExternalView()"
 
-.Lstub_name_353:
+.Lstub_name_347:
     .asciz "mmHUD::ToggleExternalView()"
 
-.Lstub_name_354:
+.Lstub_name_348:
     .asciz "mmHudMap::ToggleMapRes()"
 
-.Lstub_name_355:
+.Lstub_name_349:
     .asciz "mmPlayer::ToggleWideFOV()"
 
-.Lstub_name_356:
+.Lstub_name_350:
     .asciz "mmHUD::IsDashActive()"
 
-.Lstub_name_357:
+.Lstub_name_351:
     .asciz "mmHUD::DeactivateDash()"
 
-.Lstub_name_358:
+.Lstub_name_352:
     .asciz "mmCarModel::Deactivate()"
 
-.Lstub_name_359:
-    .asciz "mmHUD::ActivateDash()"
-
-.Lstub_name_360:
-    .asciz "mmPlayer::ToggleDash()"
-
-.Lstub_name_361:
-    .asciz "mmCDPlayer::PrevTrack()"
-
-.Lstub_name_362:
-    .asciz "mmCDPlayer::NextTrack()"
-
-.Lstub_name_363:
-    .asciz "mmTransmission::SetDrive()"
-
-.Lstub_name_364:
-    .asciz "mmTransmission::Automatic(int)"
-
-.Lstub_name_365:
-    .asciz "mmTransmission::Upshift()"
-
-.Lstub_name_366:
-    .asciz "mmInput::GetCamPan()"
-
-.Lstub_name_367:
-    .asciz "mmCarSim::StopHorn()"
-
-.Lstub_name_368:
-    .asciz "mmBangerData::LaunchInstance(float, Vector3*)"
-
-.Lstub_name_369:
-    .asciz "mmCarSim::PlayHorn()"
-
-.Lstub_name_370:
-    .asciz "mmPositions::mmPositions()"
-
-.Lstub_name_371:
-    .asciz "mmPositions::Init(int)"
-
-.Lstub_name_372:
-    .asciz "mmGame::PlayerSetState()"
-
-.Lstub_name_373:
-    .asciz "AudManager::SetBitDepthAndSampleRate(int, unsigned long)"
-
-.Lstub_name_374:
-    .asciz "SetRainSurfaceAudioInfos()"
-
-.Lstub_name_375:
-    .asciz "LoadPositions(char const*)"
-
-.Lstub_name_376:
-    .asciz "mmPositions::Load(char const*)"
-
-.Lstub_name_377:
-    .asciz "mmPositions::Register(Vector4&, int, int, int, int, char*)"
-
-.Lstub_name_378:
-    .asciz "SetSnowSurfaceAudioInfos()"
-
-.Lstub_name_379:
-    .asciz "SetClearSurfaceAudioInfos()"
-
-.Lstub_name_380:
-    .asciz "mmVoiceCommentary::mmVoiceCommentary()"
-
-.Lstub_name_381:
-    .asciz "mmVoiceCommentary::ValidateCity(char*)"
-
-.Lstub_name_382:
-    .asciz "AudManager::SetVoiceCommentaryPtr(mmVoiceCommentary*)"
-
-.Lstub_name_383:
-    .asciz "mmPhysicsMGR::Init(asInertialCS*, mmViewCS*)"
-
-.Lstub_name_384:
-    .asciz "mmPlayer::Init(char*, char*, mmGame*)"
-
-.Lstub_name_385:
-    .asciz "mmIcons::Init(Matrix34*, float, float)"
-
-.Lstub_name_386:
-    .asciz "AudManager::GetDSound3DMask()"
-
-.Lstub_name_387:
-    .asciz "AudHead::AudHead(Matrix34*)"
-
-.Lstub_name_388:
-    .asciz "AudHead::Init()"
-
-.Lstub_name_389:
-    .asciz "AudHead::SetRolloff(float)"
-
-.Lstub_name_390:
-    .asciz "AudHead::SetDoppler(float)"
-
-.Lstub_name_391:
-    .asciz "aiMap::Init(char*, char*, char*, mmCar*)"
-
-.Lstub_name_392:
-    .asciz "mmHudMap::RegisterOpponents(OppIconInfo*, int)"
-
-.Lstub_name_393:
-    .asciz "mmIcons::RegisterOpponents(OppIconInfo*, int, void*)"
-
-.Lstub_name_394:
-    .asciz "mmAnimMgr::Init(char*, mmInstance*, mmInstance**, int)"
-
-.Lstub_name_395:
-    .asciz "mmAmbientAudio::mmAmbientAudio(mmPlayer*)"
-
-.Lstub_name_396:
-    .asciz "asLamp::SetDistant()"
-
-.Lstub_name_397:
-    .asciz "mmPopup::mmPopup(mmGame*, float, float, float, float)"
-
-.Lstub_name_398:
-    .asciz "mmPopup::Reset()"
-
-.Lstub_name_399:
-    .asciz "PUResults::AddTitle(LocString*, LocString*)"
-
-.Lstub_name_400:
-    .asciz "mmAnimMgr::AirlinerSwap()"
-
-.Lstub_name_401:
-    .asciz "mmAnimMgr::UFOSwap()"
-
-.Lstub_name_402:
-    .asciz "mmHUD::PostChatMessage(char const*)"
-
-.Lstub_name_403:
-    .asciz "AudManager::GetVoiceCommentaryPtr()"
-
-.Lstub_name_404:
-    .asciz "mmVoiceCommentary::SetFrequency(float)"
-
-.Lstub_name_405:
-    .asciz "mmGame::UpdateSteeringBrakes()"
-
-.Lstub_name_406:
-    .asciz "mmAmbientAudio::Update()"
-
-.Lstub_name_407:
-    .asciz "mmVoiceCommentary::Update()"
-
-.Lstub_name_408:
-    .asciz "mmHUD::SetMessage(LocString*, float, bool)"
-
-.Lstub_name_409:
-    .asciz "TrackCamCS::~TrackCamCS()"
-
-.Lstub_name_410:
-    .asciz "mmHUD::~mmHUD()"
-
-.Lstub_name_411:
-    .asciz "mmSkidManager::~mmSkidManager()"
-
-.Lstub_name_412:
-    .asciz "mmCarSim::~mmCarSim()"
-
-.Lstub_name_413:
-    .asciz "mmGame::GetClass()"
-
-.Lstub_name_414:
-    .asciz "asNetwork::Logout()"
-
-.Lstub_name_415:
-    .asciz "asNetwork::DestroyPlayer()"
-
-.Lstub_name_416:
-    .asciz "asNetwork::CloseSession()"
-
-.Lstub_name_417:
-    .asciz "asNetwork::Deallocate()"
-
-.Lstub_name_418:
-    .asciz "Matrix34::Rotate(Vector3 const&, float)"
-
-.Lstub_name_419:
+.Lstub_name_353:
     .asciz "DebugLog(int, void*, int)"
 
-.Lstub_name_420:
+.Lstub_name_354:
     .asciz "mmInput::GetSteering()"
 
-.Lstub_name_421:
+.Lstub_name_355:
     .asciz "mmInput::GetThrottle()"
 
-.Lstub_name_422:
+.Lstub_name_356:
     .asciz "mmMultiRace::mmMultiRace()"
 
-.Lstub_name_423:
+.Lstub_name_357:
     .asciz "mmMultiRace::Init()"
 
-.Lstub_name_424:
+.Lstub_name_358:
     .asciz "mmGameEdit::mmGameEdit()"
 
-.Lstub_name_425:
+.Lstub_name_359:
     .asciz "mmGameEdit::Init()"
 
-.Lstub_name_426:
+.Lstub_name_360:
     .asciz "mmMultiBlitz::mmMultiBlitz()"
 
-.Lstub_name_427:
+.Lstub_name_361:
     .asciz "mmMultiBlitz::Init()"
 
-.Lstub_name_428:
+.Lstub_name_362:
     .asciz "mmMultiCR::mmMultiCR()"
 
-.Lstub_name_429:
+.Lstub_name_363:
     .asciz "mmMultiCR::Init()"
 
-.Lstub_name_430:
+.Lstub_name_364:
     .asciz "mmSingleBlitz::mmSingleBlitz()"
 
-.Lstub_name_431:
+.Lstub_name_365:
     .asciz "mmSingleBlitz::Init()"
 
-.Lstub_name_432:
+.Lstub_name_366:
     .asciz "mmMultiCircuit::mmMultiCircuit()"
 
-.Lstub_name_433:
+.Lstub_name_367:
     .asciz "mmMultiCircuit::Init()"
 
-.Lstub_name_434:
+.Lstub_name_368:
     .asciz "randcall()"
 
-.Lstub_name_435:
+.Lstub_name_369:
     .asciz "Card2D::Card2D()"
 
-.Lstub_name_436:
+.Lstub_name_370:
     .asciz "Card2D::SetDimensions(float, float, float, float)"
 
-.Lstub_name_437:
-    .asciz "mmGame::Reset()"
-
-.Lstub_name_438:
-    .asciz "mmGame::InitGameStrings()"
-
-.Lstub_name_439:
-    .asciz "mmGame::InitOtherPlayers()"
-
-.Lstub_name_440:
-    .asciz "mmGame::HitWaterHandler()"
-
-.Lstub_name_441:
-    .asciz "mmGame::DropThruCityHandler()"
-
-.Lstub_name_442:
+.Lstub_name_371:
     .asciz "mmMultiRace::~mmMultiRace()"
 
-.Lstub_name_443:
+.Lstub_name_372:
     .asciz "mmMultiCR::~mmMultiCR()"
 
-.Lstub_name_444:
+.Lstub_name_373:
     .asciz "mmSingleCircuit::~mmSingleCircuit()"
 
-.Lstub_name_445:
+.Lstub_name_374:
     .asciz "mmSingleBlitz::~mmSingleBlitz()"
 
-.Lstub_name_446:
+.Lstub_name_375:
     .asciz "mmGameEdit::~mmGameEdit()"
 
-.Lstub_name_447:
+.Lstub_name_376:
     .asciz "mmMultiCircuit::~mmMultiCircuit()"
 
-.Lstub_name_448:
+.Lstub_name_377:
     .asciz "mmMultiBlitz::~mmMultiBlitz()"
 
-.Lstub_name_449:
-    .asciz "mmRaceData::mmRaceData()"
-
-.Lstub_name_450:
-    .asciz "mmRaceData::Load(char*)"
-
-.Lstub_name_451:
+.Lstub_name_378:
     .asciz "DebugLogShutdown()"
 
-.Lstub_name_452:
-    .asciz "asMeshSetForm::asMeshSetForm()"
-
-.Lstub_name_453:
-    .asciz "asMeshSetForm::SetZRead(int)"
-
-.Lstub_name_454:
-    .asciz "asMeshSetForm::SetZWrite(int)"
-
-.Lstub_name_455:
-    .asciz "AudSound::Get2DFlags()"
-
-.Lstub_name_456:
-    .asciz "AudSound::AudSound(unsigned long, int, short)"
-
-.Lstub_name_457:
-    .asciz "AudSound::Load(char*, int)"
-
-.Lstub_name_458:
-    .asciz "AudSound::SetPriority(int)"
-
-.Lstub_name_459:
-    .asciz "AudSound::SetVolume(float, int)"
-
-.Lstub_name_460:
-    .asciz "mmCDPlayer::Init(mmHUD*)"
-
-.Lstub_name_461:
-    .asciz "mmArrow::Update()"
-
-.Lstub_name_462:
-    .asciz "asInertialCS::GetVelocity(Vector3 const*)"
-
-.Lstub_name_463:
-    .asciz "mmViewCS::Instance(asCamera*)"
-
-.Lstub_name_464:
-    .asciz "mmCarSim::AddPlayerSpecifics()"
-
-.Lstub_name_465:
-    .asciz "mmPlayer::GetClass()"
-
-.Lstub_name_466:
-    .asciz "mmPlayer::Update()"
-
-.Lstub_name_467:
-    .asciz "mmPlayer::Reset()"
-
-.Lstub_name_468:
+.Lstub_name_379:
     .asciz "mmGameManager::GetClass()"
 
-.Lstub_name_469:
-    .asciz "PUControl::~PUControl()"
+.Lstub_name_380:
+    .asciz "RadialGauge::Init(char const*, char const*, float*, float*, float)"
 
-.Lstub_name_470:
-    .asciz "MenuManager::Switch(int)"
+.Lstub_name_381:
+    .asciz "mmHUD::ActivateDash()"
 
-.Lstub_name_471:
-    .asciz "MenuManager::DisablePU()"
+.Lstub_name_382:
+    .asciz "mmPlayer::ToggleDash()"
 
-.Lstub_name_472:
-    .asciz "mmHUD::Enable()"
+.Lstub_name_383:
+    .asciz "mmCDPlayer::PrevTrack()"
 
-.Lstub_name_473:
-    .asciz "mmHudMap::Activate()"
+.Lstub_name_384:
+    .asciz "mmCDPlayer::NextTrack()"
 
-.Lstub_name_474:
-    .asciz "AudManager::PlayCDTrack(int, unsigned char, unsigned char, unsigned char, bool)"
+.Lstub_name_385:
+    .asciz "mmTransmission::SetDrive()"
 
-.Lstub_name_475:
-    .asciz "PUMenuBase::DisableExit()"
+.Lstub_name_386:
+    .asciz "mmTransmission::Automatic(int)"
 
-.Lstub_name_476:
-    .asciz "mmPopup::Update()"
+.Lstub_name_387:
+    .asciz "asNetwork::Logout()"
 
-.Lstub_name_477:
-    .asciz "mmHudMap::DrawMisc()"
+.Lstub_name_388:
+    .asciz "mmTransmission::Upshift()"
 
-.Lstub_name_478:
-    .asciz "mmHudMap::DrawCops()"
+.Lstub_name_389:
+    .asciz "asNetwork::DestroyPlayer()"
 
-.Lstub_name_479:
-    .asciz "mmHudMap::DrawOrientedBitmap(Matrix34*, agiBitmap*)"
+.Lstub_name_390:
+    .asciz "asNetwork::CloseSession()"
 
-.Lstub_name_480:
-    .asciz "mmHudMap::DrawWaypoints()"
+.Lstub_name_391:
+    .asciz "asNetwork::Deallocate()"
 
-.Lstub_name_481:
-    .asciz "mmHudMap::DrawCopsnRobbers()"
+.Lstub_name_392:
+    .asciz "mmInput::GetCamPan()"
 
-.Lstub_name_482:
-    .asciz "mmHudMap::GetClass()"
+.Lstub_name_393:
+    .asciz "mmCarSim::StopHorn()"
 
-.Lstub_name_483:
-    .asciz "mmHudMap::Update()"
+.Lstub_name_394:
+    .asciz "mmBangerData::LaunchInstance(float, Vector3*)"
 
-.Lstub_name_484:
-    .asciz "mmHudMap::Reset()"
+.Lstub_name_395:
+    .asciz "mmCarSim::PlayHorn()"
 
-.Lstub_name_485:
+.Lstub_name_396:
+    .asciz "mmPositions::mmPositions()"
+
+.Lstub_name_397:
+    .asciz "mmPositions::Init(int)"
+
+.Lstub_name_398:
+    .asciz "Matrix34::Rotate(Vector3 const&, float)"
+
+.Lstub_name_399:
+    .asciz "mmGame::PlayerSetState()"
+
+.Lstub_name_400:
+    .asciz "AudManager::SetBitDepthAndSampleRate(int, unsigned long)"
+
+.Lstub_name_401:
+    .asciz "SetRainSurfaceAudioInfos()"
+
+.Lstub_name_402:
+    .asciz "LoadPositions(char const*)"
+
+.Lstub_name_403:
+    .asciz "mmPositions::Load(char const*)"
+
+.Lstub_name_404:
+    .asciz "mmPositions::Register(Vector4&, int, int, int, int, char*)"
+
+.Lstub_name_405:
+    .asciz "mmRaceData::mmRaceData()"
+
+.Lstub_name_406:
+    .asciz "mmRaceData::Load(char*)"
+
+.Lstub_name_407:
     .asciz "AudManager::Reset()"
 
-.Lstub_name_486:
+.Lstub_name_408:
     .asciz "AudManager::StopCD()"
 
-.Lstub_name_487:
-    .asciz "mmInput::Reset()"
+.Lstub_name_409:
+    .asciz "mmTransmission::GetCurrentGear()"
 
-.Lstub_name_488:
-    .asciz "mmSingleCircuit::DisableRacers()"
-
-.Lstub_name_489:
-    .asciz "mmPlayer::SetPreRaceCam()"
-
-.Lstub_name_490:
-    .asciz "mmGame::GetCDTrack(short)"
-
-.Lstub_name_491:
-    .asciz "AudManager::PlayCDTrack(int, bool)"
-
-.Lstub_name_492:
-    .asciz "mmVoiceCommentary::PlayPreRace()"
-
-.Lstub_name_493:
-    .asciz "mmHUD::StopTimers()"
-
-.Lstub_name_494:
+.Lstub_name_410:
     .asciz "aiAudioManager::LoadCopVoice()"
 
-.Lstub_name_495:
+.Lstub_name_411:
+    .asciz "mmInput::Reset()"
+
+.Lstub_name_412:
     .asciz "mmGameSingle::DisableRacers()"
 
-.Lstub_name_496:
+.Lstub_name_413:
+    .asciz "mmGame::Reset()"
+
+.Lstub_name_414:
+    .asciz "mmPlayer::SetPreRaceCam()"
+
+.Lstub_name_415:
+    .asciz "mmGame::GetCDTrack(short)"
+
+.Lstub_name_416:
+    .asciz "AudManager::PlayCDTrack(int, bool)"
+
+.Lstub_name_417:
+    .asciz "mmVoiceCommentary::PlayPreRace()"
+
+.Lstub_name_418:
+    .asciz "mmHUD::StopTimers()"
+
+.Lstub_name_419:
     .asciz "mmVoiceCommentary::PlayRoam()"
 
-.Lstub_name_497:
+.Lstub_name_420:
     .asciz "mmWaypoints::~mmWaypoints()"
 
-.Lstub_name_498:
+.Lstub_name_421:
     .asciz "agiBeginCones()"
 
-.Lstub_name_499:
+.Lstub_name_422:
     .asciz "mmGameSingle::GetClass()"
 
-.Lstub_name_500:
+.Lstub_name_423:
+    .asciz "mmGame::InitGameStrings()"
+
+.Lstub_name_424:
     .asciz "mmGameSingle::InitOtherPlayers()"
 
-.Lstub_name_501:
+.Lstub_name_425:
     .asciz "mmGameSingle::InitGameObjects()"
 
-.Lstub_name_502:
+.Lstub_name_426:
     .asciz "mmGameSingle::InitHUD()"
 
-.Lstub_name_503:
+.Lstub_name_427:
     .asciz "mmGameSingle::UpdateGameInput(int)"
 
-.Lstub_name_504:
+.Lstub_name_428:
     .asciz "mmGameSingle::UpdateGame()"
 
-.Lstub_name_505:
+.Lstub_name_429:
     .asciz "mmGameSingle::NextRace()"
 
-.Lstub_name_506:
+.Lstub_name_430:
     .asciz "mmGameSingle::HitWaterHandler()"
 
-.Lstub_name_507:
+.Lstub_name_431:
+    .asciz "SetSnowSurfaceAudioInfos()"
+
+.Lstub_name_432:
+    .asciz "SetClearSurfaceAudioInfos()"
+
+.Lstub_name_433:
+    .asciz "mmGame::DropThruCityHandler()"
+
+.Lstub_name_434:
     .asciz "mmGameSingle::GetWaypoints()"
 
-.Lstub_name_508:
-    .asciz "asNetObject::asNetObject()"
+.Lstub_name_435:
+    .asciz "mmLinearGauge::mmLinearGauge()"
 
-.Lstub_name_509:
-    .asciz "mmMultiCR::FondleCarMass(mmCar*, float)"
+.Lstub_name_436:
+    .asciz "mmVoiceCommentary::mmVoiceCommentary()"
 
-.Lstub_name_510:
-    .asciz "mmCRHUD::ActivateRosterGold(unsigned long)"
+.Lstub_name_437:
+    .asciz "mmVoiceCommentary::ValidateCity(char*)"
 
-.Lstub_name_511:
-    .asciz "mmPopup::ShowResults()"
+.Lstub_name_438:
+    .asciz "asMeshSetForm::asMeshSetForm()"
 
-.Lstub_name_512:
-    .asciz "mmPlayer::IsMaxDamaged()"
+.Lstub_name_439:
+    .asciz "AudManager::SetVoiceCommentaryPtr(mmVoiceCommentary*)"
 
-.Lstub_name_513:
-    .asciz "Matrix34::FromEulers(Vector3 const&)"
+.Lstub_name_440:
+    .asciz "RadialGauge::RadialGauge()"
 
-.Lstub_name_514:
-    .asciz "mmCarSim::StartSiren()"
+.Lstub_name_441:
+    .asciz "mmPhysicsMGR::Init(asInertialCS*, mmViewCS*)"
 
-.Lstub_name_515:
-    .asciz "mmCarSim::StopSiren()"
+.Lstub_name_442:
+    .asciz "mmPlayer::Init(char*, char*, mmGame*)"
 
-.Lstub_name_516:
-    .asciz "Matrix34::Approach(Matrix34 const&, float, float, float)"
+.Lstub_name_443:
+    .asciz "mmIcons::Init(Matrix34*, float, float)"
 
-.Lstub_name_517:
-    .asciz "Matrix34::GetEulers() const"
+.Lstub_name_444:
+    .asciz "AudManager::GetDSound3DMask()"
 
-.Lstub_name_518:
-    .asciz "asNetwork::Send(unsigned long, void*, unsigned long, int)"
+.Lstub_name_445:
+    .asciz "AudHead::AudHead(Matrix34*)"
 
-.Lstub_name_519:
-    .asciz "asNetObject::Update()"
+.Lstub_name_446:
+    .asciz "asForm::asForm()"
 
-.Lstub_name_520:
-    .asciz "asNetObject::PositionUpdate(Matrix34*, Vector3, float, float, float)"
+.Lstub_name_447:
+    .asciz "AudHead::Init()"
 
-.Lstub_name_521:
+.Lstub_name_448:
+    .asciz "asMeshSetForm::SetZRead(int)"
+
+.Lstub_name_449:
+    .asciz "AudHead::SetRolloff(float)"
+
+.Lstub_name_450:
+    .asciz "asMeshSetForm::SetZWrite(int)"
+
+.Lstub_name_451:
+    .asciz "mmHudMap::DrawMisc()"
+
+.Lstub_name_452:
+    .asciz "mmHudMap::DrawCops()"
+
+.Lstub_name_453:
+    .asciz "mmHudMap::DrawOrientedBitmap(Matrix34*, agiBitmap*)"
+
+.Lstub_name_454:
+    .asciz "mmHudMap::DrawWaypoints()"
+
+.Lstub_name_455:
+    .asciz "mmHudMap::DrawCopsnRobbers()"
+
+.Lstub_name_456:
+    .asciz "AudSound::Get2DFlags()"
+
+.Lstub_name_457:
+    .asciz "AudSound::AudSound(unsigned long, int, short)"
+
+.Lstub_name_458:
+    .asciz "AudSound::Load(char*, int)"
+
+.Lstub_name_459:
+    .asciz "AudSound::SetPriority(int)"
+
+.Lstub_name_460:
+    .asciz "AudSound::SetVolume(float, int)"
+
+.Lstub_name_461:
+    .asciz "mmCDPlayer::Init(mmHUD*)"
+
+.Lstub_name_462:
+    .asciz "mmArrow::Update()"
+
+.Lstub_name_463:
     .asciz "swSetInterlace(int)"
 
-.Lstub_name_522:
+.Lstub_name_464:
     .asciz "AudManager::DeallocateUIADF()"
 
-.Lstub_name_523:
+.Lstub_name_465:
     .asciz "MenuManager::~MenuManager()"
 
-.Lstub_name_524:
+.Lstub_name_466:
     .asciz "mmPlayerDirectory::~mmPlayerDirectory()"
 
-.Lstub_name_525:
+.Lstub_name_467:
     .asciz "asNetwork::InitializeLobby(int, bool)"
 
-.Lstub_name_526:
+.Lstub_name_468:
     .asciz "asNetwork::JoinLobbySession()"
 
-.Lstub_name_527:
+.Lstub_name_469:
     .asciz "mmPlayerData::GetTotalPassed()"
 
-.Lstub_name_528:
+.Lstub_name_470:
     .asciz "mmPlayerData::GetBlitzPassed()"
 
-.Lstub_name_529:
+.Lstub_name_471:
     .asciz "mmPlayerData::GetCircuitPassed()"
 
-.Lstub_name_530:
+.Lstub_name_472:
     .asciz "mmPlayerData::GetCheckpointPassed()"
 
-.Lstub_name_531:
+.Lstub_name_473:
     .asciz "mmPlayerData::GetTotalScore()"
 
-.Lstub_name_532:
+.Lstub_name_474:
     .asciz "UIMenu::SetNavigationOrder(char const* const*, unsigned long)"
 
-.Lstub_name_533:
+.Lstub_name_475:
     .asciz "mmInterface::MessageCallback(void*, void*)"
 
-.Lstub_name_534:
+.Lstub_name_476:
     .asciz "mmInterface::MessageCallback2(void*, void*)"
 
-.Lstub_name_535:
-    .asciz "mmVoiceCommentary::PlayTimePenalty()"
+.Lstub_name_477:
+    .asciz "asNetObject::asNetObject()"
 
-.Lstub_name_536:
-    .asciz "mmMultiCR::DropGold(Vector3, int)"
+.Lstub_name_478:
+    .asciz "Matrix34::FromEulers(Vector3 const&)"
 
-.Lstub_name_537:
-    .asciz "mmVoiceCommentary::PlayCR(short, short)"
+.Lstub_name_479:
+    .asciz "mmCarSim::StartSiren()"
 
-.Lstub_name_538:
-    .asciz "mmPlayer::EnableRegen(int)"
+.Lstub_name_480:
+    .asciz "mmCarSim::StopSiren()"
 
-.Lstub_name_539:
-    .asciz "mmPlayer::ResetDamage()"
-
-.Lstub_name_540:
+.Lstub_name_481:
     .asciz "mmInterface::GetClass()"
 
-.Lstub_name_541:
-    .asciz "mmGameMulti::SendMsg(int)"
-
-.Lstub_name_542:
+.Lstub_name_482:
     .asciz "mmInterface::Update()"
 
-.Lstub_name_543:
+.Lstub_name_483:
     .asciz "mmInterface::Reset()"
 
-.Lstub_name_544:
+.Lstub_name_484:
+    .asciz "asInertialCS::GetVelocity(Vector3 const*)"
+
+.Lstub_name_485:
+    .asciz "mmViewCS::Instance(asCamera*)"
+
+.Lstub_name_486:
+    .asciz "mmCarSim::AddPlayerSpecifics()"
+
+.Lstub_name_487:
+    .asciz "mmPlayer::GetClass()"
+
+.Lstub_name_488:
+    .asciz "AudHead::SetDoppler(float)"
+
+.Lstub_name_489:
+    .asciz "aiMap::Init(char*, char*, char*, mmCar*)"
+
+.Lstub_name_490:
+    .asciz "mmHudMap::RegisterOpponents(OppIconInfo*, int)"
+
+.Lstub_name_491:
+    .asciz "mmIcons::RegisterOpponents(OppIconInfo*, int, void*)"
+
+.Lstub_name_492:
+    .asciz "mmAnimMgr::Init(char*, mmInstance*, mmInstance**, int)"
+
+.Lstub_name_493:
+    .asciz "mmAmbientAudio::mmAmbientAudio(mmPlayer*)"
+
+.Lstub_name_494:
+    .asciz "asLamp::SetDistant()"
+
+.Lstub_name_495:
+    .asciz "mmPopup::mmPopup(mmGame*, float, float, float, float)"
+
+.Lstub_name_496:
+    .asciz "mmPopup::Reset()"
+
+.Lstub_name_497:
+    .asciz "PUResults::AddTitle(LocString*, LocString*)"
+
+.Lstub_name_498:
+    .asciz "mmHudMap::GetClass()"
+
+.Lstub_name_499:
+    .asciz "mmHudMap::Update()"
+
+.Lstub_name_500:
+    .asciz "mmHudMap::Reset()"
+
+.Lstub_name_501:
+    .asciz "Matrix34::Approach(Matrix34 const&, float, float, float)"
+
+.Lstub_name_502:
+    .asciz "mmMultiCR::FondleCarMass(mmCar*, float)"
+
+.Lstub_name_503:
+    .asciz "mmCRHUD::ActivateRosterGold(unsigned long)"
+
+.Lstub_name_504:
+    .asciz "Matrix34::GetEulers() const"
+
+.Lstub_name_505:
+    .asciz "mmAnimMgr::AirlinerSwap()"
+
+.Lstub_name_506:
+    .asciz "mmAnimMgr::UFOSwap()"
+
+.Lstub_name_507:
+    .asciz "asNetwork::Send(unsigned long, void*, unsigned long, int)"
+
+.Lstub_name_508:
+    .asciz "asNetObject::Update()"
+
+.Lstub_name_509:
+    .asciz "asNetObject::PositionUpdate(Matrix34*, Vector3, float, float, float)"
+
+.Lstub_name_510:
+    .asciz "PUControl::~PUControl()"
+
+.Lstub_name_511:
+    .asciz "mmPlayer::Update()"
+
+.Lstub_name_512:
+    .asciz "mmPlayer::Reset()"
+
+.Lstub_name_513:
+    .asciz "mmHUD::PostChatMessage(char const*)"
+
+.Lstub_name_514:
+    .asciz "mmPopup::ShowResults()"
+
+.Lstub_name_515:
+    .asciz "MenuManager::Switch(int)"
+
+.Lstub_name_516:
+    .asciz "MenuManager::DisablePU()"
+
+.Lstub_name_517:
+    .asciz "mmHUD::Enable()"
+
+.Lstub_name_518:
+    .asciz "AudManager::GetVoiceCommentaryPtr()"
+
+.Lstub_name_519:
+    .asciz "mmVoiceCommentary::SetFrequency(float)"
+
+.Lstub_name_520:
+    .asciz "mmGame::UpdateSteeringBrakes()"
+
+.Lstub_name_521:
+    .asciz "mmAmbientAudio::Update()"
+
+.Lstub_name_522:
+    .asciz "mmVoiceCommentary::Update()"
+
+.Lstub_name_523:
+    .asciz "mmHUD::SetMessage(LocString*, float, bool)"
+
+.Lstub_name_524:
+    .asciz "mmHudMap::Activate()"
+
+.Lstub_name_525:
+    .asciz "AudManager::PlayCDTrack(int, unsigned char, unsigned char, unsigned char, bool)"
+
+.Lstub_name_526:
+    .asciz "PUMenuBase::DisableExit()"
+
+.Lstub_name_527:
+    .asciz "mmPopup::Update()"
+
+.Lstub_name_528:
+    .asciz "mmSingleCircuit::DisableRacers()"
+
+.Lstub_name_529:
+    .asciz "mmPlayer::IsMaxDamaged()"
+
+.Lstub_name_530:
+    .asciz "mmVoiceCommentary::PlayTimePenalty()"
+
+.Lstub_name_531:
+    .asciz "mmMultiCR::DropGold(Vector3, int)"
+
+.Lstub_name_532:
+    .asciz "mmVoiceCommentary::PlayCR(short, short)"
+
+.Lstub_name_533:
+    .asciz "mmPlayer::EnableRegen(int)"
+
+.Lstub_name_534:
+    .asciz "mmPlayer::ResetDamage()"
+
+.Lstub_name_535:
+    .asciz "mmGameMulti::SendMsg(int)"
+
+.Lstub_name_536:
     .asciz "AudSound::PlayOnce(float, float)"
 
-.Lstub_name_545:
+.Lstub_name_537:
     .asciz "mmVoiceCommentary::PlayCRPreRace()"
 
-.Lstub_name_546:
+.Lstub_name_538:
     .asciz "mmGameMulti::EnableRacers()"
 
-.Lstub_name_547:
+.Lstub_name_539:
     .asciz "mmMultiCR::UpdateHUD()"
 
-.Lstub_name_548:
+.Lstub_name_540:
     .asciz "mmMultiCR::UpdateLimit()"
 
-.Lstub_name_549:
+.Lstub_name_541:
     .asciz "mmMultiCR::UpdateTimeWarning()"
 
-.Lstub_name_550:
+.Lstub_name_542:
     .asciz "mmMultiCR::UpdateGold()"
 
-.Lstub_name_551:
+.Lstub_name_543:
     .asciz "mmMultiCR::UpdateHideout()"
 
-.Lstub_name_552:
+.Lstub_name_544:
     .asciz "mmMultiCR::UpdateBank()"
 
-.Lstub_name_553:
+.Lstub_name_545:
     .asciz "mmGameMulti::UpdateGame()"
 
-.Lstub_name_554:
+.Lstub_name_546:
     .asciz "mmMultiCR::FillResults()"
 
-.Lstub_name_555:
+.Lstub_name_547:
+    .asciz "TrackCamCS::~TrackCamCS()"
+
+.Lstub_name_548:
+    .asciz "mmHUD::~mmHUD()"
+
+.Lstub_name_549:
+    .asciz "mmSkidManager::~mmSkidManager()"
+
+.Lstub_name_550:
+    .asciz "mmCarSim::~mmCarSim()"
+
+.Lstub_name_551:
+    .asciz "mmGame::GetClass()"
+
+.Lstub_name_552:
+    .asciz "mmGame::InitOtherPlayers()"
+
+.Lstub_name_553:
+    .asciz "mmGame::HitWaterHandler()"
+
+.Lstub_name_554:
     .asciz "sdlCreatePipeline(int, char**)"
 
-.Lstub_name_556:
+.Lstub_name_555:
     .asciz "GameStaticInit()"
 
-.Lstub_name_557:
+.Lstub_name_556:
     .asciz "AudManager::Disable(short, short)"
 
-.Lstub_name_558:
+.Lstub_name_557:
     .asciz "mmInterface::mmInterface()"
 
-.Lstub_name_559:
+.Lstub_name_558:
     .asciz "mmInterface::ShowMain(int)"
 
-.Lstub_name_560:
+.Lstub_name_559:
     .asciz "AudManager::AssignWaveVolume(float)"
 
-.Lstub_name_561:
+.Lstub_name_560:
     .asciz "AudManager::AssignCDVolume(float)"
 
-.Lstub_name_562:
+.Lstub_name_561:
     .asciz "mmGameManager::LoadReplay(char const*)"
 
-.Lstub_name_563:
+.Lstub_name_562:
     .asciz "mmInput::~mmInput()"
 
-.Lstub_name_564:
+.Lstub_name_563:
     .asciz "AudManager::~AudManager()"
 
-.Lstub_name_565:
+.Lstub_name_564:
     .asciz "dummy_symbol_agisw_swemitrunall()"
 
-.Lstub_name_566:
+.Lstub_name_565:
     .asciz "dummy_symbol_agisw_swrend()"
 
-.Lstub_name_567:
+.Lstub_name_566:
     .asciz "dummy_symbol_agisw_swrsys()"
 
-.Lstub_name_568:
+.Lstub_name_567:
     .asciz "dummy_symbol_agisw_swtexdef()"
 
-.Lstub_name_569:
+.Lstub_name_568:
     .asciz "dummy_symbol_data7_ipc()"
 
-.Lstub_name_570:
+.Lstub_name_569:
     .asciz "dummy_symbol_memory_stack()"
 
-.Lstub_name_571:
+.Lstub_name_570:
     .asciz "dummy_symbol_mmaudio_audstream()"
 
-.Lstub_name_572:
+.Lstub_name_571:
     .asciz "dummy_symbol_mmaudio_cd()"
 
-.Lstub_name_573:
+.Lstub_name_572:
     .asciz "dummy_symbol_mmaudio_crevbuf()"
 
-.Lstub_name_574:
+.Lstub_name_573:
     .asciz "dummy_symbol_mmaudio_creverb()"
 
-.Lstub_name_575:
+.Lstub_name_574:
     .asciz "dummy_symbol_mmaudio_dsglobal()"
 
-.Lstub_name_576:
+.Lstub_name_575:
     .asciz "dummy_symbol_mmaudio_dupbufcreator()"
 
-.Lstub_name_577:
+.Lstub_name_576:
     .asciz "dummy_symbol_mmaudio_eaxguid()"
 
-.Lstub_name_578:
+.Lstub_name_577:
     .asciz "dummy_symbol_mmaudio_head()"
 
-.Lstub_name_579:
+.Lstub_name_578:
     .asciz "dummy_symbol_mmaudio_manager()"
 
-.Lstub_name_580:
+.Lstub_name_579:
     .asciz "dummy_symbol_mmaudio_mixer()"
 
-.Lstub_name_581:
+.Lstub_name_580:
     .asciz "dummy_symbol_mmaudio_mmvoicecommentary()"
 
-.Lstub_name_582:
+.Lstub_name_581:
     .asciz "dummy_symbol_mmaudio_sound()"
 
-.Lstub_name_583:
+.Lstub_name_582:
     .asciz "dummy_symbol_mmaudio_soundobj()"
 
-.Lstub_name_584:
+.Lstub_name_583:
     .asciz "dummy_symbol_mmaudio_streamobj()"
 
-.Lstub_name_585:
+.Lstub_name_584:
     .asciz "dummy_symbol_mminput_collide()"
 
-.Lstub_name_586:
+.Lstub_name_585:
     .asciz "dummy_symbol_mminput_effect()"
 
-.Lstub_name_587:
+.Lstub_name_586:
     .asciz "dummy_symbol_mminput_friction()"
 
-.Lstub_name_588:
+.Lstub_name_587:
     .asciz "dummy_symbol_mminput_joyman()"
 
-.Lstub_name_589:
+.Lstub_name_588:
     .asciz "dummy_symbol_mminput_joystick()"
 
-.Lstub_name_590:
+.Lstub_name_589:
     .asciz "dummy_symbol_mminput_road()"
 
-.Lstub_name_591:
+.Lstub_name_590:
     .asciz "dummy_symbol_mminput_spring()"
 
-.Lstub_name_592:
+.Lstub_name_591:
     .asciz "dummy_symbol_mmnetwork_netobject()"
 
-.Lstub_name_593:
+.Lstub_name_592:
     .asciz "dummy_symbol_mmnetwork_network()"
 
-.Lstub_name_594:
+.Lstub_name_593:
     .asciz "dummy_symbol_mmwidget_bm_button()"
 
-.Lstub_name_595:
+.Lstub_name_594:
     .asciz "dummy_symbol_mmwidget_bm_label()"
 
-.Lstub_name_596:
+.Lstub_name_595:
     .asciz "dummy_symbol_mmwidget_button()"
 
-.Lstub_name_597:
+.Lstub_name_596:
     .asciz "dummy_symbol_mmwidget_compbase()"
 
-.Lstub_name_598:
+.Lstub_name_597:
     .asciz "dummy_symbol_mmwidget_compcr()"
 
-.Lstub_name_599:
+.Lstub_name_598:
     .asciz "dummy_symbol_mmwidget_compdrec()"
 
-.Lstub_name_600:
+.Lstub_name_599:
     .asciz "dummy_symbol_mmwidget_comproster()"
 
-.Lstub_name_601:
+.Lstub_name_600:
     .asciz "dummy_symbol_mmwidget_comprrec()"
 
-.Lstub_name_602:
+.Lstub_name_601:
     .asciz "dummy_symbol_mmwidget_compscroll()"
 
-.Lstub_name_603:
+.Lstub_name_602:
     .asciz "dummy_symbol_mmwidget_controlwidget()"
 
-.Lstub_name_604:
+.Lstub_name_603:
     .asciz "dummy_symbol_mmwidget_cwarray()"
 
-.Lstub_name_605:
+.Lstub_name_604:
     .asciz "dummy_symbol_mmwidget_dropdown()"
 
-.Lstub_name_606:
+.Lstub_name_605:
     .asciz "dummy_symbol_mmwidget_icon()"
 
-.Lstub_name_607:
+.Lstub_name_606:
     .asciz "dummy_symbol_mmwidget_iconwidget()"
 
-.Lstub_name_608:
+.Lstub_name_607:
     .asciz "dummy_symbol_mmwidget_label()"
 
-.Lstub_name_609:
+.Lstub_name_608:
     .asciz "dummy_symbol_mmwidget_manager()"
 
-.Lstub_name_610:
+.Lstub_name_609:
     .asciz "dummy_symbol_mmwidget_menu()"
 
-.Lstub_name_611:
+.Lstub_name_610:
     .asciz "dummy_symbol_mmwidget_mexbutton()"
 
-.Lstub_name_612:
+.Lstub_name_611:
     .asciz "dummy_symbol_mmwidget_mstore()"
 
-.Lstub_name_613:
+.Lstub_name_612:
     .asciz "dummy_symbol_mmwidget_navbar()"
 
-.Lstub_name_614:
+.Lstub_name_613:
     .asciz "dummy_symbol_mmwidget_pointer()"
 
-.Lstub_name_615:
+.Lstub_name_614:
     .asciz "dummy_symbol_mmwidget_slider()"
 
-.Lstub_name_616:
+.Lstub_name_615:
     .asciz "dummy_symbol_mmwidget_sliderbar()"
 
-.Lstub_name_617:
+.Lstub_name_616:
     .asciz "dummy_symbol_mmwidget_tdwidget()"
 
-.Lstub_name_618:
+.Lstub_name_617:
     .asciz "dummy_symbol_mmwidget_textdrop()"
 
-.Lstub_name_619:
+.Lstub_name_618:
     .asciz "dummy_symbol_mmwidget_textfield()"
 
-.Lstub_name_620:
+.Lstub_name_619:
     .asciz "dummy_symbol_mmwidget_textroller()"
 
-.Lstub_name_621:
+.Lstub_name_620:
     .asciz "dummy_symbol_mmwidget_textroller2()"
 
-.Lstub_name_622:
+.Lstub_name_621:
     .asciz "dummy_symbol_mmwidget_toggle()"
 
-.Lstub_name_623:
+.Lstub_name_622:
     .asciz "dummy_symbol_mmwidget_toggle2()"
 
-.Lstub_name_624:
+.Lstub_name_623:
     .asciz "dummy_symbol_mmwidget_togglebutton()"
 
-.Lstub_name_625:
+.Lstub_name_624:
     .asciz "dummy_symbol_mmwidget_togglebutton2()"
 
-.Lstub_name_626:
+.Lstub_name_625:
     .asciz "dummy_symbol_mmwidget_tscroll()"
 
-.Lstub_name_627:
+.Lstub_name_626:
     .asciz "dummy_symbol_mmwidget_ttip()"
 
-.Lstub_name_628:
+.Lstub_name_627:
     .asciz "dummy_symbol_mmwidget_vscrollbar()"
 
-.Lstub_name_629:
+.Lstub_name_628:
     .asciz "dummy_symbol_mmwidget_vswidget()"
 
-.Lstub_name_630:
+.Lstub_name_629:
     .asciz "dummy_symbol_mmwidget_widget()"
 
-.Lstub_name_631:
+.Lstub_name_630:
     .asciz "dummy_symbol_mmwidget_wstore()"
 
     .section .data.rel.ro
@@ -16135,18 +16112,6 @@ _ZTV10agiBILight:
     .endr
     .size _ZTV10agiBILight, . - _ZTV10agiBILight
 
-    // vtable for agiBILightModel
-    .global _ZTV15agiBILightModel
-    .type _ZTV15agiBILightModel, %object
-    .p2align 3
-_ZTV15agiBILightModel:
-    .quad 0    // offset to top
-    .quad 0    // typeinfo
-    .rept 64
-    .quad ArtsVirtualStub
-    .endr
-    .size _ZTV15agiBILightModel, . - _ZTV15agiBILightModel
-
     // vtable for agiZBufRenderer
     .global _ZTV15agiZBufRenderer
     .type _ZTV15agiZBufRenderer, %object
@@ -16158,6 +16123,18 @@ _ZTV15agiZBufRenderer:
     .quad ArtsVirtualStub
     .endr
     .size _ZTV15agiZBufRenderer, . - _ZTV15agiZBufRenderer
+
+    // vtable for agiBILightModel
+    .global _ZTV15agiBILightModel
+    .type _ZTV15agiBILightModel, %object
+    .p2align 3
+_ZTV15agiBILightModel:
+    .quad 0    // offset to top
+    .quad 0    // typeinfo
+    .rept 64
+    .quad ArtsVirtualStub
+    .endr
+    .size _ZTV15agiBILightModel, . - _ZTV15agiBILightModel
 
     // vtable for asAero
     .global _ZTV6asAero
@@ -16555,6 +16532,30 @@ _ZTV10mmCDPlayer:
     .endr
     .size _ZTV10mmCDPlayer, . - _ZTV10mmCDPlayer
 
+    // vtable for mmScreenClearFlunky
+    .global _ZTV19mmScreenClearFlunky
+    .type _ZTV19mmScreenClearFlunky, %object
+    .p2align 3
+_ZTV19mmScreenClearFlunky:
+    .quad 0    // offset to top
+    .quad 0    // typeinfo
+    .rept 64
+    .quad ArtsVirtualStub
+    .endr
+    .size _ZTV19mmScreenClearFlunky, . - _ZTV19mmScreenClearFlunky
+
+    // vtable for foobar
+    .global _ZTV6foobar
+    .type _ZTV6foobar, %object
+    .p2align 3
+_ZTV6foobar:
+    .quad 0    // offset to top
+    .quad 0    // typeinfo
+    .rept 64
+    .quad ArtsVirtualStub
+    .endr
+    .size _ZTV6foobar, . - _ZTV6foobar
+
     // vtable for mmExternalView
     .global _ZTV14mmExternalView
     .type _ZTV14mmExternalView, %object
@@ -16579,18 +16580,6 @@ _ZTV10mmDashView:
     .endr
     .size _ZTV10mmDashView, . - _ZTV10mmDashView
 
-    // vtable for mmScreenClearFlunky
-    .global _ZTV19mmScreenClearFlunky
-    .type _ZTV19mmScreenClearFlunky, %object
-    .p2align 3
-_ZTV19mmScreenClearFlunky:
-    .quad 0    // offset to top
-    .quad 0    // typeinfo
-    .rept 64
-    .quad ArtsVirtualStub
-    .endr
-    .size _ZTV19mmScreenClearFlunky, . - _ZTV19mmScreenClearFlunky
-
     // vtable for mmHUD
     .global _ZTV5mmHUD
     .type _ZTV5mmHUD, %object
@@ -16602,6 +16591,18 @@ _ZTV5mmHUD:
     .quad ArtsVirtualStub
     .endr
     .size _ZTV5mmHUD, . - _ZTV5mmHUD
+
+    // vtable for mmIcons
+    .global _ZTV7mmIcons
+    .type _ZTV7mmIcons, %object
+    .p2align 3
+_ZTV7mmIcons:
+    .quad 0    // offset to top
+    .quad 0    // typeinfo
+    .rept 64
+    .quad ArtsVirtualStub
+    .endr
+    .size _ZTV7mmIcons, . - _ZTV7mmIcons
 
     // vtable for PreCamCS
     .global _ZTV8PreCamCS
@@ -16627,31 +16628,22 @@ _ZTV15mmSingleCircuit:
     .endr
     .size _ZTV15mmSingleCircuit, . - _ZTV15mmSingleCircuit
 
-    // vtable for foobar
-    .global _ZTV6foobar
-    .type _ZTV6foobar, %object
-    .p2align 3
-_ZTV6foobar:
-    .quad 0    // offset to top
-    .quad 0    // typeinfo
-    .rept 64
-    .quad ArtsVirtualStub
-    .endr
-    .size _ZTV6foobar, . - _ZTV6foobar
-
-    // vtable for mmIcons
-    .global _ZTV7mmIcons
-    .type _ZTV7mmIcons, %object
-    .p2align 3
-_ZTV7mmIcons:
-    .quad 0    // offset to top
-    .quad 0    // typeinfo
-    .rept 64
-    .quad ArtsVirtualStub
-    .endr
-    .size _ZTV7mmIcons, . - _ZTV7mmIcons
-
     .bss
+
+    // PGRAPH
+    .global PGRAPH
+    .type PGRAPH, %object
+    .comm PGRAPH, 4096, 16
+
+    // LogRandomCalls
+    .global LogRandomCalls
+    .type LogRandomCalls, %object
+    .comm LogRandomCalls, 4096, 16
+
+    // gRandSeed
+    .global gRandSeed
+    .type gRandSeed, %object
+    .comm gRandSeed, 4096, 16
 
     // agiPipeline::CurrentPipe
     .global _ZN11agiPipeline11CurrentPipeE
@@ -16678,21 +16670,6 @@ _ZTV7mmIcons:
     .type ORIGIN, %object
     .comm ORIGIN, 4096, 16
 
-    // PGRAPH
-    .global PGRAPH
-    .type PGRAPH, %object
-    .comm PGRAPH, 4096, 16
-
-    // LogRandomCalls
-    .global LogRandomCalls
-    .type LogRandomCalls, %object
-    .comm LogRandomCalls, 4096, 16
-
-    // gRandSeed
-    .global gRandSeed
-    .type gRandSeed, %object
-    .comm gRandSeed, 4096, 16
-
     // Update3D
     .global Update3D
     .type Update3D, %object
@@ -16708,15 +16685,15 @@ _ZTV7mmIcons:
     .type DebugMemory, %object
     .comm DebugMemory, 4096, 16
 
-    // DLPTemplateHash
-    .global DLPTemplateHash
-    .type DLPTemplateHash, %object
-    .comm DLPTemplateHash, 4096, 16
-
     // agiVerbose
     .global agiVerbose
     .type agiVerbose, %object
     .comm agiVerbose, 4096, 16
+
+    // DLPTemplateHash
+    .global DLPTemplateHash
+    .type DLPTemplateHash, %object
+    .comm DLPTemplateHash, 4096, 16
 
     // agiPipeline::CurrentRenderer
     .global _ZN11agiPipeline15CurrentRendererE
@@ -17093,6 +17070,11 @@ _ZTV7mmIcons:
     .type VehicleListPtr, %object
     .comm VehicleListPtr, 4096, 16
 
+    // mmCarSim::GrassTex
+    .global _ZN8mmCarSim8GrassTexE
+    .type _ZN8mmCarSim8GrassTexE, %object
+    .comm _ZN8mmCarSim8GrassTexE, 4096, 16
+
     // GameInputPtr
     .global GameInputPtr
     .type GameInputPtr, %object
@@ -17102,11 +17084,6 @@ _ZTV7mmIcons:
     .global HitWaterTimer
     .type HitWaterTimer, %object
     .comm HitWaterTimer, 4096, 16
-
-    // mmCarSim::GrassTex
-    .global _ZN8mmCarSim8GrassTexE
-    .type _ZN8mmCarSim8GrassTexE, %object
-    .comm _ZN8mmCarSim8GrassTexE, 4096, 16
 
     // mmShardManager::NumInstances
     .global _ZN14mmShardManager12NumInstancesE
@@ -17188,6 +17165,11 @@ _ZTV7mmIcons:
     .type _ZN13mmRunwayLight5PhaseE, %object
     .comm _ZN13mmRunwayLight5PhaseE, 4096, 16
 
+    // CityListPtr
+    .global CityListPtr
+    .type CityListPtr, %object
+    .comm CityListPtr, 4096, 16
+
     // MakeTableStats
     .global MakeTableStats
     .type MakeTableStats, %object
@@ -17238,11 +17220,6 @@ _ZTV7mmIcons:
     .type ZREAD, %object
     .comm ZREAD, 4096, 16
 
-    // CityListPtr
-    .global CityListPtr
-    .type CityListPtr, %object
-    .comm CityListPtr, 4096, 16
-
     // VehicleDataHash
     .global VehicleDataHash
     .type VehicleDataHash, %object
@@ -17268,30 +17245,30 @@ _ZTV7mmIcons:
     .type InputConfiguration, %object
     .comm InputConfiguration, 4096, 16
 
-    // LocStrJoystick
-    .global LocStrJoystick
-    .type LocStrJoystick, %object
-    .comm LocStrJoystick, 4096, 16
+    // LocStrUndef
+    .global LocStrUndef
+    .type LocStrUndef, %object
+    .comm LocStrUndef, 4096, 16
 
     // LocStrButton
     .global LocStrButton
     .type LocStrButton, %object
     .comm LocStrButton, 4096, 16
 
-    // LocStrUndef
-    .global LocStrUndef
-    .type LocStrUndef, %object
-    .comm LocStrUndef, 4096, 16
-
-    // UseDIKey
-    .global UseDIKey
-    .type UseDIKey, %object
-    .comm UseDIKey, 4096, 16
+    // LocStrJoystick
+    .global LocStrJoystick
+    .type LocStrJoystick, %object
+    .comm LocStrJoystick, 4096, 16
 
     // LocStrKey
     .global LocStrKey
     .type LocStrKey, %object
     .comm LocStrKey, 4096, 16
+
+    // UseDIKey
+    .global UseDIKey
+    .type UseDIKey, %object
+    .comm UseDIKey, 4096, 16
 
     // typeinfo for PUMenuBase
     .global _ZTI10PUMenuBase
@@ -17323,16 +17300,6 @@ _ZTV7mmIcons:
     .type _ZTI12RaceMenuBase, %object
     .comm _ZTI12RaceMenuBase, 4096, 16
 
-    // DashAlphaRef
-    .global DashAlphaRef
-    .type DashAlphaRef, %object
-    .comm DashAlphaRef, 4096, 16
-
-    // DashColorScale
-    .global DashColorScale
-    .type DashColorScale, %object
-    .comm DashColorScale, 4096, 16
-
     // LocPlayerName
     .global LocPlayerName
     .type LocPlayerName, %object
@@ -17353,10 +17320,25 @@ _ZTV7mmIcons:
     .type DontClearPositions, %object
     .comm DontClearPositions, 4096, 16
 
+    // BoundsPaged
+    .global BoundsPaged
+    .type BoundsPaged, %object
+    .comm BoundsPaged, 4096, 16
+
+    // BoundBytesPaged
+    .global BoundBytesPaged
+    .type BoundBytesPaged, %object
+    .comm BoundBytesPaged, 4096, 16
+
     // mmGameManager::Instance
     .global _ZN13mmGameManager8InstanceE
     .type _ZN13mmGameManager8InstanceE, %object
     .comm _ZN13mmGameManager8InstanceE, 4096, 16
+
+    // DashAlphaRef
+    .global DashAlphaRef
+    .type DashAlphaRef, %object
+    .comm DashAlphaRef, 4096, 16
 
     // ProjectileY
     .global ProjectileY
@@ -17368,35 +17350,20 @@ _ZTV7mmIcons:
     .type ProjectileV, %object
     .comm ProjectileV, 4096, 16
 
-    // AUDMGRPTR
-    .global AUDMGRPTR
-    .type AUDMGRPTR, %object
-    .comm AUDMGRPTR, 4096, 16
-
-    // BoneScale
-    .global BoneScale
-    .type BoneScale, %object
-    .comm BoneScale, 4096, 16
-
-    // EggFriction
-    .global EggFriction
-    .type EggFriction, %object
-    .comm EggFriction, 4096, 16
-
-    // BoundsPaged
-    .global BoundsPaged
-    .type BoundsPaged, %object
-    .comm BoundsPaged, 4096, 16
-
     // YAXIS
     .global YAXIS
     .type YAXIS, %object
     .comm YAXIS, 4096, 16
 
-    // BoundBytesPaged
-    .global BoundBytesPaged
-    .type BoundBytesPaged, %object
-    .comm BoundBytesPaged, 4096, 16
+    // AUDMGRPTR
+    .global AUDMGRPTR
+    .type AUDMGRPTR, %object
+    .comm AUDMGRPTR, 4096, 16
+
+    // DashColorScale
+    .global DashColorScale
+    .type DashColorScale, %object
+    .comm DashColorScale, 4096, 16
 
     // asMeshSetForm::Lighter
     .global _ZN13asMeshSetForm7LighterE
@@ -17407,6 +17374,26 @@ _ZTV7mmIcons:
     .global _ZN13asMeshSetForm9SphMapTexE
     .type _ZN13asMeshSetForm9SphMapTexE, %object
     .comm _ZN13asMeshSetForm9SphMapTexE, 4096, 16
+
+    // JoinViaZone
+    .global JoinViaZone
+    .type JoinViaZone, %object
+    .comm JoinViaZone, 4096, 16
+
+    // BoneScale
+    .global BoneScale
+    .type BoneScale, %object
+    .comm BoneScale, 4096, 16
+
+    // typeinfo for asNetObject
+    .global _ZTI11asNetObject
+    .type _ZTI11asNetObject, %object
+    .comm _ZTI11asNetObject, 4096, 16
+
+    // EggFriction
+    .global EggFriction
+    .type EggFriction, %object
+    .comm EggFriction, 4096, 16
 
     // PopupEnabled
     .global PopupEnabled
@@ -17432,16 +17419,6 @@ _ZTV7mmIcons:
     .global PopupCDFrame
     .type PopupCDFrame, %object
     .comm PopupCDFrame, 4096, 16
-
-    // typeinfo for asNetObject
-    .global _ZTI11asNetObject
-    .type _ZTI11asNetObject, %object
-    .comm _ZTI11asNetObject, 4096, 16
-
-    // JoinViaZone
-    .global JoinViaZone
-    .type JoinViaZone, %object
-    .comm JoinViaZone, 4096, 16
 
     // SynchronousMessageQueues
     .global SynchronousMessageQueues

@@ -193,3 +193,36 @@ i32 mmBoundTemplate::Collide(mmIntersection* isect)
 
     return QuickLineBox(isect) ? LineTable(isect) : 0;
 }
+
+i32 mmBoundTemplate::QuickLineBox(mmIntersection* isect)
+{
+    Flags |= 4;
+
+    const Vector3& from = isect->LocalMin;
+    const Vector3& to = isect->LocalMax;
+
+    // Slab rejection: the segment cannot touch the box if both of its ends sit outside
+    // the same face. The per-axis order below is the original's, which tests a different
+    // face first on Y than on X and Z; the result is the same either way.
+    if (from.y > BBMax.y && to.y > BBMax.y)
+        return 0;
+
+    if (from.y < BBMin.y && to.y < BBMin.y)
+        return 0;
+
+    if (from.x < BBMin.x && to.x < BBMin.x)
+        return 0;
+
+    if (from.x > BBMax.x && to.x > BBMax.x)
+        return 0;
+
+    if (from.z < BBMin.z && to.z < BBMin.z)
+        return 0;
+
+    if (from.z > BBMax.z && to.z > BBMax.z)
+        return 0;
+
+    Flags |= 8;
+
+    return 1;
+}
