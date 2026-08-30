@@ -23,6 +23,11 @@ define_dummy_symbol(mmcity_renderweb);
 #include "cellrend.h"
 #include "loader.h"
 
+#include "agi/rsys.h"
+#include "agisw/swrend.h"
+#include "agiworld/quality.h"
+#include "arts7/camera.h"
+#include "cullcity.h"
 #include "agi/dlptmpl.h"
 #include "agi/getdlp.h"
 #include "agi/pipeline.h"
@@ -541,3 +546,38 @@ void asRenderWeb::AddWidgets(Bank* bank)
 
 META_DEFINE_CHILD("asRenderWeb", asRenderWeb, asPortalWeb)
 {}
+
+// Another of the original's unnamed globals: whether the sky is being drawn this frame.
+// Only ever set here; the two places that read it are still assembly.
+static i32 SkyVisible = 0;
+
+void asRenderWeb::Update()
+{
+    // The particle list and the portal passes are rebuilt from scratch every frame.
+    PtxCount = 0;
+    CurrentPass = 0;
+    NumSubPortals[0] = 0;
+    NumSubPortals[1] = 0;
+
+    SkyVisible = (agiCurState.GetSoftwareRendering() & swIsInterlaced) | agiRQ.TexturedSky;
+
+    // The colour buffer only needs clearing when the sky will not cover it - either
+    // there is no sky this frame, or the camera has dropped below the height at which
+    // the sky still fills the screen.
+    i32 clear_flags = 1;
+
+    if (SkyVisible && CullCity()->Camera->GetCameraMatrix()->m3.y < ScreenClearY)
+        clear_flags = 0;
+
+    if (ZREAD)
+        clear_flags |= 2;
+
+    if (swIsInterlaced)
+        clear_flags |= 1;
+
+    CullCity()->Camera->SetClearFlags(clear_flags);
+
+    CullCity()->Camera->GetViewport()->Activate();
+
+    asPortalWeb::Update();
+}

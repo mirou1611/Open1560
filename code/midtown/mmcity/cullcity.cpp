@@ -30,6 +30,12 @@ define_dummy_symbol(mmcity_cullcity);
 #include "agiworld/meshlight.h"
 #include "agiworld/meshrend.h"
 #include "agiworld/meshset.h"
+#include "agi/rsys.h"
+#include "agisw/swrend.h"
+#include "mmcity/anim.h"
+#include "pcwindis/setupdata.h"
+
+#include <cmath>
 #include "agiworld/quality.h"
 #include "mmbangers/active.h"
 #include "agiworld/texsheet.h"
@@ -580,4 +586,96 @@ mmCullCity::~mmCullCity()
         delete child;
 
     DumpProblems();
+}
+
+// The original binds this to a dev-build bank slider labelled "D3D Lod bias" and reads
+// it back here. It has no name in the symbol table and nothing else touches it, so it
+// stays file-local and at its default of zero.
+static f32 D3DLodBias = 0.0f;
+
+void mmCullCity::Update()
+{
+    if (!Sim()->IsFullUpdate())
+    {
+        // The city can only be culled once per frame, so an oversampled sub-step has
+        // nothing to do here.
+        Errorf("Hey!  Some hoser is oversampling.");
+        return;
+    }
+
+    // Two quality settings the current renderer may not be able to honour.
+    if (RenderWeb.Debug || debugTriMatch)
+        agiRQ.TexturedSky = false;
+
+    if (!dxiInfo[dxiRendererChoice].SmoothAlpha)
+        agiRQ.EnvMap = false;
+
+    // This is the line that puts the whole city in front of the cull manager. Without it
+    // the manager reports zero cullables and nothing in the world is ever drawn.
+    CullMgr()->DeclareCullable(this);
+
+    if (!Sim()->IsPaused())
+    {
+        const f32 delta = Sim()->GetUpdateDelta();
+
+        // Scroll the environment map across the world. The original writes the second
+        // line as a subtraction of a negated constant; it is a positive drift twice as
+        // fast as the first.
+        EnvMatrix.m3.x += delta * EnvVel;
+        EnvMatrix.m3.y += delta * EnvVel * 2.0f;
+
+        mmRunwayLight::Phase += delta;
+
+        if (MMSTATE.Weather == mmWeather::Snow)
+        {
+            // Swing the snow sideways so it does not fall straight down.
+            Particles.SetWind({std::sin(Sim()->GetElapsed()) * 2.0f, 0.0f, 0.0f});
+
+            UpdateSnowTextures();
+        }
+
+        // PORT SHIM: the null test on BirthRule. It is assigned by
+        // mmCullCity::InitTimeOfDayAndWeather, which is still assembly, so there is no
+        // birth rule to orient. Remove the test once that function is written.
+        if (BirthRule && Particles.IsNodeActive())
+        {
+            // Weather is born in front of the camera, not at a fixed point in the world:
+            // two metres up and ten ahead, rotated into the camera's frame.
+            Vector3 spawn {0.0f, 2.0f, -10.0f};
+            spawn.Dot(spawn, *Camera->GetCameraMatrix());
+
+            BirthRule->Position = spawn;
+        }
+
+        mmAnimInstState::PreUpdate(delta);
+
+        asNode::Update();
+    }
+    else
+    {
+        // Paused. Rain and snow are node children, so they are switched off across the
+        // update rather than special-cased inside it.
+        if (MMSTATE.Weather >= mmWeather::Rain)
+            Particles.ClearNodeFlag(NODE_FLAG_ACTIVE);
+
+        asNode::Update();
+
+        if (MMSTATE.Weather >= mmWeather::Rain)
+            Particles.SetNodeFlag(NODE_FLAG_ACTIVE);
+    }
+
+    if (Particles.IsNodeActive())
+    {
+        // Weather only draws outdoors, so it is registered for this frame unless the
+        // camera is in a room flagged as interior.
+        if (!(GetRoomFlags(GetHitId(Camera->GetCameraMatrix()->m3)) & 1))
+        {
+            // PATCH kept from the original port: the array is 64 entries and the original
+            // does not check before writing.
+            if (RenderWeb.PtxCount != ARTS_SIZE(RenderWeb.Particles))
+                RenderWeb.Particles[RenderWeb.PtxCount++] = &Particles;
+        }
+    }
+
+    agiCurState.SetLodBias(D3DLodBias);
 }

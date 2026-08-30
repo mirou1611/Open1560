@@ -104,6 +104,17 @@ public:
         return &camera_;
     }
 
+    // Both decided per frame by asRenderWeb::Update.
+    agiViewport* GetViewport() const
+    {
+        return viewport_;
+    }
+
+    void SetClearFlags(i32 flags)
+    {
+        clear_flags_ = flags;
+    }
+
     agiBitmap* GetUnderlayBitmap()
     {
         return underlay_bitmap_;

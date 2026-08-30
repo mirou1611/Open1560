@@ -71,6 +71,12 @@ public:
         return SparkCount;
     }
 
+    // mmCullCity::Update swings this every frame so weather does not fall straight down.
+    void SetWind(const Vector3& wind)
+    {
+        Wind = wind;
+    }
+
     asBirthRule* GetBirthRule() const
     {
         return BirthRule;

@@ -101,7 +101,7 @@ public:
     ARTS_IMPORT void ToggleSky();
 
     // ?Update@mmCullCity@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@mmCullCity@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

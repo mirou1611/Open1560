@@ -68,7 +68,7 @@ public:
     ARTS_IMPORT void SetMirrorPos(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // ?Update@asRenderWeb@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?UpdateMirror@asRenderWeb@@QAEXXZ
     ARTS_IMPORT void UpdateMirror();
