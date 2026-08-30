@@ -73,7 +73,8 @@ def walk(start, count, prefix, depth):
         elif want is None:
             print(f"{'  ' * depth}{name}")
         elif want.upper() in full.upper():
-            print(full)
+            # offset and size, so the file can be pulled with dd
+            print(f"{full}	offset={f0}	size={f4 & 0x7FFFFF}")
 
 
 print(f"nodes={node_count} roots={root_count} names={names_size}", file=sys.stderr)

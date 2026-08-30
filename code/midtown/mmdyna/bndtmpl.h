@@ -30,10 +30,10 @@ class mmBoundTemplate
 {
 public:
     // ??0mmBoundTemplate@@QAE@XZ
-    ARTS_IMPORT mmBoundTemplate();
+    ARTS_EXPORT mmBoundTemplate();
 
     // ??1mmBoundTemplate@@QAE@XZ
-    ARTS_IMPORT ~mmBoundTemplate();
+    ARTS_EXPORT ~mmBoundTemplate();
 
     // ?AddIndex@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void AddIndex(i32 arg1, i32 arg2, i32 arg3);
@@ -115,8 +115,8 @@ public:
     ARTS_IMPORT i32 LineTable(mmEdgeBodyIsect* arg1, i32 arg2);
 
     // ?Load@mmBoundTemplate@@QAEHPAD0PAVVector3@@HHHHHH@Z | mmdyna:bndtmpl2
-    ARTS_IMPORT i32 Load(
-        char* arg1, char* arg2, Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8, i32 arg9);
+    ARTS_EXPORT i32 Load(char* name, char* part, Vector3* offset, i32 no_paging, i32 arg5, i32 arg6,
+        i32 arg7, i32 arg8, i32 arg9);
 
     // ?LockIfResident@mmBoundTemplate@@QAEHXZ | mmdyna:bndtmpl2
     ARTS_IMPORT i32 LockIfResident();

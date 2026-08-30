@@ -37,6 +37,80 @@ i32 mmBoundTemplate::LineSphere(mmIntersection* /*arg1*/)
 // One entry per name_part, shared by every instance that asks for the same bound.
 static HashTable BoundTemplateHash {128, "BoundTemplates"};
 
+mmBoundTemplate::mmBoundTemplate()
+{
+    RefCount = 0;
+    Handle = 0;
+    PageState = 0;
+
+    Center = {0.0f, 0.0f, 0.0f};
+    Radius = 0.0f;
+    RadiusSqr = 0.0f;
+    BBMin = {0.0f, 0.0f, 0.0f};
+    BBMax = {0.0f, 0.0f, 0.0f};
+
+    NumVerts = 0;
+    NumPolys = 0;
+    Verts = nullptr;
+    Polygons = nullptr;
+
+    NumHotVerts1 = 0;
+    NumHotVerts2 = 0;
+    NumEdges = 0;
+    HotVerts = nullptr;
+    EdgeVerts1 = nullptr;
+    EdgeVerts2 = nullptr;
+    EdgePlaneNs = nullptr;
+    EdgePlaneDs = nullptr;
+
+    XDim = 0;
+    YDim = false;
+    ZDim = 0;
+    RowOffsets = nullptr;
+    BucketOffsets = nullptr;
+    RowBuckets = nullptr;
+    FixedHeights = nullptr;
+
+    XScale = 0.0f;
+    ZScale = 0.0f;
+    Flags = 0;
+    field_AC = 0;
+
+    // Deliberately left alone, exactly as the original leaves them: PagerInfo, field_70,
+    // field_74 and HeightScale. Load writes all four before anything reads them.
+
+    MaxPerBucket = 0;
+    NumIndexs = 0;
+    ConstructionTable = nullptr;
+    DrawGrid = 0;
+    WinID = 0;
+}
+
+mmBoundTemplate::~mmBoundTemplate()
+{
+    if (Name)
+        BoundTemplateHash.Delete(Name.get());
+
+    // Name itself is a ConstString and frees its own copy.
+
+    // Only a development build owns these outright. In a shipping build they are either
+    // mapped from the archive or handed out by the pager, and freeing them here would be
+    // freeing someone else's memory.
+    if (DevelopmentMode)
+    {
+        delete[] FixedHeights;
+        delete[] RowBuckets;
+        delete[] RowOffsets;
+        delete[] BucketOffsets;
+        delete[] Polygons;
+        delete[] Verts;
+        delete[] EdgeVerts1;
+        delete[] EdgeVerts2;
+        delete[] EdgePlaneNs;
+        delete[] EdgePlaneDs;
+    }
+}
+
 void mmBoundTemplate::AddRef()
 {
     ValidatePtr(const_cast<char*>("AddRef"));
