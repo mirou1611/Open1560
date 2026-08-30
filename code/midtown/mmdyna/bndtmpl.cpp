@@ -22,6 +22,7 @@ define_dummy_symbol(mmdyna_bndtmpl);
 
 #include "core/string.h"
 #include "data7/hash.h"
+#include "isect.h"
 
 #ifdef ARTS_DEV_BUILD
 void mmBoundTemplate::DrawGraph()
@@ -86,4 +87,35 @@ RcOwner<mmBoundTemplate> mmBoundTemplate::GetBoundTemplate(
     tmpl->AddRef();
 
     return RcOwner<mmBoundTemplate> {tmpl};
+}
+
+i32 mmBoundTemplate::Collide(mmIntersection* isect)
+{
+    // Pure dispatch. Two axes decide it: what shape is being swept, and how much
+    // structure this bound has to test it against.
+    //
+    //   NumPolys == 0    there is no geometry at all, only the bounding sphere
+    //   RowBuckets == 0  there is geometry but no acceleration table, so every
+    //                    polygon gets tested after a cheap sphere reject
+    //   otherwise        the table narrows it to a few buckets first
+    if (isect->Type == 5 || isect->Type == 6)
+    {
+        if (!NumPolys)
+            return SphereSphere(isect);
+
+        VertPtr = Verts;
+
+        if (!RowBuckets)
+            return SphereGeometry(isect);
+
+        return QuickSphereBox(isect) ? SphereTable(isect) : 0;
+    }
+
+    if (!NumPolys)
+        return LineSphere(isect);
+
+    if (!RowBuckets)
+        return QuickLineSphere(isect) ? LineGeometry(isect) : 0;
+
+    return QuickLineBox(isect) ? LineTable(isect) : 0;
 }

@@ -48,7 +48,7 @@ public:
     ARTS_IMPORT void AddTriangle(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     // ?Collide@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 Collide(mmIntersection* arg1);
+    ARTS_EXPORT i32 Collide(mmIntersection* isect);
 
     // ?Collide@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
     ARTS_IMPORT i32 Collide(mmEdgeBodyIsect* arg1, i32 arg2);

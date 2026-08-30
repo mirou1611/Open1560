@@ -24,6 +24,10 @@ define_dummy_symbol(mmcity_renderweb);
 #include "loader.h"
 
 #include "agi/rsys.h"
+#include "dyna7/dyna.h"
+#include "mmdyna/isect.h"
+#include "mmdyna/poly.h"
+#include "mmphysics/phys.h"
 #include "agisw/swrend.h"
 #include "agiworld/quality.h"
 #include "arts7/camera.h"
@@ -580,4 +584,82 @@ void asRenderWeb::Update()
     CullCity()->Camera->GetViewport()->Activate();
 
     asPortalWeb::Update();
+}
+
+asPortalCell* asRenderWeb::GetStartCell(aconst Vector3& pos, asPortalCell* default_cell, mmPolygon** cached_poly)
+{
+    // Which cell is the camera in? Answered by dropping a ray from just above the eye and
+    // reading the room off whatever it lands on. The ray is retried from progressively
+    // lower start points, so a camera high over the city still reaches the ground.
+    Vector3 ray_start = pos;
+
+    Vector3 ray_end = pos;
+    ray_end.y += 1.5f;
+
+    HitID = 0;
+
+    const i32 polys_before = SegVPoly;
+    const i32 cached_polys_before = SegVCPoly;
+
+    // Try last frame's polygon first - one polygon rather than the whole physics world.
+    // EnableCachedPoly is off in this build, so this costs nothing here.
+    if (cached_poly && *cached_poly && EnableCachedPoly)
+    {
+        f32 drop = 1.0f;
+
+        for (i32 attempt = 0; attempt < 5; ++attempt)
+        {
+            ray_start.y -= drop;
+
+            mmIntersection isect;
+            isect.InitSegment(ray_end, ray_start, nullptr, PHYS_COLLIDE_HITID, 0);
+
+            ++CachedFullSegmentTests;
+            drop *= 4.0f;
+
+            if ((*cached_poly)->FullSegment(&isect))
+            {
+                HitID = (*cached_poly)->RoomId;
+                ++CachedFullSegmentHits;
+                break;
+            }
+        }
+    }
+
+    if (!HitID)
+    {
+        ray_start = pos;
+
+        f32 drop = 1.0f;
+
+        // Seven attempts rather than the original's five - the port raised this because a
+        // camera placed high enough could run out of ray before reaching the ground.
+        for (i32 attempt = 0; attempt < 7; ++attempt)
+        {
+            ray_start.y -= drop;
+            ++StartCellCollides;
+
+            mmIntersection isect;
+            isect.InitSegment(ray_end, ray_start, nullptr, PHYS_COLLIDE_HITID, 0);
+
+            drop += drop;
+
+            if (PHYS.Collide(&isect, PHYS_COLLIDE_HITID))
+            {
+                HitID = isect.HitPoly->RoomId;
+
+                if (cached_poly)
+                    *cached_poly = isect.HitPoly;
+
+                break;
+            }
+        }
+    }
+
+    // Charge whatever this cost to the start-cell counters rather than to whoever was
+    // collecting polygon-test statistics before.
+    SC_SVP += SegVPoly - polys_before;
+    SC_SVCP += SegVCPoly - cached_polys_before;
+
+    return HitID ? CellArray[HitID] : default_cell;
 }

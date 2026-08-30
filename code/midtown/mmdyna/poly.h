@@ -68,7 +68,9 @@ private:
     ARTS_IMPORT i32 FullSegment(mmEdgeBodyIsect* arg1);
 
     // ?FullSegment@mmPolygon@@AAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 FullSegment(mmIntersection* arg1);
+    ARTS_EXPORT i32 FullSegment(mmIntersection* arg1);
+
+    friend class asRenderWeb;
 
     // ?FullSphere@mmPolygon@@AAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 FullSphere(mmIntersection* arg1);

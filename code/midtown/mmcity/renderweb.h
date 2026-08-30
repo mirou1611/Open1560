@@ -58,7 +58,7 @@ public:
     ARTS_EXPORT i32 GetCellNeighbors(i32 cell, asPortalCell** cells, i32 capacity);
 
     // ?GetStartCell@asRenderWeb@@UAEPAUasPortalCell@@AAVVector3@@PAU2@PAPAVmmPolygon@@@Z
-    ARTS_IMPORT asPortalCell* GetStartCell(
+    ARTS_EXPORT asPortalCell* GetStartCell(
         aconst Vector3& pos, asPortalCell* default_cell, mmPolygon** cached_poly) override;
 
     // ?Load@asRenderWeb@@QAEHPADH@Z

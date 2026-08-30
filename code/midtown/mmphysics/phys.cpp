@@ -26,6 +26,10 @@ define_dummy_symbol(mmphysics_phys);
 #include "memory/alloca.h"
 #include "mmbangers/banger.h"
 #include "mmcity/cullcity.h"
+#include "mmcity/renderweb.h"
+#include "mmdyna/bndtmpl.h"
+#include "mmdyna/isect.h"
+#include "core/assert.h"
 #include "mmcity/inst.h"
 #include "mmcity/instchn.h"
 #include "mmdyna/bndtmpl.h"
@@ -467,4 +471,58 @@ b32 mmPhysicsMGR::TrivialCollideInstances(mmInstance* inst_1, mmInstance* inst_2
 META_DEFINE_CHILD("mmPhysicsMGR", mmPhysicsMGR, asNode)
 {
     META_FIELD("Gravity", Gravity);
+}
+i32 mmPhysicsMGR::Collide(mmIntersection* isect, i32 type, i16 room_id, i16 /*arg4*/)
+{
+    asRenderWeb& web = CullCity()->RenderWeb;
+
+    // PORT SHIM: no world to collide against. mmBoundTemplate::Load is still assembly, so
+    // GetBoundTemplate always fails and asRenderWeb::LoadHitId leaves HitIdBound null.
+    // Returning "no hit" keeps the frame loop alive; remove this once Load is written.
+    if (!web.HitIdBound)
+        return 0;
+
+    // The whole city as a single bound. This is what the start-cell raycast uses: it does
+    // not know which room it is in yet, which is the entire point of asking.
+    if (type == PHYS_COLLIDE_HITID)
+        return web.HitIdBound->Collide(isect);
+
+    if (type != PHYS_COLLIDE_ROOM)
+        return 0;
+
+    if (room_id == 0)
+        room_id = CullCity()->GetHitId(isect->LocalMin);
+
+    i32 result = 0;
+    mmBoundTemplate* bound = nullptr;
+
+    if (web.HasHitIdBound)
+    {
+        ArAssert(room_id != web.MaxCells, "id!=MaxCells");
+
+        if (mmBoundTemplate* room_bound = web.Bounds[room_id].get())
+        {
+            // A room bound that is not in memory is requested and skipped for this frame
+            // rather than waited on.
+            if (room_bound->LockIfResident())
+                bound = room_bound;
+            else
+                room_bound->PageIn();
+        }
+    }
+
+    if (bound)
+    {
+        result = bound->Collide(isect);
+        bound->Unlock();
+    }
+    else
+    {
+        // No room bound, so fall back to the whole city.
+        result = web.HitIdBound->Collide(isect);
+    }
+
+    result |= CollideProbe(room_id, isect, 0x800);
+
+    return result;
 }
