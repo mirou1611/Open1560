@@ -86,7 +86,23 @@ void asNode::Reset()
 void asNode::ResChange(i32 width, i32 height)
 {
     for (asNode* n = child_node_; n; n = n->next_node_)
+    {
+        // PORT SHIM. While constructors are still assembly the node tree can hold an
+        // object whose vtable pointer was never written, and walking into it is an
+        // immediate null dispatch. Skip it loudly instead. Delete this once no
+        // constructor in the tree is a stub.
+        //
+        // Deliberately no GetClass() in the message: the *parent's* GetClass can itself
+        // be a stub returning null, which is how the first version of this crashed.
+        if (*reinterpret_cast<void* const*>(n) == nullptr)
+        {
+            Errorf("asNode::ResChange() - child %p under parent %p has no vtable, skipping",
+                static_cast<void*>(n), static_cast<void*>(this));
+            continue;
+        }
+
         n->ResChange(width, height);
+    }
 }
 
 void asNode::UpdatePaused()

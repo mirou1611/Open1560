@@ -21,6 +21,7 @@ define_dummy_symbol(mminput_input);
 #include "input.h"
 
 #include "agi/pipeline.h"
+#include "arts7/sim.h"
 #include "eventq7/keys.h"
 #include "localize/localize.h"
 #include "mmcityinfo/state.h"
@@ -85,6 +86,97 @@ void mmInput::Flush()
         ;
 
     ClearEventHitFlags();
+}
+
+// mmIO::Flags is a mask of the input types a control will accept, one bit per
+// ioType. There is no name for them in the headers, so they get one here.
+#define IO_ACCEPTS_EVENT 1      // ioType::Event
+#define IO_ACCEPTS_DISCRETE 2   // ioType::Discrete - key or button
+#define IO_ACCEPTS_CONTINUOUS 4 // ioType::Continuous - mouse or joystick axis
+
+void mmInput::IOInit(i32 ioid, LocString* name, ilong flags)
+{
+    IO[ioid].Init(name->Text, ioid, flags);
+}
+
+i32 mmInput::AttachToPipe()
+{
+    // Every one of these allocations is why this function had to come before
+    // anything else in the input path: mmInput's constructor nulls IO, IODev,
+    // Joy and Events, and this is the only place that fills them in. With it
+    // stubbed, the first frame of the simulation dereferenced a null IO.
+    Joy = new mmJoyMan();
+
+    if (!GetParentNode())
+    {
+        ARTSPTR->InsertChild(1, this);
+
+        // The original then published DirectInput's device into gpdi and handed
+        // it, with the main window handle, to mmJoyMan::Init. None of that
+        // exists here - SDL owns input on Android - so the joystick manager is
+        // allocated but left uninitialized, exactly as it would be on a machine
+        // with no joystick attached.
+    }
+
+    Events = new eqEventQ(1, -1, 32);
+
+    // One device record per control per configuration, and one control record
+    // per control. Both are plain arrays the original allocates with new[].
+    IODev = new mmIODev[IODEV_NUM_CONFIGS * IOID_COUNT];
+    IO = new mmIO[IOID_COUNT];
+
+    // The controls, in the order the original registers them - which is neither
+    // IOID order nor string order, and is preserved here because the string ids
+    // are positional. The flags say which kinds of input each control accepts.
+    static constexpr struct
+    {
+        i32 ioid;
+        u32 string_id;
+        i32 flags;
+    } controls[IOID_COUNT] {
+        {IOID_CAM, 0xFD, IO_ACCEPTS_EVENT},
+        {IOID_XVIEW, 0xFE, IO_ACCEPTS_EVENT},
+        {IOID_TRANS, 0xFF, IO_ACCEPTS_EVENT},
+        {IOID_HORN, 0x100, IO_ACCEPTS_DISCRETE | IO_ACCEPTS_CONTINUOUS},
+        {IOID_THROT, 0x101, IO_ACCEPTS_DISCRETE | IO_ACCEPTS_CONTINUOUS},
+        {IOID_BRAKE, 0x102, IO_ACCEPTS_DISCRETE | IO_ACCEPTS_CONTINUOUS},
+        {IOID_STR, 0x103, IO_ACCEPTS_CONTINUOUS},
+        {IOID_STRL, 0x104, IO_ACCEPTS_DISCRETE},
+        {IOID_STRR, 0x105, IO_ACCEPTS_DISCRETE},
+        {IOID_LOKR, 0x106, IO_ACCEPTS_DISCRETE | IO_ACCEPTS_CONTINUOUS},
+        {IOID_LOKL, 0x107, IO_ACCEPTS_DISCRETE | IO_ACCEPTS_CONTINUOUS},
+        {IOID_LOKB, 0x108, IO_ACCEPTS_DISCRETE | IO_ACCEPTS_CONTINUOUS},
+        {IOID_LOKF, 0x109, IO_ACCEPTS_DISCRETE | IO_ACCEPTS_CONTINUOUS},
+        {IOID_WFOV, 0x10A, IO_ACCEPTS_EVENT},
+        {IOID_DASH, 0x10B, IO_ACCEPTS_EVENT},
+        {IOID_UPSH, 0x10C, IO_ACCEPTS_EVENT},
+        {IOID_DWNS, 0x10D, IO_ACCEPTS_EVENT},
+        {IOID_REV, 0x10E, IO_ACCEPTS_EVENT},
+        {IOID_WYPTN, 0x10F, IO_ACCEPTS_EVENT},
+        {IOID_WYPTP, 0x110, IO_ACCEPTS_EVENT},
+        {IOID_MAP, 0x111, IO_ACCEPTS_EVENT},
+        {IOID_HUD, 0x112, IO_ACCEPTS_EVENT},
+        {IOID_FMAP, 0x113, IO_ACCEPTS_EVENT},
+        {IOID_MAPRES, 0x114, IO_ACCEPTS_EVENT},
+        {IOID_CDSHOW, 0x115, IO_ACCEPTS_EVENT},
+        {IOID_CDPLAY, 0x116, IO_ACCEPTS_EVENT},
+        {IOID_CDNEXT, 0x117, IO_ACCEPTS_EVENT},
+        {IOID_CDPRIOR, 0x118, IO_ACCEPTS_EVENT},
+        {IOID_MIRROR, 0x119, IO_ACCEPTS_EVENT},
+        {IOID_PAN, 0x11A, IO_ACCEPTS_CONTINUOUS},
+        {IOID_HAND, 0x11B, IO_ACCEPTS_DISCRETE},
+        {IOID_OPPPOS, 0x11C, IO_ACCEPTS_EVENT},
+        {IOID_CHAT, 0x11D, IO_ACCEPTS_EVENT},
+    };
+
+    for (const auto& c : controls)
+        IOInit(c.ioid, AngelReadString(c.string_id), c.flags);
+
+    NumControls = IOID_COUNT;
+
+    RestoreDefaultConfig(0);
+
+    return 1;
 }
 
 b32 mmInput::GamepadConnected()

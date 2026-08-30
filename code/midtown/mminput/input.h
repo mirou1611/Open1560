@@ -226,7 +226,7 @@ public:
     ARTS_IMPORT void AssignIO(mmIO* arg1, i32 arg2, i32 arg3);
 
     // ?AttachToPipe@mmInput@@QAEHXZ
-    ARTS_IMPORT i32 AttachToPipe();
+    ARTS_EXPORT i32 AttachToPipe();
 
     // ?AutoSetup@mmInput@@QAEXXZ
     ARTS_EXPORT void AutoSetup();
@@ -304,7 +304,7 @@ public:
     ARTS_IMPORT f32 GetThrottleVal();
 
     // ?IOInit@mmInput@@QAEXHPAULocString@@J@Z
-    ARTS_IMPORT void IOInit(i32 arg1, LocString* arg2, ilong arg3);
+    ARTS_EXPORT void IOInit(i32 ioid, LocString* name, ilong flags);
 
     // ?Init@mmInput@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
