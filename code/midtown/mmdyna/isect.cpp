@@ -19,3 +19,31 @@
 define_dummy_symbol(mmdyna_isect);
 
 #include "isect.h"
+
+mmIntersection::mmIntersection()
+{
+    Reset();
+}
+
+void mmIntersection::InitSegment(
+    const Vector3& from, const Vector3& to, mmBoundTemplate* bound, i32 type, i32 arg5)
+{
+    Type = type;
+    field_4 = arg5;
+    BoundTemplate = bound;
+
+    field_6C = 0.0f;
+    field_70 = 0;
+    field_74 = 0.0f;
+    field_7C = 0.0f;
+
+    // Min and Max are the two ends of the segment rather than a sorted box - callers pass
+    // them in whichever order the ray runs, and nothing here reorders them.
+    Min = from;
+    Max = to;
+    Size = to - from;
+    MagnitudeSqr = Size.Mag2();
+
+    LocalMin = Min;
+    LocalMax = Max;
+}

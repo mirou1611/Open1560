@@ -42,7 +42,7 @@ public:
     ARTS_IMPORT void AddQuad(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
 
     // ?AddRef@mmBoundTemplate@@QAEXXZ
-    ARTS_IMPORT void AddRef();
+    ARTS_EXPORT void AddRef();
 
     // ?AddTriangle@mmBoundTemplate@@QAEXHHHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void AddTriangle(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
@@ -143,7 +143,7 @@ public:
     ARTS_IMPORT i32 QuickSphereBox(mmIntersection* arg1);
 
     // ?Release@mmBoundTemplate@@QAEHXZ
-    ARTS_IMPORT i32 Release();
+    ARTS_EXPORT i32 Release();
 
     // ?SphereGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 SphereGeometry(mmIntersection* arg1);
@@ -161,7 +161,7 @@ public:
     ARTS_IMPORT void ValidatePtr(char* arg1);
 
     // ?GetBoundTemplate@mmBoundTemplate@@SAPAV1@PAD0PAVVector3@@HHHHH@Z
-    ARTS_IMPORT static RcOwner<mmBoundTemplate> GetBoundTemplate(
+    ARTS_EXPORT static RcOwner<mmBoundTemplate> GetBoundTemplate(
         aconst char* arg1, aconst char* arg2, Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
 
     // ?MakeBox@mmBoundTemplate@@SAPAV1@PAD0HPAVVector3@@1@Z

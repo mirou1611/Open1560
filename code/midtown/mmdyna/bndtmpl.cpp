@@ -20,6 +20,9 @@ define_dummy_symbol(mmdyna_bndtmpl);
 
 #include "bndtmpl.h"
 
+#include "core/string.h"
+#include "data7/hash.h"
+
 #ifdef ARTS_DEV_BUILD
 void mmBoundTemplate::DrawGraph()
 {}
@@ -28,4 +31,59 @@ void mmBoundTemplate::DrawGraph()
 i32 mmBoundTemplate::LineSphere(mmIntersection* /*arg1*/)
 {
     return 0;
+}
+
+// One entry per name_part, shared by every instance that asks for the same bound.
+static HashTable BoundTemplateHash {128, "BoundTemplates"};
+
+void mmBoundTemplate::AddRef()
+{
+    ValidatePtr(const_cast<char*>("AddRef"));
+
+    ++RefCount;
+}
+
+i32 mmBoundTemplate::Release()
+{
+    ValidatePtr(const_cast<char*>("Release"));
+
+    if (--RefCount == 0)
+    {
+        delete this;
+        return 0;
+    }
+
+    return static_cast<i32>(RefCount);
+}
+
+RcOwner<mmBoundTemplate> mmBoundTemplate::GetBoundTemplate(
+    aconst char* name, aconst char* part, Vector3* offset, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8)
+{
+    // The original builds the key with sprintf and no null check, so a caller passing no
+    // part - asRenderWeb::LoadHitId does - gets whatever the C library prints for a null
+    // %s in the key. That is stable within a run, which is all the key needs to be, so it
+    // is left as it was rather than quietly changed.
+    char key[128];
+    arts_sprintf(key, "%s_%s", name, part);
+
+    mmBoundTemplate* tmpl = static_cast<mmBoundTemplate*>(BoundTemplateHash.Access(key));
+
+    if (!tmpl)
+    {
+        tmpl = new mmBoundTemplate();
+
+        if (!tmpl->Load(const_cast<char*>(name), const_cast<char*>(part), offset, arg4, arg5, arg6, arg7, 0, arg8))
+        {
+            delete tmpl;
+            return nullptr;
+        }
+
+        // The table keys off the template's own copy of the name, not the stack buffer.
+        tmpl->Name = key;
+        BoundTemplateHash.Insert(tmpl->Name.get(), tmpl);
+    }
+
+    tmpl->AddRef();
+
+    return RcOwner<mmBoundTemplate> {tmpl};
 }

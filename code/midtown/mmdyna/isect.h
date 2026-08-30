@@ -27,10 +27,11 @@ class mmIntersection
 {
 public:
     // ??0mmIntersection@@QAE@XZ
-    ARTS_IMPORT mmIntersection();
+    ARTS_EXPORT mmIntersection();
 
     // ?InitSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
-    ARTS_IMPORT void InitSegment(const Vector3& arg1, const Vector3& arg2, mmBoundTemplate* arg3, i32 arg4, i32 arg5);
+    ARTS_EXPORT void InitSegment(
+        const Vector3& from, const Vector3& to, mmBoundTemplate* bound, i32 type, i32 arg5);
 
     // ?InitTransformedSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
     ARTS_IMPORT void InitTransformedSegment(
