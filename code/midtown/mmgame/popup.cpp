@@ -84,6 +84,12 @@ void mmPopup::DisablePU([[maybe_unused]] b32 resume_cd)
 
 b32 mmPopup::IsEnabled()
 {
+    // PORT SHIM: MenuManager is still constructed in assembly, so the singleton can be
+    // null - and this is called every frame from mmGame::Update. No menu manager means
+    // no popup, which is the right answer anyway. Remove once MenuManager is real.
+    if (!MenuMgr())
+        return false;
+
     return MenuMgr()->IsPopupOpen();
 }
 

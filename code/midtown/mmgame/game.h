@@ -116,7 +116,7 @@ public:
     ARTS_EXPORT void SetIconsState();
 
     // ?Update@mmGame@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?UpdateGameInput@mmGame@@QAEXXZ
     ARTS_EXPORT void UpdateGameInput();
@@ -197,7 +197,7 @@ public:
 
 private:
     // ?Update@foobar@@EAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?UpdatePaused@foobar@@EAEXXZ
     ARTS_IMPORT void UpdatePaused() override;

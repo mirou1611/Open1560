@@ -1082,3 +1082,85 @@ void mmGame::SetIconsState()
     else
         Icons.DeactivateNode();
 }
+
+// The per-frame driver. Everything below mmGame in the node tree updates through the
+// asNode::Update at the end of this, so while this was a stub nothing under it ran -
+// including the city, which is why the cull manager reported "0 cullables" every frame
+// with the whole of Chicago sitting loaded in memory.
+void mmGame::Update()
+{
+    if (!Popup->IsEnabled())
+    {
+        UpdateDebugInput();
+        UpdateGameInput();
+        UpdateSteeringBrakes();
+    }
+    else
+    {
+        // Behind a popup the game stops reading input, but a wheel or pad still has its
+        // steering and brakes serviced so the car does not lurch when the popup closes.
+        // The original tests > 0, which over this enum means anything but a mouse.
+        if (MMSTATE.InputType != mmInputType::Mouse)
+            UpdateSteeringBrakes();
+
+        // Drain both queues, so nothing that happened while the popup was up is acted
+        // on afterwards.
+        eqEvent event;
+
+        while (EventQueue->Pop(&event))
+            ;
+
+        i32 key = 0;
+
+        while (GameInputPtr->PopEvent(&key))
+            ;
+    }
+
+    UpdateGame();
+
+    if (AmbientAudio)
+        AmbientAudio->Update();
+
+    if (VoiceCommentary)
+        VoiceCommentary->Update();
+
+    if (Player->Car.Sim.ICS.Matrix.m3.y < -50.0f)
+    {
+        // Fell through the world.
+        const Vector3 position = Player->Car.Sim.ICS.Matrix.m3;
+
+        DropThruCityHandler();
+
+        // The literal 2.0 is not a mistake in transcription: the original loads the real
+        // height into a local and then passes a constant in its place.
+        char message[92];
+        arts_sprintf(message, "%s, (%4.1f, %4.1f, %4.1f)", AngelReadString(0x33)->Text,
+            static_cast<f64>(position.x), 2.0, static_cast<f64>(position.z));
+
+        Player->Hud.SetMessage(LOC_TEXT(message), 15.0f, true);
+    }
+    else if (HitWaterTimer != 0.0f)
+    {
+        // Both of these comparisons are exact on purpose. The message goes up on the one
+        // frame the timer still reads exactly the 1.0 it was set to when the car hit the
+        // water, and the handler fires once the timer passes five seconds.
+        if (HitWaterTimer == 1.0f)
+            Player->Hud.SetMessage(AngelReadString(0x34), 3.0f, true);
+
+        HitWaterTimer += Sim()->GetUpdateDelta();
+
+        if (HitWaterTimer > 5.0f)
+        {
+            HitWaterHandler();
+
+            // The original also rewrites a field of mmInput here (offset 0x1D4), read and
+            // written nowhere else in the whole binary, so there is nothing to name it
+            // from. Left out rather than guessed at; it is reachable only after five
+            // seconds submerged.
+
+            HitWaterTimer = 0.0f;
+        }
+    }
+
+    asNode::Update();
+}
