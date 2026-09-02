@@ -20,7 +20,27 @@ define_dummy_symbol(mmcamcs_carcamcs);
 
 #include "carcamcs.h"
 
+#include "mmcar/car.h"
+
 CarCamCS::CarCamCS()
 {
     Car = nullptr;
 }
+
+void CarCamCS::Init(mmCar* car, aconst char* name)
+{
+    Car = car;
+
+    // Every camera that follows a car tracks the same matrix: the world transform of
+    // the car body, not the physics matrix.
+    CarMatrix = &car->Sim.LCS.World;
+
+    SetName(name);
+
+    Load();
+}
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+CarCamCS::~CarCamCS() = default;

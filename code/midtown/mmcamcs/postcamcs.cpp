@@ -20,6 +20,8 @@ define_dummy_symbol(mmcamcs_postcamcs);
 
 #include "postcamcs.h"
 
+#include "mmcar/car.h"
+
 PostCamCS::PostCamCS()
 {
     BlendTime = 3.5f;
@@ -30,3 +32,14 @@ PostCamCS::PostCamCS()
     field_124 = 0.15f;
     field_128 = 2.0f;
 }
+
+void PostCamCS::Init(mmCar* car)
+{
+    Car = car;
+    CarMatrix = &car->Sim.LCS.World;
+}
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+PostCamCS::~PostCamCS() = default;

@@ -27,13 +27,13 @@ public:
     ARTS_EXPORT PointCamCS();
 
     // ??1PointCamCS@@UAE@XZ | inline
-    ARTS_EXPORT ~PointCamCS() override = default;
+    ARTS_EXPORT ~PointCamCS() override;
 
     // ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(mmCar* arg1);
+    ARTS_EXPORT void Init(mmCar* car);
 
     // ?MakeActive@PointCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;

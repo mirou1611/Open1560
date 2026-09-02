@@ -84,7 +84,7 @@ public:
     ARTS_IMPORT ~mmDashView() override;
 
     // ?Activate@mmDashView@@QAEXXZ
-    ARTS_IMPORT void Activate();
+    ARTS_EXPORT void Activate();
 
     // ?ActivateUntilTransitionIsOver@mmDashView@@QAEXXZ
     ARTS_IMPORT void ActivateUntilTransitionIsOver();
@@ -104,7 +104,7 @@ public:
     ARTS_EXPORT void Cull() override;
 
     // ?Deactivate@mmDashView@@QAEXXZ
-    ARTS_IMPORT void Deactivate();
+    ARTS_EXPORT void Deactivate();
 
     // ?GetClass@mmDashView@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

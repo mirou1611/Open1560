@@ -20,6 +20,8 @@ define_dummy_symbol(mmgame_dash);
 
 #include "dash.h"
 
+#include "mmcityinfo/state.h"
+
 #include "agi/bitmap.h"
 #include "agi/dlptmpl.h"
 #include "agi/pipeline.h"
@@ -178,4 +180,19 @@ mmDashView::mmDashView()
     MinSpeed = 0.0f;
 
     Active = 0;
+}
+
+void mmDashView::Activate()
+{
+    ActivateNode();
+
+    InTransition = 0;
+    Active = true;
+}
+
+void mmDashView::Deactivate()
+{
+    Active = false;
+
+    DeactivateNode();
 }

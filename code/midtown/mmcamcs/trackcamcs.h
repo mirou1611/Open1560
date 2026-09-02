@@ -36,7 +36,7 @@ public:
     ARTS_EXPORT TrackCamCS();
 
     // ??1TrackCamCS@@UAE@XZ
-    ARTS_IMPORT ~TrackCamCS() override;
+    ARTS_EXPORT ~TrackCamCS() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@TrackCamCS@@UAEXPAVBank@@@Z

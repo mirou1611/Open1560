@@ -20,6 +20,9 @@ define_dummy_symbol(mmcamcs_povcamcs);
 
 #include "povcamcs.h"
 
+#include "mmcar/car.h"
+#include "mmcar/trailer.h"
+
 void PovCamCS::UpdateInput()
 {}
 
@@ -51,3 +54,21 @@ PovCamCS::PovCamCS()
     // Offset carries its own initializer; everything after it is simply zeroed
     std::memset(gap124, 0, sizeof(gap124));
 }
+
+void PovCamCS::MakeActive()
+{
+    // From inside the car: the dash camera wants the interior, the plain POV camera
+    // wants nothing drawn at all.
+    if (IsDash)
+        Car->Model.DashActivated();
+    else
+        Car->Model.Deactivate();
+
+    if (mmTrailer* trailer = Car->Trailer)
+        trailer->Inst.Flags &= ~INST_FLAG_ACTIVE;
+}
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+PovCamCS::~PovCamCS() = default;

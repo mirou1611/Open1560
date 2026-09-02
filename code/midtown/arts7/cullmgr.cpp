@@ -316,6 +316,18 @@ void asCullManager::Update()
             static_cast<i32>(IsAppActive()));
     }
 
+    // Bring-up probe: the report above lands on the first frame, long before the
+    // game has built anything, so say so again the first time a camera is actually
+    // declared - that is the frame the 3D pass can first run.
+    asCamera* first_camera = num_cameras_ ? cameras_[0] : nullptr;
+
+    if (static asCamera* last_first = reinterpret_cast<asCamera*>(-1); last_first != first_camera)
+    {
+        last_first = first_camera;
+        Displayf("CullManager: camera count now %i, %i cullables, first=%p", num_cameras_, num_cullables_,
+            first_camera);
+    }
+
 #ifdef ARTS_ANDROID_CLEAR_PROBE
     // Nothing declares a camera until the game builds its scene, which is still
     // assembly. Present anyway, and draw one real bitmap from the game archives,

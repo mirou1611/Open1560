@@ -221,7 +221,13 @@ void asNode::AdoptChild(Ptr<asNode> child)
 
 const char* asNode::GetNodeType()
 {
-    return GetClass()->GetName();
+    // PORT SHIM: GetClass is still assembly for most classes and its link stub
+    // returns null. Load(), Save() and the perf report all dereference this, so a
+    // node whose class is not reachable yet reports an unusable type rather than
+    // crashing - the tune file it then looks for simply does not exist.
+    MetaClass* cls = GetClass();
+
+    return cls ? cls->GetName() : "unknown";
 }
 
 asNode* asNode::GetParent(MetaClass* cls)

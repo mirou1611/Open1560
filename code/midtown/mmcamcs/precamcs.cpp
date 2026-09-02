@@ -54,3 +54,8 @@ void PreCamCS::Update()
 
     camera_.m3.y += PolarHeight;
 }
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+PreCamCS::~PreCamCS() = default;

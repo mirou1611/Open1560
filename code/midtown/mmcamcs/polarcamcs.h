@@ -27,13 +27,13 @@ public:
     ARTS_EXPORT PolarCamCS();
 
     // ??1PolarCamCS@@UAE@XZ | inline
-    ARTS_EXPORT ~PolarCamCS() override = default;
+    ARTS_EXPORT ~PolarCamCS() override;
 
     // ?GetClass@PolarCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@PolarCamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(mmCar* arg1);
+    ARTS_EXPORT void Init(mmCar* car);
 
     // ?MakeActive@PolarCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;
@@ -52,7 +52,7 @@ public:
     f32 field_120;
     f32 field_124;
     f32 field_128;
-    u8 gap12C[4];
+    i32 field_12C;
 };
 
 check_size(PolarCamCS, 0x130);

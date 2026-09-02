@@ -20,6 +20,8 @@ define_dummy_symbol(mmcamcs_pointcamcs);
 
 #include "pointcamcs.h"
 
+#include "mmcar/car.h"
+
 PointCamCS::PointCamCS()
 {
     field_130 = 10000.0f;
@@ -38,3 +40,16 @@ void PointCamCS::SetVel(Vector3& vel)
 {
     Velocity = vel;
 }
+
+void PointCamCS::Init(mmCar* car)
+{
+    Car = car;
+    CarMatrix = &car->Sim.LCS.World;
+
+    SetName(car->Sim.GetNodeName());
+}
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+PointCamCS::~PointCamCS() = default;

@@ -59,7 +59,7 @@ public:
     ARTS_EXPORT ~mmCarModel() override = default;
 
     // ?Activate@mmCarModel@@QAEXXZ
-    ARTS_IMPORT void Activate();
+    ARTS_EXPORT void Activate();
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmCarModel@@UAEXPAVBank@@@Z
@@ -76,13 +76,13 @@ public:
     ARTS_IMPORT void ClearDamage(b32 arg1);
 
     // ?DashActivated@mmCarModel@@QAEXXZ
-    ARTS_IMPORT void DashActivated();
+    ARTS_EXPORT void DashActivated();
 
     // ?DashDeactivated@mmCarModel@@QAEXXZ
-    ARTS_IMPORT void DashDeactivated();
+    ARTS_EXPORT void DashDeactivated();
 
     // ?Deactivate@mmCarModel@@QAEXXZ
-    ARTS_IMPORT void Deactivate();
+    ARTS_EXPORT void Deactivate();
 
     // ?Draw@mmCarModel@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

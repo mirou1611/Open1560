@@ -29,7 +29,7 @@ public:
     ARTS_EXPORT CarCamCS();
 
     // ??1CarCamCS@@UAE@XZ
-    ARTS_EXPORT ~CarCamCS() override = default;
+    ARTS_EXPORT ~CarCamCS() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@CarCamCS@@UAEXPAVBank@@@Z
@@ -40,7 +40,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@CarCamCS@@QAEXPAVmmCar@@PAD@Z
-    ARTS_IMPORT void Init(mmCar* arg1, char* arg2);
+    ARTS_EXPORT void Init(mmCar* car, aconst char* name);
 
     // ?DeclareFields@CarCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

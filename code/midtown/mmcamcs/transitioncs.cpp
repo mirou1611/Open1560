@@ -20,5 +20,36 @@ define_dummy_symbol(mmcamcs_transitioncs);
 
 #include "transitioncs.h"
 
+#include "mmcar/car.h"
+
 void TransitionCS::Reset()
 {}
+
+TransitionCS::TransitionCS()
+{
+    camera_.Identity();
+
+    View = nullptr;
+
+    ApproachOn = 1;
+    AppAppOn = 0;
+    AppApp = 0.0f;
+    AppRotMin = 0.0f;
+    AppPosMin = 0.0f;
+    LookAt = 0.0f;
+
+    field_118 = 0;
+    field_11C = 0;
+    field_120 = 0;
+}
+
+void TransitionCS::Init(mmCar* car)
+{
+    Car = car;
+    CarMatrix = &car->Sim.LCS.World;
+}
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+TransitionCS::~TransitionCS() = default;

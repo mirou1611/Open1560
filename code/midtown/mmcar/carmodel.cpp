@@ -20,6 +20,8 @@ define_dummy_symbol(mmcar_carmodel);
 
 #include "carmodel.h"
 
+#include "carsim.h"
+
 enum
 {
     MESH_BODY = 0,
@@ -57,4 +59,31 @@ mmCarModel::mmCarModel()
 i32 mmCarModel::GetCarFlags(char* /*arg1*/)
 {
     return 0;
+}
+
+void mmCarModel::Activate()
+{
+    Flags |= INST_FLAG_ACTIVE;
+    CarFlags |= CAR_FLAG_ACTIVE;
+}
+
+void mmCarModel::Deactivate()
+{
+    // The player's car stays in the world when it is not drawn - the physics and the
+    // culling still want it - so only the draw flag comes off. Everyone else leaves.
+    if (CarSim->IsPlayer())
+        CarFlags &= ~CAR_FLAG_ACTIVE;
+    else
+        Flags &= ~INST_FLAG_ACTIVE;
+}
+
+void mmCarModel::DashActivated()
+{
+    Flags |= INST_FLAG_ACTIVE;
+    CarFlags &= ~CAR_FLAG_ACTIVE;
+}
+
+void mmCarModel::DashDeactivated()
+{
+    CarFlags |= CAR_FLAG_ACTIVE;
 }

@@ -200,3 +200,8 @@ void TrackCamCS::MakeActive()
     if (mmTrailer* trailer = Car->Trailer)
         trailer->Inst.Flags |= INST_FLAG_ACTIVE;
 }
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+TrackCamCS::~TrackCamCS() = default;

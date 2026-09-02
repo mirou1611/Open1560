@@ -20,6 +20,8 @@ define_dummy_symbol(mmcamcs_polarcamcs);
 
 #include "polarcamcs.h"
 
+#include "mmcar/car.h"
+
 // ?EnablePolarCamCollision@@3_NA
 ARTS_EXPORT bool EnablePolarCamCollision = false;
 PolarCamCS::PolarCamCS()
@@ -32,3 +34,17 @@ PolarCamCS::PolarCamCS()
     field_124 = 0.25f;
     field_128 = 2.0f;
 }
+
+void PolarCamCS::Init(mmCar* car)
+{
+    Car = car;
+    CarMatrix = &car->Sim.LCS.World;
+
+    // No suffix on this one - the polar cameras take the vehicle name as it stands.
+    SetName(car->Sim.GetNodeName());
+}
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+PolarCamCS::~PolarCamCS() = default;

@@ -20,8 +20,22 @@ define_dummy_symbol(mmcamcs_aicamcs);
 
 #include "aicamcs.h"
 
+#include "mmcar/car.h"
+
 AICamCS::AICamCS()
 {
     field_118 = 30.0f;
     field_11C = 1.5f;
 }
+
+void AICamCS::Init(mmCar* car)
+{
+    // The AI camera is driven from whatever it is told to look at, so it takes no
+    // car matrix and no name.
+    Car = car;
+}
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+AICamCS::~AICamCS() = default;

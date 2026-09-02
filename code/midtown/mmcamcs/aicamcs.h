@@ -29,13 +29,13 @@ public:
     ARTS_EXPORT AICamCS();
 
     // ??1AICamCS@@UAE@XZ | inline
-    ARTS_EXPORT ~AICamCS() override = default;
+    ARTS_EXPORT ~AICamCS() override;
 
     // ?GetClass@AICamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@AICamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(mmCar* arg1);
+    ARTS_EXPORT void Init(mmCar* car);
 
     // ?MakeActive@AICamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;

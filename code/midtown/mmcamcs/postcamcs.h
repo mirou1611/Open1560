@@ -27,7 +27,7 @@ public:
     ARTS_EXPORT PostCamCS();
 
     // ??1PostCamCS@@UAE@XZ | inline
-    ARTS_EXPORT ~PostCamCS() override = default;
+    ARTS_EXPORT ~PostCamCS() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@PostCamCS@@UAEXPAVBank@@@Z
@@ -38,7 +38,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@PostCamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(mmCar* arg1);
+    ARTS_EXPORT void Init(mmCar* car);
 
     // ?MakeActive@PostCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;

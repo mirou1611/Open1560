@@ -30,10 +30,10 @@ class mmViewCS final : public asLinearCS
 {
 public:
     // ??0mmViewCS@@QAE@XZ
-    ARTS_IMPORT mmViewCS();
+    ARTS_EXPORT mmViewCS();
 
     // ??1mmViewCS@@UAE@XZ
-    ARTS_EXPORT ~mmViewCS() override = default;
+    ARTS_EXPORT ~mmViewCS() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline
@@ -53,7 +53,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetCamera@mmViewCS@@QAEXPAVasCamera@@@Z
-    ARTS_IMPORT void SetCamera(asCamera* arg1);
+    ARTS_EXPORT void SetCamera(asCamera* camera);
 
     // ?SetCurrentCam@mmViewCS@@QAEXPAVCarCamCS@@@Z
     ARTS_EXPORT void SetCurrentCam(CarCamCS* cam);
@@ -65,7 +65,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // ?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z
-    ARTS_IMPORT static mmViewCS* Instance(asCamera* arg1);
+    ARTS_EXPORT static mmViewCS* Instance(asCamera* camera);
 
     // The wide view: SetCurrentCam swaps in a fixed 1.74 rad / 2.54 aspect view
     // instead of the camera's own FOV.

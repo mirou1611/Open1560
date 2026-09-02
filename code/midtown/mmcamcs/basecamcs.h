@@ -68,6 +68,7 @@ protected:
     // mmViewCS drives the current camera: it reads camera_ every frame and
     // needs the view parameters when one is made current.
     friend class mmViewCS;
+    friend class mmPlayer;
 
     b16 Active;
     Matrix34 camera_ {};

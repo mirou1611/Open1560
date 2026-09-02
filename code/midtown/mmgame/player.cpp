@@ -31,6 +31,10 @@ define_dummy_symbol(mmgame_player);
 #include "mmgame/rainaudio.h"
 #include "mminput/input.h"
 #include "mmphysics/phys.h"
+#include "agi/pipeline.h"
+#include "core/pointer.h"
+#include "core/string.h"
+#include "mmcity/renderweb.h"
 
 #include <cmath>
 
@@ -421,4 +425,216 @@ void mmPlayer::Update()
     }
 
     asNode::Update();
+}
+
+i32 mmPlayer::IsPOV()
+{
+    // Either the view is on an inside camera now, or the camera the player has
+    // selected is one - during a blend those are different answers.
+    CarCamCS* current = ViewCS->CurrentCam;
+
+    if (current == &PovCam || current == &DashCam)
+        return 1;
+
+    CarCamCS* selected = CarCams[CamIndex];
+
+    if (selected == &DashCam || selected == &PovCam)
+        return 1;
+
+    return 0;
+}
+
+void mmPlayer::ResetDamage()
+{
+    Car.ClearDamage();
+}
+
+void mmPlayer::Init(char* name, char* city_name, mmGame* game)
+{
+    SetName(name);
+
+    Load();
+
+    RainAudio = (MMSTATE.Weather == mmWeather::Rain) ? new mmRainAudio() : nullptr;
+
+    Car.Init(name, 0, MMSTATE.CurrentColor);
+
+    Car.Sim.EnableDamage = !MMSTATE.DisableDamage;
+
+    // 50 degrees, auto aspect, and one metre out to a kilometre and a half.
+    Camera.SetView(0.87266463f, 0.0f, 1.0f, 1500.0f);
+
+    aconst char* car_name = Car.Sim.GetNodeName();
+
+    char cam_name[64];
+
+    arts_sprintf(cam_name, "%s_near", car_name);
+    NearCam.Init(&Car, cam_name);
+    NearCam.View = ViewCS;
+
+    arts_sprintf(cam_name, "%s_far", car_name);
+    FarCam.Init(&Car, cam_name);
+    FarCam.View = ViewCS;
+
+    arts_sprintf(cam_name, "%s_ind", car_name);
+    IndCam.Init(&Car, cam_name);
+    IndCam.View = ViewCS;
+
+    // The head position camera takes the vehicle name unsuffixed.
+    PovCam.Init(&Car, car_name);
+    PovCam.View = ViewCS;
+
+    arts_sprintf(cam_name, "%s_dash", car_name);
+    DashCam.Init(&Car, cam_name);
+
+    // On anything narrower than 4:3 the dash camera sits closer to the wheel, so the
+    // instruments still fill the same part of the screen.
+    if ((static_cast<f32>(Pipe()->GetWidth()) / static_cast<f32>(Pipe()->GetHeight())) < 1.3f)
+        DashCam.Offset.z *= 0.73529416f;
+
+    DashCam.View = ViewCS;
+    DashCam.IsDash = 1;
+
+    // The rear view mirror looks back down the car, from the head position.
+    MirrorMatrix.Identity();
+    MirrorMatrix.Rotate(YAXIS, 3.1415927f);
+    MirrorMatrix.m3 = PovCam.Offset;
+
+    asRenderWeb& web = CullCity()->RenderWeb;
+
+    web.CarCamera = &Car.Sim.ICS.World;
+    web.MirrorMatrix = &MirrorMatrix;
+    web.SetMirrorPos(0.625f, 0.875f, 0.375f, 0.125f, 5.0f);
+
+    PolarCam1.Init(&Car);
+    PolarCam1.View = ViewCS;
+
+    PolarCam2.Init(&Car);
+    PolarCam2.View = ViewCS;
+    PolarCam2.field_11C = 38.13129f;
+    PolarCam2.field_124 = 0.3212f;
+    PolarCam2.field_12C = 1;
+
+    PointCam.Init(&Car);
+    PointCam.View = ViewCS;
+
+    AiCam.Init(&Car);
+    AiCam.View = ViewCS;
+
+    PreCam.Init(&Car);
+    PreCam.View = ViewCS;
+
+    PostCam.Init(&Car);
+    PostCam.View = ViewCS;
+
+    // The cameras the player cycles through. The last three are the extra ones the
+    // X key walks, which is what XCamStart and XCamCount describe.
+    CarCams[0] = &NearCam;
+    CarCams[1] = &PovCam;
+    CarCams[2] = &FarCam;
+    CarCams[3] = &PolarCam1;
+    CarCams[4] = &PolarCam2;
+    CarCams[5] = &AiCam; // PATCH: Always enable FreeCam
+
+    XCamStart = 3;
+    XCamIndex = 3;
+    XCamCount = 3;
+
+    CameraMode = 0;
+
+    Hud.Init(name, this);
+
+    // The original also builds "%scity" from the city name here into a stack buffer
+    // and then passes the plain city name instead. The formatted string is never
+    // read, so it is left out.
+    HudMap.Init(ViewCS->Camera, &Car.Sim.ICS.Matrix, &Hud, game, city_name);
+
+    Reset();
+
+    AddChild(ViewCS);
+
+    // PORT SHIM: the original clears NODE_FLAG_ACTIVE on the view here, and nothing
+    // anywhere in game.asm ever sets it again - which would leave asNode::Update
+    // skipping the view, and with it the camera under it, for the whole game. Left
+    // active until that is understood; see ANDROID_PORT_STATUS.md.
+    //
+    // ViewCS->DeactivateNode();
+
+    ViewCS->Transition->Init(&Car);
+}
+
+void mmPlayer::Reset()
+{
+    asNode::Reset();
+
+    WantPreRaceCam = 1;
+    InWater = 0;
+    CamPan = 0.0f;
+    InPreRaceCam = 0;
+    InAutoCam = 0;
+    ForceStop = 0;
+
+    MMSTATE.XcamView = false;
+
+    CamIndex = MMSTATE.CameraIndex;
+
+    ViewCS->SetCurrentCam(CarCams[MMSTATE.CameraIndex]);
+    CarCams[CamIndex]->MakeActive();
+
+    SetWideFOV(MMSTATE.WideFov);
+
+    if (!MMSTATE.DashView && !Hud.DashView.InTransition)
+    {
+        if (!IsPOV())
+        {
+            Hud.DeactivateDash();
+            Car.Model.DashDeactivated();
+            Car.Model.Activate();
+        }
+    }
+    else
+    {
+        // Starting in the dash view puts the selection on the POV camera, which is
+        // what the dash is a variant of.
+        MMSTATE.CameraIndex = 1;
+        CamIndex = 1;
+
+        DashCam.MakeActive();
+        ViewCS->SetCurrentCam(&DashCam);
+        Hud.ActivateDash();
+    }
+
+    if (!MMSTATE.DashView)
+        Hud.DashView.Deactivate();
+
+    SetWideFOV(MMSTATE.WideFov);
+
+    if (!DontResetDamage)
+    {
+        Score = 0;
+        ResetDamage();
+    }
+
+    DontResetDamage = 0;
+
+    Car.Reset();
+    HudMap.Reset();
+
+    if (MMSTATE.DashView)
+    {
+        Hud.ActivateDash();
+    }
+    else
+    {
+        if (MMSTATE.ExternalView)
+            Hud.ExternalView.ActivateNode();
+        else
+            Hud.ExternalView.DeactivateNode();
+    }
+
+    if (MMSTATE.EnableMirror)
+        CullCity()->RenderWeb.EnableMirror = true;
+
+    if (RainAudio)
+        RainAudio->SetInterior(CamIndex == 1);
 }

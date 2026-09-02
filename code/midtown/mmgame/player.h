@@ -63,22 +63,22 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmPlayer@@QAEXPAD0PAVmmGame@@@Z
-    ARTS_IMPORT void Init(char* arg1, char* arg2, mmGame* arg3);
+    ARTS_EXPORT void Init(char* name, char* city_name, mmGame* game);
 
     // ?IsMaxDamaged@mmPlayer@@QAEHXZ
     ARTS_IMPORT i32 IsMaxDamaged();
 
     // ?IsPOV@mmPlayer@@QAEHXZ
-    ARTS_IMPORT i32 IsPOV();
+    ARTS_EXPORT i32 IsPOV();
 
     // ?ReInit@mmPlayer@@QAEXPAD@Z
     ARTS_IMPORT void ReInit(char* arg1);
 
     // ?Reset@mmPlayer@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?ResetDamage@mmPlayer@@QAEXXZ
-    ARTS_IMPORT void ResetDamage();
+    ARTS_EXPORT void ResetDamage();
 
     // ?SetCamInterest@mmPlayer@@QAEXPAVasInertialCS@@@Z
     ARTS_IMPORT void SetCamInterest(asInertialCS* arg1);

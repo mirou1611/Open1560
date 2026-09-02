@@ -28,7 +28,7 @@ public:
     ARTS_EXPORT PovCamCS();
 
     // ??1PovCamCS@@UAE@XZ
-    ARTS_EXPORT ~PovCamCS() override = default;
+    ARTS_EXPORT ~PovCamCS() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z
@@ -42,7 +42,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?MakeActive@PovCamCS@@UAEXXZ
-    ARTS_IMPORT void MakeActive() override;
+    ARTS_EXPORT void MakeActive() override;
 
     // ?Reset@PovCamCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -58,11 +58,15 @@ public:
 
     Vector3 Offset {0.0f, 1.6f, 0.7f};
 
+    u8 gap124[0x1C];
+
+    // Set on the dash camera only - MakeActive shows the interior instead of the
+    // car body when it is on.
+    b32 IsDash;
+
 private:
     // ?UpdatePOV@PovCamCS@@AAEXXZ
     ARTS_IMPORT void UpdatePOV();
-
-    u8 gap124[0x20];
 };
 
 check_size(PovCamCS, 0x144);

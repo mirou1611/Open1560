@@ -24,16 +24,16 @@ class TransitionCS final : public CarCamCS
 {
 public:
     // ??0TransitionCS@@QAE@XZ
-    ARTS_IMPORT TransitionCS();
+    ARTS_EXPORT TransitionCS();
 
     // ??1TransitionCS@@UAE@XZ
-    ARTS_EXPORT ~TransitionCS() override = default;
+    ARTS_EXPORT ~TransitionCS() override;
 
     // ?ForceMatrixDelta@TransitionCS@@UAEXABVVector3@@@Z
     ARTS_IMPORT void ForceMatrixDelta(const Vector3& arg1) override;
 
     // ?Init@TransitionCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(mmCar* arg1);
+    ARTS_EXPORT void Init(mmCar* car);
 
     // ?NewTransition@TransitionCS@@QAEXPAVCarCamCS@@0@Z
     ARTS_IMPORT void NewTransition(CarCamCS* arg1, CarCamCS* arg2);
@@ -56,7 +56,10 @@ public:
     // ?Update@TransitionCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap118[0x18];
+    i32 field_118;
+    i32 field_11C;
+    i32 field_120;
+    u8 gap124[0xC];
 };
 
 check_size(TransitionCS, 0x130);

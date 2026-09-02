@@ -115,7 +115,7 @@ public:
     ARTS_IMPORT ~mmHUD() override;
 
     // ?ActivateDash@mmHUD@@QAEXXZ
-    ARTS_IMPORT void ActivateDash();
+    ARTS_EXPORT void ActivateDash();
 
     // ?ActivateGold@mmHUD@@QAEXXZ
     ARTS_IMPORT void ActivateGold();
@@ -132,7 +132,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?DeactivateDash@mmHUD@@QAEXXZ
-    ARTS_IMPORT void DeactivateDash();
+    ARTS_EXPORT void DeactivateDash();
 
     // ?DeactivateGold@mmHUD@@QAEXXZ
     ARTS_IMPORT void DeactivateGold();

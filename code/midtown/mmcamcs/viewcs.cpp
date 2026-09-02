@@ -25,6 +25,8 @@ define_dummy_symbol(mmcamcs_viewcs);
 #include "carcamcs.h"
 #include "transitioncs.h"
 
+#include "core/pointer.h"
+
 #ifdef ARTS_DEV_BUILD
 void mmViewCS::AddWidgets(Bank* /*arg1*/)
 {}
@@ -38,6 +40,13 @@ void mmViewCS::Update()
     // The current camera works out where it wants to be, and the view simply takes
     // that matrix. Whatever is in CurrentCam is what the player sees - during a
     // blend it is Transition, not the camera the blend is headed for.
+    if (static bool probed = false; !probed)
+    {
+        probed = true;
+        Displayf("PROBE mmViewCS::Update current=%p transition=%p camera=%p children=%i", CurrentCam, Transition,
+            Camera, NumChildren());
+    }
+
     CurrentCam->Update();
 
     Matrix = CurrentCam->camera_;
@@ -85,3 +94,53 @@ i32 mmViewCS::NewCam(CarCamCS* cam, i32 type, f32 time, Callback callback)
 
     return 1;
 }
+
+mmViewCS::mmViewCS()
+{
+    LockCam = 0;
+    TargetCam = nullptr;
+    CurrentCam = nullptr;
+
+    // Every camera change goes through this one node: it blends from whatever the
+    // view is showing to whatever was asked for, and is the view current camera
+    // for as long as the blend lasts.
+    Transition = new TransitionCS();
+    Transition->View = this;
+
+    AddChild(Transition);
+
+    // The view keeps tracking while the simulation is paused, so the camera can
+    // still finish a move over a stopped world.
+    SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
+
+    Camera = nullptr;
+    WideView = 0;
+}
+
+void mmViewCS::SetCamera(asCamera* camera)
+{
+    Camera = camera;
+
+    // Nothing to set the view from until a camera is current.
+    if (CurrentCam)
+        camera->SetView(CurrentCam->CameraFOV * ARTS_DEG_TO_RAD, 1.25f, CurrentCam->CameraNear, agiRQ.FarClip);
+}
+
+mmViewCS* mmViewCS::Instance(asCamera* camera)
+{
+    mmViewCS* view = new mmViewCS();
+
+    view->Init();
+
+    // The camera hangs under the view, so asLinearCS::Update pushes the view matrix
+    // before asCamera::Update reads it.
+    view->AddChild(camera);
+    view->SetCamera(camera);
+
+    return view;
+}
+
+// The destructor is this class's key function, so it is defined here rather than
+// inline: with it in the header the vtable is never emitted, and gen_stubs.py
+// synthesizes one whose every slot is ArtsVirtualStub.
+mmViewCS::~mmViewCS() = default;

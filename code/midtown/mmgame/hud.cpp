@@ -234,3 +234,23 @@ mmHUD::mmHUD()
     CDPlayer.Init(this);
     HudElements.AddChild(&CDPlayer);
 }
+
+void mmHUD::ActivateDash()
+{
+    MMSTATE.DashView = true;
+
+    DashView.Activate();
+
+    // The dash and the external view are mutually exclusive.
+    ExternalView.DeactivateNode();
+}
+
+void mmHUD::DeactivateDash()
+{
+    MMSTATE.DashView = false;
+
+    DashView.Deactivate();
+
+    if (MMSTATE.ExternalView)
+        ExternalView.ActivateNode();
+}
