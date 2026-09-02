@@ -25,3 +25,16 @@ PointCamCS::PointCamCS()
     field_130 = 10000.0f;
     field_134 = 100.0f;
 }
+
+void PointCamCS::SetPos(Vector3& pos)
+{
+    Position = pos;
+
+    // The camera is placed there outright rather than approaching it.
+    camera_.m3 = pos;
+}
+
+void PointCamCS::SetVel(Vector3& vel)
+{
+    Velocity = vel;
+}

@@ -22,6 +22,7 @@ define_dummy_symbol(mmcamcs_trackcamcs);
 
 #include "arts7/sim.h"
 #include "mmcar/car.h"
+#include "mmcar/trailer.h"
 
 static mem::cmd_param PARAM_preapproach {"preapproach", "Enable dynamic TrackCamCS AppXZPos calculations"};
 
@@ -187,4 +188,15 @@ TrackCamCS::TrackCamCS()
     field_250 = {0.0f, 0.0f, 0.0f};
     field_25C = {0.0f, 0.0f, 0.0f};
     field_268 = {0.0f, 0.0f, 0.0f};
+}
+
+void TrackCamCS::MakeActive()
+{
+    // A chase camera looks at the outside of the car, so the body has to be
+    // drawn and the dashboard interior put away.
+    Car->Model.Activate();
+    Car->Model.DashDeactivated();
+
+    if (mmTrailer* trailer = Car->Trailer)
+        trailer->Inst.Flags |= INST_FLAG_ACTIVE;
 }

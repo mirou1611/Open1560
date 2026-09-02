@@ -201,6 +201,17 @@ f32 mmInput::GetBrakesVal()
     return 0.0f;
 }
 
+f32 mmInput::GetHandBrake()
+{
+    switch (IO[IOID_HAND].GetIODev().IoType)
+    {
+        case ioType::Discrete: return IsInputPressed(IOID_HAND) ? 1.0f : 0.0f;
+        case ioType::Continuous: return HandbrakeVal;
+    }
+
+    return 0.0f;
+}
+
 b32 mmInput::JoystickConnected()
 {
     // TODO: Decide type of connected joystick (mmJoystick::DevInfo::dwDevType)

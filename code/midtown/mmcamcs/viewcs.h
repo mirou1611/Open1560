@@ -20,8 +20,11 @@
 
 #include "arts7/linear.h"
 
+#include "data7/callback.h"
+
 class asCamera;
 class CarCamCS;
+class TransitionCS;
 
 class mmViewCS final : public asLinearCS
 {
@@ -44,7 +47,7 @@ public:
     ARTS_EXPORT void Init();
 
     // ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
-    ARTS_IMPORT i32 NewCam(CarCamCS* arg1, i32 arg2, f32 arg3, Callback arg4);
+    ARTS_EXPORT i32 NewCam(CarCamCS* cam, i32 type, f32 time, Callback callback);
 
     // ?Reset@mmViewCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -53,10 +56,10 @@ public:
     ARTS_IMPORT void SetCamera(asCamera* arg1);
 
     // ?SetCurrentCam@mmViewCS@@QAEXPAVCarCamCS@@@Z
-    ARTS_IMPORT void SetCurrentCam(CarCamCS* arg1);
+    ARTS_EXPORT void SetCurrentCam(CarCamCS* cam);
 
     // ?Update@mmViewCS@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?DeclareFields@mmViewCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -64,7 +67,29 @@ public:
     // ?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z
     ARTS_IMPORT static mmViewCS* Instance(asCamera* arg1);
 
-    u8 gap88[0x38];
+    // The wide view: SetCurrentCam swaps in a fixed 1.74 rad / 2.54 aspect view
+    // instead of the camera's own FOV.
+    b32 WideView;
+
+    // What the pending NewCam asked for. TransitionCS reads them when it starts.
+    i16 TransitionType;
+    i16 field_8E;
+    f32 TransitionTime;
+    Callback TransitionDone;
+
+    // Whatever is driving the view this frame - either a CarCamCS, or Transition
+    // while one camera is blending into the next.
+    CarCamCS* CurrentCam;
+
+    // Where the transition is headed, and the transition itself.
+    CarCamCS* TargetCam;
+    TransitionCS* Transition;
+    i32 field_B4;
+
+    // Set while the view is locked; NewCam refuses to start a transition.
+    i32 LockCam;
+
+    asCamera* Camera;
 };
 
 check_size(mmViewCS, 0xC0);

@@ -50,7 +50,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?MakeActive@TrackCamCS@@UAEXXZ
-    ARTS_IMPORT void MakeActive() override;
+    ARTS_EXPORT void MakeActive() override;
 
     // ?Reset@TrackCamCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;

@@ -51,10 +51,10 @@ public:
     ARTS_IMPORT void SetMinDist(f32 arg1);
 
     // ?SetPos@PointCamCS@@QAEXAAVVector3@@@Z
-    ARTS_IMPORT void SetPos(Vector3& arg1);
+    ARTS_EXPORT void SetPos(Vector3& pos);
 
     // ?SetVel@PointCamCS@@QAEXAAVVector3@@@Z
-    ARTS_IMPORT void SetVel(Vector3& arg1);
+    ARTS_EXPORT void SetVel(Vector3& vel);
 
     // ?Update@PointCamCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -62,7 +62,9 @@ public:
     // ?DeclareFields@PointCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap118[0x18];
+    // Where the camera is asked to sit, and how fast that point is moving.
+    Vector3 Position;
+    Vector3 Velocity;
     f32 field_130;
     f32 field_134;
     u8 gap138[0xC];

@@ -65,6 +65,10 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
 protected:
+    // mmViewCS drives the current camera: it reads camera_ every frame and
+    // needs the view parameters when one is made current.
+    friend class mmViewCS;
+
     b16 Active;
     Matrix34 camera_ {};
     Matrix34 matrix_ {};

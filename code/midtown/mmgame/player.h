@@ -108,10 +108,10 @@ public:
     ARTS_IMPORT void ToggleWideFOV();
 
     // ?Update@mmPlayer@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?UpdateHOG@mmPlayer@@QAEXXZ
-    ARTS_IMPORT void UpdateHOG();
+    ARTS_EXPORT void UpdateHOG();
 
     // ?UpdateRegen@mmPlayer@@QAEXXZ
     ARTS_EXPORT void UpdateRegen();

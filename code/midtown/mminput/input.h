@@ -292,7 +292,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetHandBrake@mmInput@@QAEMXZ
-    ARTS_IMPORT f32 GetHandBrake();
+    ARTS_EXPORT f32 GetHandBrake();
 
     // ?GetSteering@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetSteering();
