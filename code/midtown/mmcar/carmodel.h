@@ -121,7 +121,7 @@ public:
     ARTS_IMPORT void Impact(Vector3* arg1);
 
     // ?Init@mmCarModel@@QAEXPADPAVmmCar@@H@Z
-    ARTS_IMPORT void Init(aconst char* arg1, mmCar* arg2, i32 arg3);
+    ARTS_EXPORT void Init(aconst char* name, mmCar* car, i32 paint_job);
 
     // ?InitDamage@mmCarModel@@QAEXXZ
     ARTS_IMPORT void InitDamage();
