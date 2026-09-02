@@ -411,3 +411,110 @@ i32 EggNameIndex(char* name)
 
     return -1;
 }
+
+// Key function - see the note in joint3dof.cpp.
+mmCar::~mmCar() = default;
+
+void mmCar::Init(aconst char* name, i32 variant, i32 color)
+{
+    mmVehInfo* info = VehicleListPtr->GetVehicleInfo(name);
+
+    if (!info)
+    {
+        Errorf("This vehicle does not exist");
+        return;
+    }
+
+    TranslateFlags(info->Flags);
+
+    char* vehicle_name = VehNameRemap(const_cast<char*>(name), variant);
+
+    // PORT SHIM: VehNameRemap is still assembly and its stub returns null. Without
+    // this every name below would be a null %s. Delete once it is written.
+    if (!vehicle_name)
+        vehicle_name = const_cast<char*>(name);
+
+    Sim.Init(vehicle_name, this, variant);
+    Model.Init(vehicle_name, this, color);
+
+    FLSkid.Init("skid", 64, &Sim.FrontLeft);
+    FRSkid.Init("skid", 64, &Sim.FrontRight);
+    BLSkid.Init("skid", 64, &Sim.BackLeft);
+    BRSkid.Init("skid", 64, &Sim.BackRight);
+
+    Shards.Init("shard", 64, &Sim);
+
+    CullCity()->ObjectsChain.Parent(&Model, CullCity()->GetHitId(Model.GetPos()));
+
+    // Where the trailer hitch sits on the car, and where the trailer's own hitch
+    // sits on the trailer. The second comes out of the trailer geometry.
+    Vector3 hitch {0.0f, 0.7f, 3.0f};
+    Vector3 centroid {0.0f, 0.0f, 0.0f};
+
+    char template_name[128];
+
+    if (Model.CarFlags & CAR_FLAG_TRAILER)
+        arts_sprintf(template_name, "%s_trailer", vehicle_name);
+    else
+        arts_sprintf(template_name, "vpsemi_trailer");
+
+    DLPTemplate* dlp = GetDLPTemplate(template_name);
+
+    if (dlp)
+        dlp->GetCentroid(centroid, "TRAILER_H");
+
+    // Every car gets a trailer and a joint whether it tows anything or not; the
+    // joint is simply left broken and the trailer unparented below.
+    TrailerJoint = new Joint3Dof();
+    Trailer = new mmTrailer();
+
+    Trailer->Init((Model.CarFlags & CAR_FLAG_TRAILER) ? vehicle_name : const_cast<char*>("vpsemi"), &Sim, centroid);
+
+    centroid.y += Sim.LCS.Matrix.m3.y;
+
+    Vector3 offset {hitch.x - centroid.x, hitch.y - centroid.y, hitch.z - centroid.z};
+
+    TrailerJoint->Init();
+    TrailerJoint->InitJoint3Dof(&Sim.ICS, hitch, &Trailer->ICS, offset);
+
+    // The trailer rests turned a quarter turn about X from the car - its own axes
+    // are laid out that way.
+    Matrix34 rest;
+    rest.m0 = {1.0f, 0.0f, 0.0f};
+    rest.m1 = {0.0f, 0.0f, -1.0f};
+    rest.m2 = {0.0f, 1.0f, 0.0f};
+
+    TrailerJoint->SetRestOrientMat(rest, rest);
+    TrailerJoint->SetRollLimit(-0.3f, 0.3f, 0.0f);
+    TrailerJoint->SetLeanLimit(0.3f, 0.0f);
+    TrailerJoint->SetFrictionLean(2.0f, 0.9f, 2.0f);
+    TrailerJoint->SetFrictionRoll(2.0f, 0.1f, 2.0f);
+
+    // The original releases unconditionally, which is a null call whenever the
+    // template is missing.
+    if (dlp)
+        dlp->Release();
+
+    CullCity()->ObjectsChain.Parent(&Trailer->Inst, CullCity()->GetHitId(Trailer->Inst.GetPos()));
+
+    if (Model.CarFlags & CAR_FLAG_TRAILER)
+    {
+        Trailer->Activate();
+
+        TrailerJoined = 1;
+        TrailerJoint->UnbreakJoint();
+
+        // Not obviously related to towing, but this is where the original turns the
+        // exhaust on.
+        Sim.EnableExhaust = 1;
+    }
+    else
+    {
+        TrailerJoined = 0;
+
+        Trailer->Deactivate();
+        TrailerJoint->BreakJoint();
+
+        CullCity()->ObjectsChain.Unparent(&Trailer->Inst);
+    }
+}

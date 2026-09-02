@@ -30,11 +30,13 @@
 
 class mmCarSim;
 
+class mmTrailer;
+
 class mmTrailerInstance final : public mmInstance
 {
 public:
     // ??1mmTrailerInstance@@UAE@XZ | inline
-    ARTS_EXPORT ~mmTrailerInstance() override = default;
+    ARTS_EXPORT ~mmTrailerInstance() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline
@@ -57,7 +59,7 @@ public:
     ARTS_IMPORT mmPhysEntity* GetEntity() override;
 
     // ?GetPos@mmTrailerInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_EXPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?GetVelocity@mmTrailerInstance@@UAE?AVVector3@@XZ
     ARTS_IMPORT Vector3 GetVelocity() override;
@@ -68,7 +70,10 @@ public:
     // ?ToMatrix@mmTrailerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
-    u8 gap14[0x34];
+    // The trailer this instance draws; GetPos reads its matrix.
+    mmTrailer* Trailer;
+
+    u8 gap18[0x30];
 };
 
 check_size(mmTrailerInstance, 0x48);
@@ -77,13 +82,13 @@ class mmTrailer final : public mmPhysEntity
 {
 public:
     // ??0mmTrailer@@QAE@XZ
-    ARTS_IMPORT mmTrailer();
+    ARTS_EXPORT mmTrailer();
 
     // ??1mmTrailer@@UAE@XZ | inline
-    ARTS_IMPORT ~mmTrailer() override;
+    ARTS_EXPORT ~mmTrailer() override;
 
     // ?Activate@mmTrailer@@QAEXXZ
-    ARTS_IMPORT void Activate();
+    ARTS_EXPORT void Activate();
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmTrailer@@UAEXPAVBank@@@Z
@@ -97,7 +102,7 @@ public:
     ARTS_IMPORT void BeforeSave() override;
 
     // ?Deactivate@mmTrailer@@QAEXXZ
-    ARTS_IMPORT void Deactivate();
+    ARTS_EXPORT void Deactivate();
 
     // ?GetBound@mmTrailer@@UAEPAVasBound@@XZ | inline
     ARTS_IMPORT asBound* GetBound() override;

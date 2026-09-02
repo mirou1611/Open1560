@@ -87,3 +87,11 @@ void mmCarModel::DashDeactivated()
 {
     CarFlags |= CAR_FLAG_ACTIVE;
 }
+
+// Key function - see the note in joint3dof.cpp.
+mmCarModel::~mmCarModel() = default;
+
+Vector3& mmCarModel::GetPos()
+{
+    return CarSim->LCS.World.m3;
+}

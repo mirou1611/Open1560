@@ -41,7 +41,7 @@ public:
     ARTS_EXPORT mmCar();
 
     // ??1mmCar@@UAE@XZ | inline
-    ARTS_EXPORT ~mmCar() override = default;
+    ARTS_EXPORT ~mmCar() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmCar@@UAEXPAVBank@@@Z
@@ -73,7 +73,7 @@ public:
     ARTS_EXPORT void Impact(mmIntersection* isect, Vector3* velocity, f32 energy, i32 audio_id, Vector3* impulse);
 
     // ?Init@mmCar@@QAEXPADHH@Z
-    ARTS_IMPORT void Init(aconst char* arg1, i32 arg2, i32 arg3);
+    ARTS_EXPORT void Init(aconst char* name, i32 variant, i32 color);
 
     // ?IsDrivingDisabled@mmCar@@QAEHXZ
     ARTS_EXPORT b32 IsDrivingDisabled();

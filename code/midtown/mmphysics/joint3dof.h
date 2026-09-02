@@ -29,10 +29,10 @@ class Joint3Dof final : public JointedStruct
 {
 public:
     // ??0Joint3Dof@@QAE@XZ
-    ARTS_IMPORT Joint3Dof();
+    ARTS_EXPORT Joint3Dof();
 
     // ??1Joint3Dof@@UAE@XZ | inline
-    ARTS_EXPORT ~Joint3Dof() override = default;
+    ARTS_EXPORT ~Joint3Dof() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@Joint3Dof@@UAEXPAVBank@@@Z
@@ -40,7 +40,7 @@ public:
 #endif
 
     // ?BreakJoint@Joint3Dof@@QAEXXZ
-    ARTS_IMPORT void BreakJoint();
+    ARTS_EXPORT void BreakJoint();
 
     // ?DoJointLimits@Joint3Dof@@QAEXMABVVector3@@M0AAV2@ABVMatrix34@@2222@Z
     ARTS_IMPORT void DoJointLimits(f32 arg1, const Vector3& arg2, f32 arg3, const Vector3& arg4, Vector3& arg5,
@@ -61,10 +61,10 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@Joint3Dof@@QAEXXZ
-    ARTS_IMPORT void Init();
+    ARTS_EXPORT void Init();
 
     // ?InitJoint3Dof@Joint3Dof@@QAEXPAVasInertialCS@@ABVVector3@@01@Z
-    ARTS_IMPORT void InitJoint3Dof(asInertialCS* arg1, const Vector3& arg2, asInertialCS* arg3, const Vector3& arg4);
+    ARTS_EXPORT void InitJoint3Dof(asInertialCS* ics1, const Vector3& offset1, asInertialCS* ics2, const Vector3& offset2);
 
     // ?MoveICS@Joint3Dof@@QAEXXZ
     void MoveICS();
@@ -73,31 +73,31 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetFrictionLean@Joint3Dof@@QAEXMMM@Z
-    ARTS_IMPORT void SetFrictionLean(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_EXPORT void SetFrictionLean(f32 arg1, f32 arg2, f32 arg3);
 
     // ?SetFrictionRoll@Joint3Dof@@QAEXMMM@Z
-    ARTS_IMPORT void SetFrictionRoll(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_EXPORT void SetFrictionRoll(f32 arg1, f32 arg2, f32 arg3);
 
     // ?SetJointForceFlag@Joint3Dof@@QAEXXZ
-    ARTS_IMPORT void SetJointForceFlag();
+    ARTS_EXPORT void SetJointForceFlag();
 
     // ?SetLeanLimit@Joint3Dof@@QAEXMM@Z
-    ARTS_IMPORT void SetLeanLimit(f32 arg1, f32 arg2);
+    ARTS_EXPORT void SetLeanLimit(f32 arg1, f32 arg2);
 
     // ?SetPosition@Joint3Dof@@QAEXABVVector3@@@Z
-    ARTS_IMPORT void SetPosition(const Vector3& arg1);
+    ARTS_EXPORT void SetPosition(const Vector3& position);
 
     // ?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@@Z
     ARTS_IMPORT void SetRestOrientMat(const Matrix34& arg1);
 
     // ?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@0@Z
-    ARTS_IMPORT void SetRestOrientMat(const Matrix34& arg1, const Matrix34& arg2);
+    ARTS_EXPORT void SetRestOrientMat(const Matrix34& orient1, const Matrix34& orient2);
 
     // ?SetRollLimit@Joint3Dof@@QAEXMMM@Z
-    ARTS_IMPORT void SetRollLimit(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_EXPORT void SetRollLimit(f32 arg1, f32 arg2, f32 arg3);
 
     // ?UnbreakJoint@Joint3Dof@@QAEXXZ
-    ARTS_IMPORT void UnbreakJoint();
+    ARTS_EXPORT void UnbreakJoint();
 
     // ?Update@Joint3Dof@@UAEXXZ
     ARTS_IMPORT void Update() override;

@@ -20,7 +20,60 @@ define_dummy_symbol(mmcar_trailer);
 
 #include "trailer.h"
 
+#include "carsim.h"
+
 #ifdef ARTS_DEV_BUILD
 void mmTrailerInstance::AddWidgets(Bank* /*arg1*/)
 {}
 #endif
+
+// Key functions - see the note in joint3dof.cpp.
+mmTrailerInstance::~mmTrailerInstance() = default;
+
+mmTrailer::~mmTrailer() = default;
+
+Vector3& mmTrailerInstance::GetPos()
+{
+    return Trailer->ICS.Matrix.m3;
+}
+
+mmTrailer::mmTrailer()
+{
+    // The trailer body, its bound, its four driven wheels and the splash all hang
+    // under the inertial frame, so they move with it.
+    AddChild(&ICS);
+
+    ICS.AddChild(&Bound);
+    Bound.ICS = &ICS;
+
+    ICS.AddChild(&DrivetrainFL);
+    ICS.AddChild(&DrivetrainFR);
+    ICS.AddChild(&DrivetrainBL);
+    ICS.AddChild(&DrivetrainBR);
+    ICS.AddChild(&Splash);
+
+    // Only turned on when the trailer is actually in water.
+    Splash.DeactivateNode();
+
+    DrivetrainFL.AddChild(&WheelFL);
+    DrivetrainFR.AddChild(&WheelFR);
+    DrivetrainBL.AddChild(&WheelBL);
+    DrivetrainBR.AddChild(&WheelBR);
+
+    DrivetrainFL.AddWheel(&WheelFL);
+    DrivetrainFR.AddWheel(&WheelFR);
+    DrivetrainBL.AddWheel(&WheelBL);
+    DrivetrainBR.AddWheel(&WheelBR);
+
+    InertiaBox = {3.0f, 4.0f, 9.0f};
+}
+
+void mmTrailer::Activate()
+{
+    Inst.Flags |= INST_FLAG_ACTIVE;
+}
+
+void mmTrailer::Deactivate()
+{
+    Inst.Flags &= ~INST_FLAG_ACTIVE;
+}

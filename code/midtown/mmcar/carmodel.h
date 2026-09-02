@@ -56,7 +56,7 @@ public:
     ARTS_EXPORT mmCarModel();
 
     // ??1mmCarModel@@UAE@XZ
-    ARTS_EXPORT ~mmCarModel() override = default;
+    ARTS_EXPORT ~mmCarModel() override;
 
     // ?Activate@mmCarModel@@QAEXXZ
     ARTS_EXPORT void Activate();
@@ -112,7 +112,7 @@ public:
     ARTS_IMPORT mmPhysEntity* GetEntity() override;
 
     // ?GetPos@mmCarModel@@UAIAAVVector3@@XZ
-    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_EXPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?GetVelocity@mmCarModel@@UAE?AVVector3@@XZ | inline
     ARTS_IMPORT Vector3 GetVelocity() override;
