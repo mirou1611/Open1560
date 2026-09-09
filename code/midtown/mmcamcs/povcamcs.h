@@ -48,7 +48,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?Update@PovCamCS@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // ?UpdateInput@PovCamCS@@UAEXXZ
     ARTS_EXPORT void UpdateInput() override;
@@ -58,7 +58,12 @@ public:
 
     Vector3 Offset {0.0f, 1.6f, 0.7f};
 
-    u8 gap124[0x1C];
+    u8 gap124[0x10];
+
+    // A fixed tilt applied after the camera is placed on the car.
+    f32 Pitch;
+
+    u8 gap138[0x8];
 
     // Set on the dash camera only - MakeActive shows the interior instead of the
     // car body when it is on.
@@ -66,7 +71,7 @@ public:
 
 private:
     // ?UpdatePOV@PovCamCS@@AAEXXZ
-    ARTS_IMPORT void UpdatePOV();
+    ARTS_EXPORT void UpdatePOV();
 };
 
 check_size(PovCamCS, 0x144);

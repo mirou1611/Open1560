@@ -224,3 +224,8 @@ mmCarSim::mmCarSim()
     DashCamHeadlightOffset = {0.0f, 0.0f, 0.0f};
     POVCamHeadlightOffset = {0.0f, 0.0f, 0.0f};
 }
+
+i32 mmCarSim::OnGround()
+{
+    return FrontLeft.OnGround || FrontRight.OnGround || BackLeft.OnGround || BackRight.OnGround;
+}

@@ -111,7 +111,7 @@ public:
     ARTS_EXPORT void InitPtx();
 
     // ?OnGround@mmCarSim@@QAEHXZ
-    ARTS_IMPORT i32 OnGround();
+    ARTS_EXPORT i32 OnGround();
 
     // ?PlayHorn@mmCarSim@@QAEXXZ
     ARTS_IMPORT void PlayHorn();

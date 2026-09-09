@@ -42,7 +42,7 @@ public:
 
 protected:
     // ?ApproachIt@AppCamCS@@IAEXXZ
-    ARTS_IMPORT void ApproachIt();
+    ARTS_EXPORT void ApproachIt();
 
 private:
     // ?DApproach@AppCamCS@@AAEHAAMMMM0M@Z

@@ -52,3 +52,14 @@ AppCamCS::AppCamCS()
 // inline: with it in the header the vtable is never emitted, and gen_stubs.py
 // synthesizes one whose every slot is ArtsVirtualStub.
 AppCamCS::~AppCamCS() = default;
+
+void AppCamCS::ApproachIt()
+{
+    // UpdatePOV and friends build matrix_ - where the camera wants to be. This is
+    // what turns that into camera_, either easing towards it or, when the camera is
+    // not approaching or is being placed for one frame only, snapping to it.
+    if (ApproachOn && !OneShot)
+        UpdateApproach();
+    else
+        camera_ = matrix_;
+}
