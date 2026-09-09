@@ -760,6 +760,81 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
     }
 }
 
+// The world matrix as it stood when M was last built, kept for InitLocalize, which
+// turns a world-space direction into model space for the lighters.
+static Matrix34 LocalizeMtx {};
+
+void agiMeshSet::InitMtx(agiViewParameters& params, i32 eye_backface)
+{
+    const Matrix34& mv = params.ModelView;
+
+    // The transform every vertex goes through. It is the model-to-view matrix with the
+    // projection folded into it, so the single 3x4 multiply in Transform lands a
+    // model-space vertex in clip space: x and y already scaled, and w carrying the
+    // view-space depth that ToScreen divides by.
+    M.m0 = {(mv.m0.x * params.ProjX) + (mv.m0.z * params.ProjXZ),
+        (mv.m0.y * params.ProjY) + (mv.m0.z * params.ProjYZ), -mv.m0.z};
+
+    M.m1 = {(mv.m1.x * params.ProjX) + (mv.m1.z * params.ProjXZ),
+        (mv.m1.y * params.ProjY) + (mv.m1.z * params.ProjYZ), -mv.m1.z};
+
+    M.m2 = {(mv.m2.x * params.ProjX) + (mv.m2.z * params.ProjXZ),
+        (mv.m2.y * params.ProjY) + (mv.m2.z * params.ProjYZ), -mv.m2.z};
+
+    M.m3 = {(mv.m3.x * params.ProjX) + (mv.m3.z * params.ProjXZ),
+        (mv.m3.y * params.ProjY) + (mv.m3.z * params.ProjYZ), -mv.m3.z};
+
+    LocalizeMtx = params.World;
+
+    // Three unit basis vectors sum to three. Anything else means the model view carries
+    // a scale, which both breaks the localize matrix and makes the eye-space backface
+    // test below meaningless, since it assumes the inverse is the transpose.
+    f32 mag = mv.m0.Mag2() + mv.m1.Mag2() + mv.m2.Mag2();
+
+    if (mag < 2.99f || mag > 3.01f)
+    {
+        LocalizeMtx.Normalize();
+    }
+    else if (eye_backface && !MirrorMode)
+    {
+        AllowEyeBackfacing = true;
+
+        // Where the camera is, in model space - the origin of view space put back
+        // through the inverse, which for an orthonormal matrix is three dot products.
+        EyePos = {-(mv.m0 ^ mv.m3), -(mv.m1 ^ mv.m3), -(mv.m2 ^ mv.m3)};
+
+        return;
+    }
+
+    AllowEyeBackfacing = false;
+}
+
+void agiMeshSet::Init(i32 eye_backface)
+{
+    agiViewParameters& params = Viewport()->GetParams();
+
+    // Depth grows away from the eye here, the other way round from the projection.
+    ProjZZ = -params.ProjZZ;
+    ProjZW = params.ProjZW;
+
+    // Both are rebuilt only when something has moved. The world matrix changes per
+    // object, so the first of these runs for nearly every mesh; the viewport rarely
+    // changes at all.
+    if (MtxSerial != agiViewParameters::MtxSerial)
+    {
+        MtxSerial = agiViewParameters::MtxSerial;
+
+        InitMtx(params, eye_backface);
+    }
+
+    if (ViewSerial != agiViewParameters::ViewSerial)
+    {
+        ViewSerial = agiViewParameters::ViewSerial;
+
+        InitViewport(params);
+    }
+}
+
 void agiMeshSet::InitViewport(agiViewParameters& params)
 {
     f32 pipe_width = static_cast<f32>(Pipe()->GetWidth());

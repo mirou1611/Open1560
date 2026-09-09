@@ -211,7 +211,7 @@ public:
     ARTS_EXPORT static void DrawWideLines(Vector3* starts, Vector3* ends, f32* widths, u32* colors, i32 count);
 
     // ?Init@agiMeshSet@@SIXH@Z | agiworld:meshrend
-    ARTS_IMPORT static void ARTS_FASTCALL Init(i32 arg1);
+    ARTS_EXPORT static void ARTS_FASTCALL Init(i32 eye_backface);
 
     // ?InitCards@agiMeshSet@@SAXAAUagiMeshCardInfo@@@Z | agiworld:meshrend
     ARTS_IMPORT static void InitCards(agiMeshCardInfo& arg1);
@@ -270,7 +270,7 @@ protected:
     static void ARTS_FASTCALL ClampToScreen(T& vert);
 
     // ?InitMtx@agiMeshSet@@KIXAAVagiViewParameters@@H@Z | agiworld:meshrend
-    ARTS_IMPORT static void ARTS_FASTCALL InitMtx(agiViewParameters& arg1, i32 arg2);
+    ARTS_EXPORT static void ARTS_FASTCALL InitMtx(agiViewParameters& params, i32 eye_backface);
 
     // ?InitViewport@agiMeshSet@@KIXAAVagiViewParameters@@@Z | agiworld:meshrend
     ARTS_EXPORT static void ARTS_FASTCALL InitViewport(agiViewParameters& params);
