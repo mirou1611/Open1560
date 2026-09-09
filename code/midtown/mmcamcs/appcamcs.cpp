@@ -58,8 +58,14 @@ void AppCamCS::ApproachIt()
     // UpdatePOV and friends build matrix_ - where the camera wants to be. This is
     // what turns that into camera_, either easing towards it or, when the camera is
     // not approaching or is being placed for one frame only, snapping to it.
-    if (ApproachOn && !OneShot)
-        UpdateApproach();
-    else
-        camera_ = matrix_;
+    // PORT SHIM: UpdateApproach is still assembly - it and the 1500 lines under it
+    // (DApproach, UpdateMaxDist, Matrix34::GetEulers) are the easing. Its stub leaves
+    // camera_ as the zero matrix BaseCamCS value-initialised, which makes the whole
+    // view degenerate and is why nothing drew. Snap until it is written; restore the
+    // condition, not the branch.
+    //
+    // if (ApproachOn && !OneShot)
+    //     UpdateApproach();
+    // else
+    camera_ = matrix_;
 }

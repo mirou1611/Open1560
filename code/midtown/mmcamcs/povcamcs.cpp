@@ -132,6 +132,8 @@ void PovCamCS::UpdatePOV()
             axis, static_cast<f32>((1.0f - shake) * Car->Sim.Damage * std::sin(Car->Sim.FrontLeft.Rotation) * scale));
     }
 
+    ApproachIt();
+
 #ifdef ARTS_ANDROID
     // Bring-up probe: where the car actually is, and where that puts the camera.
     if (static bool probed = false; !probed)
@@ -146,6 +148,4 @@ void PovCamCS::UpdatePOV()
             static_cast<f64>(camera_.m3.x), static_cast<f64>(camera_.m3.y), static_cast<f64>(camera_.m3.z));
     }
 #endif
-
-    ApproachIt();
 }

@@ -327,6 +327,21 @@ void mmCellRenderer::Cull(b32 sub_cull)
 
     i32 lod = (distance > lod_table[0]) ? 0 : ((distance > lod_table[1]) ? 1 : 2);
 
+#ifdef ARTS_ANDROID
+    // Bring-up probe: the first cell to be drawn, and where it is relative to the eye.
+    if (static bool probed = false; !probed)
+    {
+        probed = true;
+
+        Displayf("PROBE CellCull index=%d centre=(%.1f %.1f %.1f) mag=%.1f eye=(%.1f %.1f %.1f) dist=%.1f lod=%d "
+                 "passes=%x meshes=%p/%p/%p",
+            static_cast<i32>(Index), static_cast<f64>(CellCenter.x), static_cast<f64>(CellCenter.y),
+            static_cast<f64>(CellCenter.z), static_cast<f64>(CellMagnitude), static_cast<f64>(camera_matrix.m3.x),
+            static_cast<f64>(camera_matrix.m3.y), static_cast<f64>(camera_matrix.m3.z), static_cast<f64>(distance),
+            lod, asRenderWeb::PassMask, Meshes[0], Meshes[2], Meshes[7]);
+    }
+#endif
+
     const f32 old_fog = agiMeshSet::FogValue;
 
     // The terrain's environment map is the city's shadow map texture, scrolled by

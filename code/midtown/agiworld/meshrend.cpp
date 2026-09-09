@@ -1788,6 +1788,16 @@ void agiMeshSet::FirstPass_HW_UV_noCPV_noDYNTEX(u32* /*colors*/, Vector2* tex_co
     u16* remap = ARTS_ALLOCA(u16, AdjunctCount);
     std::memset(remap, 0xFF, AdjunctCount * sizeof(u16));
 
+#ifdef ARTS_ANDROID
+    // Bring-up probe: how much of the first mesh actually reaches the rasterizer.
+    static bool probed = false;
+    const bool probe = !probed;
+    i32 probe_skipped = 0;
+    i32 probe_drawn = 0;
+    i32 probe_verts = 0;
+    probed = true;
+#endif
+
     for (i32 texture = 0; texture <= TextureCount; ++texture)
     {
         if (texture != 0)
@@ -1799,6 +1809,9 @@ void agiMeshSet::FirstPass_HW_UV_noCPV_noDYNTEX(u32* /*colors*/, Vector2* tex_co
                 // Not uploaded yet. Ask for it and leave this texture's facets for a
                 // later frame rather than drawing them untextured.
                 tex->Request();
+#ifdef ARTS_ANDROID
+                ++probe_skipped;
+#endif
                 continue;
             }
 
@@ -1810,6 +1823,11 @@ void agiMeshSet::FirstPass_HW_UV_noCPV_noDYNTEX(u32* /*colors*/, Vector2* tex_co
         {
             agiPolySet* polys = agiTexSorter::BeginVerts(
                 Textures[CurrentMeshSetVariant][texture], vertCounts[texture], indexCounts[texture]);
+
+#ifdef ARTS_ANDROID
+            ++probe_drawn;
+            probe_verts += vertCounts[texture];
+#endif
 
             // First walk: every corner of every facet, emitted once each.
             i32 next_vert = 0;
@@ -1902,4 +1920,12 @@ void agiMeshSet::FirstPass_HW_UV_noCPV_noDYNTEX(u32* /*colors*/, Vector2* tex_co
             agiTexSorter::EndVerts();
         }
     }
+
+#ifdef ARTS_ANDROID
+    if (probe)
+    {
+        Displayf("PROBE FirstPass textures=%d skipped=%d drawn=%d verts=%d surfaces=%u adjuncts=%u",
+            static_cast<i32>(TextureCount), probe_skipped, probe_drawn, probe_verts, SurfaceCount, AdjunctCount);
+    }
+#endif
 }
