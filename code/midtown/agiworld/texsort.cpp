@@ -21,6 +21,8 @@ define_dummy_symbol(agiworld_texsort);
 #include "texsort.h"
 
 #include "agi/pipeline.h"
+#include "agi/vertex.h"
+#include "pcwindis/setupdata.h"
 #include "agi/rsys.h"
 #include "agi/texdef.h"
 #include "agi/texlib.h"
@@ -358,4 +360,87 @@ RcOwner<agiTexDef> GetPackedTexture(aconst char* name, i32 variation)
     --mutex;
 
     return as_owner texture;
+}
+
+void agiTexSorter::DoTexture(agiPolySet* polys)
+{
+    // Whatever this poly set needs is set here and put back at the end, so the render
+    // state the caller had survives the submission.
+    const agiFogMode old_fog = agiCurState.GetFogMode();
+    const bool old_alpha = agiCurState.GetAlphaEnable();
+    const bool old_zwrite = agiCurState.GetZWrite();
+
+    if (agiCurState.GetDrawMode() == agiDrawDepth)
+    {
+        // The depth view is additive with no depth buffer at all - the overdraw is
+        // the whole point of it.
+        agiCurState.SetZEnable(false);
+        agiCurState.SetZWrite(false);
+        agiCurState.SetAlphaEnable(true);
+        agiCurState.SetBlendSet(agiBlendSet::One_One);
+    }
+    else
+    {
+        agiCurState.SetTexture(polys->Textures[0]);
+
+        if (agiTexDef* texture = polys->Textures[0])
+        {
+            const u32 props = texture->Tex.Props;
+
+            if (props & agiTexProp::AlphaGlow)
+            {
+                // A glow adds to what is behind it and never occludes anything, so it
+                // writes no depth and takes no fog.
+                agiCurState.SetAlphaEnable(true);
+
+                if (dxiInfo[dxiRendererChoice].AdditiveBlending)
+                    agiCurState.SetBlendSet(agiBlendSet::One_One);
+
+                agiCurState.SetZWrite(false);
+                agiCurState.SetFogMode(agiFogMode::None);
+            }
+            else if (props & agiTexProp::Lightmap)
+            {
+                agiCurState.SetBlendSet(agiBlendSet::SrcAlpha_InvSrcAlpha);
+            }
+            else if (props & agiTexProp::NotLit)
+            {
+                agiCurState.SetTexEnv(agiTexEnv::Replace);
+            }
+        }
+    }
+
+    ++GeometryCalls;
+
+    // 0.334 rather than a third, so the truncation lands on the right count.
+    TotalTris += static_cast<i32>(polys->IndexCount * 0.334);
+
+    if (polys->MultiTex)
+    {
+        if (agiTexDef* texture = polys->Textures[0];
+            texture && !(texture->Tex.Props & agiTexProp::DullOrDamaged))
+        {
+            agiCurState.SetTexture2(polys->Textures[1]);
+        }
+
+        RAST->Mesh2(polys->Verts2, polys->VertCount, polys->Indices, polys->IndexCount);
+
+        agiCurState.SetTexture2(nullptr);
+    }
+    else
+    {
+        RAST->Mesh(agiVtxType::Screen, reinterpret_cast<agiVtx*>(polys->Verts), polys->VertCount, polys->Indices,
+            polys->IndexCount);
+    }
+
+    // The set is empty again and ready to be filled by the next BeginVerts.
+    polys->BaseIndex = 0;
+    polys->VertCount = 0;
+    polys->IndexCount = 0;
+
+    agiCurState.SetTexEnv(agiTexEnv::Modulate);
+    agiCurState.SetBlendSet(agiBlendSet::SrcAlpha_InvSrcAlpha);
+    agiCurState.SetFogMode(old_fog);
+    agiCurState.SetAlphaEnable(old_alpha);
+    agiCurState.SetZWrite(old_zwrite);
 }

@@ -21,6 +21,7 @@ define_dummy_symbol(agiworld_meshrend);
 #include "meshrend.h"
 
 #include "agi/pipeline.h"
+#include "agi/texdef.h"
 #include "agi/rsys.h"
 #include "agi/viewport.h"
 #include "agisw/swrend.h"
@@ -35,6 +36,8 @@ define_dummy_symbol(agiworld_meshrend);
 #include "pcwindis/setupdata.h"
 #include "vector7/matrix34.h"
 #include "vector7/matrix44.h"
+
+#include <cstring>
 
 // #ifdef ARTS_ENABLE_KNI
 // #    define CLIP_ALL_TO_SCREEN
@@ -1774,5 +1777,129 @@ void agiMeshSet::DrawWideLines(Vector3* starts, Vector3* ends, f32* widths, u32*
         RAST->Mesh(agiVtxType::Screen, (agiVtx*) verts, stored, QuadIndices, num_indices);
 
         agiCurState.SetCullMode(old_cull);
+    }
+}
+
+void agiMeshSet::FirstPass_HW_UV_noCPV_noDYNTEX(u32* /*colors*/, Vector2* tex_coords, u32 color)
+{
+    // One slot per adjunct, holding where that adjunct landed in the poly set being
+    // filled. An adjunct belongs to exactly one surface and so to exactly one
+    // texture, which is why the table is cleared once rather than per texture.
+    u16* remap = ARTS_ALLOCA(u16, AdjunctCount);
+    std::memset(remap, 0xFF, AdjunctCount * sizeof(u16));
+
+    for (i32 texture = 0; texture <= TextureCount; ++texture)
+    {
+        if (texture != 0)
+        {
+            agiTexDef* tex = Textures[CurrentMeshSetVariant][texture];
+
+            if (!tex->HaveGfxStarted())
+            {
+                // Not uploaded yet. Ask for it and leave this texture's facets for a
+                // later frame rather than drawing them untextured.
+                tex->Request();
+                continue;
+            }
+
+            if (!tex->IsAvailable())
+                return;
+        }
+
+        if (vertCounts[texture])
+        {
+            agiPolySet* polys = agiTexSorter::BeginVerts(
+                Textures[CurrentMeshSetVariant][texture], vertCounts[texture], indexCounts[texture]);
+
+            // First walk: every corner of every facet, emitted once each.
+            i32 next_vert = 0;
+
+            for (i32 facet = firstFacet[texture]; facet != -1; facet = nextFacet[facet])
+            {
+                const u16* surface = &SurfaceIndices[facet * 4];
+                const i32 corners = surface[3] ? 4 : 3;
+
+                for (i32 corner = 0; corner < corners; ++corner)
+                {
+                    const u16 adjunct = surface[corner];
+
+                    if (remap[adjunct] != 0xFFFF)
+                        continue;
+
+                    const u16 vertex = VertexIndices[adjunct];
+
+                    agiScreenVtx& vtx = polys->Vert();
+
+                    vtx.x = out[vertex].x;
+                    vtx.y = out[vertex].y;
+                    vtx.z = out[vertex].z;
+                    vtx.w = out[vertex].w;
+
+                    // No per-vertex colours in this variant - every vertex takes the
+                    // one the caller passed. Fog rides in the specular alpha.
+                    vtx.color = color;
+                    vtx.specular = static_cast<u32>(fogout[vertex]) << 24;
+
+                    vtx.tu = tex_coords[adjunct].x;
+                    vtx.tv = tex_coords[adjunct].y;
+
+                    remap[adjunct] = static_cast<u16>(next_vert++);
+                }
+            }
+
+            // Second walk: the indices, wound back to front.
+            for (i32 facet = firstFacet[texture]; facet != -1; facet = nextFacet[facet])
+            {
+                const u16* surface = &SurfaceIndices[facet * 4];
+
+                if (surface[3])
+                {
+                    polys->Quad(
+                        remap[surface[3]], remap[surface[2]], remap[surface[1]], remap[surface[0]]);
+                }
+                else
+                {
+                    polys->Triangle(remap[surface[2]], remap[surface[1]], remap[surface[0]]);
+                }
+            }
+
+            agiTexSorter::EndVerts();
+        }
+
+        // Anything this texture had clipped comes through as its own fan, already in
+        // screen space, with the texture coordinates interpolated from the three
+        // adjuncts the clipped triangle came from.
+        for (CT* clipped = ClippedTextures[texture]; clipped; clipped = clipped->Next)
+        {
+            agiPolySet* polys = agiTexSorter::BeginVerts(Textures[CurrentMeshSetVariant][texture],
+                static_cast<i32>(clipped->Count), static_cast<i32>(clipped->Count - 2) * 3);
+
+            for (u32 i = 0; i < clipped->Count; ++i)
+            {
+                const CV& cv = ClippedVerts[clipped->Index + i];
+
+                agiScreenVtx& vtx = polys->Vert();
+
+                vtx.x = cv.x;
+                vtx.y = cv.y;
+                vtx.z = cv.z;
+                vtx.w = cv.w;
+
+                vtx.color = color;
+                vtx.specular = static_cast<u32>(cv.fog) << 24;
+
+                const Vector2& t0 = tex_coords[clipped->Tri[0]];
+                const Vector2& t1 = tex_coords[clipped->Tri[1]];
+                const Vector2& t2 = tex_coords[clipped->Tri[2]];
+
+                vtx.tu = (cv.map[0] * t0.x) + (cv.map[1] * t1.x) + (cv.map[2] * t2.x);
+                vtx.tv = (cv.map[0] * t0.y) + (cv.map[1] * t1.y) + (cv.map[2] * t2.y);
+            }
+
+            for (u32 i = 2; i < clipped->Count; ++i)
+                polys->Triangle(0, static_cast<i32>(i), static_cast<i32>(i) - 1);
+
+            agiTexSorter::EndVerts();
+        }
     }
 }

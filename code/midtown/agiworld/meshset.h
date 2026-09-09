@@ -130,7 +130,7 @@ public:
     ARTS_IMPORT void FirstPass_HW_UV_noCPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_HW_UV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_HW_UV_noCPV_noDYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
+    ARTS_EXPORT void FirstPass_HW_UV_noCPV_noDYNTEX(u32* colors, Vector2* tex_coords, u32 color);
 
     // ?FirstPass_HW_noUV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
     ARTS_IMPORT void FirstPass_HW_noUV_CPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);

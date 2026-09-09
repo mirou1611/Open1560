@@ -48,7 +48,7 @@ public:
         agiTexDef* texture1, agiTexDef* texture2, i32 vert_count, i32 index_count);
 
     // ?DoTexture@agiTexSorter@@SAXPAVagiPolySet@@@Z
-    ARTS_IMPORT static void DoTexture(agiPolySet* arg1);
+    ARTS_EXPORT static void DoTexture(agiPolySet* polys);
 
     // ?EndVerts@agiTexSorter@@SAXXZ
     ARTS_EXPORT static void EndVerts();
