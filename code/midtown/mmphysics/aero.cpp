@@ -22,7 +22,7 @@ define_dummy_symbol(mmphysics_aero);
 
 asAero::asAero()
 {
-    field_20 = 0.0f;
+    ICS = nullptr;
     field_24 = {0.0f, 0.0f, 0.0f};
     field_30 = {0.0f, 0.0f, 0.0f};
     field_3C = {0.0f, 0.0f, 0.0f};

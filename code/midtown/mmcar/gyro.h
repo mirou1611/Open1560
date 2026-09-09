@@ -20,6 +20,8 @@
 
 #include "arts7/node.h"
 
+class mmCarSim;
+
 class VehGyro final : public asNode
 {
 public:
@@ -44,7 +46,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // All five are written by the constructor, so the gap is fully accounted for
-    i32 field_20;
+    mmCarSim* CarSim;
     i32 field_24;
     f32 field_28;
     f32 field_2C;

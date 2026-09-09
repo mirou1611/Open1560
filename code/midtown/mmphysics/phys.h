@@ -187,6 +187,8 @@ private:
     // Oversample the player as many times as necessary, and upddate everything else once.
     b32 ReduceOversampling {};
 
+    friend class mmCarSim;
+
     f32 Gravity {};
 
     b32 DrawBounds {};

@@ -22,6 +22,8 @@
 
 #include "vector7/vector3.h"
 
+class asInertialCS;
+
 class asAero final : public asNode
 {
 public:
@@ -46,7 +48,8 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // The constructor writes all of 0x20 .. 0x73, in groups of three
-    f32 field_20;
+    // The body this aero model acts on - mmCarSim::Init fills it in.
+    asInertialCS* ICS;
     Vector3 field_24;
     Vector3 field_30;
     Vector3 field_3C;

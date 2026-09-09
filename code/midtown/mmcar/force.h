@@ -20,6 +20,8 @@
 
 #include "arts7/node.h"
 
+class mmCarSim;
+
 class mmForce final : public asNode
 {
 public:
@@ -44,7 +46,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x8];
-    i32 field_28;
+    mmCarSim* CarSim;
 };
 
 check_size(mmForce, 0x2C);

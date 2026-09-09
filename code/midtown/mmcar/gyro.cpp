@@ -22,7 +22,7 @@ define_dummy_symbol(mmcar_gyro);
 
 VehGyro::VehGyro()
 {
-    field_20 = 0;
+    CarSim = nullptr;
     field_24 = 0;
     field_28 = 0.99f;
     field_2C = 0.0f;

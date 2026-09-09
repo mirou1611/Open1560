@@ -25,7 +25,7 @@ ARTS_IMPORT void CheckLibraries();
 
 // TODO: Use RcOwner
 // ?GetDLPTemplate@@YAPAVDLPTemplate@@PAD@Z
-ARTS_IMPORT DLPTemplate* GetDLPTemplate(char* arg1);
+ARTS_IMPORT DLPTemplate* GetDLPTemplate(aconst char* name);
 
 // ?OutOfDate@@YAHPAD0@Z
 ARTS_EXPORT b32 OutOfDate(char* dst_file, char* src_file);

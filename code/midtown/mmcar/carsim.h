@@ -105,7 +105,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmCarSim@@QAEXPADPAVmmCar@@H@Z
-    ARTS_IMPORT void Init(char* arg1, mmCar* arg2, i32 arg3);
+    ARTS_EXPORT void Init(aconst char* name, mmCar* car, i32 driver_type);
 
     // ?InitPtx@mmCarSim@@QAEXXZ
     ARTS_EXPORT void InitPtx();

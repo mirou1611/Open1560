@@ -63,8 +63,8 @@ public:
     ARTS_IMPORT i32 GetSurfaceSound();
 
     // ?Init@mmWheel@@QAEXPAD0VVector3@@PAVasInertialCS@@HPAVmmBoundTemplate@@H@Z
-    ARTS_IMPORT void Init(
-        char* arg1, char* arg2, Vector3 arg3, asInertialCS* arg4, i32 arg5, mmBoundTemplate* arg6, i32 arg7);
+    ARTS_IMPORT void Init(aconst char* veh_name, aconst char* wheel_name, Vector3 offset, asInertialCS* ics,
+        i32 num_wheels, mmBoundTemplate* bound, i32 axle);
 
     // ?Reset@mmWheel@@UAEXXZ
     ARTS_IMPORT void Reset() override;

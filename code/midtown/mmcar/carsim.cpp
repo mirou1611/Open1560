@@ -23,6 +23,16 @@ define_dummy_symbol(mmcar_carsim);
 #include "agi/texdef.h"
 #include "agiworld/meshset.h"
 #include "agiworld/texsort.h"
+#include "agi/dlptmpl.h"
+#include "agi/getdlp.h"
+#include "mmcity/inst.h"
+#include "mmcityinfo/state.h"
+#include "mminput/input.h"
+#include "mmphysics/phys.h"
+#include "midtown.h"
+
+#include "car.h"
+#include "roadff.h"
 
 b32 EnableSmoke = true;
 b32 ForceSmoke = false;
@@ -228,4 +238,157 @@ mmCarSim::mmCarSim()
 i32 mmCarSim::OnGround()
 {
     return FrontLeft.OnGround || FrontRight.OnGround || BackLeft.OnGround || BackRight.OnGround;
+}
+
+// The AI's physics realism. The original never writes it - it is a zero the opponent
+// and police cars point at, where the player points at MMSTATE.PhysicsRealism.
+static f32 AIRealism = 0.0f;
+
+void mmCarSim::Init(aconst char* name, mmCar* car, i32 driver_type)
+{
+    Car = car;
+    Model = &car->Model;
+
+    // The player drives at whatever realism the menu asked for; everyone else does not.
+    Realism = &MMSTATE.PhysicsRealism;
+
+    if (driver_type == 2)
+    {
+        SetName(formatf("%s_opp", name));
+        Realism = &AIRealism;
+    }
+    else if (driver_type == 3)
+    {
+        SetName(formatf("%s_cop", name));
+        Realism = &AIRealism;
+    }
+    else
+    {
+        SetName(name);
+    }
+
+    Load();
+
+    ConfigureDrivetrain();
+
+    BoundElasticity = 0.3f;
+    ICS.Elasticity = 0.3f;
+
+    BoundFriction = 0.2f;
+    ICS.Friction = 0.2f;
+
+    // A large vehicle is never treated as stuck - it is meant to shove things aside.
+    if (Model->CarFlags & CAR_FLAG_LARGE)
+        Stuck.DeactivateNode();
+
+    DriverType = driver_type;
+    Engine.GCL = 0.25f;
+
+    InitPtx();
+
+    ICS.SetMass(InertiaBox.x, InertiaBox.y, InertiaBox.z, ICS.Mass);
+
+    ICS.Gravity = {0.0f, PHYS.Gravity, 0.0f};
+
+    ICS.MaxAngVelocity = ARTS_PI * 4.0f;
+    ICS.LimitAngVelocity = true;
+
+    Bound.ICS = &ICS;
+    Bound.Callback = reinterpret_cast<void (*)(void*, asBound*, mmIntersection*, Vector3*, f32, Vector3*)>(IMPACTCB);
+    Bound.Param = this;
+
+    Vector3 bound_min;
+    Vector3 bound_max;
+
+    if (DLPTemplate* dlp = GetDLPTemplate(name))
+    {
+        dlp->BoundBox(bound_min, bound_max, "BODY_H"_xconst);
+
+        Dimensions = {bound_max.x - bound_min.x, bound_max.y - bound_min.y, bound_max.z - bound_min.z};
+
+        // The middle pair of a six-wheeler is not suspended, so where they sit comes
+        // straight out of the geometry rather than from a wheel.
+        dlp->GetCentroid(WHL2_Pos, "WHL2_H"_xconst);
+        dlp->GetCentroid(WHL3_Pos, "WHL3_H"_xconst);
+
+        dlp->Release();
+    }
+    else
+    {
+        Warningf("Not able to calc car dimensions");
+
+        Dimensions = {2.0f, 1.5f, 5.0f};
+
+        // The original leaves bound_min and bound_max unwritten on this path and hands
+        // them to mmSplash::Init below regardless. Zeroed here rather than passing
+        // whatever was on the stack.
+        bound_min = {0.0f, 0.0f, 0.0f};
+        bound_max = {0.0f, 0.0f, 0.0f};
+    }
+
+    Splash.Init(&ICS, bound_min, bound_max);
+
+    const Vector3 origin {0.0f, 0.0f, 0.0f};
+
+    FrontLeft.Init(name, "WHL0_H"_xconst, origin, &ICS, NumWheels, nullptr, 0);
+    FrontRight.Init(name, "WHL1_H"_xconst, origin, &ICS, NumWheels, nullptr, 0);
+
+    if (Model->CarFlags & CAR_FLAG_6_WHEELS)
+    {
+        // On a six-wheeler WHL2 and WHL3 are the fixed middle pair, so the driven rear
+        // wheels are 4 and 5.
+        BackLeft.Init(name, "WHL4_H"_xconst, origin, &ICS, NumWheels, nullptr, 2);
+        BackRight.Init(name, "WHL5_H"_xconst, origin, &ICS, NumWheels, nullptr, 2);
+    }
+    else
+    {
+        BackLeft.Init(name, "WHL2_H"_xconst, origin, &ICS, NumWheels, nullptr, 2);
+        BackRight.Init(name, "WHL3_H"_xconst, origin, &ICS, NumWheels, nullptr, 2);
+    }
+
+    FrontLeft.CarSim = this;
+    FrontRight.CarSim = this;
+    BackLeft.CarSim = this;
+    BackRight.CarSim = this;
+
+    // DriveTrain3 is the one that is attached; 1 and 2 are only configured.
+    DriveTrain3.Init(this);
+    DriveTrain3.Attach();
+
+    DriveTrain1.Init(this);
+    DriveTrain2.Init(this);
+
+    Gyro.CarSim = this;
+    Force.CarSim = this;
+    AeroCollide.ICS = &ICS;
+
+    Engine.Init(this);
+    Trans.Init(this);
+
+    FrontAxle.Init(name, "AXLE0"_xconst, &FrontLeft, &FrontRight);
+    BackAxle.Init(name, "AXLE1"_xconst, &BackLeft, &BackRight);
+
+#ifndef ARTS_NO_AUDIO
+    // One audio object per kind of driver, built once.
+    if (driver_type == 0 && !PlayerCarAudio)
+        PlayerCarAudio = new mmPlayerCarAudio(this);
+
+    if (driver_type == 1 && !NetworkCarAudio)
+        NetworkCarAudio = new mmNetworkCarAudio(this);
+
+    if (driver_type == 2 && !OpponentCarAudio)
+        OpponentCarAudio = new mmOpponentCarAudio(this);
+
+    if (driver_type == 3 && !PoliceCarAudio)
+        PoliceCarAudio = new mmPoliceCarAudio(this, 0.95f);
+#endif
+
+    if (GameInput()->DoingFF() && EnableFF)
+        CarRoadFF->AssignProperties(1.0f, 0);
+
+    MedDamage = MaxDamage * 0.33f;
+    MaxDamageScaled = GlobalDamageScale * MaxDamage;
+    MedDamageScaled = GlobalDamageScale * MedDamage;
+
+    Reset();
 }

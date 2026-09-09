@@ -22,5 +22,5 @@ define_dummy_symbol(mmcar_force);
 
 mmForce::mmForce()
 {
-    field_28 = 0;
+    CarSim = nullptr;
 }

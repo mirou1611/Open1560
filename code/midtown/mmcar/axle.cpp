@@ -25,7 +25,8 @@ define_dummy_symbol(mmcar_axle);
 #include "data7/metadefine.h"
 #include "wheel.h"
 
-void mmAxle::Init(char* veh_name, [[maybe_unused]] char* axle_name, mmWheel* left_wheel, mmWheel* right_wheel)
+void mmAxle::Init(aconst char* veh_name, [[maybe_unused]] aconst char* axle_name, mmWheel* left_wheel,
+    mmWheel* right_wheel)
 {
     WheelL = left_wheel;
     WheelR = right_wheel;

@@ -32,7 +32,7 @@ public:
     ARTS_EXPORT ~mmAxle() override = default;
 
     // ?Init@mmAxle@@QAEXPAD0PAVmmWheel@@1@Z
-    ARTS_EXPORT void Init(char* veh_name, char* axle_name, mmWheel* left_wheel, mmWheel* right_wheel);
+    ARTS_EXPORT void Init(aconst char* veh_name, aconst char* axle_name, mmWheel* left_wheel, mmWheel* right_wheel);
 
     // ?Update@mmAxle@@UAEXXZ
     void Update() override;
