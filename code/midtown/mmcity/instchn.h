@@ -71,6 +71,14 @@ ARTS_EXPORT extern b32 EnableSphereCull;
 // ?LabelInstances@@3HA
 ARTS_EXPORT extern b32 LabelInstances;
 
+// Turn LabelInstances on around the facade chain / the prop chain, from the debug
+// bank. mmCellRenderer::Cull is the only reader.
+// ?DrawLabelFArg@@3HA
+ARTS_IMPORT extern b32 DrawLabelFArg;
+
+// ?DrawLabelPArg@@3HA
+ARTS_IMPORT extern b32 DrawLabelPArg;
+
 // ?NormalsOnInstances@@3HA
 ARTS_EXPORT extern b32 NormalsOnInstances;
 

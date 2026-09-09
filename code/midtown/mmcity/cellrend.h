@@ -32,7 +32,7 @@ public:
     ARTS_EXPORT mmCellRenderer();
 
     // ?Cull@mmCellRenderer@@UAEXH@Z
-    ARTS_IMPORT void Cull(b32 sub_cull) override;
+    ARTS_EXPORT void Cull(b32 sub_cull) override;
 
     // ?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z
     ARTS_EXPORT void Init(aconst char* city_name, i32 index, i32 mesh_flags, i32 room_flags,
