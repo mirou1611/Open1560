@@ -38,7 +38,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetWaypoints@mmGameSingle@@UAEPAVmmWaypoints@@XZ | inline
-    ARTS_IMPORT mmWaypoints* GetWaypoints() override;
+    ARTS_EXPORT mmWaypoints* GetWaypoints() override;
 
     // ?HitWaterHandler@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;
@@ -47,7 +47,7 @@ public:
     ARTS_EXPORT b32 Init();
 
     // ?InitGameObjects@mmGameSingle@@UAEXXZ
-    ARTS_IMPORT void InitGameObjects() override;
+    ARTS_EXPORT void InitGameObjects() override;
 
     // ?InitHUD@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void InitHUD() override;

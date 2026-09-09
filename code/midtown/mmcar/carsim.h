@@ -129,7 +129,7 @@ public:
     ARTS_IMPORT void RemoveNetVehicleAudio();
 
     // ?Reset@mmCarSim@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?RestoreImpactParams@mmCarSim@@QAEXXZ
     ARTS_EXPORT void RestoreImpactParams();

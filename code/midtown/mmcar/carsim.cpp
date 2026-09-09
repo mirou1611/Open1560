@@ -33,6 +33,10 @@ define_dummy_symbol(mmcar_carsim);
 
 #include "car.h"
 #include "roadff.h"
+#include "networkcaraudio.h"
+#include "opponentcaraudio.h"
+#include "playercaraudio.h"
+#include "policecaraudio.h"
 
 b32 EnableSmoke = true;
 b32 ForceSmoke = false;
@@ -391,4 +395,71 @@ void mmCarSim::Init(aconst char* name, mmCar* car, i32 driver_type)
     MedDamageScaled = GlobalDamageScale * MedDamage;
 
     Reset();
+}
+
+void mmCarSim::Reset()
+{
+    ExhaustParticles = 0.0f;
+    SmokeParticleFraction = 0.0f;
+    Exploded = 0;
+
+    asNode::Reset();
+
+    ICS.Reset();
+
+    // This is what actually puts the car in the world: the position and heading the
+    // game set before calling here, and then the frame recomputed from them.
+    ICS.Matrix.m3 = ResetPosition;
+    ICS.Matrix.Rotate(YAXIS, ResetRotation);
+    ICS.asLinearCS::Update();
+
+    Bound.Reset();
+
+    FrontLeft.Reset();
+    FrontRight.Reset();
+    BackLeft.Reset();
+    BackRight.Reset();
+
+    // Nothing is in the water at a reset.
+    Splash.DeactivateNode();
+
+    SmokeParticles.Reset();
+    GrassParticles.Reset();
+    ExplosionParticles.Reset();
+
+    field_1800 = 0;
+    Brakes = 0.0f;
+    Steering = 0.0f;
+
+    if (GameInput()->DoingFF() && EnableFF)
+    {
+        CarRoadFF->Stop();
+
+        GameInput()->FFPlay(0);
+        GameInput()->FFPlay(3);
+    }
+
+    field_184C = 0.0f;
+    field_1850 = 0.0f;
+    field_1854 = 0.0f;
+
+    Speed = 0.0f;
+    CurrentDamage = 0.0f;
+    Damage = 0.0f;
+
+    RestoreImpactParams();
+
+    if (PlayerCarAudio)
+        PlayerCarAudio->Reset();
+
+    if (OpponentCarAudio)
+        OpponentCarAudio->Reset();
+
+    if (PoliceCarAudio)
+        PoliceCarAudio->Reset();
+
+    if (NetworkCarAudio)
+        NetworkCarAudio->Reset();
+
+    SpeedMPH = 0.0f;
 }

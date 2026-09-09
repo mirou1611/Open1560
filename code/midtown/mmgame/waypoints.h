@@ -22,6 +22,8 @@
 
 class mmPlayer;
 
+class mmVoiceCommentary;
+
 class mmWaypoints final : public asNode
 {
 public:
@@ -118,7 +120,12 @@ public:
     // ?WPHit@mmWaypoints@@QAEHHVVector3@@HH@Z
     ARTS_IMPORT i32 WPHit(i32 arg1, Vector3 arg2, i32 arg3, i32 arg4);
 
-    u8 gap20[0x8C];
+    u8 gap20[0x80];
+
+    // Set by the game when it builds the waypoints.
+    mmVoiceCommentary* VoiceCommentary;
+
+    u8 gapA4[0x8];
 };
 
 check_size(mmWaypoints, 0xAC);

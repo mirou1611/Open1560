@@ -171,3 +171,93 @@ void mmGameSingle::Update()
 
     mmGame::Update();
 }
+
+mmWaypoints* mmGameSingle::GetWaypoints()
+{
+    return Waypoints;
+}
+
+void mmGameSingle::InitGameObjects()
+{
+    Waypoints = nullptr;
+
+    if (MMSTATE.GameMode == mmGameMode::Checkpoint)
+    {
+        Waypoints = new mmWaypoints();
+
+        if (VoiceCommentary)
+            Waypoints->VoiceCommentary = VoiceCommentary.get();
+
+        // The twelve races wrap, so event 12 is race 0 of the second set.
+        i32 event = MMSTATE.EventId;
+
+        if (event >= 12)
+            event -= 12;
+
+        char path[64];
+        arts_sprintf(path, "%s\\race%d", RaceDir, event);
+
+        if (!Waypoints->Init(Player.get(), path, 2, 0, 1, 0))
+        {
+            // No race file. Fall back to the city's own waypoints, and if those are
+            // missing too there is no race to run and this becomes a cruise.
+            if (Waypoints->Init(Player.get(), MapName, 2, 0, 1, 0))
+            {
+                MMSTATE.EventId = 0;
+            }
+            else
+            {
+                delete Waypoints;
+                Waypoints = nullptr;
+
+                MMSTATE.GameMode = mmGameMode::Cruise;
+            }
+        }
+    }
+
+    Player->HudMap.SetWaypoints(Waypoints);
+
+    if (MMSTATE.GameMode == mmGameMode::Checkpoint)
+    {
+        // A race starts on its own grid; a cruise starts wherever the city says.
+        Waypoints->GetStart(ResetPosition);
+
+        RespawnPosition = Waypoints->GetStartAngle() * -ARTS_DEG_TO_RAD;
+    }
+
+    // Where the player begins, and which way they face.
+    Player->Car.Sim.SetResetPos(ResetPosition);
+    Player->Car.Sim.ResetRotation = RespawnPosition;
+    Player->Car.Reset();
+
+#ifndef ARTS_NO_AUDIO
+    // PORT SHIM: mmaudio is excluded from this build and AudSound's constructor is a
+    // stub, so building these would leave an object with a garbage vtable in
+    // StartSounds - which mmGame::Update calls straight into.
+    if (MMSTATE.GameMode != mmGameMode::Cruise)
+    {
+        StartSounds = arnew AudSound(AudSound::Get2DFlags(), 6, -1);
+
+        StartSounds->Load("Startracelow", 0);
+        StartSounds->SetVolume(0.9f, -1);
+        StartSounds->Load("Startracehigh", 1);
+        StartSounds->SetVolume(0.9f, -1);
+        StartSounds->Load("Endofracetag", 2);
+        StartSounds->SetVolume(0.925f, -1);
+        StartSounds->Load("Youlose", 3);
+        StartSounds->SetVolume(0.925f, -1);
+        StartSounds->Load("Damgelose", 4);
+        StartSounds->SetVolume(0.925f, -1);
+        StartSounds->Load("Messagenote", 5);
+        StartSounds->SetVolume(0.9f, -1);
+    }
+    else
+    {
+        StartSounds = arnew AudSound(AudSound::Get2DFlags(), 1, -1);
+
+        StartSounds->Load("Messagenote", 0);
+    }
+
+    StartSounds->SetPriority(23);
+#endif
+}

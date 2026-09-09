@@ -132,6 +132,11 @@ public:
         return Mode;
     }
 
+    void SetWaypoints(mmWaypoints* waypoints)
+    {
+        Waypoints = waypoints;
+    }
+
     // ?DeclareFields@mmHudMap@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
