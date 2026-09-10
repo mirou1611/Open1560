@@ -32,10 +32,12 @@ define_dummy_symbol(mmcity_cullcity);
 #include "agiworld/meshset.h"
 #include "agi/rsys.h"
 #include "agisw/swrend.h"
+#include "mmbangers/banger.h"
 #include "mmcity/anim.h"
 #include "pcwindis/setupdata.h"
 
 #include <cmath>
+#include <cstring>
 #include "agiworld/quality.h"
 #include "mmbangers/active.h"
 #include "agiworld/texsheet.h"
@@ -514,6 +516,101 @@ void mmCullCity::LoadBangers(char* city_name)
 
     EndMemStat();
     Loader()->EndTask(0.34f);
+}
+
+mmUpperInstance::~mmUpperInstance() = default;
+
+void mmCullCity::AddInstance(
+    i32 room, char* name, char* part, i32 init_flags, Vector3* pos, Vector3* target, Vector3* extents, f32 scale)
+{
+    // The sailboat is not there when the lake is frozen.
+    if (!std::memcmp(name, "tpsailboat", 11) && MMSTATE.Weather == mmWeather::Snow)
+        return;
+
+    if (!(init_flags & INST_INIT_FLAG_STATIC))
+    {
+        // A banger: a prop that can be knocked about. Its shared data entry has to
+        // exist before an instance of it can.
+        i32 entry = BangerDataManager.AddBangerDataEntry(name, part);
+
+        // PORT SHIM: the original bails here when the entry could not be made - a -1.
+        // AddBangerDataEntry (231) is still assembly and its stub returns 0, which reads
+        // as "entry zero is fine" and walks into banger data that was never loaded. The
+        // range check stands in for the -1 test until it is written; GetBangerData is no
+        // use here because its assert aborts on exactly this case. Restore the condition,
+        // not the branch.
+        //
+        // if (entry == -1)
+        //     return;
+        if (entry < 0 || entry >= BangerDataManager.NumEntries)
+            return;
+
+        if (!std::memcmp(name, "bluelight", 10))
+            return;
+
+        auto* banger = new mmUnhitBangerInstance();
+
+        banger->Init(name, *pos, *target, init_flags, part);
+
+        // The trailer is the one banger a wheel is allowed to drive on.
+        if (!std::memcmp(name, "tp_trailer", 11))
+            banger->SetFlags(INST_FLAG_TERRAIN);
+
+        return;
+    }
+
+    mmInstance* inst = nullptr;
+    i32 ok = 0;
+
+    if (init_flags & INST_INIT_FLAG_SHEAR)
+    {
+        auto* shear = new mmShearInstance();
+
+        ok = shear->Init(name, *pos, *target, scale, 0, nullptr);
+        inst = shear;
+    }
+    else if (init_flags & INST_INIT_FLAG_BUILDING)
+    {
+        auto* building = new mmBuildingInstance();
+
+        ok = building->Init(name, *pos, *target, *extents);
+        inst = building;
+
+        if (init_flags & INST_INIT_FLAG_UPPER)
+        {
+            // The upper storeys are a second instance sharing the building's frame, and
+            // they go in the objects chain rather than the building one so they can be
+            // drawn on their own pass.
+            auto* upper = new mmUpperInstance();
+
+            Vector3 offset {0.0f, 0.0f, 0.0f};
+            upper->Init(name, *pos, *target, offset, init_flags, "UPPER");
+
+            Matrix34 matrix;
+            upper->FromMatrix(building->ToMatrix(matrix));
+
+            ObjectsChain.Parent(upper, 200);
+        }
+    }
+    else
+    {
+        auto* facade = new mmFacadeInstance();
+
+        ok = facade->InitFacade(name, *pos, *target, scale, init_flags, *extents);
+        inst = facade;
+    }
+
+    if (!ok)
+    {
+        char group[48];
+        arts_sprintf(group, "Group INST%02d", room);
+
+        RegisterProblem("Missing STATIC instance", name, group);
+
+        return;
+    }
+
+    BuildingChain.Parent(inst, static_cast<i16>(room));
 }
 
 void mmCullCity::LoadFacades(char* city_name)

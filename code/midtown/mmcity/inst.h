@@ -348,10 +348,10 @@ class mmShearInstance final : public mmMatrixInstance
 {
 public:
     // ??0mmShearInstance@@QAE@XZ | inline
-    ARTS_IMPORT mmShearInstance();
+    ARTS_EXPORT mmShearInstance();
 
     // ??1mmShearInstance@@UAE@XZ | inline
-    ARTS_EXPORT ~mmShearInstance() override = default;
+    ARTS_EXPORT ~mmShearInstance() override;
 
     // ?Draw@mmShearInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
@@ -380,7 +380,7 @@ class mmBuildingInstance final : public mmMatrixInstance
 {
 public:
     // ??0mmBuildingInstance@@QAE@XZ | inline
-    ARTS_IMPORT mmBuildingInstance();
+    ARTS_EXPORT mmBuildingInstance();
 
     // ??1mmBuildingInstance@@UAE@XZ | inline
     ARTS_EXPORT ~mmBuildingInstance() override = default;
@@ -392,7 +392,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetScale@mmBuildingInstance@@UAIMXZ
-    ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
+    ARTS_EXPORT f32 ARTS_FASTCALL GetScale() override;
 
     // ?Init@mmBuildingInstance@@QAEHPADAAVVector3@@11@Z
     ARTS_EXPORT i32 Init(char* name, Vector3& corner, Vector3& edge0, Vector3& edge2);
@@ -423,10 +423,10 @@ class mmYInstance : public mmInstance
 {
 public:
     // ??0mmYInstance@@QAE@XZ
-    ARTS_IMPORT mmYInstance();
+    ARTS_EXPORT mmYInstance();
 
     // ??1mmYInstance@@UAE@XZ
-    ARTS_EXPORT ~mmYInstance() override = default;
+    ARTS_EXPORT ~mmYInstance() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmYInstance@@UAEXPAVBank@@@Z
@@ -451,8 +451,9 @@ public:
     // ?DeclareFields@mmYInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    Vector3 Position;
-    Vector2 Rotation;
+    Vector3 Position {};
+    // A heading held as a unit 2-vector, so no rotation is (0, 1) rather than zero.
+    Vector2 Rotation {0.0f, 1.0f};
     f32 Scale;
 };
 
@@ -462,10 +463,10 @@ class mmStaticInstance : public mmYInstance
 {
 public:
     // ??0mmStaticInstance@@QAE@XZ
-    ARTS_IMPORT mmStaticInstance();
+    ARTS_EXPORT mmStaticInstance();
 
     // ??1mmStaticInstance@@UAE@XZ
-    ARTS_EXPORT ~mmStaticInstance() override = default;
+    ARTS_EXPORT ~mmStaticInstance() override;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmStaticInstance@@UAEXPAVBank@@@Z
@@ -496,10 +497,10 @@ class mmFacadeInstance final : public mmStaticInstance
 {
 public:
     // ??0mmFacadeInstance@@QAE@XZ
-    ARTS_IMPORT mmFacadeInstance();
+    ARTS_EXPORT mmFacadeInstance();
 
     // ??1mmFacadeInstance@@UAE@XZ
-    ARTS_EXPORT ~mmFacadeInstance() override = default;
+    ARTS_EXPORT ~mmFacadeInstance() override;
 
     // ?Draw@mmFacadeInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

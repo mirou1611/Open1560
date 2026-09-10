@@ -321,6 +321,28 @@ i32 mmBuildingInstance::Init(char* name, Vector3& corner, Vector3& edge0, Vector
     return 1;
 }
 
+// These five were the last inline constructors still in assembly. Each is its base
+// plus the class vtable, and the two that clear INST_FLAG_COLLIDER are clearing a bit
+// mmMatrixInstance deliberately never sets - so defaulting them is exact.
+mmYInstance::mmYInstance() = default;
+
+// Out of line on purpose. Each of these was the class's first non-inline virtual and
+// lived in assembly, so no translation unit emitted the vtable and gen_stubs.py
+// synthesized one whose every slot is ArtsVirtualStub - which would have made even
+// mmMatrixInstance's GetPos and FromMatrix inert on these four.
+mmYInstance::~mmYInstance() = default;
+mmStaticInstance::~mmStaticInstance() = default;
+mmFacadeInstance::~mmFacadeInstance() = default;
+mmShearInstance::~mmShearInstance() = default;
+mmStaticInstance::mmStaticInstance() = default;
+mmFacadeInstance::mmFacadeInstance() = default;
+mmShearInstance::mmShearInstance() = default;
+mmBuildingInstance::mmBuildingInstance() = default;
+
+f32 mmBuildingInstance::GetScale()
+{
+    return Scale;
+}
 void mmBuildingInstance::Draw(i32 lod)
 {
     enum

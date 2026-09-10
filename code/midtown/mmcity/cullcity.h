@@ -111,8 +111,8 @@ public:
 
 private:
     // ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
-    ARTS_IMPORT void AddInstance(
-        i32 arg1, char* arg2, char* arg3, i32 arg4, Vector3* arg5, Vector3* arg6, Vector3* arg7, f32 arg8);
+    ARTS_EXPORT void AddInstance(i32 room, char* name, char* part, i32 init_flags, Vector3* pos,
+        Vector3* target, Vector3* extents, f32 scale);
 
     // ?InitSnowTextures@mmCullCity@@AAEXXZ
     ARTS_IMPORT void InitSnowTextures();
@@ -182,7 +182,7 @@ class mmUpperInstance final : public mmMatrixInstance
 {
 public:
     // ??1mmUpperInstance@@UAE@XZ | inline
-    ARTS_EXPORT ~mmUpperInstance() override = default;
+    ARTS_EXPORT ~mmUpperInstance() override;
 
 private:
     // ?Draw@mmUpperInstance@@EAIXH@Z

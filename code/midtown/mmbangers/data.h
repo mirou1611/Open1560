@@ -160,7 +160,10 @@ public:
     // ?SignalClock@mmBangerDataManager@@2HA
     ARTS_IMPORT static i32 SignalClock;
 
-protected:
+// mmCullCity::AddInstance needs the entry count without GetBangerData's assert.
+    friend class mmCullCity;
+
+    protected:
     friend mmBangerDataManager* BangerDataMgr();
 
     // ?Instance@mmBangerDataManager@@1PAV1@A
