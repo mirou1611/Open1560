@@ -36,6 +36,7 @@ define_dummy_symbol(mmcity_inst);
 #include "data7/printer.h"
 #include "stream/problems.h"
 
+#include <algorithm>
 #include <cstdarg>
 #include <cstdio>
 
@@ -188,6 +189,49 @@ Vector3& mmMatrixInstance::GetPos()
     return Matrix.m3;
 }
 
+i32 mmMatrixInstance::Init(char* name, Vector3& pos, Vector3& target, Vector3& offset, i32 /*init_flags*/, char* part)
+{
+    // Copied because InitMeshes takes the address and is free to write through it.
+    Vector3 mesh_offset = offset;
+
+    InitMeshes(name, 0x41, part, &mesh_offset);
+
+    // No meshes under that name means there is nothing here to place.
+    if (!MeshIndex)
+        return 0;
+
+    // The second position in the file is a point to face, not a set of angles. Only the
+    // heading matters, so the frame is built flat in the XZ plane with the up axis left
+    // vertical - these are buildings, and none of them lean.
+    Vector3 forward {target.x - pos.x, 0.0f, target.z - pos.z};
+
+    f32 inv_mag = forward.InvMag();
+
+    f32 fx = forward.x * inv_mag;
+    f32 fy = forward.y * inv_mag;
+    f32 fz = forward.z * inv_mag;
+
+    Matrix34 matrix;
+
+    matrix.m0 = {fx, fy, fz};
+    matrix.m1 = {0.0f, 1.0f, 0.0f};
+    matrix.m2 = {-fz, 0.0f, fx};
+    matrix.m3 = pos;
+
+    // The offset is given in the instance's own frame, so it has to be turned into the
+    // world before it can move the origin.
+    Vector3 local;
+    local.Dot3x3(offset, matrix);
+
+    matrix.m3.x += local.x;
+    matrix.m3.y += local.y;
+    matrix.m3.z += local.z;
+
+    FromMatrix(matrix);
+
+    return 1;
+}
+
 usize mmMatrixInstance::SizeOf()
 {
     return sizeof(*this);
@@ -238,6 +282,43 @@ void* mmInstance::operator new(std::size_t size)
 void mmInstance::operator delete(void* ptr)
 {
     mmInstanceHeap.Free(ptr);
+}
+
+i32 mmBuildingInstance::Init(char* name, Vector3& corner, Vector3& edge0, Vector3& edge2)
+{
+    InitMeshes(name, 0x47, "FACADE", nullptr);
+
+    if (!MeshIndex)
+    {
+        RegisterProblem("No FACADE group in building", name, nullptr);
+
+        return 0;
+    }
+
+    // The ground plane under the building comes in as a separate group.
+    AddMeshes(name, 0x47, "GRND", nullptr);
+
+    // The file gives a corner and two more points, so the frame is the two edges they
+    // span with the up axis put in between. These are not unit vectors - their lengths
+    // are the building's own size, which is the point.
+    Matrix34 matrix;
+
+    matrix.m0 = {edge0.x - corner.x, edge0.y - corner.y, edge0.z - corner.z};
+    matrix.m1 = YAXIS;
+    matrix.m2 = {edge2.x - corner.x, edge2.y - corner.y, edge2.z - corner.z};
+    matrix.m3 = corner;
+
+    FromMatrix(matrix);
+
+    // The longest of the three is what the instance reports as its scale, which is what
+    // the LOD and the sphere cull are measured against.
+    f32 mag0 = matrix.m0.Mag();
+    f32 mag1 = matrix.m1.Mag();
+    f32 mag2 = matrix.m2.Mag();
+
+    Scale = std::max(mag0, std::max(mag1, mag2));
+
+    return 1;
 }
 
 void mmBuildingInstance::Draw(i32 lod)

@@ -19,3 +19,13 @@
 define_dummy_symbol(vector7_const);
 
 #include "const.h"
+
+#include "vector3.h"
+
+// These are the standard basis, and they were data stubs - zero filled, so YAXIS and
+// ZAXIS both read as (0, 0, 0). Anything rotating about YAXIS was rotating about
+// nothing at all, silently. ORIGIN was only ever right by accident.
+Vector3 ORIGIN {0.0f, 0.0f, 0.0f};
+Vector3 XAXIS {1.0f, 0.0f, 0.0f};
+Vector3 YAXIS {0.0f, 1.0f, 0.0f};
+Vector3 ZAXIS {0.0f, 0.0f, 1.0f};

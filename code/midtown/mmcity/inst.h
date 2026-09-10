@@ -328,7 +328,7 @@ public:
     ARTS_EXPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?Init@mmMatrixInstance@@QAEHPADAAVVector3@@11H0@Z
-    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, i32 arg5, char* arg6);
+    ARTS_EXPORT i32 Init(char* name, Vector3& pos, Vector3& target, Vector3& offset, i32 init_flags, char* part);
 
     // ?SizeOf@mmMatrixInstance@@UAEIXZ
     ARTS_EXPORT usize SizeOf() override;
@@ -395,7 +395,7 @@ public:
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
     // ?Init@mmBuildingInstance@@QAEHPADAAVVector3@@11@Z
-    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4);
+    ARTS_EXPORT i32 Init(char* name, Vector3& corner, Vector3& edge0, Vector3& edge2);
 
     // ?SizeOf@mmBuildingInstance@@UAEIXZ
     ARTS_IMPORT usize SizeOf() override;

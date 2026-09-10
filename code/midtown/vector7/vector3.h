@@ -230,16 +230,16 @@ ARTS_IMPORT void TransformVertNorm(
     Vector3& arg1, Vector3& arg2, const Vector3& arg3, Vector3& arg4, const Matrix34& arg5);
 
 // ?ORIGIN@@3VVector3@@A
-ARTS_IMPORT extern Vector3 ORIGIN;
+ARTS_EXPORT extern Vector3 ORIGIN;
 
 // ?XAXIS@@3VVector3@@A
-ARTS_IMPORT extern Vector3 XAXIS;
+ARTS_EXPORT extern Vector3 XAXIS;
 
 // ?YAXIS@@3VVector3@@A
-ARTS_IMPORT extern Vector3 YAXIS;
+ARTS_EXPORT extern Vector3 YAXIS;
 
 // ?ZAXIS@@3VVector3@@A
-ARTS_IMPORT extern Vector3 ZAXIS;
+ARTS_EXPORT extern Vector3 ZAXIS;
 
 template <>
 const MetaType* CreateMetaType_<Vector3>();
