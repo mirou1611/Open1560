@@ -30,7 +30,7 @@ public:
     ARTS_EXPORT ~mmInstChain() = default;
 
     // ?Draw@mmInstChain@@QAEXFFIHM@Z
-    ARTS_IMPORT void Draw(i16 arg1, i16 arg2, u32 arg3, i32 arg4, f32 arg5);
+    ARTS_EXPORT void Draw(i16 chain, i16 mask, u32 lod_table, i32 sort, f32 max_dist);
 
     // ?Init@mmInstChain@@QAEXH@Z
     void Init(i32 num_rooms);

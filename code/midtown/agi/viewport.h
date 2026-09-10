@@ -39,7 +39,7 @@ public:
     ARTS_IMPORT void SetBillY(Matrix34& arg1);
 
     // ?SphereVisible@agiViewParameters@@QAEHAAVVector3@@M@Z
-    ARTS_IMPORT i32 SphereVisible(Vector3& arg1, f32 arg2);
+    ARTS_EXPORT i32 SphereVisible(Vector3& center, f32 radius);
 
     void SetWorld(const Matrix34& world);
 

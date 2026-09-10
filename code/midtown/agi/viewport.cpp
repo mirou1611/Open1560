@@ -65,6 +65,37 @@ aconst char* agiViewport::GetName()
     return buffer;
 }
 
+i32 agiViewParameters::SphereVisible(Vector3& center, f32 radius)
+{
+    // The sphere in view space. Depth is counted forward from the eye, which is the
+    // direction the near and far planes are expressed in.
+    Vector3 view = center ^ View;
+
+    f32 depth = -view.z;
+
+    if (depth + radius < Near)
+        return 0;
+
+    if (depth - radius > Far)
+        return 0;
+
+    // The four side planes are stored as a 2D normal each - one component against the
+    // sideways offset, one against the depth - so a plane test is two multiplies.
+    if ((LeftPlane.x * view.x) + (LeftPlane.y * depth) > radius)
+        return 0;
+
+    if ((RightPlane.x * view.x) + (RightPlane.y * depth) > radius)
+        return 0;
+
+    if ((TopPlane.x * view.y) + (TopPlane.y * depth) > radius)
+        return 0;
+
+    if ((BottomPlane.x * view.y) + (BottomPlane.y * depth) > radius)
+        return 0;
+
+    return 1;
+}
+
 void agiViewParameters::Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
 {
     Fov = arg1;
