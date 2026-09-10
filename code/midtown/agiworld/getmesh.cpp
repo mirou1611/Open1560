@@ -231,6 +231,40 @@ agiMeshSet* GetMeshSet(aconst char* name, aconst char* group, Vector3* offset, i
     // lines that read geo/*.geo, deduplicate vertices, build adjacency and normals and
     // write the .bms back out. It only runs when there is no compiled mesh to load,
     // which on retail data means never. Not reimplemented.
+#ifdef ARTS_ANDROID
+    // PROBE: is this a missing compiler, or a missing/misnamed file? Ask the engine's
+    // own resolver which candidates exist. One shot.
+    {
+        static bool probed = false;
+
+        if (!probed)
+        {
+            probed = true;
+
+            char cand[6][256];
+            arts_sprintf(cand[0], "bms/%s/%s.bms", name, group ? group : "");
+            arts_sprintf(cand[1], "bms/%s_%s.bms", name, group ? group : "");
+            arts_sprintf(cand[2], "bms/%s.bms", name);
+            arts_sprintf(cand[3], "geo/%s.geo", name);
+            arts_sprintf(cand[4], "bms/%s/%s", name, group ? group : "");
+            arts_sprintf(cand[5], "%s/%s.bms", name, group ? group : "");
+
+            for (i32 i = 0; i < 6; ++i)
+            {
+                PagerInfo_t info;
+                b32 paged = FileSystem::PagerInfoAny(cand[i], info);
+
+                Ptr<Stream> test {arts_fopen(cand[i], "r")};
+
+                Displayf("PROBE mesh cand[%d] '%s' paged=%d open=%d", i, cand[i], paged ? 1 : 0, test ? 1 : 0);
+            }
+
+            Displayf("PROBE mesh DevelopmentMode=%d EnablePaging=0x%x flags=0x%x", DevelopmentMode ? 1 : 0,
+                EnablePaging, flags);
+        }
+    }
+#endif
+
     Errorf("GetMeshSet: no compiled mesh for '%s' and the DLP compiler is not ported", key);
 
     BadMeshHash.Insert(key, reinterpret_cast<void*>(1));
